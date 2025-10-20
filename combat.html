@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>5x5 Weighted Grid Generator</title>
 <style>
   body {
     background-color: #1e1e1e;
@@ -10,34 +11,38 @@
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    padding: 10px;
+    padding: 5px;
   }
   h1 {
-    margin-bottom: 10px;
-    font-size: 1.3em;
+    margin: 5px 0;
+    font-size: 1.2em;
   }
   .controls {
     display: inline-block;
     background-color: #2b2b2b;
-    padding: 8px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    padding: 6px;
+    border-radius: 8px;
+    margin-bottom: 8px;
     width: 95%;
-    max-width: 400px;
+    max-width: 380px;
+  }
+  .controls h3 {
+    margin: 5px 0;
+    font-size: 1em;
   }
   .controls label {
     display: flex;
     justify-content: space-between;
-    margin: 3px 0;
-    font-size: 0.9em;
+    margin: 2px 0;
+    font-size: 0.85em;
   }
   .controls input {
-    width: 50px;
+    width: 40px;
     text-align: right;
   }
   #grid {
     display: grid;
-    grid-template-columns: 12% repeat(5, 1fr);
+    grid-template-columns: 14% repeat(5, 1fr);
     gap: 2px;
     justify-items: center;
     width: 100%;
@@ -49,11 +54,11 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border-radius: 6px;
+    border-radius: 5px;
     color: white;
     width: 100%;
     aspect-ratio: 1/1;
-    font-size: 4vw;
+    font-size: 3.5vw;
     user-select: none;
   }
   .label {
@@ -61,7 +66,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 3vw;
+    font-size: 2.5vw;
     color: #ddd;
     width: 100%;
     aspect-ratio: 1/1;
@@ -70,10 +75,10 @@
     background-color: #444;
     color: white;
     border: none;
-    padding: 8px 12px;
-    font-size: 1em;
-    margin-top: 6px;
-    border-radius: 6px;
+    padding: 6px 10px;
+    font-size: 0.95em;
+    margin-top: 4px;
+    border-radius: 5px;
     cursor: pointer;
   }
   button:hover {
@@ -180,4 +185,3 @@
 
 </body>
 </html>
-
