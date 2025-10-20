@@ -11,23 +11,25 @@
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 10px;
   }
   h1 {
     margin-bottom: 10px;
+    font-size: 1.5em;
   }
   .controls {
     display: inline-block;
     background-color: #2b2b2b;
-    padding: 15px;
+    padding: 10px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    width: 90%;
+    max-width: 350px;
   }
   .controls label {
     display: flex;
     justify-content: space-between;
     margin: 5px 0;
-    width: 220px;
   }
   .controls input {
     width: 60px;
@@ -35,10 +37,12 @@
   }
   #grid {
     display: grid;
-    grid-template-columns: repeat(5, 100px);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
     gap: 4px;
-    justify-content: center;
+    justify-items: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
   .tile {
     display: flex;
@@ -47,21 +51,33 @@
     font-weight: bold;
     border-radius: 8px;
     color: white;
-    font-size: 30px;
+    font-size: 2em;
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    max-width: 80px;
     user-select: none;
   }
   button {
     background-color: #444;
     color: white;
     border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+    padding: 10px 15px;
+    font-size: 1em;
     margin-top: 10px;
     border-radius: 6px;
     cursor: pointer;
   }
   button:hover {
     background-color: #666;
+  }
+
+  @media (max-width: 400px) {
+    .tile {
+      font-size: 1.5em;
+    }
+    .controls {
+      width: 95%;
+    }
   }
 </style>
 </head>
@@ -72,12 +88,11 @@
 <div class="controls">
   <h3>Tile Weighting</h3>
   <label>💣 Explosive: <input type="number" id="explosive" value="1" step="0.1"></label>
-  <label>🛡 Cover: <input type="number" id="cover" value="1" step="0.1"></label>
-  <label>🧱 Ruins: <input type="number" id="ruins" value="1" step="0.1"></label>
-  <label>❌ Impassible: <input type="number" id="impassible" value="1" step="0.1"></label>
+  <label>🧱 Cover: <input type="number" id="cover" value="1" step="0.1"></label>
+  <label>🪨 Ruins: <input type="number" id="ruins" value="1" step="0.1"></label>
   <label>⭐ Special: <input type="number" id="special" value="1" step="0.1"></label>
+  <label>❌ Impassible: <input type="number" id="impassible" value="1" step="0.1"></label>
   <label>⬛ Blank: <input type="number" id="blank" value="1" step="0.1"></label>
-
   <br>
   <button onclick="generateGrid()">Generate Grid</button>
 </div>
@@ -87,10 +102,10 @@
 <script>
   const tileTypes = [
     { name: "Explosive", symbol: "💣", color: "#e25822" },
-    { name: "Cover", symbol: "🛡", color: "#888888" },
-    { name: "Ruins", symbol: "🧱", color: "#6b4f3a" },
+    { name: "Cover", symbol: "🧱", color: "#888888" },
+    { name: "Ruins", symbol: "🪨", color: "#6b4f3a" },
+    { name: "Special", symbol: "⭐", color: "#e6c200" },
     { name: "Impassible", symbol: "❌", color: "#4a148c" },
-	{ name: "Special", symbol: "⭐", color: "#e6c200" },
     { name: "Blank", symbol: "", color: "#2b2b2b" }
   ];
 
@@ -99,8 +114,8 @@
       parseFloat(document.getElementById("explosive").value),
       parseFloat(document.getElementById("cover").value),
       parseFloat(document.getElementById("ruins").value),
-	  parseFloat(document.getElementById("impassible").value),
       parseFloat(document.getElementById("special").value),
+      parseFloat(document.getElementById("impassible").value),
       parseFloat(document.getElementById("blank").value)
     ];
 
@@ -108,7 +123,7 @@
     const probabilities = weights.map(w => w / totalWeight);
 
     const gridContainer = document.getElementById("grid");
-    gridContainer.innerHTML = ""; // clear previous grid
+    gridContainer.innerHTML = "";
 
     for (let i = 0; i < 25; i++) {
       const tileType = weightedRandom(tileTypes, probabilities);
@@ -127,10 +142,9 @@
       sum += probabilities[i];
       if (r <= sum) return items[i];
     }
-    return items[items.length - 1]; // fallback
+    return items[items.length - 1];
   }
 
-  // Generate first grid automatically
   generateGrid();
 </script>
 
