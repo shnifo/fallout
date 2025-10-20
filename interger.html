@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Integer Distributor</title>
+<style>
+  body {
+    font-family: system-ui, sans-serif;
+    background: #1e1e2f;
+    color: #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+  }
+
+  h1 {
+    margin-bottom: 1rem;
+  }
+
+  .container {
+    background: #2a2a40;
+    padding: 1.5rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    width: 400px;
+    text-align: center;
+  }
+
+  input[type="number"] {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+  }
+
+  input[type="range"] {
+    width: 100%;
+  }
+
+  button {
+    margin-top: 1rem;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #4e8cff;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  button:hover {
+    background-color: #2a6ce2;
+  }
+
+  .results {
+    margin-top: 1rem;
+  }
+
+  .bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 150px;
+    margin-top: 1rem;
+  }
+
+  .bar {
+    width: 20%;
+    background: linear-gradient(180deg, #5e5eff, #2a2aff);
+    border-radius: 0.3rem;
+    transition: height 0.3s ease;
+  }
+</style>
+</head>
+<body>
+  <h1>🎲 Integer Distributor</h1>
+  <div class="container">
+    <label>Enter an integer:</label>
+    <input type="number" id="inputValue" min="1" value="100">
+
+    <label>Distribution Evenness: <span id="evennessLabel">0.5</span></label>
+    <input type="range" id="evennessSlider" min="0" max="1" step="0.01" value="0.5">
+
+    <button onclick="distribute()">Distribute</button>
+
+    <div class="results">
+      <h3>Results:</h3>
+      <p id="output"></p>
+      <div class="bars">
+        <div class="bar" id="bar1"></div>
+        <div class="bar" id="bar2"></div>
+        <div class="bar" id="bar3"></div>
+        <div class="bar" id="bar4"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+const slider = document.getElementById('evennessSlider');
+const label = document.getElementById('evennessLabel');
+slider.addEventListener('input', () => {
+  label.textContent = slider.value;
+});
+
+function distribute() {
+  const total = parseInt(document.getElementById('inputValue').value);
+  const evenness = parseFloat(slider.value);
+  let base = total / 4;
+  let parts = [];
+
+  if (evenness === 0) {
+    parts = [base, base, base, base];
+  } else {
+    let deviations = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
+    const totalDev = deviations.reduce((a, b) => a + b, 0);
+    deviations = deviations.map(d => d - totalDev / 4);
+    parts = deviations.map(d => base + base * d);
+
+    const factor = total / parts.reduce((a, b) => a + b, 0);
+    parts = parts.map(p => Math.round(p * factor));
+
+    // Adjust rounding errors
+    let diff = total - parts.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < Math.abs(diff); i++) {
+      parts[i % 4] += diff > 0 ? 1 : -1;
+    }
+  }
+
+  document.getElementById('output').textContent =
+    `[ ${parts.join(', ')} ] → Sum: ${parts.reduce((a, b) => a + b, 0)}`;
+
+  const maxVal = Math.max(...parts);
+  parts.forEach((p, i) => {
+    const bar = document.getElementById('bar' + (i + 1));
+    bar.style.height = (p / maxVal * 100) + '%';
+  });
+}
+</script>
+</body>
+</html>
