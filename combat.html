@@ -15,33 +15,34 @@
   }
   h1 {
     margin-bottom: 10px;
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
   .controls {
     display: inline-block;
     background-color: #2b2b2b;
-    padding: 10px;
+    padding: 8px;
     border-radius: 10px;
-    margin-bottom: 15px;
-    width: 90%;
-    max-width: 350px;
+    margin-bottom: 10px;
+    width: 95%;
+    max-width: 400px;
   }
   .controls label {
     display: flex;
     justify-content: space-between;
-    margin: 5px 0;
+    margin: 3px 0;
+    font-size: 0.9em;
   }
   .controls input {
-    width: 60px;
+    width: 50px;
     text-align: right;
   }
   #grid {
     display: grid;
-    grid-template-columns: 30px repeat(5, 1fr);
-    gap: 4px;
+    grid-template-columns: 12% repeat(5, 1fr);
+    gap: 2px;
     justify-items: center;
     width: 100%;
-    max-width: 500px;
+    max-width: 100vw;
     margin: 0 auto;
   }
   .tile {
@@ -49,12 +50,11 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 6px;
     color: white;
-    font-size: 2em;
-    aspect-ratio: 1 / 1;
     width: 100%;
-    max-width: 80px;
+    aspect-ratio: 1/1;
+    font-size: 4vw;
     user-select: none;
   }
   .label {
@@ -62,29 +62,29 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 1em;
+    font-size: 3vw;
     color: #ddd;
+    width: 100%;
+    aspect-ratio: 1/1;
   }
   button {
     background-color: #444;
     color: white;
     border: none;
-    padding: 10px 15px;
+    padding: 8px 12px;
     font-size: 1em;
-    margin-top: 10px;
+    margin-top: 6px;
     border-radius: 6px;
     cursor: pointer;
   }
   button:hover {
     background-color: #666;
   }
-  @media (max-width: 400px) {
-    .tile {
-      font-size: 1.5em;
-    }
-    .controls {
-      width: 95%;
-    }
+  @media (min-width: 500px) {
+    .tile { font-size: 2em; }
+    .label { font-size: 1em; }
+    .controls label { font-size: 1em; }
+    .controls input { width: 60px; }
   }
 </style>
 </head>
@@ -97,10 +97,9 @@
   <label>💣 Explosive: <input type="number" id="explosive" value="1" step="0.1"></label>
   <label>🧱 Cover: <input type="number" id="cover" value="1" step="0.1"></label>
   <label>🪨 Ruins: <input type="number" id="ruins" value="1" step="0.1"></label>
+  <label>❌ Impassable: <input type="number" id="impassable" value="1" step="0.1"></label>
   <label>⭐ Special: <input type="number" id="special" value="1" step="0.1"></label>
-  <label>❌ Impassible: <input type="number" id="impassible" value="1" step="0.1"></label>
   <label>⬛ Blank: <input type="number" id="blank" value="1" step="0.1"></label>
-  <br>
   <button onclick="generateGrid()">Generate Grid</button>
 </div>
 
@@ -111,8 +110,8 @@
     { name: "Explosive", symbol: "💣", color: "#e25822" },
     { name: "Cover", symbol: "🧱", color: "#888888" },
     { name: "Ruins", symbol: "🪨", color: "#6b4f3a" },
+    { name: "Impassable", symbol: "❌", color: "#4a148c" },
     { name: "Special", symbol: "⭐", color: "#e6c200" },
-    { name: "Impassible", symbol: "❌", color: "#4a148c" },
     { name: "Blank", symbol: "", color: "#2b2b2b" }
   ];
 
@@ -124,8 +123,8 @@
       parseFloat(document.getElementById("explosive").value),
       parseFloat(document.getElementById("cover").value),
       parseFloat(document.getElementById("ruins").value),
+      parseFloat(document.getElementById("impassable").value),
       parseFloat(document.getElementById("special").value),
-      parseFloat(document.getElementById("impassible").value),
       parseFloat(document.getElementById("blank").value)
     ];
 
@@ -135,7 +134,7 @@
     const gridContainer = document.getElementById("grid");
     gridContainer.innerHTML = "";
 
-    // Top-left empty corner
+    // Top-left corner
     const corner = document.createElement("div");
     corner.className = "label";
     gridContainer.appendChild(corner);
@@ -148,7 +147,7 @@
       gridContainer.appendChild(colLabel);
     }
 
-    // Rows
+    // Rows and tiles
     for (let r = 0; r < 5; r++) {
       // Row label
       const rowLabel = document.createElement("div");
@@ -156,7 +155,6 @@
       rowLabel.textContent = rowLabels[r];
       gridContainer.appendChild(rowLabel);
 
-      // Tiles
       for (let c = 0; c < 5; c++) {
         const tileType = weightedRandom(tileTypes, probabilities);
         const tile = document.createElement("div");
