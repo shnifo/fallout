@@ -5,27 +5,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Integer Distributor</title>
 <style>
+  /* General body styling */
   body {
     font-family: system-ui, sans-serif;
     background: #1e1e2f;
     color: #eee;
+    margin: 0;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 2rem;
   }
 
   h1 {
+    font-size: 1.5rem;
     margin-bottom: 1rem;
+    text-align: center;
   }
 
   .container {
     background: #2a2a40;
-    padding: 1.5rem 2rem;
+    padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    width: 400px;
-    text-align: center;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
   }
 
   input[type="number"] {
@@ -34,24 +39,25 @@
     border-radius: 0.5rem;
     border: none;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 0.8rem;
     font-size: 1rem;
   }
 
   input[type="range"] {
     width: 100%;
+    margin-bottom: 0.8rem;
   }
 
   button {
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
+    width: 100%;
+    padding: 0.6rem;
     border: none;
     border-radius: 0.5rem;
     background-color: #4e8cff;
     color: white;
     font-size: 1rem;
     cursor: pointer;
-    transition: background 0.2s ease;
+    margin-bottom: 0.8rem;
   }
 
   button:hover {
@@ -59,7 +65,7 @@
   }
 
   .results {
-    margin-top: 1rem;
+    margin-top: 0.5rem;
   }
 
   .bars {
@@ -67,14 +73,39 @@
     justify-content: space-between;
     align-items: flex-end;
     height: 150px;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
+  }
+
+  .bar-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 22%;
   }
 
   .bar {
-    width: 20%;
-    background: linear-gradient(180deg, #5e5eff, #2a2aff);
+    width: 100%;
     border-radius: 0.3rem;
     transition: height 0.3s ease;
+  }
+
+  /* Unique colors for each type */
+  #bar1 { background: linear-gradient(180deg, #ff5e5e, #d43e3e); }   /* Physical */
+  #bar2 { background: linear-gradient(180deg, #5ec8ff, #2e9ed4); }   /* Energy */
+  #bar3 { background: linear-gradient(180deg, #5eff7d, #2ed451); }   /* Rad */
+  #bar4 { background: linear-gradient(180deg, #ffbd5e, #e68b2e); }   /* Explosive */
+
+  .label {
+    margin-top: 0.3rem;
+    font-size: 0.8rem;
+    color: #ccc;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  #output {
+    font-size: 0.9rem;
+    word-wrap: break-word;
   }
 </style>
 </head>
@@ -90,13 +121,24 @@
     <button onclick="distribute()">Distribute</button>
 
     <div class="results">
-      <h3>Results:</h3>
       <p id="output"></p>
       <div class="bars">
-        <div class="bar" id="bar1"></div>
-        <div class="bar" id="bar2"></div>
-        <div class="bar" id="bar3"></div>
-        <div class="bar" id="bar4"></div>
+        <div class="bar-container">
+          <div class="bar" id="bar1"></div>
+          <div class="label">Physical</div>
+        </div>
+        <div class="bar-container">
+          <div class="bar" id="bar2"></div>
+          <div class="label">Energy</div>
+        </div>
+        <div class="bar-container">
+          <div class="bar" id="bar3"></div>
+          <div class="label">Rad</div>
+        </div>
+        <div class="bar-container">
+          <div class="bar" id="bar4"></div>
+          <div class="label">Explosive</div>
+        </div>
       </div>
     </div>
   </div>
@@ -125,7 +167,7 @@ function distribute() {
     const factor = total / parts.reduce((a, b) => a + b, 0);
     parts = parts.map(p => Math.round(p * factor));
 
-    // Adjust rounding errors
+    // Fix rounding errors
     let diff = total - parts.reduce((a, b) => a + b, 0);
     for (let i = 0; i < Math.abs(diff); i++) {
       parts[i % 4] += diff > 0 ? 1 : -1;
@@ -133,7 +175,7 @@ function distribute() {
   }
 
   document.getElementById('output').textContent =
-    `[ ${parts.join(', ')} ] → Sum: ${parts.reduce((a, b) => a + b, 0)}`;
+    `[ Physical: ${parts[0]}, Energy: ${parts[1]}, Rad: ${parts[2]}, Explosive: ${parts[3]} ] → Sum: ${parts.reduce((a, b) => a + b, 0)}`;
 
   const maxVal = Math.max(...parts);
   parts.forEach((p, i) => {
