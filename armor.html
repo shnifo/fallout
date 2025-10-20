@@ -5,8 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Integer Distributor</title>
 <style>
-  /* General body styling */
-  body {
+body {
     font-family: system-ui, sans-serif;
     background: #1e1e2f;
     color: #eee;
@@ -15,25 +14,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
 
-  h1 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
+h1 { font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }
 
-  .container {
+.container {
     background: #2a2a40;
     padding: 1rem;
     border-radius: 1rem;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
     width: 100%;
     max-width: 400px;
     box-sizing: border-box;
-  }
+}
 
-  input[type="number"] {
+input[type="number"], input[type="range"], button {
     width: 100%;
     padding: 0.5rem;
     border-radius: 0.5rem;
@@ -41,77 +35,55 @@
     text-align: center;
     margin-bottom: 0.8rem;
     font-size: 1rem;
-  }
+}
 
-  input[type="range"] {
-    width: 100%;
-    margin-bottom: 0.8rem;
-  }
+button { background-color: #4e8cff; color: white; cursor: pointer; }
+button:hover { background-color: #2a6ce2; }
 
-  button {
-    width: 100%;
-    padding: 0.6rem;
-    border: none;
-    border-radius: 0.5rem;
-    background-color: #4e8cff;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    margin-bottom: 0.8rem;
-  }
+.results { margin-top: 0.5rem; }
 
-  button:hover {
-    background-color: #2a6ce2;
-  }
-
-  .results {
-    margin-top: 0.5rem;
-  }
-
-  .bars {
+.bars {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     height: 150px;
     margin-top: 0.8rem;
-  }
+}
 
-  .bar-container {
+.bar-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 22%;
-  }
+}
 
-  .bar {
+.bar {
     width: 100%;
     border-radius: 0.3rem;
+    min-height: 5px;
     transition: height 0.3s ease;
-  }
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: bold;
+    overflow: hidden;
+}
 
-  /* Unique colors for each type */
-  #bar1 { background: linear-gradient(180deg, #ff5e5e, #d43e3e); }   /* Physical */
-  #bar2 { background: linear-gradient(180deg, #5ec8ff, #2e9ed4); }   /* Energy */
-  #bar3 { background: linear-gradient(180deg, #5eff7d, #2ed451); }   /* Rad */
-  #bar4 { background: linear-gradient(180deg, #ffbd5e, #e68b2e); }   /* Explosive */
+/* Swapped colors */
+#bar1 { background: linear-gradient(180deg, #ff5e5e, #d43e3e); }   /* Physical */
+#bar2 { background: linear-gradient(180deg, #5ec8ff, #2e9ed4); }   /* Energy */
+#bar3 { background: linear-gradient(180deg, #ffbd5e, #e68b2e); }   /* Explosive */
+#bar4 { background: linear-gradient(180deg, #5eff7d, #2ed451); }   /* Rad */
 
-  .label {
-    margin-top: 0.3rem;
-    font-size: 0.8rem;
-    color: #ccc;
-    text-align: center;
-    word-wrap: break-word;
-  }
-
-  #output {
-    font-size: 0.9rem;
-    word-wrap: break-word;
-  }
+.label { margin-top: 0.3rem; font-size: 0.8rem; color: #ccc; text-align: center; }
 </style>
 </head>
 <body>
-  <h1>🎲 Integer Distributor</h1>
-  <div class="container">
+<h1>🎲 Integer Distributor</h1>
+<div class="container">
     <label>Enter an integer:</label>
     <input type="number" id="inputValue" min="1" value="100">
 
@@ -121,68 +93,64 @@
     <button onclick="distribute()">Distribute</button>
 
     <div class="results">
-      <p id="output"></p>
-      <div class="bars">
-        <div class="bar-container">
-          <div class="bar" id="bar1"></div>
-          <div class="label">Physical</div>
+        <div class="bars">
+            <div class="bar-container">
+                <div class="bar" id="bar1"><span></span></div>
+                <div class="label">Physical</div>
+            </div>
+            <div class="bar-container">
+                <div class="bar" id="bar2"><span></span></div>
+                <div class="label">Energy</div>
+            </div>
+            <div class="bar-container">
+                <div class="bar" id="bar3"><span></span></div>
+                <div class="label">Explosive</div>
+            </div>
+            <div class="bar-container">
+                <div class="bar" id="bar4"><span></span></div>
+                <div class="label">Rad</div>
+            </div>
         </div>
-        <div class="bar-container">
-          <div class="bar" id="bar2"></div>
-          <div class="label">Energy</div>
-        </div>
-        <div class="bar-container">
-          <div class="bar" id="bar3"></div>
-          <div class="label">Rad</div>
-        </div>
-        <div class="bar-container">
-          <div class="bar" id="bar4"></div>
-          <div class="label">Explosive</div>
-        </div>
-      </div>
     </div>
-  </div>
+</div>
 
 <script>
 const slider = document.getElementById('evennessSlider');
 const label = document.getElementById('evennessLabel');
-slider.addEventListener('input', () => {
-  label.textContent = slider.value;
-});
+slider.addEventListener('input', () => label.textContent = slider.value);
 
 function distribute() {
-  const total = parseInt(document.getElementById('inputValue').value);
-  const evenness = parseFloat(slider.value);
-  let base = total / 4;
-  let parts = [];
+    const total = parseInt(document.getElementById('inputValue').value);
+    const evenness = parseFloat(slider.value);
+    let base = total / 4;
+    let parts = [];
 
-  if (evenness === 0) {
-    parts = [base, base, base, base];
-  } else {
-    let deviations = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
-    const totalDev = deviations.reduce((a, b) => a + b, 0);
-    deviations = deviations.map(d => d - totalDev / 4);
-    parts = deviations.map(d => base + base * d);
+    if (evenness === 0) {
+        parts = [base, base, base, base];
+    } else {
+        let deviations = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
+        const totalDev = deviations.reduce((a, b) => a + b, 0);
+        deviations = deviations.map(d => d - totalDev / 4);
+        parts = deviations.map(d => base + base * d);
 
-    const factor = total / parts.reduce((a, b) => a + b, 0);
-    parts = parts.map(p => Math.round(p * factor));
+        const factor = total / parts.reduce((a, b) => a + b, 0);
+        parts = parts.map(p => Math.round(p * factor));
 
-    // Fix rounding errors
-    let diff = total - parts.reduce((a, b) => a + b, 0);
-    for (let i = 0; i < Math.abs(diff); i++) {
-      parts[i % 4] += diff > 0 ? 1 : -1;
+        let diff = total - parts.reduce((a, b) => a + b, 0);
+        for (let i = 0; i < Math.abs(diff); i++) parts[i % 4] += diff > 0 ? 1 : -1;
     }
-  }
 
-  document.getElementById('output').textContent =
-    `[ Physical: ${parts[0]}, Energy: ${parts[1]}, Rad: ${parts[2]}, Explosive: ${parts[3]} ] → Sum: ${parts.reduce((a, b) => a + b, 0)}`;
-
-  const maxVal = Math.max(...parts);
-  parts.forEach((p, i) => {
-    const bar = document.getElementById('bar' + (i + 1));
-    bar.style.height = (p / maxVal * 100) + '%';
-  });
+    const containerHeight = 150;
+    const maxVal = Math.max(...parts, 1);
+    parts.forEach((p,i)=>{
+        const bar = document.getElementById('bar'+(i+1));
+        bar.style.height = (p/maxVal*containerHeight) + 'px';
+        bar.querySelector('span').textContent = p; // put value on bar
+    });
 }
+
+// Initialize bars on page load
+window.onload = distribute();
 </script>
 </body>
 </html>
