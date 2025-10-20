@@ -67,9 +67,14 @@ button:hover { background-color: #2a6ce2; }
     justify-content: center;
     align-items: flex-end;
     color: #fff;
-    font-size: 0.75rem;
+    font-size: 1rem; /* bigger text */
     font-weight: bold;
     overflow: hidden;
+    text-shadow:
+       -1px -1px 0 #000,
+        1px -1px 0 #000,
+       -1px 1px 0 #000,
+        1px 1px 0 #000; /* black outline */
 }
 
 /* Swapped colors */
@@ -145,7 +150,7 @@ function distribute() {
     parts.forEach((p,i)=>{
         const bar = document.getElementById('bar'+(i+1));
         bar.style.height = (p/maxVal*containerHeight) + 'px';
-        bar.querySelector('span').textContent = p; // put value on bar
+        bar.querySelector('span').textContent = p; // show value on bar
     });
 }
 
