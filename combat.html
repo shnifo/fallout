@@ -37,7 +37,7 @@
   }
   #grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    grid-template-columns: 30px repeat(5, 1fr);
     gap: 4px;
     justify-items: center;
     width: 100%;
@@ -57,6 +57,14 @@
     max-width: 80px;
     user-select: none;
   }
+  .label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: #ddd;
+  }
   button {
     background-color: #444;
     color: white;
@@ -70,7 +78,6 @@
   button:hover {
     background-color: #666;
   }
-
   @media (max-width: 400px) {
     .tile {
       font-size: 1.5em;
@@ -109,6 +116,9 @@
     { name: "Blank", symbol: "", color: "#2b2b2b" }
   ];
 
+  const rowLabels = ["A","B","C","D","E"];
+  const colLabels = ["1","2","3","4","5"];
+
   function generateGrid() {
     const weights = [
       parseFloat(document.getElementById("explosive").value),
@@ -125,13 +135,36 @@
     const gridContainer = document.getElementById("grid");
     gridContainer.innerHTML = "";
 
-    for (let i = 0; i < 25; i++) {
-      const tileType = weightedRandom(tileTypes, probabilities);
-      const tile = document.createElement("div");
-      tile.className = "tile";
-      tile.style.backgroundColor = tileType.color;
-      tile.textContent = tileType.symbol;
-      gridContainer.appendChild(tile);
+    // Top-left empty corner
+    const corner = document.createElement("div");
+    corner.className = "label";
+    gridContainer.appendChild(corner);
+
+    // Column labels
+    for (let c = 0; c < colLabels.length; c++) {
+      const colLabel = document.createElement("div");
+      colLabel.className = "label";
+      colLabel.textContent = colLabels[c];
+      gridContainer.appendChild(colLabel);
+    }
+
+    // Rows
+    for (let r = 0; r < 5; r++) {
+      // Row label
+      const rowLabel = document.createElement("div");
+      rowLabel.className = "label";
+      rowLabel.textContent = rowLabels[r];
+      gridContainer.appendChild(rowLabel);
+
+      // Tiles
+      for (let c = 0; c < 5; c++) {
+        const tileType = weightedRandom(tileTypes, probabilities);
+        const tile = document.createElement("div");
+        tile.className = "tile";
+        tile.style.backgroundColor = tileType.color;
+        tile.textContent = tileType.symbol;
+        gridContainer.appendChild(tile);
+      }
     }
   }
 
