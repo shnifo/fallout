@@ -1,161 +1,278 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Integer Distributor</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Integer & Weapon Generator</title>
 <style>
 body {
-    font-family: system-ui, sans-serif;
-    background: #1e1e2f;
-    color: #eee;
-    margin: 0;
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  font-family: system-ui, sans-serif;
+  background: #1e1e2f;
+  color: #eee;
+  margin: 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-
-h1 { font-size: 1.5rem; margin-bottom: 1rem; text-align: center; }
-
+h1,h2 { text-align:center; margin:.5rem 0; }
 .container {
-    background: #2a2a40;
-    padding: 1rem;
-    border-radius: 1rem;
-    width: 100%;
-    max-width: 400px;
-    box-sizing: border-box;
+  background: #2a2a40;
+  padding: 1rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
 }
-
-input[type="number"], input[type="range"], button {
-    width: 100%;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    border: none;
-    text-align: center;
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
+input[type=number], input[type=range], select, button {
+  width:100%;
+  padding:.5rem;
+  border-radius:.5rem;
+  border:none;
+  text-align:center;
+  margin-bottom:.6rem;
+  font-size:1rem;
 }
+button { background:#4e8cff; color:#fff; font-weight:bold; }
+button:hover { background:#2a6ce2; }
 
-button { background-color: #4e8cff; color: white; cursor: pointer; }
-button:hover { background-color: #2a6ce2; }
-
-.results { margin-top: 0.5rem; }
-
-.bars {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    height: 150px;
-    margin-top: 0.8rem;
+.bars{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  height:130px;
+  margin-top:.5rem;
 }
-
-.bar-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 22%;
+.bar-container{ display:flex; flex-direction:column; align-items:center; width:22%; }
+.bar{
+  width:100%;
+  border-radius:.3rem;
+  min-height:5px;
+  transition:height .3s ease;
+  display:flex;
+  justify-content:center;
+  align-items:flex-end;
+  color:#fff;
+  font-size:1rem;
+  font-weight:bold;
+  text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
+  overflow:hidden;
 }
-
-.bar {
-    width: 100%;
-    border-radius: 0.3rem;
-    min-height: 5px;
-    transition: height 0.3s ease;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    color: #fff;
-    font-size: 1rem; /* bigger text */
-    font-weight: bold;
-    overflow: hidden;
-    text-shadow:
-       -1px -1px 0 #000,
-        1px -1px 0 #000,
-       -1px 1px 0 #000,
-        1px 1px 0 #000; /* black outline */
+#bar1{ background:linear-gradient(180deg,#ff5e5e,#d43e3e); }
+#bar2{ background:linear-gradient(180deg,#5ec8ff,#2e9ed4); }
+#bar3{ background:linear-gradient(180deg,#ffbd5e,#e68b2e); }
+#bar4{ background:linear-gradient(180deg,#5eff7d,#2ed451); }
+.label{ margin-top:.3rem; font-size:.8rem; color:#ccc; text-align:center; }
+.weapon-output{
+  background:#1e1e2f;
+  border-radius:.5rem;
+  padding:.6rem;
+  text-align:center;
+  margin-top:.5rem;
+  line-height:1.3;
+  font-size:.95rem;
 }
-
-/* Swapped colors */
-#bar1 { background: linear-gradient(180deg, #ff5e5e, #d43e3e); }   /* Physical */
-#bar2 { background: linear-gradient(180deg, #5ec8ff, #2e9ed4); }   /* Energy */
-#bar3 { background: linear-gradient(180deg, #ffbd5e, #e68b2e); }   /* Explosive */
-#bar4 { background: linear-gradient(180deg, #5eff7d, #2ed451); }   /* Rad */
-
-.label { margin-top: 0.3rem; font-size: 0.8rem; color: #ccc; text-align: center; }
+.weapon-output span{ color:#4e8cff; font-weight:700; }
+.small { font-size:0.85rem; color:#bbb; }
 </style>
 </head>
 <body>
+
 <h1>🎲 Integer Distributor</h1>
 <div class="container">
-    <label>Enter an integer:</label>
-    <input type="number" id="inputValue" min="1" value="100">
+  <input type="number" id="inputValue" min="1" value="100" placeholder="Enter integer">
+  <label>Evenness: <span id="evennessLabel">0.5</span></label>
+  <input type="range" id="evennessSlider" min="0" max="1" step="0.01" value="0.5">
+  <button onclick="distribute()">Distribute</button>
 
-    <label>Distribution Evenness: <span id="evennessLabel">0.5</span></label>
-    <input type="range" id="evennessSlider" min="0" max="1" step="0.01" value="0.5">
-
-    <button onclick="distribute()">Distribute</button>
-
-    <div class="results">
-        <div class="bars">
-            <div class="bar-container">
-                <div class="bar" id="bar1"><span></span></div>
-                <div class="label">Physical</div>
-            </div>
-            <div class="bar-container">
-                <div class="bar" id="bar2"><span></span></div>
-                <div class="label">Energy</div>
-            </div>
-            <div class="bar-container">
-                <div class="bar" id="bar3"><span></span></div>
-                <div class="label">Explosive</div>
-            </div>
-            <div class="bar-container">
-                <div class="bar" id="bar4"><span></span></div>
-                <div class="label">Rad</div>
-            </div>
-        </div>
+  <div class="bars">
+    <div class="bar-container">
+      <div class="bar" id="bar1"><span></span></div>
+      <div class="label">Physical</div>
     </div>
+    <div class="bar-container">
+      <div class="bar" id="bar2"><span></span></div>
+      <div class="label">Energy</div>
+    </div>
+    <div class="bar-container">
+      <div class="bar" id="bar3"><span></span></div>
+      <div class="label">Explosive</div>
+    </div>
+    <div class="bar-container">
+      <div class="bar" id="bar4"><span></span></div>
+      <div class="label">Rad</div>
+    </div>
+  </div>
+</div>
+
+<h2>⚔️ Weapon Generator</h2>
+<div class="container">
+  <input type="number" id="partyLevel" min="1" value="5" placeholder="Party Level">
+  <select id="damageFilter">
+    <option value="all">All Damage Types</option>
+    <option value="P">Physical (P)</option>
+    <option value="E">Energy (E)</option>
+    <option value="X">Explosive (X)</option>
+    <option value="R">Rad (R)</option>
+  </select>
+  <select id="typeFilter">
+    <option value="all">All Weapon Types</option>
+    <option value="melee">Melee</option>
+    <option value="range">Ranged</option>
+  </select>
+  <button onclick="generateWeapon()">Generate Weapon</button>
+  <div id="weaponResult" class="weapon-output small"></div>
 </div>
 
 <script>
+/* Integer Distributor */
 const slider = document.getElementById('evennessSlider');
 const label = document.getElementById('evennessLabel');
-slider.addEventListener('input', () => label.textContent = slider.value);
+slider.addEventListener('input', ()=> label.textContent = slider.value);
 
-function distribute() {
-    const total = parseInt(document.getElementById('inputValue').value);
-    const evenness = parseFloat(slider.value);
-    let base = total / 4;
-    let parts = [];
-
-    if (evenness === 0) {
-        parts = [base, base, base, base];
-    } else {
-        let deviations = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
-        const totalDev = deviations.reduce((a, b) => a + b, 0);
-        deviations = deviations.map(d => d - totalDev / 4);
-        parts = deviations.map(d => base + base * d);
-
-        const factor = total / parts.reduce((a, b) => a + b, 0);
-        parts = parts.map(p => Math.round(p * factor));
-
-        let diff = total - parts.reduce((a, b) => a + b, 0);
-        for (let i = 0; i < Math.abs(diff); i++) parts[i % 4] += diff > 0 ? 1 : -1;
-    }
-
-    const containerHeight = 150;
-    const maxVal = Math.max(...parts, 1);
-    parts.forEach((p,i)=>{
-        const bar = document.getElementById('bar'+(i+1));
-        bar.style.height = (p/maxVal*containerHeight) + 'px';
-        bar.querySelector('span').textContent = p; // show value on bar
-    });
+function distribute(){
+  const total = parseInt(document.getElementById('inputValue').value) || 0;
+  const evenness = parseFloat(slider.value);
+  const base = total / 4;
+  let parts = [];
+  if (evenness === 0) {
+    parts = [base, base, base, base];
+  } else {
+    let devs = Array.from({length:4}, ()=> (Math.random()*2 - 1) * evenness);
+    const sumDev = devs.reduce((a,b)=>a+b, 0);
+    devs = devs.map(d => d - sumDev/4);
+    parts = devs.map(d => base + base * d);
+    const factor = total / parts.reduce((a,b)=>a+b, 0);
+    parts = parts.map(p => Math.round(p * factor));
+    let diff = total - parts.reduce((a,b)=>a+b, 0);
+    for (let i=0;i<Math.abs(diff);i++) parts[i%4] += diff>0?1:-1;
+  }
+  const maxVal = Math.max(...parts, 1);
+  const containerH = 130;
+  parts.forEach((p,i)=>{
+    const bar = document.getElementById('bar'+(i+1));
+    bar.style.height = (p/maxVal*containerH) + 'px';
+    bar.querySelector('span').textContent = p;
+  });
 }
+window.onload = distribute;
 
-// Initialize bars on page load
-window.onload = distribute();
+/* Weapon data */
+const weapons = {
+  E1:[ [6,"Pipe Pistol","5 P","small rounds","mid","AGI","30c"],
+       [8,"Revolver","6 P","small rounds","mid","AGI","50c"],
+       [10,"Combat Pistol","7 P","small rounds","mid","AGI","70c"],
+       [12,"Magnum","8 P","small rounds","mid","AGI","90c"],
+       [14,"Big Iron","9 P","small rounds","mid","AGI","110c"],
+       [99,"Purifier","10 P","small rounds","mid","AGI","130c"] ],
+  E2:[ [6,"Laser Pistol","6 E","E-cell","mid","INT","40c"],
+       [8,"Plasma Pistol","7 E","E-cell","mid","INT","60c"],
+       [10,"Sonic Pistol","8 E","E-cell","mid","INT","80c"],
+       [12,"Tesla Pistol","9 E","E-cell","mid","INT","100c"],
+       [14,"Gauss Pistol","10 E","E-cell","mid","INT","120c"],
+       [99,"Valanyr","11 E","E-cell","mid","INT","140c"] ],
+  E3:[ [6,"Pipe Rifle","7 P","large rounds","long","AGI","50c"],
+       [8,"Service Rifle","8 P","large rounds","long","AGI","80c"],
+       [10,"Hunting Rifle","9 P","large rounds","long","AGI","110c"],
+       [12,"Combat Rifle","10 P","large rounds","long","AGI","140c"],
+       [14,"Assault Rifle","11 P","large rounds","long","AGI","170c"],
+       [99,"Thoridal","12 P","large rounds","long","AGI","200c"] ],
+  E4:[ [6,"Laser Rifle","8 E","MF-cell","long","INT","60c"],
+       [8,"Plasma Rifle","9 E","MF-cell","long","INT","90c"],
+       [10,"Sonic Rifle","10 E","MF-cell","long","INT","120c"],
+       [12,"Tesla Rifle","11 E","MF-cell","long","INT","150c"],
+       [14,"Gauss Rifle","12 E","MF-cell","long","INT","180c"],
+       [99,"Atiesh","13 E","MF-cell","long","INT","210c"] ],
+  E5:[ [6,"Sawed-Off SG","3x3 P","small","short","AGI","50c"],
+       [8,"Hunting SG","3x4 P","small","short","AGI","70c"],
+       [10,"Caravan SG","3x5 P","small","short","AGI","90c"],
+       [12,"Combat SG","3x6 P","small","short","AGI","110c"],
+       [14,"Riot SG","3x7 P","small","short","AGI","130c"],
+       [99,"Gorehowl","3x8 P","small","short","AGI","150c"] ],
+  E6:[ [6,"Laser Shotgun","3x4 E","E-cell","short","INT","60c"],
+       [8,"Plasma Shotgun","3x5 E","E-cell","short","INT","80c"],
+       [10,"Gatling Laser","3x6 E","E-cell","short","INT","100c"],
+       [12,"Gauss Shotgun","3x7 E","E-cell","short","INT","120c"],
+       [14,"Tesla Cannon","3x8 E","E-cell","short","INT","140c"],
+       [99,"Doomhammer","3x9 E","E-cell","short","INT","160c"] ],
+  O1:[ [6,"Hand Mortar","Grenade-1 X","-","long","AGI","80c"],
+       [8,"Nade Launcher","Grenade X","-","long","AGI","120c"],
+       [10,"Nade Cannon","Grenade X+1","-","long","AGI","160c"],
+       [12,"Missile Launcher","Grenade+2 X","-","long","AGI","200c"],
+       [14,"Fat Man","Grenade+3 X","-","long","AGI","240c"],
+       [99,"Ashbringer","Grenade+4 X","-","long","AGI","280c"] ],
+  O2:[ [6,"Flamer","9 X splash+burn","fuel","short","AGI","70c"],
+       [8,"Napalmer","10 X splash+burn","fuel","short","AGI","110c"],
+       [10,"Incinerator","11 X splash+burn","fuel","short","AGI","150c"],
+       [12,"Liquifier","12 X splash+burn","fuel","short","AGI","190c"],
+       [14,"Hellfire Inc","13 X splash+burn","fuel","short","AGI","230c"],
+       [99,"Sulfuras","14 X splash+burn","fuel","short","AGI","270c"] ],
+  O3:[ [6,"Weak Melee","7 P","-","melee","STR","30c"],
+       [8,"Medium Melee","8 P","-","melee","STR","60c"],
+       [10,"Strong Melee","9 P","-","melee","STR","90c"],
+       [12,"Powerful Melee","10 P","-","melee","STR","120c"],
+       [14,"Ultimate Melee","11 P","-","melee","STR","150c"],
+       [99,"Shadowmourne","12 P","-","melee","STR","180c"] ],
+  O4:[ [6,"Brass Knuckles","2x5 P","-","melee","END","30c"],
+       [8,"Bladed Gauntlet","2x6 P","-","melee","END","60c"],
+       [10,"Yao Guai Gauntlet","2x7 P","-","melee","END","90c"],
+       [12,"Power Fist","2x8 P","-","melee","END","120c"],
+       [14,"Deathclaw Gauntlet","2x9 P","-","melee","END","150c"],
+       [99,"Facebreaker","2x10 P","-","melee","END","180c"] ],
+  O5:[ [6,"Shock Baton","2x5 E","-","melee","STR","50c"],
+       [8,"Welding Torch","2x6 X","-","melee","STR","80c"],
+       [10,"Tesla Coil","2x7 E","-","melee","STR","110c"],
+       [12,"Thermic Lance","2x8 X","-","melee","STR","140c"],
+       [14,"Shishkebab","2x9 E","-","melee","STR","170c"],
+       [99,"Thunderfury","2x10 X","-","melee","STR","200c"] ],
+  O6:[ [6,"Shock Glove","7 E","-","melee","END","50c"],
+       [8,"Whalloper","8 X","-","melee","END","80c"],
+       [10,"Plasma Glove","9 E","-","melee","END","110c"],
+       [12,"Kinetic Fist","10 X","-","melee","END","140c"],
+       [14,"Saturnite Fist","11 E","-","melee","END","170c"],
+       [99,"Infinity Gauntlet","12 X","-","melee","END","200c"] ]
+};
+
+function rollDie(sides){ return Math.floor(Math.random()*sides)+1; }
+
+function generateWeapon(){
+  const level = parseInt(document.getElementById('partyLevel').value) || 1;
+  const dmgFilter = document.getElementById('damageFilter').value;
+  const typeFilter = document.getElementById('typeFilter').value;
+  const out = document.getElementById('weaponResult');
+  
+  let attempt = 0;
+  let chosen = null, category="", tierRoll=0;
+  while (attempt < 50) {
+    attempt++;
+    const d1 = rollDie(6), d2 = rollDie(6);
+    category = (d1 % 2 === 0 ? 'E' : 'O') + d2;
+    tierRoll = rollDie(6) + level;
+    const table = weapons[category];
+    if (!table) continue;
+    const weapon = table.find(e => tierRoll <= e[0]) || table[table.length-1];
+    const dmgType = weapon[2].match(/[PEXRY]/)?.[0] || "P";
+    const wepType = weapon[4] === "melee" ? "melee" : "range";
+    if ((dmgFilter==="all" || dmgFilter===dmgType) &&
+        (typeFilter==="all" || typeFilter===wepType)) {
+      chosen = weapon; break;
+    }
+  }
+  
+  if (!chosen){
+    out.innerHTML = `<span>No weapon matches your filter.</span>`;
+    return;
+  }
+  
+  out.innerHTML = `<span>${chosen[1]}</span>
+                   <div>Damage: ${chosen[2]}</div>
+                   <div>Ammo: ${chosen[3]}</div>
+                   <div>Range: ${chosen[4]}</div>
+                   <div>Stat: ${chosen[5]}</div>
+                   <div>Value: ${chosen[6]}</div>
+                   <div class="small">(Category ${category}, roll ${tierRoll})</div>`;
+}
 </script>
 </body>
 </html>
