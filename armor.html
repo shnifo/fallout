@@ -315,12 +315,12 @@ function generateWeapon(){
 }
 // ===== COMPLICATION GENERATOR =====
 const complications = [
-  ["+1 Hunger/Thirst","END","Sweating from hot area (thirst)"],
-  ["+1 Hunger/Thirst","CHA","Puking from terrible smell (hunger)"],
-  ["+1 Hunger/Thirst","END","Diarrhea from environmental toxins (thirst)"],
-  ["+1 Hunger/Thirst","STR","Burning calories from manual labor (hunger)"],
-  ["+1 Hunger/Thirst","AGI","Stuck in an overly dehumidified area (thirst)"],
-  ["+1 Hunger/Thirst","CHA","Burning calories for travelling long distances (hunger)"],
+  ["+1 Thirst","END","Sweating from hot area"],
+  ["+1 Hunger","CHA","Puking from terrible smell (hunger)"],
+  ["+1 Thirst","END","Diarrhea from environmental toxins (thirst)"],
+  ["+1 Hunger","STR","Burning calories from manual labor (hunger)"],
+  ["+1 Thirst","AGI","Stuck in an overly dehumidified area (thirst)"],
+  ["+1 Hunger","CHA","Burning calories for travelling long distances (hunger)"],
   ["Drop item","CHA","Loud noise jumpscare causes fumbled item"],
   ["Drop item","AGI","Slips on loose terrain or oily ground"],
   ["Drop item","STR","Player stumbles as structure crumbles"],
@@ -357,8 +357,8 @@ function generateComplications() {
   const c1 = complications[Math.floor(Math.random() * complications.length)];
   const c2 = complications[Math.floor(Math.random() * complications.length)];
   document.getElementById("complicationOutput").innerHTML =
-    `<b>Complication 1:</b> ${c1[0]} | Save: ${c1[1]}<br><i>${c1[2]}</i><br><br>
-     <b>Complication 2:</b> ${c2[0]} | Save: ${c2[1]}<br><i>${c2[2]}</i>`;
+    `<b>#1:</b> ${c1[0]} | Save: ${c1[1]}<br><i>${c1[2]}</i><br><br>
+     <b>#2:</b> ${c2[0]} | Save: ${c2[1]}<br><i>${c2[2]}</i>`;
 }
 
 </script>
