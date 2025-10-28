@@ -11,38 +11,34 @@
     font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
-    padding: 5px;
+    padding: 10px;
   }
   h1 {
-    margin: 5px 0;
-    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-size: 1.3em;
   }
   .controls {
     display: inline-block;
     background-color: #2b2b2b;
-    padding: 6px;
-    border-radius: 8px;
-    margin-bottom: 8px;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
     width: 95%;
-    max-width: 380px;
-  }
-  .controls h3 {
-    margin: 5px 0;
-    font-size: 1em;
+    max-width: 400px;
   }
   .controls label {
     display: flex;
     justify-content: space-between;
-    margin: 2px 0;
-    font-size: 0.85em;
+    margin: 3px 0;
+    font-size: 0.9em;
   }
   .controls input {
-    width: 40px;
+    width: 50px;
     text-align: right;
   }
   #grid {
     display: grid;
-    grid-template-columns: 14% repeat(5, 1fr);
+    grid-template-columns: 12% repeat(5, 1fr);
     gap: 2px;
     justify-items: center;
     width: 100%;
@@ -54,11 +50,11 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    border-radius: 5px;
+    border-radius: 6px;
     color: white;
     width: 100%;
     aspect-ratio: 1/1;
-    font-size: 3.5vw;
+    font-size: 4vw;
     user-select: none;
   }
   .label {
@@ -66,7 +62,7 @@
     align-items: center;
     justify-content: center;
     font-weight: bold;
-    font-size: 2.5vw;
+    font-size: 3vw;
     color: #ddd;
     width: 100%;
     aspect-ratio: 1/1;
@@ -75,10 +71,10 @@
     background-color: #444;
     color: white;
     border: none;
-    padding: 6px 10px;
-    font-size: 0.95em;
-    margin-top: 4px;
-    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 1em;
+    margin-top: 6px;
+    border-radius: 6px;
     cursor: pointer;
   }
   button:hover {
@@ -101,12 +97,13 @@
   <label>💣 Explosive: <input type="number" id="explosive" value="1" step="0.1"></label>
   <label>🧱 Cover: <input type="number" id="cover" value="1" step="0.1"></label>
   <label>🪨 Ruins: <input type="number" id="ruins" value="1" step="0.1"></label>
-  <label>❌ Impassable: <input type="number" id="impassable" value="1" step="0.1"></label>
+  <label>❌ Impassible: <input type="number" id="impassible" value="1" step="0.1"></label>
   <label>⭐ Special: <input type="number" id="special" value="1" step="0.1"></label>
   <label>⬛ Blank: <input type="number" id="blank" value="1" step="0.1"></label>
-  <button onclick="generateGrid()">Generate Grid</button>
+  <button id="generate" onclick="generateGrid()">Generate Grid</button>
 </div>
 
+<h3 id="zone-display" style="text-align:center; margin-bottom: 8px;">Zone: —</h3>
 <div id="grid"></div>
 
 <script>
@@ -114,7 +111,7 @@
     { name: "Explosive", symbol: "💣", color: "#e25822" },
     { name: "Cover", symbol: "🧱", color: "#888888" },
     { name: "Ruins", symbol: "🪨", color: "#6b4f3a" },
-    { name: "Impassable", symbol: "❌", color: "#4a148c" },
+    { name: "Impassible", symbol: "❌", color: "#4a148c" },
     { name: "Special", symbol: "⭐", color: "#e6c200" },
     { name: "Blank", symbol: "", color: "#2b2b2b" }
   ];
@@ -127,7 +124,7 @@
       parseFloat(document.getElementById("explosive").value),
       parseFloat(document.getElementById("cover").value),
       parseFloat(document.getElementById("ruins").value),
-      parseFloat(document.getElementById("impassable").value),
+      parseFloat(document.getElementById("impassible").value),
       parseFloat(document.getElementById("special").value),
       parseFloat(document.getElementById("blank").value)
     ];
@@ -181,6 +178,66 @@
   }
 
   generateGrid();
+  // === Zone Table Data ===
+const zoneTable = {
+  11: "Office: Contains 2 Vending machines with 1d6 Nuka Cola / Sunset Sarsaparilla for 10c each. Autojacker to open.",
+  12: "Department Store: Scavenged stackables give +1 yield. Use Flashlight to add +2 to scavenge roll.",
+  13: "Bunker: Scavenged items have +1 durability. Use Breatherator to add +2 to scavenge roll.",
+  14: "Graveyard: -1 enemy. Use Hammerator to add +2 to scavenge roll.",
+  15: "Condominium: Refresh all skill/luck/resist when sleeping here.",
+  16: "Factory: Contains a random tech, or fully repairs the same tech if you already have it.",
+
+  21: "Museum: Contains 1 artifact. Use Hackerator for heavy relic worth 1d6×100c.",
+  22: "Prison: +1 enemy. Contains a random military equipment item.",
+  23: "Park: Contains a random potted plant. Plants grown here give +100% yield if left for one level.",
+  24: "Railyard: Contains 1d3 flares (10c). Flares reduce enemies by 1 in Ruins.",
+  25: "Library: Order a random recipe that arrives on level up. Use Hackerator to order another.",
+  26: "Warehouse: Ship your items to any hex; they arrive on level up.",
+
+  31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. Crit = 120c jackpot, 1 = break.",
+  32: "Laundromat: Spend 50c to reroll armor values.",
+  33: "Workshop: Has a workbench; repairing items costs 1 less scrap.",
+  34: "Missile Silo: Spend 10 tech scrap to fire a missile at any hex (30 explosive damage).",
+  35: "Armory: Spend 10 gun scrap to upgrade a weapon with +1 damage.",
+  36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
+
+  41: "Military Base: Scavenging weapons/armor here gives +1 to rolls.",
+  42: "Farm: Contains brahmin. CHA 1d6 milk (-1 thirst, -1 rad, 20c) or AGI 1d6 flesh (-1 hunger, +20% HP, 20c). Crit: 3× yield.",
+  43: "Quarry: Use explosives to excavate gemstones worth 1d6×50c (bulky).",
+  44: "Crash Site: Contains a mutator that transforms a weapon into its mutated form.",
+  45: "Campsite: Can scavenge for 1d3 flares. Crit: find 2×.",
+  46: "Foundry: Spend 10 armor scrap to add +1 to all defense values of an armor.",
+
+  51: "Interchange: Generates any faction’s settlement 3 hexes away.",
+  52: "Laboratory: Generates a Ruins from 5 choices 3 hexes away.",
+  53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway.",
+  54: "Resort: Generates adjacent irradiated lake island (+3 to scavenging).",
+  55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
+  56: "Stadium: Contains a wandering duelist that will 1v1 for a random loot prize.",
+
+  61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
+  62: "Restaurant: Can order food (1d6+10 rations) that arrives on level up.",
+  63: "Hotel: Sleeping here grants 'Well Rested'.",
+  64: "Junkyard: Has a workbench. Scrapping gives +1 scrap.",
+  65: "Supermarket: Scavenging food/water gives +1 to rolls and yield.",
+  66: "Church: No battle. Friendly merchant with 2 bodyguards trades and has random + crit loot."
+};
+
+// === Zone Generator Function ===
+function generateZone() {
+  const d1 = Math.floor(Math.random() * 6) + 1;
+  const d2 = Math.floor(Math.random() * 6) + 1;
+  const roll = d1 * 10 + d2;
+  const zone = zoneTable[roll] || "Unknown Zone";
+  document.getElementById("zone-display").textContent = `${zone}`;
+}
+
+// Modify your existing “Generate Map” button click logic to also call this:
+document.getElementById("generate").addEventListener("click", () => {
+  generateGrid();
+  generateZone();
+});
+
 </script>
 
 </body>
