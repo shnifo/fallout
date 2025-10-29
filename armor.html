@@ -95,11 +95,39 @@ button:hover { background:#2a6ce2; }
   font-size:.95rem;
 }
 
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+
+.filter-box {
+  flex: 1;
+}
+
+.filter-box label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.filter-box select {
+  width: 100%;
+  padding: 4px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #222;
+  color: #fff;
+}
+
+
 </style>
 </head>
 <body>
 
-<h1>🎲 Integer Distributor</h1>
+<h2>🎲 Armor Distributor</h2>
 <div class="container">
   <input type="number" id="inputValue" min="0" value="10" placeholder="Enter integer">
 
@@ -127,10 +155,19 @@ button:hover { background:#2a6ce2; }
     </div>
   </div>
 </div>
+<div class="container">
+<input type="number" id="partyLevel" min="1" value="5" placeholder="Party Level">
+<h2>🛡️ Armor Generator</h2>
+<div id="armorTitle"  style="font-size: 18px; text-align: center; margin-bottom: 10px;">No armor generated yet</div>
+<button id="generateArmorBtn" onclick="generateArmor()">Generate Armor</button>
+
+</div>
 
 <h2>⚔️ Weapon Generator</h2>
 <div class="container">
-  <input type="number" id="partyLevel" min="1" value="5" placeholder="Party Level">
+  
+  <div class="filter-row">
+  <div class="filter-box">
   <select id="damageFilter">
     <option value="all">All Damage Types</option>
     <option value="P">Physical (P)</option>
@@ -138,14 +175,21 @@ button:hover { background:#2a6ce2; }
     <option value="X">Explosive (X)</option>
     <option value="R">Rad (R)</option>
   </select>
+  </div>
+   <div class="filter-box">
   <select id="typeFilter">
     <option value="all">All Weapon Types</option>
     <option value="melee">Melee</option>
     <option value="range">Ranged</option>
   </select>
-  <button onclick="generateWeapon()">Generate Weapon</button>
-  <div id="weaponResult" class="weapon-output small"></div>
+  
 </div>
+
+</div>
+<button onclick="generateWeapon()">Generate Weapon</button>
+  <div id="weaponResult" class="weapon-output small"></div>
+</div>  
+  
 <h2>⚠️ Complication Generator</h2>
 <div class="container">
   
@@ -191,6 +235,71 @@ function distribute(){
 
 /* initialize on load */
 window.addEventListener('load', distribute);
+
+// ===== ARMOR GENERATOR =====
+const armorTable = [
+  { roll: 2, name: "Junk armor", def: 9, cost: 80 },
+  { roll: 3, name: "Raider armor", def: 10, cost: 90 },
+  { roll: 4, name: "Leather armor", def: 11, cost: 100 },
+  { roll: 5, name: "Chain armor", def: 12, cost: 110 },
+  { roll: 6, name: "Metal armor", def: 13, cost: 120 },
+  { roll: 7, name: "Synth armor", def: 14, cost: 130 },
+  { roll: 8, name: "Mutant armor", def: 16, cost: 140 },
+  { roll: 9, name: "Rugged armor", def: 18, cost: 150 },
+  { roll: 10, name: "Combat armor", def: 20, cost: 160 },
+  { roll: 11, name: "Infantry armor", def: 22, cost: 170 },
+  { roll: 12, name: "Assault armor", def: 24, cost: 180 },
+  { roll: 13, name: "Ranger armor", def: 26, cost: 190 },
+  { roll: 14, name: "Salvaged Power armor", def: 28, cost: 200, heavy: true },
+  { roll: 15, name: "Power armor", def: 30, cost: 210, heavy: true },
+  { roll: 16, name: "Advanced Power armor", def: 32, cost: 220, heavy: true }
+];
+
+// helper for single die roll
+function rollDie(sides){ return Math.floor(Math.random() * sides) + 1; }
+
+// ===== Replace your previous generateArmor() with this version =====
+function generateArmor() {
+  const level = parseInt(document.getElementById("partyLevel").value) || 0;
+  const roll = Math.min(16, rollDie(6) + level);
+
+  // clone the matched armor object so we don't mutate the table entry
+  const baseArmor = armorTable.find(a => a.roll === roll) || armorTable[0];
+  const armor = Object.assign({}, baseArmor);
+
+  // Determine heavy chance using a d6: heavy on 1 or 2 => exact 1/3 probability
+  if (!armor.heavy) {
+    const heavyRoll = rollDie(6);
+    const becomesHeavy = (heavyRoll <= 2); // 1 or 2 on a d6 -> 2/6 = 1/3
+    if (becomesHeavy) {
+      armor.heavy = true;
+      armor.def = (armor.def || 0) + 4; // add +4 DEF exactly once
+    }
+  }
+
+  // Update armor display (bold red "Heavy" if heavy)
+  const armorTitle = document.getElementById("armorTitle");
+  const heavyText = armor.heavy ? "<span style='color:red; font-weight:bold;'>(H)</span> " : "";
+  armorTitle.innerHTML = `${heavyText}${armor.name} — +${armor.def} DEF (${armor.cost}c)`;
+
+  // Distribute armor.def across 4 categories and update bars
+  const values = distributeEvenly(armor.def, 4);
+  updateBars(values);
+}
+
+
+function rollDice(num, sides) {
+  let total = 0;
+  for (let i = 0; i < num; i++) total += Math.floor(Math.random() * sides) + 1;
+  return total;
+}
+
+function distributeEvenly(total, bars) {
+  const base = Math.floor(total / bars);
+  const remainder = total % bars;
+  return Array.from({ length: bars }, (_, i) => base + (i < remainder ? 1 : 0));
+}
+
 
 /* ---------- Weapon data & generator (unchanged logic) ---------- */
 /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */
@@ -299,19 +408,18 @@ function generateWeapon(){
       break;
     }
   }
-
+  // 🎯 Heavy mechanic (1/3 chance)
+  let isHeavy = Math.random() < 1 / 3; // 1/3 chance
+   
   if(!chosen){
     out.innerHTML = `<span>No weapon matches your filters.</span>`;
     return;
   }
 
   out.innerHTML = `<span>${chosen[1]}</span>
-                   <div>Damage: ${chosen[2]}</div>
-                   <div>Ammo: ${chosen[3]}</div>
-                   <div>Range: ${chosen[4]}</div>
-                   <div>Stat: ${chosen[5]}</div>
-                   <div>Value: ${chosen[6]}</div>
-                   <div class="small">(Category ${category}, roll ${tierRoll})</div>`;
+                   <div>Damage: ${chosen[2]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ammo: ${chosen[3]}</div>
+                   <div>Range: ${chosen[4]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stat: ${chosen[5]}</div>
+				<div>Value:${chosen[6]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${isHeavy ? "<span style='color:red; font-weight:bold;'>Heavy</span> " : ""}</div>`;
 }
 // ===== COMPLICATION GENERATOR =====
 const complications = [
