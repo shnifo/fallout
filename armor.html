@@ -127,8 +127,9 @@ button:hover { background:#2a6ce2; }
 </head>
 <body>
 
-<h2>🎲 Armor Distributor</h2>
+
 <div class="container">
+<h2>🎲 Armor Distributor</h2>
   <input type="number" id="inputValue" min="0" value="10" placeholder="Enter integer">
 
   <!-- Hidden evenness slider (kept so JS can reference it; value remains 0.5 by default) -->
@@ -156,36 +157,36 @@ button:hover { background:#2a6ce2; }
   </div>
 </div>
 <div class="container">
+<h2>🎚️ Party Level</h2>
 <input type="number" id="partyLevel" min="1" value="5" placeholder="Party Level">
 <h2>🛡️ Armor Generator</h2>
 <div id="armorTitle"  style="font-size: 18px; text-align: center; margin-bottom: 10px;">No armor generated yet</div>
 <button id="generateArmorBtn" onclick="generateArmor()">Generate Armor</button>
 
-</div>
+
 
 <h2>⚔️ Weapon Generator</h2>
-<div class="container">
-  
-  <div class="filter-row">
-  <div class="filter-box">
-  <select id="damageFilter">
-    <option value="all">All Damage Types</option>
-    <option value="P">Physical (P)</option>
-    <option value="E">Energy (E)</option>
-    <option value="X">Explosive (X)</option>
-    <option value="R">Rad (R)</option>
-  </select>
-  </div>
-   <div class="filter-box">
-  <select id="typeFilter">
-    <option value="all">All Weapon Types</option>
-    <option value="melee">Melee</option>
-    <option value="range">Ranged</option>
-  </select>
-  
-</div>
 
-</div>
+  <div class="filter-row">
+	  <div class="filter-box">
+	  <select id="damageFilter">
+		<option value="all">All Damage Types</option>
+		<option value="P">Physical (P)</option>
+		<option value="E">Energy (E)</option>
+		<option value="X">Explosive (X)</option>
+		<option value="R">Rad (R)</option>
+	  </select>
+	  </div>
+	   <div class="filter-box">
+	  <select id="typeFilter">
+		<option value="all">All Weapon Types</option>
+		<option value="melee">Melee</option>
+		<option value="range">Ranged</option>
+	  </select>
+	  
+		</div>
+
+	</div>
 <button onclick="generateWeapon()">Generate Weapon</button>
   <div id="weaponResult" class="weapon-output small"></div>
 </div>  
@@ -416,10 +417,9 @@ function generateWeapon(){
     return;
   }
 
-  out.innerHTML = `<span>${chosen[1]}</span>
-                   <div>Damage: ${chosen[2]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ammo: ${chosen[3]}</div>
-                   <div>Range: ${chosen[4]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stat: ${chosen[5]}</div>
-				<div>Value:${chosen[6]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${isHeavy ? "<span style='color:red; font-weight:bold;'>Heavy</span> " : ""}</div>`;
+  out.innerHTML = `<span Style="font-size: 18px;">${isHeavy ? "<span style='color:red; font-weight:bold;'>(H)</span> " : ""}${chosen[1]}</span>
+                   <div Style="font-size: 18px;">Damage: ${chosen[2]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ammo: ${chosen[3]}</div>
+                   <div Style="font-size: 18px;">Range: ${chosen[4]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stat: ${chosen[5]}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Value:${chosen[6]}</div>`;
 }
 // ===== COMPLICATION GENERATOR =====
 const complications = [
