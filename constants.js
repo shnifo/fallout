@@ -828,7 +828,7 @@ export const lootTable = [
             "Backpack: Can store up to 3 other bulky items in this slot",
             "Helmet: +10 max HP",
             "Binoculars: learn weapon+armor of 1 enemy before initiative",
-            "Sleeping Bag: +10% HP when sleeping in ruins",
+            "Exosuit: +1 heavy limit",
             "Boots: gain 1 shield when rolling initiative",
             "Gloves: Take an additional action after your first action in initiative"
         ],
@@ -841,7 +841,7 @@ export const lootTable = [
             "Backpack: Can store up to 3 other bulky items in this slot",
             "Helmet: +10 max HP",
             "Binoculars: learn weapon+armor of 1 enemy before initiative",
-            "Sleeping Bag: +10% HP when sleeping in ruins",
+            "Exosuit: +1 heavy limit",
             "Boots: gain 1 shield when rolling initiative",
             "Gloves: Take an additional action after your first action in initiative"
         ],
