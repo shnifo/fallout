@@ -831,7 +831,7 @@ export const lootTable = [
             "Helmet: +10 max HP",
             "Binoculars: learn weapon+armor of 1 enemy before initiative",
             "Exosuit: +1 heavy limit",
-            "Boots: gain 1 shield when rolling initiative",
+            "Boots: Avoid the first attack against you after rolling initiative",
             "Gloves: Take an additional action after your first action in initiative"
         ],
         artifact: false
@@ -844,7 +844,7 @@ export const lootTable = [
             "Helmet: +10 max HP",
             "Binoculars: learn weapon+armor of 1 enemy before initiative",
             "Exosuit: +1 heavy limit",
-            "Boots: gain 1 shield when rolling initiative",
+            "Boots: Avoid the first attack against you after rolling initiative",
             "Gloves: Take an additional action after your first action in initiative"
         ],
         artifact: false
