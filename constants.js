@@ -727,7 +727,7 @@ export const bonusRoomData = [
         ]
     },
     {
-        req: "Use autojacker)", actions: [
+        req: "Use autojacker", actions: [
             "Lifting a Collapsed Beam",
             "Raising a Heavy Vehicle",
             "Removing large rocks",
