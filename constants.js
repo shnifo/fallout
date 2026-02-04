@@ -260,10 +260,10 @@ export const monsterData = {
     },
     E2: {
         label: "Beasts", notes: "on death: allies can immediately attack. Loot: animal flesh (-1 hunger, dirty)", subs: [
-            { name: "Bloatfly", hp: 6, notes: "6 R mid" },
+            { name: "Maggot", hp: 6, notes: "6 R mid" }, //giant maggots that spit out toxic waste
             { name: "Wild Dog", hp: 10, notes: "7 P melee + poison, grapples on 6" },
             { name: "Radstag", hp: 14, notes: " 8 P melee, shove on 6, +1 spd, +2 dmg if moved 2 distance" },
-            { name: "Yao Guai", hp: 18, notes: "2x9 P melee, grapple on 6" },
+            { name: "Demon Bear", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bears with giant curved horns and long whip tail
             { name: "Deathclaw", hp: 22, notes: "2x10 P melee + bleed, +1 spd" },
             { name: "Radragon", hp: 26, notes: "11 X+R splash + poison + burn, short, hovers, -1 mob" }
         ]
@@ -290,26 +290,26 @@ export const monsterData = {
     },
     E5: {
         label: "Robots", notes: "2x HP, 1/6 ignore armor per cripple, -1 mob. Loot: armor scraps", subs: [
-            { name: "Protectron", hp: 7, notes: "9 E+ melee" },
-            { name: "Cyberdog", hp: 11, notes: "10 P melee, +1 spd" },
-            { name: "Robobrain", hp: 15, notes: "11 E + freeze, short" },
-            { name: "Securitron", hp: 19, notes: "12 X splash, long" },
-            { name: "Sentry Bot", hp: 23, notes: "2x10 P+E mid" },
-            { name: "Assaultron", hp: 27, notes: "15 E+R melee, recharge 1, +1 spd" }
+            { name: "Protectron", hp: 8, notes: "9 E+ melee" },
+            { name: "Cyberdog", hp: 12, notes: "10 P melee, +1 spd" },
+            { name: "Robobrain", hp: 16, notes: "11 E + freeze, short" },
+            { name: "Securitron", hp: 20, notes: "12 X splash, long" },
+            { name: "Sentry Bot", hp: 24, notes: "2x10 P+E mid" },
+            { name: "Assaultron", hp: 28, notes: "15 E+R melee, recharge 1, +1 spd" }
         ]
     },
     E6: {
-        label: "Synths", notes: "terrain 4-5: hidden pulse mines. Loot: tech scrap", subs: [
+        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: tech scrap", subs: [
             { name: "Sentry", hp: 6, notes: "scaled energy weapons + 11E mines" },
             { name: "Patroller", hp: 10, notes: "scaled energy weapons + 12E mines" },
             { name: "Trooper", hp: 14, notes: "scaled energy weapons + 13E mines" },
             { name: "Eradicator", hp: 18, notes: "scaled energy weapons +14E mines" },
             { name: "Assassin", hp: 22, notes: "scaled energy weapons +15E mines" },
-            { name: "Courser", hp: 26, notes: "scaled energy weapons +16E mines" }
+            { name: "Terminator", hp: 26, notes: "scaled energy weapons +16E mines" }
         ]
     },
     O1: {
-        label: "Cultist", notes: "1 also has random artifact. uses mutated weapons (damage converted to radiation) Loot: broken weapons/artifacts, human flesh", subs: [
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons (damage converted to radiation) Loot: broken weapons/artifacts, human flesh", subs: [
             { name: "Initiate", hp: 6, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 10, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, notes: "scaled mutated weapons" },
@@ -320,12 +320,12 @@ export const monsterData = {
     },
     O2: {
         label: "Drones", notes: "ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [
-            { name: "Eyebot", hp: 4, notes: "2x5 E, mid" },
-            { name: "Mr. Handy", hp: 8, notes: "2x6 P, mid" },
-            { name: "Battle Drone", hp: 12, notes: "3x7 X, short" },
-            { name: "Mr. Gutsy", hp: 16, notes: "10 X splash, mid" },
-            { name: "Think Tank", hp: 20, notes: "2x9 E + freeze, mid" },
-            { name: "UFO", hp: 24, notes: "12 R splash+burn, long" }
+            { name: "Observer", hp: 4, notes: "2x5 E, mid" },
+            { name: "Assimilator", hp: 8, notes: "2x6 P, mid" },
+            { name: "Excavator", hp: 12, notes: "3x7 X, short" },
+            { name: "Siegebreaker", hp: 16, notes: "10 X splash, mid" },
+            { name: "Suppressor", hp: 20, notes: "2x9 E + freeze, mid" },
+            { name: "Invader", hp: 24, notes: "12 R splash+burn, long" }
         ]
     },
     O3: {
@@ -341,31 +341,31 @@ export const monsterData = {
     O4: {
         label: "Aberrations", notes: "immune rad, special: rad pools, on death: creates rad pool, Loot: mutant flesh", subs: [
             { name: "Mutant Plant", hp: 5, notes: "7 P melee, immobile" },
-            { name: "Centaur", hp: 9, notes: "8 R, short" },
-            { name: "Floater", hp: 13, notes: "9 R, melee+freeze, hover, +1 spd" },
-            { name: "Putrid Bloat", hp: 17, notes: "10 P melee, explodes 12R splash on death" },
-            { name: "Wanamingo", hp: 21, notes: "9 P+R+psn melee, +1 spd" },
-            { name: "Cybermutant", hp: 26, notes: "12 E + random ailment, very long" }
+            { name: "Crawler", hp: 9, notes: "8 R, short" }, //giant centipede made out of human limbs
+            { name: "Floater", hp: 13, notes: "9 R, melee+freeze, hover, +1 spd" }, //giant hummingbird with a toothy elephant snout
+            { name: "Bloat", hp: 17, notes: "10 P melee, explodes 15X splash on death" }, //human without arms and upper body a mass of explosive flesh
+            { name: "Widow", hp: 21, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 26, notes: "12 E + burn, very long" }
         ]
     },
     O5: {
         label: "Super Mutants", notes: "immune rad, special: rad pools, 1 suicider. Loot: broken weapons, mutant flesh", subs: [
-            { name: "Skirmisher", hp: 7, notes: "scaled heavy guns, 15 X splash melee suicider" },
-            { name: "Brute", hp: 11, notes: "scaled heavy guns, 16 X splash melee suicider" },
-            { name: "Enforcer", hp: 15,  notes: "scaled heavy guns, 17 X splash melee suicider" },
-            { name: "Leader", hp: 19, notes: "scaled heavy guns, 18 X splash melee suicider" },
-            { name: "Overlord", hp: 23, notes: "scaled heavy guns, 19 X splash melee suicider" },
-            { name: "Mastermind", hp: 27, notes: "scaled heavy guns, 20 X splash melee suicider" }
+            { name: "Skirmisher", hp: 8, notes: "scaled heavy guns, 15 X splash melee suicider" },
+            { name: "Brute", hp: 12, notes: "scaled heavy guns, 16 X splash melee suicider" },
+            { name: "Enforcer", hp: 16,  notes: "scaled heavy guns, 17 X splash melee suicider" },
+            { name: "Leader", hp: 20, notes: "scaled heavy guns, 18 X splash melee suicider" },
+            { name: "Overlord", hp: 24, notes: "scaled heavy guns, 19 X splash melee suicider" },
+            { name: "Mastermind", hp: 28, notes: "scaled heavy guns, 20 X splash melee suicider" }
         ]
     },
     O6: {
-        label: "Nightkin", notes: "immune rad, special: hidden bear traps, half stealthed, Shove on 6, Loot:broken weapons, mutant flesh", subs: [
-            { name: "Rogue", hp: 7, notes: "scaled heavy melee" },
-            { name: "Scoundrel", hp: 11, notes: "scaled heavy melee" },
-            { name: "Brigand", hp: 15, notes: "scaled heavy melee" },
-            { name: "Saboteur", hp: 19, notes: "scaled heavy melee" },
-            { name: "Ninja", hp: 23, notes: "scaled heavy melee" },
-            { name: "Assassin", hp: 27, notes: "scaled heavy melee" }
+        label: "Revenants", notes: "immune rad, special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly humans that can sneak
+            { name: "Ghost", hp: 8, notes: "scaled heavy melee" },
+            { name: "Spirit", hp: 12, notes: "scaled heavy melee" },
+            { name: "Phantom", hp: 16, notes: "scaled heavy melee" },
+            { name: "Spectre", hp: 20, notes: "scaled heavy melee" },
+            { name: "Wraith", hp: 24, notes: "scaled heavy melee" },
+            { name: "Lich", hp: 28, notes: "scaled heavy melee" }
         ]
     }
 };
