@@ -7,14 +7,14 @@ export const armorTable = [
     { roll: 4, text: "Leather armor: +11 def, 80c" },
     { roll: 5, text: "Chain armor: +12 def, 90c" },
     { roll: 6, text: "Metal armor: +13 def, 100c" },
-    { roll: 7, text: "Synth armor: +14 def, 110c" },
-    { roll: 8, text: "Mutant armor: +15 def, 120c" },
-    { roll: 9, text: "Rugged armor: +16 def, 130c" },
+    { roll: 7, text: "Plate armor: +14 def, 110c" },
+    { roll: 8, text: "Ranger armor: +15 def, 120c" },
+    { roll: 9, text: "Kinetic armor: +16 def, 130c" },
     { roll: 10, text: "Combat armor: +18 def, 140c" },
     { roll: 11, text: "Infantry armor: +20 def, 150c" },
     { roll: 12, text: "Assault armor: +22 def, 160c" },
-    { roll: 13, text: "Ranger armor: +24 def, 170c" },
-    { roll: 14, text: "Interceptor armor: +26 def, 180c" },
+    { roll: 13, text: "Mutant armor: +24 def, 170c" },
+    { roll: 14, text: "Kinetic armor: +26 def, 180c" },
     { roll: 15, text: "Dragon armor: +28 def, +190c" },
     { roll: 16, text: "Pinnacle armor: +30 def, 200c" }
 ];
@@ -61,13 +61,13 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [8, "Nade Launcher", "11 X splash", "fuel", "long", "AGI", "110c"],
         [10, "Nade Cannon", "12 X splash", "fuel", "long", "AGI", "140c"],
         [12, "Missile Launcher", "13 X splash", "fuel", "long", "AGI", "170c"],
-        [14, "Fat Man", "14 X splash", "fuel", "long", "AGI", "200c"],
+        [14, "Great Bombard", "14 X splash", "fuel", "long", "AGI", "200c"],
         [99, "Judgement", "15 X splash", "fuel", "long", "AGI", "230c"]],
-        O2: [[6, "Flamer", "9 X splash+burn", "fuel", "mid", "AGI", "70c"],
+        O2: [[6, "Flameethrower", "9 X splash+burn", "fuel", "mid", "AGI", "70c"],
         [8, "Napalmer", "10 X splash+burn", "fuel", "mid", "AGI", "100c"],
         [10, "Incinerator", "11 X splash+burn", "fuel", "mid", "AGI", "130c"],
         [12, "Liquifier", "12 X splash+burn", "fuel", "mid", "AGI", "160c"],
-        [14, "Hellfire Incinerator", "13 X splash+burn", "fuel", "mid", "AGI", "190c"],
+        [14, "Hellfire", "13 X splash+burn", "fuel", "mid", "AGI", "190c"],
         [99, "Pyroclasm", "14 X splash+burn", "fuel", "short", "AGI", "220c"]],
         O3: [[6, "Weak Melee", "6 P", "-", "melee", "STR", "30c"],
         [8, "Medium Melee", "7 P", "-", "melee", "STR", "50c"],
@@ -105,10 +105,10 @@ export const ammoTable = [
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
-    { max: 8, name: "Bottlecap Grenade", dmg: "12 X splash", cost: "20c" },
+    { max: 8, name: "Chemical Grenade", dmg: "12 X splash", cost: "20c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
-    { max: 14, name: "Nuka Grenade", dmg: "15 X splash", cost: "35c" },
+    { max: 14, name: "Hydrogen Grenade", dmg: "15 X splash", cost: "35c" },
     { max: Infinity, name: "Mini Nuke", dmg: "16 X splash", cost: "40c" }
 ];
 
