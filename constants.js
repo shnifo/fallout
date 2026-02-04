@@ -271,7 +271,7 @@ export const monsterData = {
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [
             { name: "Gecko", hp: 5, notes: "6 P + bleed, +1 speed, melee" },
-            { name: "Mirelurk", hp: 9, notes: "7 P melee, 2x armor, aim head ignores armor" },
+            { name: "Mirelurk", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" },
             { name: "Fire Gecko", hp: 13, notes: "8 X + burn, short" },
             { name: "Lakelurk", hp: 17, notes: "9 E + freeze, mid" },
             { name: "Cazadores", hp: 21, notes: "10 P melee + poison+2, hover, +1 spd" },
