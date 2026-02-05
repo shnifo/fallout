@@ -38,7 +38,7 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [10, "Hunting Rifle", "9 P", "large rounds", "long", "AGI", "90c"],
         [12, "Combat Rifle", "10 P", "large rounds", "long", "AGI", "110c"],
         [14, "Assault Rifle", "11 P", "large rounds", "long", "AGI", "130c"],
-        [99, "Antimatter Rifle", "12 P", "large rounds", "long", "AGI", "150c"]],
+        [99, "Furiosa", "12 P", "large rounds", "long", "AGI", "150c"]],
         E4: [[6, "Laser Rifle", "8 E", "MF-cell", "long", "INT", "60c"],
         [8, "Plasma Rifle", "9 E", "MF-cell", "long", "INT", "80c"],
         [10, "Sonic Rifle", "10 E", "MF-cell", "long", "INT", "100c"],
@@ -54,7 +54,7 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         E6: [[6, "Laser Shotgun", "3x4 E", "E-cell", "short", "INT", "60c"],
         [8, "Plasma Shotgun", "3x5 E", "E-cell", "short", "INT", "70c"],
         [10, "Gauss Shotgun", "3x6 E", "E-cell", "short", "INT", "80c"],
-        [12, "Gatling Laser", "3x7 E", "E-cell", "short", "INT", "90c"],
+        [12, "Pulse Emitter", "3x7 E", "E-cell", "short", "INT", "90c"],
         [14, "Tesla Cannon", "3x8 E", "E-cell", "short", "INT", "100c"],
         [99, "Helios", "3x9 E", "E-cell", "short", "INT", "110c"]],
         O1: [[6, "Hand Mortar", "10 X splash X", "fuel", "long", "AGI", "80c"],
@@ -63,7 +63,7 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [12, "Missile Launcher", "13 X splash", "fuel", "long", "AGI", "170c"],
         [14, "Great Bombard", "14 X splash", "fuel", "long", "AGI", "200c"],
         [99, "Judgement", "15 X splash", "fuel", "long", "AGI", "230c"]],
-        O2: [[6, "Flameethrower", "9 X splash+burn", "fuel", "mid", "AGI", "70c"],
+        O2: [[6, "Flamethrower", "9 X splash+burn", "fuel", "mid", "AGI", "70c"],
         [8, "Napalmer", "10 X splash+burn", "fuel", "mid", "AGI", "100c"],
         [10, "Incinerator", "11 X splash+burn", "fuel", "mid", "AGI", "130c"],
         [12, "Liquifier", "12 X splash+burn", "fuel", "mid", "AGI", "160c"],
@@ -78,7 +78,7 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         O4: [[6, "Brass Knuckles", "2x4 P", "-", "melee", "END", "30c"],
         [8, "Bladed Gauntlet", "2x5 P", "-", "melee", "END", "50c"],
         [10, "Tiger Paw", "2x6 P", "-", "melee", "END", "70c"],
-        [12, "Power Fist", "2x7 P", "-", "melee", "END", "90c"],
+        [12, "Pneumatic Fist", "2x7 P", "-", "melee", "END", "90c"],
         [14, "Demon Claw", "2x8 P", "-", "melee", "END", "110c"],
         [99, "Godhand", "2x9 P", "-", "melee", "END", "130c"]],
         O5: [[6, "Shock Baton", "2x4 E", "-", "melee", "STR", "50c"],
@@ -263,8 +263,8 @@ export const monsterData = {
             { name: "Maggot", hp: 6, notes: "6 R mid" }, //giant maggots that spit out toxic waste
             { name: "Wild Dog", hp: 10, notes: "7 P melee + poison, grapples on 6" },
             { name: "Radstag", hp: 14, notes: " 8 P melee, shove on 6, +1 spd, +2 dmg if moved 2 distance" },
-            { name: "Demon Bear", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bears with giant curved horns and long whip tail
-            { name: "Deathclaw", hp: 22, notes: "2x10 P melee + bleed, +1 spd" },
+            { name: "Demon", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bipedal bears with giant curved horns and long whip tail
+            { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, +1 spd, +2 dmg if moved 2 distance" }, //previously deathclaw, same functionality
             { name: "Radragon", hp: 26, notes: "11 X+R splash + poison + burn, short, hovers, -1 mob" }
         ]
     },
@@ -273,7 +273,7 @@ export const monsterData = {
             { name: "Gecko", hp: 5, notes: "6 P + bleed, +1 speed, melee" },
             { name: "Shellbacks", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 13, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Psion", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Jabba", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Skeeter", hp: 21, notes: "10 P melee + poison, hover, +1 spd" },
             { name: "Terminite", hp: 25, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
@@ -374,19 +374,19 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 
 export const medTable = [
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP" },
+    { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive)" },
-    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive)" },
-    { name: "Addictol", effect: "Removes addictions, +10% HP" }
+    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive)" }, // rename: mutagone? chromocure? geneclean? 
+    { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
 export const chemTable = [
-    { name: "Jet", effect: "Next turn take 2 turns with +1 speed & all rolls (Addictive)" },
-    { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" },
-    { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" },
-    { name: "Mentats", effect: "+1 INT, +1 AGI for 1 day (Addictive)" },
-    { name: "Buffout", effect: "+1 STR, +1 END for 1 day (Addictive)" },
+    { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: fume
+    { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
+    { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
+    { name: "Mentats", effect: "+1 INT, +1 AGI for 1 day (Addictive)" }, // rename: neuro
+    { name: "Buffout", effect: "+1 STR, +1 END for 1 day (Addictive)" }, // rename: crank
     { name: "Beer", effect: "+1 CHA for 1 day, -1 thirst (Addictive)" }
 ];
 
@@ -394,7 +394,7 @@ export const chemTable = [
 
 export const techTable = [
     { name: "Generator", effect: "Provides temporary power for electronics" },
-    { name: "Autojacker", effect: "Portable jack to move heavy objects or jammed doors" },
+    { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
     { name: "Breatherator", effect: "Allows exploration of low oxygen or underwater areas" },
     { name: "Flashlight", effect: "Allows exploration of dark or foggy areas" },
@@ -602,9 +602,9 @@ export const professionQuests = {
 // ===== FACTIONS =====
 export const factions = [
     {
-        name: "Metallion",
+        name: "Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
         tag: "Armor",
-        desc: "Hoard tech and hate the weak and tickers (mutants), meritocracy, hateful"
+        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
     },
     {
         name: "The Institute",
@@ -612,22 +612,22 @@ export const factions = [
         desc: "Trying to rebuild society with science, democracy, weary"
     },
     {
-        name: "Children of Atom",
+        name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
-        desc: "Simple-life Amish, theocracy, friendly"
+        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" 
     },
     {
-        name: "New Country Republic",
+        name: "Republic of New Country", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent.  
         tag: "Weapons",
         desc: "Bureaucratic progressive society, republic, weary"
     },
     {
-        name: "The Solis Empire",
+        name: "Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Chems",
         desc: "Communist monarchy, slavers, hateful"
     },
     {
-        name: "Commonwealth",
+        name: "Commonwealth", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
         tag: "Technology",
         desc: "Small town commune, anarchy, friendly"
     }
@@ -684,7 +684,7 @@ export const armorTypes = [
     ["Physical", "p"],
     ["Energy", "n"],
     ["Explosive", "x"],
-    ["Radiation", "r"]
+    ["Radiation", "r"] 
 ];
 
 export const statAbbrev = {
