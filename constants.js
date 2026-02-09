@@ -2,13 +2,13 @@
 /// ARMOR & WEAPONS ///
 
 export const armorTable = [
-    { roll: 2, text: "Junk armor: +9 def, 60c" },
-    { roll: 3, text: "Raider armor: +10 def, 70c" },
-    { roll: 4, text: "Leather armor: +11 def, 80c" },
-    { roll: 5, text: "Chain armor: +12 def, 90c" },
-    { roll: 6, text: "Metal armor: +13 def, 100c" },
-    { roll: 7, text: "Plate armor: +14 def, 110c" },
-    { roll: 8, text: "Ranger armor: +15 def, 120c" },
+    { roll: 2, text: "Junk armor: +7 def, 60c" },
+    { roll: 3, text: "Raider armor: +8 def, 70c" },
+    { roll: 4, text: "Leather armor: +9 def, 80c" },
+    { roll: 5, text: "Chain armor: +10 def, 90c" },
+    { roll: 6, text: "Metal armor: +11 def, 100c" },
+    { roll: 7, text: "Plate armor: +12 def, 110c" },
+    { roll: 8, text: "Ranger armor: +14 def, 120c" },
     { roll: 9, text: "Kinetic armor: +16 def, 130c" },
     { roll: 10, text: "Combat armor: +18 def, 140c" },
     { roll: 11, text: "Infantry armor: +20 def, 150c" },
