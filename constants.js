@@ -1,7 +1,7 @@
 
 /// ARMOR & WEAPONS ///
-
-export const armorTable = [
+// crit = gain random legendary effect
+export const armorTable = [ 
     { roll: 2, text: "Junk armor: +7 def, 60c" },
     { roll: 3, text: "Raider armor: +8 def, 70c" },
     { roll: 4, text: "Leather armor: +9 def, 80c" },
@@ -19,7 +19,7 @@ export const armorTable = [
     { roll: 16, text: "Pinnacle armor: +30 def, 200c" }
 ];
 
-export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */
+export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */ //crit = gain random legendary effect
     const weapons = {
         E1: [[6, "Pipe Pistol", "5 P", "small rounds", "mid", "AGI", "30c"],
         [8, "Revolver", "6 P", "small rounds", "mid", "AGI", "40c"],
@@ -96,20 +96,20 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
     };
 
 export const ammoTable = [
-    { type: "Small rounds", roll: "1d6+6", cost: 5 },
-    { type: "E-cell", roll: "1d6+4", cost: 10 },
-    { type: "Grenades", roll: "1d6", cost: 0 },
-    { type: "Fuel", roll: "1d6", cost: 20 },
-    { type: "Large rounds", roll: "1d6+4", cost: 10 },
-    { type: "MF-cell", roll: "1d6+2", cost: 15 }
+    { type: "Small rounds", roll: "1d6+6", cost: 5 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
+    { type: "E-cell", roll: "1d6+4", cost: 10 },  // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
+    { type: "Grenades", roll: "1d6", cost: 0 }, // crit = 2x legendary grenades (gain legendary effect)
+    { type: "Fuel", roll: "1d6", cost: 20 }, // crit = 3x yield
+    { type: "Large rounds", roll: "1d6+4", cost: 10 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
+    { type: "MF-cell", roll: "1d6+2", cost: 15 } // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
     { max: 8, name: "Chemical Grenade", dmg: "12 X splash", cost: "20c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
-    { max: 14, name: "Hydrogen Grenade", dmg: "15 X splash", cost: "35c" },
-    { max: Infinity, name: "Fission Grenade", dmg: "16 X splash", cost: "40c" }
+    { max: 14, name: "Fission Grenade", dmg: "15 X splash", cost: "35c" },
+    { max: Infinity, name: "Fusion Grenade", dmg: "16 X splash", cost: "40c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -249,7 +249,7 @@ export const zoneTable = {
 // === Monster Data (unchanged) ===
 export const monsterData = {
     E1: {
-        label: "Raiders", notes: "special: hidden land mines. Loot: broken equipment, mines, human flesh (-1 hunger, unique addictive)", subs: [
+        label: "Raiders", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
             { name: "Scout", hp: 6, notes: "scaled weapons, 11x mines" }, // 1-6
             { name: "Tweaker", hp: 10, notes: "scaled weapons, 12x mines" }, // 7-8
             { name: "Scavenger", hp: 14, notes: "scaled weapons, 13x mines" }, // 9-10
@@ -349,17 +349,17 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "immune rad, special: rad pools, 1 suicider. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become bigger, stronger, and violent
-            { name: "Skirmisher", hp: 8, notes: "scaled heavy guns, 15 X splash melee suicider" },
-            { name: "Brute", hp: 12, notes: "scaled heavy guns, 16 X splash melee suicider" },
-            { name: "Enforcer", hp: 16,  notes: "scaled heavy guns, 17 X splash melee suicider" },
-            { name: "Leader", hp: 20, notes: "scaled heavy guns, 18 X splash melee suicider" },
-            { name: "Overlord", hp: 24, notes: "scaled heavy guns, 19 X splash melee suicider" },
-            { name: "Mastermind", hp: 28, notes: "scaled heavy guns, 20 X splash melee suicider" }
+        label: "Mutants", notes: "immune rad, special: rad pools, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become bigger, stronger, and violent
+            { name: "Skirmisher", hp: 8, notes: "scaled heavy guns, 12 R grenades" },
+            { name: "Brute", hp: 12, notes: "scaled heavy guns, 13 R grenades" },
+            { name: "Enforcer", hp: 16,  notes: "scaled heavy guns, 14 R grenades" },
+            { name: "Leader", hp: 20, notes: "scaled heavy guns, 15 R grenades" },
+            { name: "Overlord", hp: 24, notes: "scaled heavy guns, 16 R grenades" },
+            { name: "Mastermind", hp: 28, notes: "scaled heavy guns, 17 R grenades" }
         ]
     },
     O6: {
-        label: "Revenants", notes: "immune rad, special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly humans that can sneak
+        label: "Revenants", notes: "immune rad, hover, special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
             { name: "Ghost", hp: 8, notes: "scaled heavy melee" },
             { name: "Spirit", hp: 12, notes: "scaled heavy melee" },
             { name: "Phantom", hp: 16, notes: "scaled heavy melee" },
@@ -371,8 +371,10 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-
-export const medTable = [
+//crit scrap = omniscrap: can be used as any scrap
+//crit water = spunky: -1 thirst, -1 fatigue, +10% HP, OR kaboomcha: -1 thirst, -1 rads, +10% HP
+//crit food = MRE: -2 hunger, +10% HP, OR melon: -1 hunger, -1 thirst, +10% HP
+export const medTable = [ //crit = biogel: -2 injury, -2 rads, +20% HP
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
@@ -381,7 +383,7 @@ export const medTable = [
     { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
-export const chemTable = [
+export const chemTable = [ //crit = cigar: treat any roll result as a 6
     { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: fume
     { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
     { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
@@ -392,7 +394,7 @@ export const chemTable = [
 
 
 
-export const techTable = [
+export const techTable = [ //crit = implant: applies effect of random perk which is rolled when implant is generated
     { name: "Generator", effect: "Provides temporary power for electronics" },
     { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
