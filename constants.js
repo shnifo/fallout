@@ -109,7 +109,7 @@ export const grenadeTable = [
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
     { max: 14, name: "Hydrogen Grenade", dmg: "15 X splash", cost: "35c" },
-    { max: Infinity, name: "Mini Nuke", dmg: "16 X splash", cost: "40c" }
+    { max: Infinity, name: "Fission Grenade", dmg: "16 X splash", cost: "40c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -165,13 +165,13 @@ export const perkData = {
         { name: "Substance Enthusiast", desc: "Chems last twice as long and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
-        { name: "Idiot Savant", desc: "You can treat two rolled 1s as a 6." },
+        { name: "Idiot Savant", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants have double yield if held for the whole level." },
         { name: "Side Hustle", desc: "Gain an additional background." },
-        { name: "Test Subject", desc: "Artifacts can convert durability to or from your HP at a 1:10 ratio." },
+        { name: "Mastermind", desc: "Gain a stratagem that can be used twice per level as skill, luck or resist." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Chosen One", desc: "You always understand alien devices and can modify the parameters once each." },
+        { name: "Chosen One", desc: "Artifacts can convert durability to HP and you can modify alien device parameters once each." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -180,13 +180,13 @@ export const perkData = {
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to any player rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist always rolls at least 2 dice and can be used on other players." },
-        { name: "Good Karma", desc: "Tag an additional stat. Critical fails now count as regular fails." },
+        { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Bloody Mess", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide free crit loot from their faction shop." },
         { name: "Cyberpunk", desc: "You can have +2 maximum implants and heal +10% HP when you use a technology." },
         { name: "Art of the Deal", desc: "Haggling is twice as effective." },
-        { name: "Oh Baby a Triple", desc: "You can treat any rolled triples as a 6." },
+        { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don’t Look at Explosions", desc: "Gain +5 explosive armor." }
     ]
 };
@@ -782,15 +782,15 @@ export const bonusRoomData = [
 export const lootTable = [
     // 1-2: ALIEN TECH + ARTIFACT
     {
-        type: "ALIEN TECH + ARTIFACT",
-        desc: "Alien device that transforms items. Roll 2d6 for categories, INT save to know transformation outcome. Accepts up to 10 stackables of any item from category. Bulky <-> stackable converts at 3 / D. Converted items are based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using tech.",
+        type: "ALIEN DEVICE + ARTIFACT",
+        desc: "Alien device that transforms items. Roll 2d6 for categories. Accepts up to 10 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
         categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
         artifact: true
     },
     // Duplicate for 2 (same weight)
     {
-        type: "ALIEN TECH + ARTIFACT",
-        desc: "Alien device that transforms items. Roll 2d6 for categories, INT save to know transformation outcome. Accepts up to 10 stackables of any item from category. Bulky <-> stackable converts at 3 / D. Converted items are based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using tech.",
+        type: "ALIEN DEVICE + ARTIFACT",
+        desc: "Alien device that transforms items. Roll 2d6 for categories. Accepts up to 10 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",        
         categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
         artifact: true
     },
