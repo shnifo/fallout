@@ -450,7 +450,7 @@ export const complications = [
 
 
 // ===== TOWN DESCRIPTORS =====
-export const townDescriptors = [
+export const townDescriptors = [ 
     { roll: 11, name: "Old Fort", desc: "A pre-war military fort repurposed by settlers for defense and shelter, complete with makeshift barracks and watchtowers." },
     { roll: 12, name: "Western Town", desc: "An abandoned western town brought back to life by settlers who have repaired and occupied its buildings." },
     { roll: 13, name: "Mining Camp", desc: "A community built around an old mine, extracting valuable minerals and using them to trade for other necessities." },
@@ -494,7 +494,7 @@ export const townDescriptors = [
     { roll: 66, name: "Vault", desc: "A vault that allows visitors and trades with outsiders." }
 ];
 // ===== MAIN QUEST TABLE =====
-export const townQuests = [
+export const townQuests = [ //Quest reward = 1d6+level x 10 caps.
     { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning food supplies to ‘thin the weak.’ Expose them, join them, or take their place.` },
     { roll: 12, text: `"Election Day" – An election is being held to decide if they want to continue on their current faction or convert to another after being visited by an envoy.` },
     { roll: 13, text: `Retrieve the Stolen Goods – Thieves from X faction have stolen valuable supplies from the town, and the player must recover them.` },
@@ -538,7 +538,7 @@ export const townQuests = [
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
 // ===== PROFESSION QUESTS =====
-export const professionQuests = {
+export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player has associated background, quest is auto completed without any rolls.
     Technician: [
         "Dead Signal – Restore a dead radio relay using a salvaged comm tower part.",
         "Gun Show – Upgrade a scavenger’s sentimental weapon.",
