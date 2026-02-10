@@ -16,7 +16,7 @@ export const armorTable = [
     { roll: 13, text: "Mutant armor: +24 def, 170c" },
     { roll: 14, text: "Kinetic armor: +26 def, 180c" },
     { roll: 15, text: "Dragon armor: +28 def, +190c" },
-    { roll: 16, text: "Pinnacle armor: +30 def, 200c" }
+    { roll: 16, text: "Alien armor: +30 def, 200c" }
 ];
 
 export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */ //crit = gain random legendary effect
