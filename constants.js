@@ -2,21 +2,21 @@
 /// ARMOR & WEAPONS ///
 // crit = gain random legendary effect
 export const armorTable = [ 
-    { roll: 2, text: "Junk armor: +7 def, 60c" },
-    { roll: 3, text: "Raider armor: +8 def, 70c" },
-    { roll: 4, text: "Leather armor: +9 def, 80c" },
-    { roll: 5, text: "Chain armor: +10 def, 90c" },
-    { roll: 6, text: "Metal armor: +11 def, 100c" },
-    { roll: 7, text: "Plate armor: +12 def, 110c" },
-    { roll: 8, text: "Ranger armor: +14 def, 120c" },
-    { roll: 9, text: "Kinetic armor: +16 def, 130c" },
-    { roll: 10, text: "Combat armor: +18 def, 140c" },
-    { roll: 11, text: "Infantry armor: +20 def, 150c" },
-    { roll: 12, text: "Assault armor: +22 def, 160c" },
-    { roll: 13, text: "Mutant armor: +24 def, 170c" },
-    { roll: 14, text: "Kinetic armor: +26 def, 180c" },
-    { roll: 15, text: "Dragon armor: +28 def, +190c" },
-    { roll: 16, text: "Alien armor: +30 def, 200c" }
+    { roll: 2, text: "Junk armor: +5 def, 60c" },
+    { roll: 3, text: "Raider armor: +6 def, 70c" },
+    { roll: 4, text: "Leather armor: +7 def, 80c" },
+    { roll: 5, text: "Chain armor: +8 def, 90c" },
+    { roll: 6, text: "Metal armor: +9 def, 100c" },
+    { roll: 7, text: "Plate armor: +10 def, 110c" },
+    { roll: 8, text: "Ranger armor: +12 def, 120c" },
+    { roll: 9, text: "Kinetic armor: +14 def, 130c" },
+    { roll: 10, text: "Combat armor: +16 def, 140c" },
+    { roll: 11, text: "Infantry armor: +18 def, 150c" },
+    { roll: 12, text: "Assault armor: +20 def, 160c" },
+    { roll: 13, text: "Mutant armor: +22 def, 170c" },
+    { roll: 14, text: "Kinetic armor: +24 def, 180c" },
+    { roll: 15, text: "Dragon armor: +26 def, +190c" },
+    { roll: 16, text: "Alien armor: +28 def, 200c" }
 ];
 
 export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */ //crit = gain random legendary effect
@@ -127,7 +127,7 @@ export const perkData = {
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "You cannot be shoved, grappled, or inflicted with ailments by hostile creatures." },
         { name: "Boomer", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
-        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy item slot you have." }
+        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon in your inventory." }
     ],
 
     AGILITY: [
@@ -156,7 +156,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 5 additional times." },
         { name: "Guardian", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Shotgun Surgeon", desc: "Shotguns do +1 damage against enemies in melee range." },
+        { name: "Point-blank", desc: "Shotguns do +1 damage against enemies in melee range." },
         { name: "Exposure Therapy", desc: "Rad damage aimed shots poison the target." }
     ],
 
@@ -192,18 +192,18 @@ export const perkData = {
 };
 
 export const backgroundData = [
-    { name: "Technician", desc: "Repairing guns does not require a roll." },
-    { name: "Mechanic", desc: "Repairing armor and melee/fist weapons does not require a roll." },
-    { name: "Farmer", desc: "You can purify rations 2:1 (irradiated → dirty → clean)." },
+    { name: "Technician", desc: "Repairing weapons does not require a roll." },
+    { name: "Mechanic", desc: "Repairing armor does not require a roll." },
+    { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies have under 5 HP and can execute them on your turn." },
-    { name: "Guard", desc: "You can convert 2 small rounds ↔ 1 large round." },
-    { name: "Plumber", desc: "You can purify water 2:1 (irradiated → dirty → clean)." },
-    { name: "Doctor", desc: "You can convert any 2 meds into another med." },
-    { name: "Scientist", desc: "You can convert any 2 chems into another chem." },
+    { name: "Guard", desc: "You can convert 3 small rounds ↔ 2 large rounds." },
+    { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
+    { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
+    { name: "Scientist", desc: "You can convert any 3 chems into 2 of another chem." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
-    { name: "Tailor", desc: "You can convert any 2 scrap into another scrap." },
-    { name: "Electrician", desc: "You can convert 2 E-cells ↔ 1 MF-cell." }
+    { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
+    { name: "Electrician", desc: "You can convert 3 E-cells ↔ 2 MF-cells." }
 ];
 
 // === Zone Table (kept as-is) ===
@@ -214,8 +214,8 @@ export const zoneTable = {
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
     15: "School: Contains 3 special rooms instead of 1, each requires a different technology.",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
-    21: "Museum: Contains 1D artifact. Use Hammerator for heavy relic worth 1d6x20c.",
-    22: "Prison: +1 enemy. Contains a random military equipment.",
+    21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
+    22: "Armory: Contains a random military equipment.",
     23: "Park: Contains a random giant potted plant. (heavy, +50% yield).",
     24: "Railyard: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
     25: "Library: Order a random recipe that arrives on level up",
@@ -224,20 +224,20 @@ export const zoneTable = {
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
     33: "Workshop: Has a workbench; repairing items only costs 2 scrap.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Armory: Spend 5 gun scrap to upgrade any gun with +1 damage.",
+    35: "Gas Station: Can spend 10 caps to gain 1 fuel, up to 3d6.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
     41: "Military Base: Scavenging items with durability here gives +1 to rolls with no multi-scavenge penalty.",
-    42: "Farm: Contains a brahmin. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 30c). Crit: 3× yield.",
+    42: "Farm: Contains dairy cows. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 20c). Crit: 3× yield.",
     43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crash Site: Contains alien device, you can choose parameters, powered by 1D artifact",
+    44: "Crashed Ship: Contains alien device, you can choose parameters, powered by 1D artifact",
     45: "Campsite: Can scavenge for 1d6 flares. Crit: find 3×.",
-    46: "Foundry: Spend 5 armor scrap to upgrade any melee/fist weapon with +1 damage",
+    46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction’s settlement 3 hexes away.",
     52: "Laboratory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Greenhouse: Can STR(injury) scavenge for a mutamelon that gives 5x -1 hunger+thirst, heavy.",
+    56: "Gardens: Can STR(injury) scavenge for a megamelon that gives 5x -1 hunger+thirst, heavy.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
     62: "Restaurant: Order food (1d6+10 clean rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all skill/luck/resist.",
@@ -250,31 +250,31 @@ export const zoneTable = {
 export const monsterData = {
     E1: {
         label: "Raiders", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Scout", hp: 6, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Tweaker", hp: 10, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Scavenger", hp: 14, notes: "scaled weapons, 13x mines" }, // 9-10
-            { name: "Juicer", hp: 18, notes: "scaled weapons, 14x mines" }, // 11-12
-            { name: "Elite", hp: 22, notes: "scaled weapons, 15x mines" }, // 13-14
-            { name: "Chemlord", hp: 26, notes: "scaled weapons, 16x mines" } // 15+
+            { name: "Scout", hp: 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Tweaker", hp: 8, notes: "scaled weapons, 12x mines" }, // 7-8
+            { name: "Scavenger", hp: 12, notes: "scaled weapons, 13x mines" }, // 9-10
+            { name: "Juicer", hp: 16, notes: "scaled weapons, 14x mines" }, // 11-12
+            { name: "Elite", hp: 20, notes: "scaled weapons, 15x mines" }, // 13-14
+            { name: "Chemlord", hp: 24, notes: "scaled weapons, 16x mines" } // 15+
         ]
     },
     E2: {
         label: "Beasts", notes: "on death: allies can immediately attack. Loot: animal flesh (-1 hunger, dirty)", subs: [
             { name: "Maggot", hp: 6, notes: "6 R mid" }, //giant maggots that spit out toxic waste
             { name: "Wild Dog", hp: 10, notes: "7 P melee + poison, grapples on 6" },
-            { name: "Radstag", hp: 14, notes: " 8 P melee, shove on 6, +1 spd, +2 dmg if moved 2 distance" },
-            { name: "Demon", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bipedal bears with giant curved horns and long whip tail
+            { name: "Raptor", hp: 14, notes: " 8 P melee, shove on 6, +1 spd, +2 dmg if moved 2 distance" },
+            { name: "Bear", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bipedal bears with giant curved horns and long whip tail
             { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, +1 spd, +2 dmg if moved 2 distance" }, //previously deathclaw, same functionality
             { name: "Radragon", hp: 26, notes: "11 X+R splash + poison + burn, short, hovers, -1 mob" }
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [
-            { name: "Gecko", hp: 5, notes: "6 P + bleed, +1 speed, melee" },
+            { name: "Gator", hp: 5, notes: "6 P + bleed + grapple on 6, melee" },
             { name: "Shellbacks", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 13, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Jabba", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
-            { name: "Skeeter", hp: 21, notes: "10 P melee + poison, hover, +1 spd" },
+            { name: "Hornet", hp: 21, notes: "11 P melee + poison, hover, +1 spd" },
             { name: "Terminite", hp: 25, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
@@ -294,7 +294,7 @@ export const monsterData = {
             { name: "Cybercat", hp: 12, notes: "10 P melee + bleed, +1 spd" },
             { name: "Think Tank", hp: 16, notes: "11 E + freeze, short" }, //small military tank with a jar filled with spinal fluid and a brain wired to it. Fires coolant.
             { name: "Patriot", hp: 20, notes: "12 X splash, long" }, //a mobile autonomous missile battery
-            { name: "War Bot", hp: 24, notes: "2x10 P+E mid" },
+            { name: "War Bot", hp: 24, notes: "2x10 P+E mid" }, // armored tank that uses automatic rifles and lasers
             { name: "Annihilator", hp: 28, notes: "14 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
