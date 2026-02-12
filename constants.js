@@ -289,7 +289,7 @@ export const monsterData = {
         ]
     },
     E5: {
-        label: "Robots", notes: "2x HP, 1/6 ignore armor per cripple, -1 mob. Loot: armor scraps", subs: [
+        label: "Robots", notes: "2x HP, take +1 dmg per cripple, -1 mob. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 8, notes: "7 E short" },
             { name: "Watchdog", hp: 12, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
             { name: "Firefighter", hp: 16, notes: "9 E + freeze, short" }, //robot with 4 arms and several fans and hoses with coolant tanks attached, used for fires.
