@@ -53,15 +53,15 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [99, "Invictus", "3x8 P", "small", "short", "AGI", "100c"]],
         E6: [[6, "Laser Shotgun", "3x4 E", "E-cell", "short", "INT", "60c"],
         [8, "Plasma Shotgun", "3x5 E", "E-cell", "short", "INT", "70c"],
-        [10, "Gauss Shotgun", "3x6 E", "E-cell", "short", "INT", "80c"],
+        [10, "electron minigun", "3x6 E", "E-cell", "short", "INT", "80c"],
         [12, "Pulse Emitter", "3x7 E", "E-cell", "short", "INT", "90c"],
         [14, "Tesla Cannon", "3x8 E", "E-cell", "short", "INT", "100c"],
         [99, "Helios", "3x9 E", "E-cell", "short", "INT", "110c"]],
         O1: [[6, "Hand Mortar", "10 X splash X", "fuel", "long", "AGI", "80c"],
-        [8, "Nade Launcher", "11 X splash", "fuel", "long", "AGI", "110c"],
-        [10, "Nade Cannon", "12 X splash", "fuel", "long", "AGI", "140c"],
+        [8, "Grenade Launcher", "11 X splash", "fuel", "long", "AGI", "110c"],
+        [10, "Grenade Cannon", "12 X splash", "fuel", "long", "AGI", "140c"],
         [12, "Missile Launcher", "13 X splash", "fuel", "long", "AGI", "170c"],
-        [14, "Great Bombard", "14 X splash", "fuel", "long", "AGI", "200c"],
+        [14, "Howitzer", "14 X splash", "fuel", "long", "AGI", "200c"],
         [99, "Judgement", "15 X splash", "fuel", "long", "AGI", "230c"]],
         O2: [[6, "Flamethrower", "9 X splash+burn", "fuel", "mid", "AGI", "70c"],
         [8, "Napalmer", "10 X splash+burn", "fuel", "mid", "AGI", "100c"],
@@ -79,7 +79,7 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [8, "Bladed Gauntlet", "2x5 P", "-", "melee", "END", "50c"],
         [10, "Tiger Paw", "2x6 P", "-", "melee", "END", "70c"],
         [12, "Pneumatic Fist", "2x7 P", "-", "melee", "END", "90c"],
-        [14, "Demon Claw", "2x8 P", "-", "melee", "END", "110c"],
+        [14, "Demon Horn", "2x8 P", "-", "melee", "END", "110c"],
         [99, "Godhand", "2x9 P", "-", "melee", "END", "130c"]],
         O5: [[6, "Shock Baton", "2x4 E", "-", "melee", "STR", "50c"],
         [8, "Welding Torch", "2x5 X", "-", "melee", "STR", "70c"],
@@ -108,8 +108,8 @@ export const grenadeTable = [
     { max: 8, name: "Chemical Grenade", dmg: "12 X splash", cost: "20c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
-    { max: 14, name: "Fission Grenade", dmg: "15 X splash", cost: "35c" },
-    { max: Infinity, name: "Fusion Grenade", dmg: "16 X splash", cost: "40c" }
+    { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "35c" },
+    { max: Infinity, name: "Plutonium Grenade", dmg: "16 X splash", cost: "40c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -122,11 +122,11 @@ export const perkData = {
         { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Karate Kid", desc: "Melee aimed shots can shove or grapple the target instead of crippling." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
-        { name: "Big Justice", desc: "Splash damage aimed shots splash to short range." },
+        { name: "Boomer", desc: "Splash damage aimed shots splash to short range." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "You cannot be shoved, grappled, or inflicted with ailments by hostile creatures." },
-        { name: "Boomer", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
+        { name: "Saboteur", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
         { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon in your inventory." }
     ],
 
@@ -139,7 +139,7 @@ export const perkData = {
         { name: "Guerrilla", desc: "Rubble counts as cover instead and your attacks ignore obstructions." },
         { name: "Sniper", desc: "Your attacks ignore cover and long range weapons gain +1 range." },
         { name: "Perfectionist", desc: "Crits restore luck, heal 10% HP, and deal +1 damage if attacking." },
-        { name: "Jack of All Trades", desc: "Gain another skill that uses stats different from your skill." },
+        { name: "Jack of All Trades", desc: "Gain another skill that uses stats different from your current skill." },
         { name: "Quantum Clip", desc: "Gain an infinite ammo box that changes ammo types each round." },
         { name: "Rivers of Blood", desc: "Physical damage aimed shots cause the target to bleed." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
@@ -161,14 +161,14 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Scrounger", desc: "Looting killed humans always yields an extra 5 caps." },
+        { name: "Pocket Change", desc: "Looting killed humans always yields an extra 5 caps." },
         { name: "Substance Enthusiast", desc: "Chems last twice as long and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
-        { name: "Idiot Savant", desc: "You can replace two rolled 1s with a 6." },
+        { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants have double yield if held for the whole level." },
         { name: "Side Hustle", desc: "Gain an additional background." },
-        { name: "Mastermind", desc: "Gain a stratagem that can be used twice per level as skill, luck or resist." },
+        { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
         { name: "Chosen One", desc: "Artifacts can convert durability to HP and you can modify alien device parameters once each." },
@@ -181,7 +181,7 @@ export const perkData = {
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist always rolls at least 2 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
-        { name: "Bloody Mess", desc: "Aimed shot kills cause the target to explode for half their max HP." },
+        { name: "Spontaneous Combustion", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide free crit loot from their faction shop." },
         { name: "Cyberpunk", desc: "You can have +2 maximum implants and heal +10% HP when you use a technology." },
@@ -290,12 +290,12 @@ export const monsterData = {
     },
     E5: {
         label: "Robots", notes: "2x HP, 1/6 ignore armor per cripple, -1 mob. Loot: armor scraps", subs: [
-            { name: "Police Bot", hp: 8, notes: "9 E short" },
-            { name: "Cybercat", hp: 12, notes: "10 P melee + bleed, +1 spd" },
-            { name: "Think Tank", hp: 16, notes: "11 E + freeze, short" }, //small military tank with a jar filled with spinal fluid and a brain wired to it. Fires coolant.
-            { name: "Patriot", hp: 20, notes: "12 X splash, long" }, //a mobile autonomous missile battery
-            { name: "War Bot", hp: 24, notes: "2x10 P+E mid" }, // armored tank that uses automatic rifles and lasers
-            { name: "Annihilator", hp: 28, notes: "14 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+            { name: "Police Bot", hp: 8, notes: "7 E short" },
+            { name: "Watchdog", hp: 12, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Firefighter", hp: 16, notes: "9 E + freeze, short" }, //robot with 4 arms and several fans and hoses with coolant tanks attached, used for fires.
+            { name: "Patriot", hp: 20, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 24, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 28, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: {
@@ -323,7 +323,7 @@ export const monsterData = {
             { name: "Observer", hp: 4, notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 8, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 12, notes: "3x7 X, short" },
-            { name: "Siegebreaker", hp: 16, notes: "10 X splash, mid" },
+            { name: "Destroyer", hp: 16, notes: "10 X splash, mid" },
             { name: "Suppressor", hp: 20, notes: "2x9 E + freeze, mid" },
             { name: "Invader", hp: 24, notes: "12 R splash+burn, long" }
         ]
