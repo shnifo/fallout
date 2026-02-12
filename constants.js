@@ -330,17 +330,17 @@ export const monsterData = {
     },
     O3: {
         label: "Zombies", notes: "immune rad, special: hidden bear traps (+1 injury, 2x cripple leg), +1 spd, ignore hazards, +1 mob, Loot: mutant flesh (-1 hunger, -1 injury, +1 rads)", subs: [ //dead humans that were reanimated by radiation
-            { name: "Roamer", hp: 4, notes: "5 P+R melee, grapples on 6" },
+            { name: "Shambler", hp: 4, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 8, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 12, notes: "9 R splash, melee" },
             { name: "Ravager", hp: 16, notes: "8 P+R melee, grapples on 6" },
-            { name: "Melter", hp: 20, notes: "11 X splash+burn, short" },
-            { name: "Freezer", hp: 24, notes: "12 E splash+freeze, short" }
+            { name: "Melter", hp: 20, notes: "11 X splash+burn other, melee" },
+            { name: "Freezer", hp: 24, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
         label: "Aberrations", notes: "immune rad, special: rad pools, on death: creates rad pool, Loot: mutant flesh", subs: [
-            { name: "Mutant Plant", hp: 5, notes: "7 P melee, immobile" },
+            { name: "Mutant Plant", hp: 5, notes: "7 P melee" },
             { name: "Crawler", hp: 9, notes: "8 R, short" }, //giant centipede made out of human limbs
             { name: "Floater", hp: 13, notes: "9 R, melee+freeze, hover, +1 spd" }, //giant hummingbird with a toothy elephant snout
             { name: "Bloat", hp: 17, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
