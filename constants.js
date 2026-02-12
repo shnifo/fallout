@@ -259,22 +259,22 @@ export const monsterData = {
         ]
     },
     E2: {
-        label: "Beasts", notes: "on death: allies can immediately attack. Loot: animal flesh (-1 hunger, dirty)", subs: [
-            { name: "Maggot", hp: 6, notes: "6 R mid" }, //giant maggots that spit out toxic waste
-            { name: "Wild Dog", hp: 10, notes: "7 P melee + poison, grapples on 6" },
-            { name: "Raptor", hp: 14, notes: " 8 P melee, shove on 6, +1 spd, +2 dmg if moved 2 distance" },
-            { name: "Bear", hp: 18, notes: "2x9 P melee, grapple on 6" }, //Bipedal bears with giant curved horns and long whip tail
-            { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, +1 spd, +2 dmg if moved 2 distance" }, //previously deathclaw, same functionality
+        label: "Beasts", notes: "on death: allies can immediately move. Loot: animal flesh (-1 hunger, dirty)", subs: [
+            { name: "Squid", hp: 6, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
+            { name: "Wildcat", hp: 10, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Raptor", hp: 14, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" },
+            { name: "Bear", hp: 18, notes: "2x9 P melee, shove on 6" }, 
+            { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
             { name: "Radragon", hp: 26, notes: "11 X+R splash + poison + burn, short, hovers, -1 mob" }
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [
-            { name: "Gator", hp: 5, notes: "6 P + bleed + grapple on 6, melee" },
+            { name: "Gator", hp: 5, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Shellbacks", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 13, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Jabba", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
-            { name: "Hornet", hp: 21, notes: "11 P melee + poison, hover, +1 spd" },
+            { name: "Hornet", hp: 21, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
             { name: "Terminite", hp: 25, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
@@ -289,7 +289,7 @@ export const monsterData = {
         ]
     },
     E5: {
-        label: "Robots", notes: "2x HP, take +1 dmg per cripple, -1 mob. Loot: armor scraps", subs: [
+        label: "Robots", notes: "2x HP, 1/6 to ignore armor per cripple, -1 mob. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 8, notes: "7 E short" },
             { name: "Watchdog", hp: 12, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
             { name: "Firefighter", hp: 16, notes: "9 E + freeze, short" }, //robot with 4 arms and several fans and hoses with coolant tanks attached, used for fires.
@@ -299,7 +299,7 @@ export const monsterData = {
         ]
     },
     E6: {
-        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: tech scrap", subs: [
+        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
             { name: "Sentry", hp: 6, notes: "scaled energy weapons + 11E mines" },
             { name: "Patroller", hp: 10, notes: "scaled energy weapons + 12E mines" },
             { name: "Trooper", hp: 14, notes: "scaled energy weapons + 13E mines" },
@@ -309,7 +309,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons (damage converted to radiation) Loot: broken weapons/artifacts, human flesh", subs: [
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons (damage converted to radiation) Loot: weapons, artifact, human flesh", subs: [
             { name: "Initiate", hp: 6, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 10, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, notes: "scaled mutated weapons" },
@@ -334,15 +334,15 @@ export const monsterData = {
             { name: "Stalker", hp: 8, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 12, notes: "9 R splash, melee" },
             { name: "Ravager", hp: 16, notes: "8 P+R melee, grapples on 6" },
-            { name: "Melter", hp: 20, notes: "11 X splash+burn other, melee" },
-            { name: "Freezer", hp: 24, notes: "12 E splash+freeze other, melee" }
+            { name: "Fireskin", hp: 20, notes: "11 X splash+burn other, melee" },
+            { name: "Frostskin", hp: 24, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
         label: "Aberrations", notes: "immune rad, special: rad pools, on death: creates rad pool, Loot: mutant flesh", subs: [
-            { name: "Mutant Plant", hp: 5, notes: "7 P melee" },
-            { name: "Crawler", hp: 9, notes: "8 R, short" }, //giant centipede made out of human limbs
-            { name: "Floater", hp: 13, notes: "9 R, melee+freeze, hover, +1 spd" }, //giant hummingbird with a toothy elephant snout
+            { name: "Tangler", hp: 5, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
+            { name: "Crawler", hp: 9, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
+            { name: "Buzzer", hp: 13, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
             { name: "Bloat", hp: 17, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
             { name: "Widow", hp: 21, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 26, notes: "12 E+burn/P+bleed/R+poison, very long, can scan armor" } //weapons and machinery covered in mutated flesh
@@ -360,12 +360,12 @@ export const monsterData = {
     },
     O6: {
         label: "Revenants", notes: "immune rad, hover, special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghost", hp: 8, notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 12, notes: "scaled heavy melee" },
-            { name: "Phantom", hp: 16, notes: "scaled heavy melee" },
-            { name: "Spectre", hp: 20, notes: "scaled heavy melee" },
-            { name: "Wraith", hp: 24, notes: "scaled heavy melee" },
-            { name: "Lich", hp: 28, notes: "scaled heavy melee" }
+            { name: "Ghost", hp: 7, notes: "scaled heavy melee" },
+            { name: "Spirit", hp: 11, notes: "scaled heavy melee" },
+            { name: "Phantom", hp: 15, notes: "scaled heavy melee" },
+            { name: "Spectre", hp: 19, notes: "scaled heavy melee" },
+            { name: "Wraith", hp: 23, notes: "scaled heavy melee" },
+            { name: "Lich", hp: 27, notes: "scaled heavy melee" }
         ]
     }
 };
