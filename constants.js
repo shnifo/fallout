@@ -166,12 +166,12 @@ export const perkData = {
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Potted plants have double yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Potted plants give 66% more yield if held for the whole level." },
         { name: "Side Hustle", desc: "Gain an additional background." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Chosen One", desc: "Artifacts can convert durability to HP and you can modify alien device parameters once each." },
+        { name: "Chosen One", desc: "Artifacts can convert durability to HP and you can use alien devices once for free. " },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -216,7 +216,7 @@ export const zoneTable = {
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
     22: "Armory: Contains a random military equipment.",
-    23: "Park: Contains a random giant potted plant. (heavy, +50% yield).",
+    23: "Park: Contains a random giant potted plant. (heavy, +100% yield).",
     24: "Railyard: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
     25: "Library: Order a random recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
@@ -785,14 +785,14 @@ export const lootTable = [
     // 1-2: ALIEN TECH + ARTIFACT
     {
         type: "ALIEN DEVICE + ARTIFACT",
-        desc: "Alien device that transforms items. Roll 2d6 for categories. Accepts up to 10 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
+        desc: "Alien device that transforms items. Accepts up to 9 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
         categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
         artifact: true
     },
     // Duplicate for 2 (same weight)
     {
         type: "ALIEN DEVICE + ARTIFACT",
-        desc: "Alien device that transforms items. Roll 2d6 for categories. Accepts up to 10 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",        
+        desc: "Alien device that transforms items. Accepts up to 9 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
         categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
         artifact: true
     },
@@ -801,12 +801,12 @@ export const lootTable = [
         type: "PLANTS + RECIPE",
         desc: "Generates a resource every time you level up, bulky, 100c",
         options: [
-            "Potted Sludgeflower: Generates 2 fuel",
-            "Potted Fleshroom: Generates 4 clean flesh (-1 hunger)",
-            "Potted Mutfruit: Generates 4 water",
-            "Potted Radovera: Generates 2 biogel (-2 injury, -2 rads, +40% HP)",
-            "Potted Scraptus: Generates 4 omniscrap (counts as any scrap)",
-            "Potted Tobacoca: Generates 2 cigar (turn any roll result into a 6)"
+            "Potted Sludgeflower: Generates 3 fuel",
+            "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
+            "Potted Mutfruit: Generates 6 clean water",
+            "Potted Radovera: Generates 3 biogel (-2 injury, -2 rads, +40% HP)",
+            "Potted Scraptus: Generates 6 omniscrap (counts as any scrap)",
+            "Potted Tobacoca: Generates 3 cigar (turn any roll result into a 6)"
         ],
         artifact: false
     },
@@ -815,26 +815,26 @@ export const lootTable = [
         type: "PLANTS + RECIPE",
         desc: "Generates a resource every time you level up, bulky, 100c",
         options: [
-            "Potted Sludgeflower: Generates 2 fuel",
-            "Potted Fleshroom: Generates 4 clean flesh (-1 hunger)",
-            "Potted Mutfruit: Generates 4 clean water",
-            "Potted Radovera: Generates 2 biogel (-2 injury, -2 rads, +40% HP)",
-            "Potted Scraptus: Generates 4 omniscrap (counts as any scrap)",
-            "Potted Tobacoca: Generates 2 cigar (turn any roll result into a 6)"
+            "Potted Sludgeflower: Generates 3 fuel",
+            "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
+            "Potted Mutfruit: Generates 6 clean water",
+            "Potted Radovera: Generates 3 biogel (-2 injury, -2 rads, +40% HP)",
+            "Potted Scraptus: Generates 6 omniscrap (counts as any scrap)",
+            "Potted Tobacoca: Generates 3 cigar (turn any roll result into a 6)"
         ],
         artifact: false
     },
     // 5-6: EQUIPMENT + RECIPE
     {
         type: "EQUIPMENT + RECIPE",
-        desc: "Each player can only benefit from one of each equipment, bulky, 100c",
+        desc: "Each player can only benefit from one of each equipment, bulky, 100c", //If rolling an item everyone already has, reroll it. 
         options: [
-            "Backpack: Can store up to 3 other bulky items in this slot",
-            "Helmet: +10 max HP",
-            "Binoculars: learn weapon+armor of 1 enemy before initiative",
-            "Exosuit: +1 heavy limit",
-            "Boots: Avoid the first attack against you after rolling initiative",
-            "Gloves: Take an additional action after your first action in initiative"
+            "Backpack: Can store up to 5 other bulky items in this slot",
+            "Helmet: Gain +1 to all armor values",
+            "Binoculars: Learn weapon+armor of 1 enemy before initiative",
+            "Sleeping Bag: Heal 10% when sleeping in ruins",
+            "Boots: +10 max HP",
+            "Gloves: All attacks deal +1 damage"
         ],
         artifact: false
     },
@@ -842,22 +842,22 @@ export const lootTable = [
         type: "EQUIPMENT + RECIPE",
         desc: "Each player can only benefit from one of each equipment, bulky, 100c",
         options: [
-            "Backpack: Can store up to 3 other bulky items in this slot",
-            "Helmet: +10 max HP",
+            "Backpack: Can store up to 5 other bulky items in this slot",
+            "Helmet: Gain +1 to all armor values",
             "Binoculars: learn weapon+armor of 1 enemy before initiative",
-            "Exosuit: +1 heavy limit",
-            "Boots: Avoid the first attack against you after rolling initiative",
-            "Gloves: Take an additional action after your first action in initiative"
+            "Sleeping Bag: heal 10% when sleeping in ruins",
+            "Boots: +10 max HP",
+            "Gloves: All attacks deal +1 damage"
         ],
         artifact: false
     }
 ];
 
 export const artifacts = [
-    "Earth: cripple a limb, 3 HP, mid, 100c",
-    "Water: clear a tile, 3 HP, mid, 100c",
-    "Fire: generate rubble tile, 3 HP, mid, 100c",
-    "Dark: generate cover tile, 3 HP, mid, 100c",
-    "Wind: move creature 1 space, 3 HP, mid, 100c",
-    "Light: give a player defend, 3 HP, mid, 100c"
+    "Earth: Fully cripple a limb, 3 HP, mid, 100c",
+    "Water: Clear a tile, 3 HP, mid, 100c",
+    "Fire: Generate rubble tile, 3 HP, mid, 100c",
+    "Dark: Generate cover tile, 3 HP, mid, 100c",
+    "Wind: Move creature 1 space, 3 HP, mid, 100c",
+    "Light: Give a player defend, 3 HP, mid, 100c"
 ];
