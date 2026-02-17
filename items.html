@@ -607,9 +607,6 @@ function generateChems() {
   `;
 }
 
-
-
-
 function rollGrenadeByLevel(level) {
   const roll = rollDie(6) + level;
   return grenadeTable.find(g => roll <= g.max);
@@ -675,11 +672,11 @@ function generatePlant() {
 
   const sharedDesc = "Generates a resource every time you level up, bulky, 100c";
 
-  const item = plants[Math.floor(Math.random() * plants.length)];
+  const plant = plants[Math.floor(Math.random() * plants.length)];
   
   const output = `
     <b>Potted Plant</b><br>
-    <span style="color:#a0ff80;">${item}</span><br>
+    <span style="color:#a0ff80;">${plant}</span><br>
     <i>${sharedDesc}</i>
   `;
   
@@ -689,10 +686,10 @@ function generatePlant() {
 ///////ARTIFACT GENERATOR////////
 	
 function generateArtifact() {
-  const item = artifacts[Math.floor(Math.random() * artifacts.length)];
+  const artifact = artifacts[Math.floor(Math.random() * artifacts.length)];
     const output = `
     <b>Artifact</b><br>
-    <span style="color:#c8ff00;">${item}</span><br>
+    <span style="color:#c8ff00;">${artifact}</span><br>
     <small>(action to use, 6 = no HP cost, crit = heal 3 hp instead)</small>
   `;
   
@@ -863,6 +860,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
