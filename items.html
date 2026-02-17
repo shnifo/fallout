@@ -667,25 +667,24 @@ function generateTech() {
   `;
 }
 
-////// PLANT GENERATOR /////
-function generatePlant() {
-
-  const plant = plants[Math.floor(Math.random() * plants.length)];
-   
-   document.getElementById("plantOutput").innerHTML = `
-    <b>${plants.name}</b><br>
-    <i>${plants.effect}</i>
-  `;
-}
-
-///////ARTIFACT GENERATOR////////
-	
 function generateArtifact() {
   const artifact = artifacts[Math.floor(Math.random() * artifacts.length)];
   
-	document.getElementById("artifactOutput").innerHTML = `
-    <b>${artifacts.name}</b><br>
-    <i>${artifacts.effect}</i>
+  document.getElementById("artifactOutput").innerHTML = `
+    <b>${artifact.name}</b><br>
+    ${artifact.effect}<br>
+    <small>(action to use, 6 = no HP cost, crit = heal 3 hp instead)</small>
+  `;
+}
+
+function generatePlant() {
+  const plant = plants[Math.floor(Math.random() * plants.length)];
+  const sharedDesc = "Generates a resource every time you level up, bulky, 100c";
+  
+  document.getElementById("plantOutput").innerHTML = `
+    <b>${plant.name}</b><br>
+    ${plant.effect}<br>
+    <i>${sharedDesc}</i>
   `;
 }
 
@@ -855,6 +854,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
