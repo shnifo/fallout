@@ -148,11 +148,11 @@ export const perkData = {
     ENDURANCE: [
         { name: "Artisan", desc: "Consume only 2 scrap when you repair an item at 2 durability." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and addiction withdrawl only lasts 1 day." },
-        { name: "Lead Belly", desc: "Treat irradiated food and drink as dirty instead." },
+        { name: "Extra Flavor", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can gain +1 fatigue to scavenge a settlement." },
         { name: "Quartermaster", desc: "Item stack sizes over 10 no longer become heavy." },
-        { name: "Ghoulish", desc: "Heal 10% HP each time you gain one or more rads." },
+        { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 5 additional times." },
         { name: "Guardian", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
