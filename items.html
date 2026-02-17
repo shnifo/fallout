@@ -141,6 +141,24 @@ button:hover { background:#2a6ce2; }
   line-height:1.3;
   font-size:.95rem;
 }
+	#artifactOutput {
+  background:#1e1e2f;
+  border-radius:.5rem;
+  padding:.6rem;
+  text-align:center;
+  margin-top:.5rem;
+  line-height:1.3;
+  font-size:.95rem;
+}
+	#plantOutput {
+  background:#1e1e2f;
+  border-radius:.5rem;
+  padding:.6rem;
+  text-align:center;
+  margin-top:.5rem;
+  line-height:1.3;
+  font-size:.95rem;
+}
 
 .filter-row {
   display: flex;
@@ -326,6 +344,22 @@ button:hover { background:#2a6ce2; }
   </div>
 </div>
 
+	<div class="container">
+  <div class="generator-box">
+    <h2>🧿 Artifact Generator</h2>
+    <button onclick="generateArtifact()">Generate Artifact</button>
+    <div id="artifactOutput" class="output"></div>
+  </div>
+</div>
+
+	<div class="container">
+  <div class="generator-box">
+    <h2>🌿 Plant Generator</h2>
+    <button onclick="generatePlant()">Generate Plant</button>
+    <div id="plantOutput" class="output"></div>
+  </div>
+</div>
+
 <div class="container">
   <div class="generator-box">
     <h2>🏘️ Town Generator</h2>
@@ -337,7 +371,7 @@ button:hover { background:#2a6ce2; }
 
 
 <script type="module">
-import { armorTable, weapons, complications, rationTypes, medTable, chemTable, ammoTable, grenadeTable, techTable, factions, townDescriptors, npcTable, townQuests, professionQuests, shopTypes } from './constants.js';
+import { armorTable, weapons, complications, rationTypes, medTable, chemTable, ammoTable, grenadeTable, techTable, factions, townDescriptors, npcTable, townQuests, professionQuests, shopTypes, artifacts, plants } from './constants.js';
 
 /* ---------- Integer Distributor ---------- */
 function rollDie(sides){ return Math.floor(Math.random()*sides)+1; }
@@ -636,6 +670,35 @@ function generateTech() {
   `;
 }
 
+////// PLANT GENERATOR /////
+function generatePlant() {
+
+  const sharedDesc = "Generates a resource every time you level up, bulky, 100c";
+
+  const item = plants[Math.floor(Math.random() * plants.length)];
+  
+  const output = `
+    <b>Potted Plant</b><br>
+    <span style="color:#a0ff80;">${item}</span><br>
+    <i>${sharedDesc}</i>
+  `;
+  
+  document.getElementById("plantOutput").innerHTML = output;
+}
+
+///////ARTIFACT GENERATOR////////
+	
+function generateArtifact() {
+  const item = artifacts[Math.floor(Math.random() * artifacts.length)];
+    const output = `
+    <b>Artifact</b><br>
+    <span style="color:#c8ff00;">${item}</span><br>
+    <small>(action to use, 6 = no HP cost, crit = heal 3 hp instead)</small>
+  `;
+  
+  document.getElementById("artifactOutput").innerHTML = output;
+}	
+	
 // ===== TOWN GENERATOR =====
 
 
@@ -800,6 +863,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
