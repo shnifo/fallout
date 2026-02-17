@@ -376,21 +376,21 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit food: 2x yield and find 2d6 fuel
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal 3 hp instead
-    {"Earth: Fully cripple a limb, 3 HP, mid, 100c"},
-    {"Water: Clear a tile, 3 HP, mid, 100c"},
-    {"Fire: Generate rubble tile, 3 HP, mid, 100c"},
-    { "Dark: Generate cover tile, 3 HP, mid, 100c"},
-    {"Wind: Move creature 1 space, 3 HP, mid, 100c"},
-    {"Light: Give a player defend, 3 HP, mid, 100c"}
+    {name: "Earth Artifact", effect: "Fully cripple a limb, 3 HP, mid, 100c"},
+    {name: "Water Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
+    {name: "Fire Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
+    {name: "Dark Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
+    {name: "Wind Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
+    {name: "Light Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
 export const plants = [ // "Generates a resource every time you level up, bulky, 100c",
-    {"Potted Sludgeflower: Generates 3 fuel"},
-    {  "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)"},
-    {"Potted Mutfruit: Generates 6 clean water"},
-    {"Potted Radovera: Generates 3 bandage"},
-    {  "Potted Indigourd: Generates 3 rad-x"},
-    {"Potted Tobacoca: Generates 3 adrenaline"}
+    {name: "Potted Sludgeflower", effect: "Generates 3 fuel on level up"},
+    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up(-1 hunger)"},
+    {name: "Potted Mutfruit", effect: "Generates 6 clean water on level up"},
+    {name: "Potted Radovera", effect: "Generates 3 bandage on level up"},
+    {name: "Potted Indigourd", effect: "Generates 3 rad-x on level up"},
+    {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up"}
     ];
 
 export const medTable = [ //crit = also find max yield of chosen med. 
