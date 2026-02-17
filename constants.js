@@ -375,7 +375,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: 2x yield and find a plant
 //crit food: 2x yield and find 2d6 fuel
 
-export const artifacts = [
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal 3 hp instead
     "Earth: Fully cripple a limb, 3 HP, mid, 100c",
     "Water: Clear a tile, 3 HP, mid, 100c",
     "Fire: Generate rubble tile, 3 HP, mid, 100c",
@@ -384,15 +384,14 @@ export const artifacts = [
     "Light: Give a player defend, 3 HP, mid, 100c"
 ];
 
-type: "PLANTS",
-        desc: "Generates a resource every time you level up, bulky, 100c",
-        options: [
+export const plants = [ // "Generates a resource every time you level up, bulky, 100c",
             "Potted Sludgeflower: Generates 3 fuel",
             "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
             "Potted Mutfruit: Generates 6 clean water",
             "Potted Radovera: Generates 3 bandage",
             "Potted Indigourd: Generates 3 rad-x",
             "Potted Tobacoca: Generates 3 adrenaline"
+    ];
 
 export const medTable = [ //crit = also find max yield of chosen med. 
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
