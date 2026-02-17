@@ -177,7 +177,7 @@ export const perkData = {
 
     CHARISMA: [
         { name: "Terrifying Presence", desc: "Gain the ability to frighten and command hostile creatures." },
-        { name: "Do Not Go Gently", desc: "Luck gives 2 dice to any player rolling with a stat at 0 or 1." },
+        { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist always rolls at least 2 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
