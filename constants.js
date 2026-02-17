@@ -97,19 +97,19 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
 
 export const ammoTable = [
     { type: "Small rounds", roll: "1d6+6", cost: 5 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
-    { type: "E-cell", roll: "1d6+4", cost: 10 },  // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
-    { type: "Grenades", roll: "1d6", cost: 0 }, // crit = 2x legendary grenades (gain legendary effect)
-    { type: "Fuel", roll: "1d6", cost: 20 }, // crit = 3x yield
+    { type: "E-cell", roll: "1d6+5", cost: 10 },  // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
+    { type: "Grenades", roll: "1d6+1", cost: 0 }, // crit = 2x legendary grenades (gain legendary effect)
+    { type: "Fuel", roll: "1d6+2", cost: 20 }, // crit = 3x yield
     { type: "Large rounds", roll: "1d6+4", cost: 10 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
-    { type: "MF-cell", roll: "1d6+2", cost: 15 } // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
+    { type: "MF-cell", roll: "1d6+3", cost: 15 } // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
-    { max: 8, name: "Chemical Grenade", dmg: "12 X splash", cost: "20c" },
+    { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "20c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
     { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "35c" },
-    { max: Infinity, name: "Plutonium Grenade", dmg: "16 X splash", cost: "40c" }
+    { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "40c" }
 ];
 
 // ---------- PERK DATA ----------
