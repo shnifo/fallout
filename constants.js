@@ -131,13 +131,13 @@ export const perkData = {
     ],
 
     AGILITY: [
-        { name: "Commando", desc: "Rifles do +1 damage when fired from cover." },
+        { name: "Commando", desc: "Rifles do +1 damage when fired from special terrain." },
         { name: "Gunslinger", desc: "Pistol attacks do +1 damage if you moved this turn." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
-        { name: "Gotta Go Fast", desc: "Sprint moves +1 distance and you can also move or sprint when you defend or search." },
-        { name: "Ninja", desc: "You can move while sneaking and can still attempt to sneak on blank tiles." },
-        { name: "Guerrilla", desc: "Rubble counts as cover instead and your attacks ignore obstructions." },
-        { name: "Sniper", desc: "Your attacks ignore cover and long range weapons gain +1 range." },
+        { name: "Gotta Go Fast", desc: "Ignore the effects of rubble and sprint moves +1 distance." },
+        { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on blank tiles." },
+        { name: "Guerrilla", desc: "All terrain also counts as cover and your attacks ignore obstructions." },
+        { name: "Sniper", desc: "Atacks ignore cover and long range weapons gain +1 range." },
         { name: "Perfectionist", desc: "Crits restore luck, heal 10% HP, and deal +1 damage if attacking." },
         { name: "Jack of All Trades", desc: "Gain another skill that uses stats different from your current skill." },
         { name: "Quantum Clip", desc: "Gain an infinite ammo box that changes ammo types each round." },
@@ -150,7 +150,7 @@ export const perkData = {
         { name: "Fast Metabolism", desc: "Gain +10 max HP and addiction withdrawl only lasts 1 day." },
         { name: "Extra Flavor", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
-        { name: "All-nighter", desc: "You can gain +1 fatigue to scavenge a settlement." },
+        { name: "All-nighter", desc: "Gain +1 fatigue to scavenge a settlement." },
         { name: "Quartermaster", desc: "Item stack sizes over 10 no longer become heavy." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
@@ -249,13 +249,13 @@ export const zoneTable = {
 // === Monster Data (unchanged) ===
 export const monsterData = {
     E1: {
-        label: "Junkies", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Scout", hp: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Tweaker", hp: 8, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Scavenger", hp: 12, notes: "scaled weapons, 13x mines" }, // 9-10
-            { name: "Juicer", hp: 16, notes: "scaled weapons, 14x mines" }, // 11-12
-            { name: "Elite", hp: 20, notes: "scaled weapons, 15x mines" }, // 13-14
-            { name: "Chemlord", hp: 24, notes: "scaled weapons, 16x mines" } // 15+
+        label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
+            { name: "Recruit", hp: 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Soldier", hp: 8, notes: "scaled weapons, 12x mines" }, // 7-8
+            { name: "Officer", hp: 12, notes: "scaled weapons, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16, notes: "scaled weapons, 14x mines" }, // 11-12
+            { name: "Lieutenant", hp: 20, notes: "scaled weapons, 15x mines" }, // 13-14
+            { name: "General", hp: 24, notes: "scaled weapons, 16x mines" } // 15+
         ]
     },
     E2: {
