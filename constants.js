@@ -95,13 +95,13 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [
-    { type: "Small rounds", roll: "1d6+6", cost: 5 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
-    { type: "E-cell", roll: "1d6+4", cost: 10 },  // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
-    { type: "Grenades", roll: "1d6", cost: 0 }, // crit = 2x legendary grenades (gain legendary effect)
-    { type: "Fuel", roll: "1d6", cost: 20 }, // crit = 3x yield
-    { type: "Large rounds", roll: "1d6+4", cost: 10 }, // crit = 2x omnirounds: +1 dmg and can be used as small or large rounds
-    { type: "MF-cell", roll: "1d6+2", cost: 15 } // crit = 2x omnicells: +1 dmg and can be used as E-cells or MF-cells
+export const ammoTable = [ // crit = also get a max yield roll of any ammo of your choice, grenade tier chosen randomly
+    { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
+    { type: "E-cell", roll: "1d6+4", cost: 10 },  
+    { type: "Grenades", roll: "1d6", cost: 0 }, 
+    { type: "Fuel", roll: "1d6", cost: 20 }, 
+    { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
+    { type: "MF-cell", roll: "1d6+2", cost: 15 } 
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
@@ -184,7 +184,7 @@ export const perkData = {
         { name: "Overkill", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide free crit loot from their faction shop." },
-        { name: "Cyberpunk", desc: "You can have +2 maximum implants and heal +10% HP when you use a technology." },
+        { name: "Technophile", desc: "You can have +2 implants and heal +10% HP when you use a technology." },
         { name: "Art of the Deal", desc: "Haggling is twice as effective." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don’t Look at Explosions", desc: "Gain +5 explosive armor." }
@@ -208,7 +208,7 @@ export const backgroundData = [
 
 // === Zone Table (kept as-is) ===
 export const zoneTable = {
-    11: "Office: Contains 2 Vending machines with 1d6 Spunky (-1 thirst, -1 fatigue, +10% HP) / Kaboomcha (-1 thirst, -1 rads, +10% HP) for 10c each. Autojacker to open.",
+    11: "Office: Contains 2 Vending machines with 1d6 water for 10c each. Autojacker to open.",
     12: "Mall: Scavenging allows +2 rerolls. use flashlight for +1 reroll. ",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
@@ -371,20 +371,40 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-//crit scrap = omniscrap: can be used as any scrap
-//crit water = spunky: -1 thirst, -1 fatigue, +10% HP, OR kaboomcha: -1 thirst, -1 rads, +10% HP
-//crit food = MRE: -2 hunger, +10% HP, OR melon: -1 hunger, -1 thirst, +10% HP
-export const medTable = [ //crit = biogel: -2 injury, -2 rads, +20% HP
+//crit scrap = 2x yield and find an artifact
+//crit water: 2x yield and find a plant
+//crit food: 2x yield and find 2d6 fuel
+
+export const artifacts = [
+    "Earth: Fully cripple a limb, 3 HP, mid, 100c",
+    "Water: Clear a tile, 3 HP, mid, 100c",
+    "Fire: Generate rubble tile, 3 HP, mid, 100c",
+    "Dark: Generate cover tile, 3 HP, mid, 100c",
+    "Wind: Move creature 1 space, 3 HP, mid, 100c",
+    "Light: Give a player defend, 3 HP, mid, 100c"
+];
+
+type: "PLANTS",
+        desc: "Generates a resource every time you level up, bulky, 100c",
+        options: [
+            "Potted Sludgeflower: Generates 3 fuel",
+            "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
+            "Potted Mutfruit: Generates 6 clean water",
+            "Potted Radovera: Generates 3 bandage",
+            "Potted Indigourd: Generates 3 rad-x",
+            "Potted Tobacoca: Generates 3 adrenaline"
+
+export const medTable = [ //crit = also find max yield of chosen med. 
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean?
+    { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive)" },
     { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive)" }, // rename: mutagone? chromocure? geneclean? 
     { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
-export const chemTable = [ //crit = cigar: treat any roll result as a 6
-    { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: fume
+export const chemTable = [ //crit = also find max yield of chosen chem. 
+    { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: Jolt
     { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
     { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
     { name: "Mentats", effect: "+1 INT, +1 AGI for 1 day (Addictive)" }, // rename: neuro
@@ -393,15 +413,16 @@ export const chemTable = [ //crit = cigar: treat any roll result as a 6
 ];
 
 
-
 export const techTable = [ //crit = implant: applies effect of random perk which is rolled when implant is generated
     { name: "Generator", effect: "Provides temporary power for electronics" },
     { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
     { name: "Breatherator", effect: "Allows exploration of low oxygen or underwater areas" },
-    { name: "Flashlight", effect: "Allows exploration of dark or foggy areas" },
+    { name: "Illuminator", effect: "Allows exploration of dark or foggy areas" },
     { name: "Hackerator", effect: "Opens electronic locks and hacks computers" }
 ];
+
+
 
 // Shop types and their corresponding generator functions
 export const shopTypes = [
@@ -716,148 +737,3 @@ export const fixedWeights = [1, 2, 2, 1, 3, 6]; // Explosive, Cover, Ruins, Impa
 
 
 
-// === Bonus Room Data ===
-export const bonusRoomData = [
-    {
-        req: "Use generator", actions: [
-            "Powering Up a Vault Door to enter room",
-            "Activating Terminals to open door",
-            "Recharging Robot to enter secure room",
-            "Running a Water pump to unflood a facility",
-            "Operating a Conveyor System to access items",
-            "Powering an elevator"
-        ]
-    },
-    {
-        req: "Use autojacker", actions: [
-            "Lifting a Collapsed Beam",
-            "Raising a Heavy Vehicle",
-            "Removing large rocks",
-            "Propping Up a Collapsing Structure",
-            "Accessing a Supply Cache",
-            "Opening a Sealed Crate"
-        ]
-    },
-    {
-        req: "Use hackerator", actions: [
-            "Bypassing Security Systems (fatigue)",
-            "Unlocking door (fatigue)",
-            "Dismantling generator (rads)",
-            "Disabling defenses (injury)",
-            "Reprogramming Robots (injury)",
-            "Hacking an irradiated Control Panel (rads)"
-        ]
-    },
-    {
-        req: "Use hammerator", actions: [
-            "Breaking Through Concrete wall",
-            "Excavating Buried Supplies",
-            "Clearing a blocked stairwell/elevator",
-            "Drilling a drainage hole",
-            "Accessing a collapsed tunnel",
-            "Clearing obstacles"
-        ]
-    },
-    {
-        req: "Use breatherator", actions: [
-            "Entering a radioactive Area (rads)",
-            "Navigating a flooded area (rads)",
-            "Exploring a no oxygen area (fatigue)",
-            "Investigating an asbestos exposed area (injury)",
-            "Investigating a toxic chemical exposed area (injury)",
-            "Entering a smoky Area (fatigue)"
-        ]
-    },
-    {
-        req: "use flashlight", actions: [
-            "Area has radiation pools",
-            "Hazardous area",
-            "Finding Hidden Compartments",
-            "Navigating a Collapsed Mine",
-            "Reading Maps and instructions",
-            "Activating generator"
-        ]
-    }
-];
-
-// === Loot Table ===
-export const lootTable = [
-    // 1-2: ALIEN TECH + ARTIFACT
-    {
-        type: "ALIEN DEVICE + ARTIFACT",
-        desc: "Alien device that transforms items. Accepts up to 9 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
-        categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
-        artifact: true
-    },
-    // Duplicate for 2 (same weight)
-    {
-        type: "ALIEN DEVICE + ARTIFACT",
-        desc: "Alien device that transforms items. Accepts up to 9 stackables. Bulky <-> stackable converts at 3 / D, result based on original items, weapons become mutated. Powered by a random artifact that can be extracted instead of using device.",
-        categories: ["Weapon", "Armor", "Food", "Water", "Scrap", "Ammo"],
-        artifact: true
-    },
-    // 3-4: PLANTS + RECIPE
-    {
-        type: "PLANTS + RECIPE",
-        desc: "Generates a resource every time you level up, bulky, 100c",
-        options: [
-            "Potted Sludgeflower: Generates 3 fuel",
-            "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
-            "Potted Mutfruit: Generates 6 clean water",
-            "Potted Radovera: Generates 3 biogel (-2 injury, -2 rads, +40% HP)",
-            "Potted Scraptus: Generates 6 omniscrap (counts as any scrap)",
-            "Potted Tobacoca: Generates 3 cigar (turn any roll result into a 6)"
-        ],
-        artifact: false
-    },
-    // Duplicate for 4
-    {
-        type: "PLANTS + RECIPE",
-        desc: "Generates a resource every time you level up, bulky, 100c",
-        options: [
-            "Potted Sludgeflower: Generates 3 fuel",
-            "Potted Fleshroom: Generates 6 clean flesh (-1 hunger)",
-            "Potted Mutfruit: Generates 6 clean water",
-            "Potted Radovera: Generates 3 biogel (-2 injury, -2 rads, +40% HP)",
-            "Potted Scraptus: Generates 6 omniscrap (counts as any scrap)",
-            "Potted Tobacoca: Generates 3 cigar (turn any roll result into a 6)"
-        ],
-        artifact: false
-    },
-    // 5-6: EQUIPMENT + RECIPE
-    {
-        type: "EQUIPMENT + RECIPE",
-        desc: "Each player can only benefit from one of each equipment, bulky, 100c", //If rolling an item everyone already has, reroll it. 
-        options: [
-            "Backpack: Can store up to 5 other bulky items in this slot",
-            "Helmet: Gain +1 to all armor values",
-            "Binoculars: Learn weapon+armor of 1 enemy before initiative",
-            "Sleeping Bag: Heal 10% when sleeping in ruins",
-            "Boots: +10 max HP",
-            "Gloves: All attacks deal +1 damage"
-        ],
-        artifact: false
-    },
-    {
-        type: "EQUIPMENT + RECIPE",
-        desc: "Each player can only benefit from one of each equipment, bulky, 100c",
-        options: [
-            "Backpack: Can store up to 5 other bulky items in this slot",
-            "Helmet: Gain +1 to all armor values",
-            "Binoculars: learn weapon+armor of 1 enemy before initiative",
-            "Sleeping Bag: heal 10% when sleeping in ruins",
-            "Boots: +10 max HP",
-            "Gloves: All attacks deal +1 damage"
-        ],
-        artifact: false
-    }
-];
-
-export const artifacts = [
-    "Earth: Fully cripple a limb, 3 HP, mid, 100c",
-    "Water: Clear a tile, 3 HP, mid, 100c",
-    "Fire: Generate rubble tile, 3 HP, mid, 100c",
-    "Dark: Generate cover tile, 3 HP, mid, 100c",
-    "Wind: Move creature 1 space, 3 HP, mid, 100c",
-    "Light: Give a player defend, 3 HP, mid, 100c"
-];
