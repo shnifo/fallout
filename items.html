@@ -551,10 +551,12 @@ function generateRations() {
   }
 
   document.getElementById("RationWaterOutput").innerHTML = output;
+
+//////// MEDS AND CHEMS GENERATORS ///////
 }
 function generateMeds() {
   const med = medTable[Math.floor(Math.random() * medTable.length)];
-  const count = rollDie(6) + 3;
+  const count = rollDie(6) + 2;
 
   document.getElementById("medsOnlyOutput").innerHTML = `
     <b>${med.name} x${count}</b><br>
@@ -563,7 +565,7 @@ function generateMeds() {
 }
 function generateChems() {
   const chem = chemTable[Math.floor(Math.random() * chemTable.length)];
-  const count = rollDie(6) + 3;
+  const count = rollDie(6) + 2;
 
   document.getElementById("chemsOnlyOutput").innerHTML = `
     <b>${chem.name} x${count}</b><br>
@@ -637,18 +639,10 @@ function generateTech() {
 // ===== TOWN GENERATOR =====
 
 
-
-
-
-
 function getRivalFaction(mainFactionName) {
   const rivals = factions.filter(f => f.name !== mainFactionName);
   return rivals[Math.floor(Math.random() * rivals.length)];
 }
-
-
-
-
 
 function generateTown() {
   let output = "";
@@ -806,6 +800,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
