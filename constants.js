@@ -181,7 +181,7 @@ export const perkData = {
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist always rolls at least 2 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
-        { name: "Spontaneous Combustion", desc: "Aimed shot kills cause the target to explode for half their max HP." },
+        { name: "Overkill", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide free crit loot from their faction shop." },
         { name: "Cyberpunk", desc: "You can have +2 maximum implants and heal +10% HP when you use a technology." },
