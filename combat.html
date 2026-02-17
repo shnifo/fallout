@@ -89,9 +89,6 @@
 
 <h3 id="zone-display" style="margin:12px 0;">Zone: —</h3>
 <h3 id="monster-display" style="margin:12px 0;">Monsters: —</h3>
-<h3 id="bonus-room-display" style="margin:12px 0;">Bonus Room: —</h3>
-<h3 id="loot-display" style="margin:12px 0;">Loot: —</h3>
-
 <div id="grid"></div>
 
 <script type="module" src="constants.js"></script>
@@ -102,10 +99,7 @@
     rowLabels,
     colLabels,
     zoneTable,
-    monsterData,
-    bonusRoomData,
-    lootTable,
-    artifacts
+    monsterData
   } from './constants.js';
   
   function generateGrid() {
@@ -203,60 +197,12 @@
 
   
 
-  function generateBonusRoom() {
-    const catIdx = Math.floor(Math.random() * bonusRoomData.length);
-    const actionIdx = Math.floor(Math.random() * 6);
-    const cat = bonusRoomData[catIdx];
-    const action = cat.actions[actionIdx];
-    document.getElementById("bonus-room-display").textContent = `Bonus Room: ${cat.req} — ${action}`;
-  }
-
-  
-
-  function generateLoot() {
-    const roll = Math.floor(Math.random() * 6) + 1; // 1-6
-    let entry;
-
-    if (roll <= 2) {
-      entry = lootTable[0]; // both 1 and 2 use the first entry
-    } else {
-      entry = lootTable[roll - 1];
-    }
-
-    let text = `${entry.type}`;
-	
-    if (entry.categories) {
-	  // Pick two different categories (X → Y)
-	  let idx1 = Math.floor(Math.random() * entry.categories.length);
-	  let idx2 = Math.floor(Math.random() * entry.categories.length);
-	  while (idx2 === idx1) {
-		idx2 = Math.floor(Math.random() * entry.categories.length);
-	  }
-	  const fromCat = entry.categories[idx1];
-	  const toCat = entry.categories[idx2];
-	  text += ` → Transforms: ${fromCat} → ${toCat}`;
-	}
-
-    if (entry.options) {
-      const optIdx = Math.floor(Math.random() * entry.options.length);
-      text += ` → ${entry.options[optIdx]}`;
-    }
-
-    if (entry.artifact) {
-      const artIdx = Math.floor(Math.random() * artifacts.length);
-      text += `, Powered by Artifact: ${artifacts[artIdx]}`;
-    }
-
-    document.getElementById("loot-display").textContent = `Loot: ${text}`;
-  }
 
   // === Generate Everything ===
   function generateAll() {
     generateGrid();
     generateZone();
     generateMonsters();
-    generateBonusRoom();
-    generateLoot();
   }
 
   document.getElementById("generate").addEventListener("click", generateAll);
@@ -271,12 +217,11 @@
 	window.generateZone = generateZone;
 	window.tierIndexFromRoll = tierIndexFromRoll;
 	window.generateMonsters = generateMonsters;
-	window.generateBonusRoom = generateBonusRoom;
-	window.generateLoot = generateLoot;
 	window.generateAll = generateAll;
 </script>
 </body>
 </html>
+
 
 
 
