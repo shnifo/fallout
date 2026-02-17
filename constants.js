@@ -416,7 +416,7 @@ export const shopTypes = [
 
 
 export const complications = [
-    ["+1/2 Thirst", "END", "Sweating from hot area (breatherator)"],
+    ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (flashlight)"],
     ["+1/2 Hunger", "STR", "Burning calories from prolongued heavy lifting (autojacker)"],
@@ -429,7 +429,7 @@ export const complications = [
     ["Lose 5/10 HP", "INT", "Get buried under collapsed rubble (autojacker)"],
     ["Lose 5/10 HP", "CHA", "Have to scare off nearby deadly animals (autojacker)"],
     ["+1/2 Fatigue", "STR", "Overexertion from opening unpowered doors (generator)"],
-    ["+1/2 Fatigue", "AGI", "Running from defenses"],
+    ["+1/2 Fatigue", "AGI", "Running from defenses in the dark (flashlight)"],
     ["+1/2 Fatigue", "INT", "Getting lost in confusing area (flashlight)"],
     ["+1/2 Fatigue", "END", "Exposure to extreme cold (generator)"],
     ["+1/2 Fatigue", "END", "Low oxygen area (breatherator)"],
@@ -442,7 +442,7 @@ export const complications = [
     ["+1/2 Rads", "INT", "activate radiation filtration system (generator)"],
     ["+1/2 Injury", "INT", "Able to hack and disable a security turret (hackerator)"],
     ["+1/2 Injury", "AGI", "Have to squeeze through tight gap (hammerator)"],
-    ["+1/2 Injury", "STR", "Heavy objects fall on you (autojacker)"],
+    ["+1/2 Injury", "STR", "Have to move heavy objects under water (breatherator)"],
     ["+1/2 Injury", "STR", "A muscle is strained moving something heavy (autojacker)"],
     ["+1/2 Injury", "CHA", "Attacked by roaming security robots (hackerator)"],
     ["+1/2 Injury", "AGI", "Avoid gunfire from defenses (hackerator)"]
