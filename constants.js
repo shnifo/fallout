@@ -415,7 +415,7 @@ export const shopTypes = [
 
 
 
-export const complications = [
+export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (flashlight)"],
