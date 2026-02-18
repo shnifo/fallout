@@ -229,7 +229,7 @@ export const zoneTable = {
     41: "Military Base: Scavenging items with durability here gives +1 to rolls with no multi-scavenge penalty.",
     42: "Farm: Contains dairy cows. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 20c). Crit: 3× yield.",
     43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Contains alien device, you can choose parameters, powered by 1D artifact",
+    44: "Crashed Ship: Contains mutated weapon",
     45: "Campsite: Can scavenge for 1d6 flares. Crit: find 3×.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction’s settlement 3 hexes away.",
