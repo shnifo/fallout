@@ -96,12 +96,12 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
     };
 
 export const ammoTable = [ // crit = also get a max yield roll of any ammo of your choice, grenade tier chosen randomly
-    { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
-    { type: "E-cell", roll: "1d6+4", cost: 10 },  
+    { type: "Small rounds", roll: "3d6", cost: 5 }, 
+    { type: "E-cell", roll: "2d6", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
-    { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
-    { type: "MF-cell", roll: "1d6+2", cost: 15 } 
+    { type: "Large rounds", roll: "3d6", cost: 10 }, 
+    { type: "MF-cell", roll: "2d6", cost: 15 } 
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
@@ -148,10 +148,10 @@ export const perkData = {
     ENDURANCE: [
         { name: "Artisan", desc: "Consume only 2 scrap when you repair an item at 2 durability." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and addiction withdrawl only lasts 1 day." },
-        { name: "Extra Flavor", desc: "Treat irradiated food and drink as dirty instead." },
+        { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "Gain +1 fatigue to scavenge a settlement." },
-        { name: "Quartermaster", desc: "Item stack sizes over 10 no longer become heavy." },
+        { name: "Fat Stacks", desc: "Item stack sizes over 10 no longer become heavy." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 5 additional times." },
@@ -171,7 +171,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Chosen One", desc: "Artifacts can convert durability to HP and you can use alien devices once for free. " },
+        { name: "Chosen One", desc: "Artifacts gain +1 range and can convert durability back to HP" },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -208,17 +208,17 @@ export const backgroundData = [
 
 // === Zone Table (kept as-is) ===
 export const zoneTable = {
-    11: "Office: Contains 2 Vending machines with 1d6 water for 10c each. Autojacker to open.",
-    12: "Mall: Scavenging allows +2 rerolls. use flashlight for +1 reroll. ",
+    11: "Office: Contains 3 Vending machines with hidden 1d6 water for 10c each. Autojacker to open.",
+    12: "Mall: Use flashlight when scavenging for +3 rerolls ",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
-    15: "School: Contains 3 special rooms instead of 1, each requires a different technology.",
+    15: "University: Contains a 1D artifact",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
-    22: "Armory: Contains a random military equipment.",
-    23: "Park: Contains a random giant potted plant. (heavy, +100% yield).",
+    22: "Armory: Scavenging armor gives +3 rerolls with no multi-scavenge penalty.",
+    23: "Park: Contains a random giant potted plant. (heavy, double yield).",
     24: "Railyard: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
-    25: "Library: Order a random recipe that arrives on level up",
+    25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
@@ -226,10 +226,10 @@ export const zoneTable = {
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
     35: "Gas Station: Can spend 10 caps to gain 1 fuel, up to 3d6.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
-    41: "Military Base: Scavenging items with durability here gives +1 to rolls with no multi-scavenge penalty.",
+    41: "Military Base: Contains a mutated weapon.",
     42: "Farm: Contains dairy cows. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 20c). Crit: 3× yield.",
     43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Contains mutated weapon",
+    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are mutated",
     45: "Campsite: Can scavenge for 1d6 flares. Crit: find 3×.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction’s settlement 3 hexes away.",
@@ -242,8 +242,8 @@ export const zoneTable = {
     62: "Restaurant: Order food (1d6+10 clean rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all skill/luck/resist.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
-    65: "Supermarket: Scavenging stackables gives +1 to rolls with no multi-scavenge penalty.",
-    66: "Church: No battle. Friendly merchant with 2 bodyguards sells 2 random special items."
+    65: "Supermarket: Scavenging stackables gives +3 rerolls with no multi-scavenge penalty.",
+    66: "Church: No battle. Friendly merchant with 2 bodyguards sells 2 random items from military equipment, artifacts or plants ."
 };
 
 // === Monster Data (unchanged) ===
@@ -315,7 +315,7 @@ export const monsterData = {
             { name: "Disciple", hp: 14, notes: "scaled mutated weapons" },
             { name: "Priest", hp: 18, notes: "scaled mutated weapons" },
             { name: "Fanatic", hp: 22, notes: "scaled mutated weapons" },
-            { name: "Leader", hp: 26, notes: "scaled mutated weapons" }
+            { name: "Elder", hp: 26, notes: "scaled mutated weapons" }
         ]
     },
     O2: {
@@ -339,13 +339,13 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "immune rad, special: rad source, on death: creates rad pool, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you are on a pool on your turn. 
+        label: "Aberrations", notes: "immune rad, special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
             { name: "Tangler", hp: 5, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 9, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 13, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
             { name: "Bloat", hp: 17, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
             { name: "Widow", hp: 21, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 26, notes: "12 E+burn/P+bleed/R+poison, very long, can scan armor" } //weapons and machinery fused with mutated flesh
+            { name: "Cybermutant", hp: 26, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
@@ -386,14 +386,14 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal 3 hp i
 
 export const plants = [ // "Generates a resource every time you level up, bulky, 100c",
     {name: "Potted Sludgeflower", effect: "Generates 3 fuel on level up"},
-    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up(-1 hunger)"},
+    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up"},
     {name: "Potted Mutfruit", effect: "Generates 6 clean water on level up"},
     {name: "Potted Radovera", effect: "Generates 3 bandage on level up"},
     {name: "Potted Indigourd", effect: "Generates 3 rad-x on level up"},
     {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up"}
     ];
 
-export const medTable = [ //crit = also find max yield of chosen med. 
+export const medTable = [ //crit = also find max yield (8) of chosen med. 
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
@@ -402,7 +402,7 @@ export const medTable = [ //crit = also find max yield of chosen med.
     { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
-export const chemTable = [ //crit = also find max yield of chosen chem. 
+export const chemTable = [ //crit = also find max yield (8) of chosen chem. 
     { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: Jolt
     { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
     { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
