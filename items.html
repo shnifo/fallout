@@ -290,10 +290,13 @@ button:hover { background:#2a6ce2; }
 	  </div>
 	   <div class="filter-box">
 	  <select id="typeFilter">
-		<option value="all">All Weapon Types</option>
-		<option value="melee">Melee</option>
-		<option value="range">Ranged</option>
-	  </select>
+  <option value="all">all</option>
+  <option value="melee">melee</option>
+  <option value="range">range</option>          
+  <option value="short">short</option>
+  <option value="mid">mid</option>
+  <option value="long">long</option>
+</select>
 	  
 		</div>
 
@@ -507,10 +510,25 @@ function generateWeapon(){
     const dmgType = dmgMatch ? dmgMatch[0] : "P";
 
     // weapon type: treat "melee" string as melee, everything else as range
-    const wepType = (weapon[4] === "melee") ? "melee" : "range";
+        // weapon type + range band
+    const rangeBand = weapon[4];  // "melee", "short", "mid", "long"
+    const wepType   = (rangeBand === "melee") ? "melee" : "range";
 
-    if((dmgFilter==="all" || dmgFilter===dmgType) &&
-       (typeFilter==="all" || typeFilter===wepType)){
+    let matchesType = false;
+
+    if (typeFilter === "all") {
+      matchesType = true;
+    } else if (typeFilter === "melee") {
+      matchesType = (rangeBand === "melee");
+    } else if (typeFilter === "range") {
+      matchesType = (rangeBand !== "melee");          // any ranged
+    } else {
+      // short / mid / long
+      matchesType = (rangeBand === typeFilter);
+    }
+
+    if ((dmgFilter === "all" || dmgFilter === dmgType) &&
+        matchesType) {
       chosen = weapon;
       break;
     }
@@ -590,7 +608,7 @@ function generateRations() {
 }
 function generateMeds() {
   const med = medTable[Math.floor(Math.random() * medTable.length)];
-  const count = rollDie(6) + 2;
+  const count = rollDie(6) + 1;
 
   document.getElementById("medsOnlyOutput").innerHTML = `
     <b>${med.name} x${count}</b><br>
@@ -599,7 +617,7 @@ function generateMeds() {
 }
 function generateChems() {
   const chem = chemTable[Math.floor(Math.random() * chemTable.length)];
-  const count = rollDie(6) + 2;
+  const count = rollDie(6) + 1;
 
   document.getElementById("chemsOnlyOutput").innerHTML = `
     <b>${chem.name} x${count}</b><br>
@@ -854,6 +872,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
