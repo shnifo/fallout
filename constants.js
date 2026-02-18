@@ -1,7 +1,14 @@
 
 /// ARMOR & WEAPONS ///
-// crit = gain random legendary effect
-export const armorTable = [ 
+export const armorTable = [ /* crit = choose weapon type and gain random legendary effect
+1. Divine: Replenish one influence on initiative and after being crit
+2. Protected: Ignore the next damage source after initiative and after being crit
+3. Reflexive: Take an extra action after initiative and immediately after being crit
+4. Bloody: Heal 10% after combat and after being crit
+5. Swift: +1 sneak and sprint rolls
+6. Ethereal: Gain cover against melee attacks
+         */
+
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Raider armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
@@ -19,7 +26,13 @@ export const armorTable = [
     { roll: 16, text: "Alien armor: +28 def, 200c" }
 ];
 
-export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consistent */ //crit = gain random legendary effect
+export /* crit = choose armor distribution and gain random legendary effect
+1. Incendiary: adds burn 
+2. Toxic: adds poison 
+3. Destructive: converted to explosive splash  (or adds +1 splash range)
+4. Barbed: adds bleed
+5. Cryogenic: adds freeze
+6. Extended: +1 range        */
     const weapons = {
         E1: [[6, "Pipe Pistol", "5 P", "small rounds", "mid", "AGI", "30c"],
         [8, "Revolver", "6 P", "small rounds", "mid", "AGI", "40c"],
@@ -95,13 +108,13 @@ export /* Note: ammo field uses "-" for no-ammo entries so indexes stay consiste
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [ // crit = also get a max yield roll of any ammo of your choice, grenade tier chosen randomly
-    { type: "Small rounds", roll: "3d6", cost: 5 }, 
-    { type: "E-cell", roll: "2d6", cost: 10 },  
+export const ammoTable = [ // crit = get double yield of any ammo of your choice, grenade tier chosen randomly
+    { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
+    { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
-    { type: "Large rounds", roll: "3d6", cost: 10 }, 
-    { type: "MF-cell", roll: "2d6", cost: 15 } 
+    { type: "Large rounds", roll: "1d6+2", cost: 10 }, 
+    { type: "MF-cell", roll: "1d6+1", cost: 15 } 
 ];
 export const grenadeTable = [
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
@@ -154,7 +167,7 @@ export const perkData = {
         { name: "Fat Stacks", desc: "Item stack sizes over 10 no longer become heavy." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
-        { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 5 additional times." },
+        { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Guardian", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
         { name: "Point-blank", desc: "Shotguns do +1 damage against enemies in melee range." },
         { name: "Exposure Therapy", desc: "Rad damage aimed shots poison the target." }
@@ -171,7 +184,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Chosen One", desc: "Artifacts gain +1 range and can convert durability back to HP" },
+        { name: "Chosen One", desc: "Artifacts can convert durability back to HP and you can use alien devices once for free" },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -259,7 +272,7 @@ export const monsterData = {
         ]
     },
     E2: {
-        label: "Beasts", notes: "on death: allies can immediately move. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty)
+        label: "Beasts", notes: "on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty)
             { name: "Squid", hp: 6, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
             { name: "Wildcat", hp: 10, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 14, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
@@ -280,16 +293,16 @@ export const monsterData = {
     },
     E4: {
         label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Tardigrade", hp: 4, notes: "5 P+R melee" },
+            { name: "Silverfish", hp: 4, notes: "5 P+R melee" },//Giant silverfish
             { name: "Rodent", hp: 8, notes: "2x6 P melee, grapples on 6" },
             { name: "Ninetails", hp: 12, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 16, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 20, notes: "2x10 P + freeze, grapples on 6" }, //anglerfish adapted for land
+            { name: "Angler", hp: 20, notes: "2x10 P + freeze, grapples on 6" }, //Giant anglerfish adapted for land
             { name: "Hydra", hp: 24, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
         ]
     },
     E5: {
-        label: "Robots", notes: "1/6 to ignore armor per cripple. Loot: armor scraps", subs: [
+        label: "Robots", notes: "1/3 to ignore armor per cripple. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 12, notes: "7 E short" },
             { name: "Watchdog", hp: 16, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
             { name: "Medical Bot", hp: 20, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
@@ -329,7 +342,7 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "immune rad, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
+        label: "Zombies", notes: "immune rad, special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
             { name: "Shambler", hp: 4, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 8, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 12, notes: "9 R splash, melee" },
@@ -349,7 +362,7 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "immune rad, special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become bigger, stronger, and violent
+        label: "Mutants", notes: "immune rad, special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
             { name: "Skirmisher", hp: 8, notes: "scaled heavy guns, 12 R grenades" },
             { name: "Brute", hp: 12, notes: "scaled heavy guns, 13 R grenades" },
             { name: "Enforcer", hp: 16,  notes: "scaled heavy guns, 14 R grenades" },
@@ -359,7 +372,7 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "immune rad, hover, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+        label: "Revenants", notes: "immune rad, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
             { name: "Ghost", hp: 7, notes: "scaled heavy melee" },
             { name: "Spirit", hp: 11, notes: "scaled heavy melee" },
             { name: "Phantom", hp: 15, notes: "scaled heavy melee" },
@@ -371,12 +384,12 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-//crit scrap = 2x yield and find an artifact
-//crit water: 2x yield and find a plant
-//crit food: 2x yield and find 2d6 fuel
+//crit scrap = find any scraps of your choice and find a transmuter + artifact (can convert stacks of one category to another from ammo, food, water, weapon, armor, scrap. Weapon becomes mutated, converts 3 stackables <> 1 durability
+//crit water: find all clean water and find a plant
+//crit food: find all clean food and find 5 fuel
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal 3 hp instead
-    {name: "Earth Artifact", effect: "Fully cripple a limb, 3 HP, mid, 100c"},
+    {name: "Earth Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Water Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Fire Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
     {name: "Dark Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
@@ -393,7 +406,7 @@ export const plants = [ // "Generates a resource every time you level up, bulky,
     {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up"}
     ];
 
-export const medTable = [ //crit = also find max yield (8) of chosen med. 
+export const medTable = [ //crit = double yield of chosen med
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
@@ -402,7 +415,7 @@ export const medTable = [ //crit = also find max yield (8) of chosen med.
     { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
-export const chemTable = [ //crit = also find max yield (8) of chosen chem. 
+export const chemTable = [ //crit = double yield of chosen chem
     { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: Jolt
     { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
     { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
@@ -412,7 +425,7 @@ export const chemTable = [ //crit = also find max yield (8) of chosen chem.
 ];
 
 
-export const techTable = [ //crit = implant: applies effect of random perk which is rolled when implant is generated
+export const techTable = [ //crit = also find implant: applies effect of random perk which is rolled when implant is generated, 100c
     { name: "Generator", effect: "Provides temporary power for electronics" },
     { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
@@ -420,7 +433,6 @@ export const techTable = [ //crit = implant: applies effect of random perk which
     { name: "Illuminator", effect: "Allows exploration of dark or foggy areas" },
     { name: "Hackerator", effect: "Opens electronic locks and hacks computers" }
 ];
-
 
 
 // Shop types and their corresponding generator functions
@@ -432,8 +444,6 @@ export const shopTypes = [
     { name: "Tech" },
     { name: "Food & Water" }
 ];
-
-
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
