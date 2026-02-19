@@ -655,7 +655,7 @@ export const factions = [
     },
     {
         name: "Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
-        tag: "Chems",
+        tag: "rations",
         desc: "Communist monarchy, slavers, hateful"
     },
     {
