@@ -184,7 +184,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Chosen One", desc: "Artifacts can convert durability back to HP and you can use alien devices once for free" },
+        { name: "Extraterrestrial", desc: "Artifacts can convert durability back to HP and artifact weapons do +1 damage." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -197,7 +197,7 @@ export const perkData = {
         { name: "Overkill", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide free crit loot from their faction shop." },
-        { name: "Technophile", desc: "You can have +2 implants and heal +10% HP when you use a technology." },
+        { name: "Technophile", desc: "Heal +10% HP when you use a technology or craft an item with one." },
         { name: "Art of the Deal", desc: "Haggling is twice as effective." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don’t Look at Explosions", desc: "Gain +5 explosive armor." }
@@ -221,7 +221,7 @@ export const backgroundData = [
 
 // === Zone Table (kept as-is) ===
 export const zoneTable = {
-    11: "Office: Contains 3 Vending machines with hidden 1d6 water for 10c each. Autojacker to open.",
+    11: "Office: Contains 2 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
     12: "Mall: Use flashlight when scavenging for +3 rerolls ",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
@@ -252,7 +252,7 @@ export const zoneTable = {
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Gardens: Can STR(injury) scavenge for a megamelon that gives 5x -1 hunger+thirst, heavy.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
-    62: "Restaurant: Order food (1d6+10 clean rations) that arrives on level up.",
+    62: "Restaurant: Order food (1d6+5 power rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all skill/luck/resist.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Supermarket: Scavenging stackables gives +3 rerolls with no multi-scavenge penalty.",
@@ -384,11 +384,11 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-//crit scrap = find any scraps of your choice and find a transmuter + artifact (can convert stacks of one category to another from ammo, food, water, weapon, armor, scrap. Weapon becomes mutated, converts 3 stackables <> 1 durability
-//crit water: find all clean water and find a plant
-//crit food: find all clean food and find 5 fuel
+//crit workbench = scraps of your choice and a plant.
+//crit water: find power water (-1 thirst, -1 fatigue, +10% HP) 
+//crit food: find power rations (-1 thirst, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal 3 hp instead
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. can combine with a weapon to transform it into a CHA weapon. small/ecell/large/MFcell/fuel cost converted to 1/2/3/4/5 HP cost. uses weapon roll rules but repairs with HP.
     {name: "Earth Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Water Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Fire Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -406,7 +406,7 @@ export const plants = [ // "Generates a resource every time you level up, bulky,
     {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up"}
     ];
 
-export const medTable = [ //crit = double yield of chosen med
+export const medTable = [ //crit = find chosen med and also find random chem roll
     { name: "Bandage", effect: "-1 Injury, +10% HP" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
@@ -415,17 +415,17 @@ export const medTable = [ //crit = double yield of chosen med
     { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
 ];
 
-export const chemTable = [ //crit = double yield of chosen chem
-    { name: "Jet", effect: "Immediately take 2 actions with +1 speed & all rolls (Addictive)" }, // rename: Jolt
-    { name: "Psycho", effect: "+1 damage for 1 day (Addictive)" }, // rename: haywire
-    { name: "Rocket", effect: "+1 movement distance for 1 day (Addictive)" }, // rename: sonic
-    { name: "Mentats", effect: "+1 INT, +1 AGI for 1 day (Addictive)" }, // rename: neuro
-    { name: "Buffout", effect: "+1 STR, +1 END for 1 day (Addictive)" }, // rename: crank
-    { name: "Beer", effect: "+1 CHA for 1 day, -1 thirst (Addictive)" }
+export const chemTable = [ 
+    { name: "Jet", effect: "Immediately take 2 actions with +2 speed & all rolls (Addictive)" }, // rename: Jolt
+    { name: "Psycho", effect: "+2 damage for 1 day (Addictive)" }, // rename: haywire
+    { name: "Rocket", effect: "+2 movement distance for 1 day (Addictive)" }, // rename: sonic
+    { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive)" }, // rename: neuro
+    { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive)" }, // rename: crank
+    { name: "Beer", effect: "+2 CHA for 1 day, -2 thirst (Addictive)" }
 ];
 
 
-export const techTable = [ //crit = also find implant: applies effect of random perk which is rolled when implant is generated, 100c
+export const techTable = [ //crit = find chosen tech and also find random alien artifact, 100c
     { name: "Generator", effect: "Provides temporary power for electronics" },
     { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
