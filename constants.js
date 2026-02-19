@@ -108,7 +108,7 @@ export /* crit = choose armor distribution and gain random legendary effect
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [ // crit = get double yield of any ammo of your choice, grenade tier chosen randomly
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. weapons become mutated. one use
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -418,14 +418,14 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 export const chemTable = [ 
     { name: "Jet", effect: "Immediately take 2 actions with +2 speed & all rolls (Addictive)" }, // rename: Jolt
     { name: "Psycho", effect: "+2 damage for 1 day (Addictive)" }, // rename: haywire
-    { name: "Rocket", effect: "+2 movement distance for 1 day (Addictive)" }, // rename: sonic
+    { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive)" }, // rename: sonic
     { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive)" }, // rename: neuro
     { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive)" }, // rename: crank
     { name: "Beer", effect: "+2 CHA for 1 day, -2 thirst (Addictive)" }
 ];
 
 
-export const techTable = [ //crit = find chosen tech and also find random alien artifact, 100c
+export const techTable = [ //crit = find chosen tech and also find random alien artifact
     { name: "Generator", effect: "Provides temporary power for electronics" },
     { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
     { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
