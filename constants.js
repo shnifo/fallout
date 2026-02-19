@@ -440,9 +440,9 @@ export const shopTypes = [
     { name: "Weapons" },
     { name: "Armor" },
     { name: "Meds" },
-    { name: "Chems" },
     { name: "Tech" },
-    { name: "Food & Water" }
+    { name: "Rations" },
+    { name: "Water" }
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
@@ -655,7 +655,7 @@ export const factions = [
     },
     {
         name: "Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
-        tag: "rations",
+        tag: "Rations",
         desc: "Communist monarchy, slavers, hateful"
     },
     {
