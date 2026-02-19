@@ -1,14 +1,12 @@
 
 /// ARMOR & WEAPONS ///
-export const armorTable = [ /* crit = choose weapon type and gain random legendary effect
+export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
 1. Divine: Replenish one influence on initiative and after being crit
 2. Protected: Ignore the next damage source after initiative and after being crit
 3. Reflexive: Take an extra action after initiative and immediately after being crit
 4. Bloody: Heal 10% after combat and after being crit
 5. Swift: +1 sneak and sprint rolls
-6. Ethereal: Gain cover against melee attacks
-         */
-
+6. Ethereal: Gain cover against melee attacks   */
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Raider armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
@@ -26,7 +24,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 16, text: "Alien armor: +28 def, 200c" }
 ];
 
-export /* crit = choose armor distribution and gain random legendary effect
+export /* crit = choose armor distribution and gain random legendary effect. Legendaries have 2x value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash  (or adds +1 splash range)
@@ -108,7 +106,7 @@ export /* crit = choose armor distribution and gain random legendary effect
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. weapons become mutated. one use
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. weapons become mutated. one use, 100c, bulky
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -278,22 +276,22 @@ export const monsterData = {
             { name: "Raptor", hp: 14, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
             { name: "Ursa", hp: 18, notes: "2x9 P melee, shove on 6" }, //giant bear
             { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
-            { name: "Dragon", hp: 26, notes: "11 X+R splash + poison + burn, short,  -1 mob" } //Massive mutated komodo dragon.
+            { name: "Dragon", hp: 26, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
             { name: "Gator", hp: 5, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Shellbacks", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Bubbler", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 13, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Jabba", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Lumpy", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Hornet", hp: 21, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
             { name: "Terminite", hp: 25, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
     E4: {
         label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Silverfish", hp: 4, notes: "5 P+R melee" },//Giant silverfish
+            { name: "Silverfish", hp: 4, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Rodent", hp: 8, notes: "2x6 P melee, grapples on 6" },
             { name: "Ninetails", hp: 12, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 16, notes: "9 X splash + burn, short" },
@@ -332,7 +330,7 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [ //futuristic flying robots deployed by aliens
+        label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
             { name: "Observer", hp: 4, notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 8, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 12, notes: "3x7 X, short" },
@@ -385,8 +383,8 @@ export const monsterData = {
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench = scraps of your choice and a plant.
-//crit water: find power water (-1 thirst, -1 fatigue, +10% HP) 
-//crit food: find power rations (-1 thirst, -1 rads, +10% HP)
+//crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
+//crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. can combine with a weapon to transform it into a CHA weapon. small/ecell/large/MFcell/fuel cost converted to 1/2/3/4/5 HP cost. uses weapon roll rules but repairs with HP.
     {name: "Earth Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -397,41 +395,41 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
     {name: "Light Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
-export const plants = [ // "Generates a resource every time you level up, bulky, 100c",
-    {name: "Potted Sludgeflower", effect: "Generates 3 fuel on level up"},
-    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up"},
-    {name: "Potted Mutfruit", effect: "Generates 6 clean water on level up"},
-    {name: "Potted Radovera", effect: "Generates 3 bandage on level up"},
-    {name: "Potted Indigourd", effect: "Generates 3 rad-x on level up"},
-    {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up"}
+export const plants = [ // "Generates a resource every time you level up, bulky",
+    {name: "Potted Sludgeflower", effect: "Generates 3 fuel on level up, 100c"},
+    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up, 100c"},
+    {name: "Potted Mutfruit", effect: "Generates 6 clean water on level up, 100c"},
+    {name: "Potted Radovera", effect: "Generates 3 bandage on level up, 100c"},
+    {name: "Potted Indigourd", effect: "Generates 3 rad-x on level up, 100c"},
+    {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up, 100c"}
     ];
 
 export const medTable = [ //crit = find chosen med and also find random chem roll
-    { name: "Bandage", effect: "-1 Injury, +10% HP" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP" }, // rename: mutagone? chromocure? geneclean? antioxidants?
-    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP" },
-    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive)" },
-    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive)" }, // rename: mutagone? chromocure? geneclean? 
-    { name: "Addictol", effect: "Removes addictions, +10% HP" } // rename: purge?
+    { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
+    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" }, // rename: mutagone? chromocure? geneclean? antioxidants?
+    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
+    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
+    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" }, // rename: mutagone? chromocure? geneclean? 
+    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
 
-export const chemTable = [ 
-    { name: "Jet", effect: "Immediately take 2 actions with +2 speed & all rolls (Addictive)" }, // rename: Jolt
-    { name: "Psycho", effect: "+2 damage for 1 day (Addictive)" }, // rename: haywire
-    { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive)" }, // rename: sonic
-    { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive)" }, // rename: neuro
-    { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive)" }, // rename: crank
-    { name: "Beer", effect: "+2 CHA for 1 day, -2 thirst (Addictive)" }
+export const chemTable = [ // rename: potions? concoctions?
+    { name: "Jet", effect: "Immediately take 2 actions with +2 speed & all rolls (Addictive), 20c" }, // rename: Jolt
+    { name: "Psycho", effect: "+2 damage for 1 day (Addictive), 20c" }, // rename: haywire
+    { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive), 20c" }, // rename: sonic
+    { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive), 20c" }, // rename: neuro
+    { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive), 20c" }, // rename: crank
+    { name: "Beer", effect: "+2 CHA for 1 day, -2 thirst (Addictive), 20c" }
 ];
 
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact
-    { name: "Generator", effect: "Provides temporary power for electronics" },
-    { name: "Autojacker", effect: "Portable hydraulic jack to move heavy objects or jammed doors" },
-    { name: "Hammerator", effect: "Hand jackhammer used to expand openings or clear rubble" },
-    { name: "Breatherator", effect: "Allows exploration of low oxygen or underwater areas" },
-    { name: "Illuminator", effect: "Allows exploration of dark or foggy areas" },
-    { name: "Hackerator", effect: "Opens electronic locks and hacks computers" }
+    { name: "Generator", effect: "Provide power for electronics, 50c" },
+    { name: "Autojacker", effect: "Portable hydraulic jack for moving heavy and jammed objects, 50c" },
+    { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
+    { name: "Breatherator", effect: "For low oxygen or underwater areas, 50c" },
+    { name: "Illuminator", effect: "For dark or foggy areas, 50c" },
+    { name: "Hackerator", effect: "Opens electronic locks and hacks computers, 50c" }
 ];
 
 
