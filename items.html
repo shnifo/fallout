@@ -831,15 +831,15 @@ for (let i = 0; i < shopSlots.length; i++) {
         generateMeds();
         result = document.getElementById("medsOnlyOutput").innerHTML;
         break;
-      case "Chems":
+      case "Rations":
         generateChems();
-        result = document.getElementById("chemsOnlyOutput").innerHTML;
+        result = document.getElementById("RationWaterOutput").innerHTML;
         break;
       case "Tech":
         generateTech();
         result = document.getElementById("techOutput").innerHTML;
         break;
-      case "Food & Water":
+      case "Water":
         generateRations();
         result = document.getElementById("RationWaterOutput").innerHTML;
         break;
@@ -872,6 +872,7 @@ window.distribute = distribute;
 </script>
 </body>
 </html>
+
 
 
 
