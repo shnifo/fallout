@@ -24,7 +24,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 16, text: "Alien armor: +28 def, 200c" }
 ];
 
-export /* crit = choose armor distribution and gain random legendary effect. Legendaries have 2x value.
+export /* crit = rearrange armor values and gain random legendary effect. Legendaries have 2x value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash  (or adds +1 splash range)
@@ -122,6 +122,28 @@ export const grenadeTable = [
     { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "35c" },
     { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "40c" }
 ];
+
+/*
+RECIPES
+1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo 
+1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c
+Autojacker + 1 of each scrap = Backpack: can share slot with 5 other bulky items
+1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
+1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
+Hackerator + 1 of each scrap = Analyzer: learn weapon+armor of 1 enemy before initiative
+1 tech scrap + melee/unarmed: hydraulic mod: +2 dmg, 1 turn cooldown 
+1 fuel + 1 animal flesh = 1 stimpak
+Hammerator + 1 of each scrap = Helmet: +1 all armor
+1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit
+1 fuel + 1 mutant flesh = 1 radaway 
+Generator + 1 of each scrap = Forcefield: +10 max HP
+1 armor scrap + gun + melee = gunblade mod: (-1 dmg to both, combine weapons, can attack with both weapons in same action where applicable)
+1 fuel + 1 human flesh = 1 adrenaline
+Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping
+1 all scrap + weapon = Calibrated mod: +1 dmg. 
+1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP. 
+Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons
+*/
 
 // ---------- PERK DATA ----------
 
@@ -414,7 +436,7 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 ];
 
 export const chemTable = [ // rename: potions? concoctions?
-    { name: "Jet", effect: "Immediately take 2 actions with +2 speed & all rolls (Addictive), 20c" }, // rename: Jolt
+    { name: "Jet", effect: "+1 to all stats and movement/sprint distance for 1 day (Addictive), 20c" }, // rename: Jolt
     { name: "Psycho", effect: "+2 damage for 1 day (Addictive), 20c" }, // rename: haywire
     { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive), 20c" }, // rename: sonic
     { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive), 20c" }, // rename: neuro
