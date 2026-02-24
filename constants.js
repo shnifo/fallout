@@ -408,7 +408,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. can combine with a weapon to transform it into a CHA weapon. small/ecell/large/MFcell/fuel cost converted to 1/2/3/4/5 HP cost. uses weapon roll rules but repairs with HP.
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. can combine with a weapon to transform it into a CHA weapon. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules but repairs with HP.
     {name: "Earth Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Water Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Fire Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
