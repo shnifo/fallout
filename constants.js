@@ -654,14 +654,14 @@ export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player
 // ===== FACTIONS =====
 export const factions = [
     {
-        name: "Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
+        name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
         tag: "Armor",
         desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
     },
     {
-        name: "The Institute",
+        name: "Resurgence", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. 
         tag: "Meds",
-        desc: "Trying to rebuild society with science, democracy, weary"
+        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary"
     },
     {
         name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
@@ -674,12 +674,12 @@ export const factions = [
         desc: "Bureaucratic progressive society, republic, weary"
     },
     {
-        name: "Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        name: "The Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Rations",
         desc: "Communist monarchy, slavers, hateful"
     },
     {
-        name: "Commonwealth", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
+        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
         tag: "Technology",
         desc: "Small town commune, anarchy, friendly"
     }
