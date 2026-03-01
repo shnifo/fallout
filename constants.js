@@ -283,62 +283,62 @@ export const zoneTable = {
 export const monsterData = {
     E1: {
         label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Recruit", hp: 10, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 12, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Officer", hp: 14, notes: "scaled weapons, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, notes: "scaled weapons, 14x mines" }, // 11-12
-            { name: "Lieutenant", hp: 18, notes: "scaled weapons, 15x mines" }, // 13-14
-            { name: "General", hp: 20, notes: "scaled weapons, 16x mines" } // 15+
+            { name: "Recruit", hp: 10, def: 8, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Soldier", hp: 12, def: 12, notes: "scaled weapons, 12x mines" }, // 7-8
+            { name: "Officer", hp: 14, def: 16, notes: "scaled weapons, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16, def: 20, notes: "scaled weapons, 14x mines" }, // 11-12
+            { name: "Lieutenant", hp: 18, def: 24, notes: "scaled weapons, 15x mines" }, // 13-14
+            { name: "General", hp: 20, def: 28, notes: "scaled weapons, 16x mines" } // 15+
         ]
     },
     E2: {
         label: "Beasts", notes: "on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty)
-            { name: "Squid", hp: 6, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
-            { name: "Wildcat", hp: 10, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 14, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 18, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 22, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
-            { name: "Dragon", hp: 26, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
+            { name: "Squid", hp: 6, def: 10, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
+            { name: "Wildcat", hp: 8, def: 14, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Raptor", hp: 10, def: 18, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
+            { name: "Ursa", hp: 12, def: 22, notes: "2x9 P melee, shove on 6" }, //giant bear
+            { name: "Mammoth", hp: 14, def: 26, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
+            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
-            { name: "Gator", hp: 5, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 9, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
-            { name: "Salamander", hp: 13, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Lumpy", hp: 17, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
-            { name: "Hornet", hp: 21, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
-            { name: "Terminite", hp: 25, notes: "2x12 P melee, grapples on 6" } //Giant termites
+            { name: "Gator", hp: 4, def: 12, notes: "6 P melee + bleed, grapple on 6" },
+            { name: "Bubbler", hp: 6, def: 16, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Salamander", hp: 8, def: 18, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
+            { name: "Lumpy", hp: 10, def: 22, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Hornet", hp: 12, def: 26, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
+            { name: "Terminite", hp: 24, def: 30, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
     E4: {
         label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Silverfish", hp: 4, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
-            { name: "Rodent", hp: 8, notes: "2x6 P melee, grapples on 6" },
-            { name: "Ninetails", hp: 12, notes: "3x7 E, melee" }, //foxes with electrified tails
-            { name: "Pyrodillos", hp: 16, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 20, notes: "2x10 P + freeze, grapples on 6" }, //Giant anglerfish adapted for land
-            { name: "Hydra", hp: 24, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
+            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
+            { name: "Rodent", hp: 8, def: 16, notes: "2x6 P melee, grapples on 6" },
+            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
+            { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
+            { name: "Angler", hp: 14, def: 28, notes: "2x10 P + freeze, grapples on 6" }, //Giant anglerfish adapted for land
+            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
         ]
     },
     E5: {
-        label: "Robots", notes: "1/3 to ignore armor per cripple. Loot: armor scraps", subs: [
-            { name: "Police Bot", hp: 12, notes: "7 E short" },
-            { name: "Watchdog", hp: 16, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 20, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
-            { name: "Patriot", hp: 24, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 28, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 32, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+        label: "Robots", notes: "take +1 dmg per cripple. Loot: armor scraps", subs: [
+            { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
+            { name: "Watchdog", hp: 11, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Medical Bot", hp: 12, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Patriot", hp: 13, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 14, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 15, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: {
         label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
-            { name: "Sentry", hp: 6, notes: "scaled energy weapons + 11E mines" },
-            { name: "Patroller", hp: 10, notes: "scaled energy weapons + 12E mines" },
-            { name: "Trooper", hp: 14, notes: "scaled energy weapons + 13E mines" },
-            { name: "Eradicator", hp: 18, notes: "scaled energy weapons +14E mines" },
-            { name: "Assassin", hp: 22, notes: "scaled energy weapons +15E mines" },
-            { name: "Terminator", hp: 26, notes: "scaled energy weapons +16E mines" }
+            { name: "Sentry", hp: 8, def: 12, notes: "scaled energy weapons + 11E mines" },
+            { name: "Patroller", hp: 9, def: 16, notes: "scaled energy weapons + 12E mines" },
+            { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons + 13E mines" },
+            { name: "Eradicator", hp: 11, def: 24, notes: "scaled energy weapons +14E mines" },
+            { name: "Assassin", hp: 12, def: 28, notes: "scaled energy weapons +15E mines" },
+            { name: "Terminator", hp: 13, def: 32, notes: "scaled energy weapons +16E mines" }
         ]
     },
     O1: {
