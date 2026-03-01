@@ -343,62 +343,62 @@ export const monsterData = {
     },
     O1: {
         label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
-            { name: "Initiate", hp: 6, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 10, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 14, notes: "scaled mutated weapons" },
-            { name: "Priest", hp: 18, notes: "scaled mutated weapons" },
-            { name: "Fanatic", hp: 22, notes: "scaled mutated weapons" },
-            { name: "Elder", hp: 26, notes: "scaled mutated weapons" }
+            { name: "Initiate", hp: 12, def: 6, notes: "scaled mutated weapons" },
+            { name: "Acolyte", hp: 16, def: 9, notes: "scaled mutated weapons" },
+            { name: "Disciple", hp: 20, def: 12, notes: "scaled mutated weapons" },
+            { name: "Priest", hp: 24, def: 15, notes: "scaled mutated weapons" },
+            { name: "Fanatic", hp: 28, def: 18, notes: "scaled mutated weapons" },
+            { name: "Elder", hp: 32, def: 21, notes: "scaled mutated weapons" }
         ]
     },
     O2: {
         label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
-            { name: "Observer", hp: 4, notes: "2x5 E, mid" },
-            { name: "Assimilator", hp: 8, notes: "2x6 R, mid" },
-            { name: "Excavator", hp: 12, notes: "3x7 X, short" },
-            { name: "Destroyer", hp: 16, notes: "10 X splash, mid" },
-            { name: "Suppressor", hp: 20, notes: "2x9 E + freeze, mid" },
-            { name: "Invader", hp: 24, notes: "12 R splash+burn, long" }
+            { name: "Observer", hp: 5, def: 10,  notes: "2x5 E, mid" },
+            { name: "Assimilator", hp: 7, def: 13, notes: "2x6 R, mid" },
+            { name: "Excavator", hp: 9, def: 16, notes: "3x7 X, short" },
+            { name: "Destroyer", hp: 11, def: 19, notes: "10 X splash, mid" },
+            { name: "Suppressor", hp: 13, def: 21, notes: "2x9 E + freeze, mid" },
+            { name: "Invader", hp: 15, def: 24, notes: "12 R splash+burn, long" }
         ]
     },
     O3: {
         label: "Zombies", notes: "immune rad, special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
-            { name: "Shambler", hp: 4, notes: "5 P+R melee, grapples on 6" },
-            { name: "Stalker", hp: 8, notes: "6 P+R melee, grapples on 6" },
-            { name: "Emitter", hp: 12, notes: "9 R splash, melee" },
-            { name: "Ravager", hp: 16, notes: "8 P+R melee, grapples on 6" },
-            { name: "Firebrand", hp: 20, notes: "11 X splash+burn other, melee" },
-            { name: "Frostbrand", hp: 24, notes: "12 E splash+freeze other, melee" }
+            { name: "Shambler", hp:12, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
+            { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
+            { name: "Ravager", hp: 24, def: 15, notes: "8 P+R melee, grapples on 6" },
+            { name: "Firebrand", hp: 28, def: 18, notes: "11 X splash+burn other, melee" },
+            { name: "Frostbrand", hp: 32, def: 21, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
         label: "Aberrations", notes: "immune rad, special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
-            { name: "Tangler", hp: 5, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
-            { name: "Crawler", hp: 9, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Buzzer", hp: 13, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
-            { name: "Bloat", hp: 17, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
-            { name: "Widow", hp: 21, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 26, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
+            { name: "Tangler", hp: 8, def: 11, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
+            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
+            { name: "Buzzer", hp: 12, def: 19, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
+            { name: "Bloat", hp: 14, def: 23, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
+            { name: "Widow", hp: 16, def: 27, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 18, def: 31, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
         label: "Mutants", notes: "immune rad, special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
-            { name: "Skirmisher", hp: 8, notes: "scaled heavy guns, 12 R grenades" },
-            { name: "Brute", hp: 12, notes: "scaled heavy guns, 13 R grenades" },
-            { name: "Enforcer", hp: 16,  notes: "scaled heavy guns, 14 R grenades" },
-            { name: "Leader", hp: 20, notes: "scaled heavy guns, 15 R grenades" },
-            { name: "Overlord", hp: 24, notes: "scaled heavy guns, 16 R grenades" },
-            { name: "Mastermind", hp: 28, notes: "scaled heavy guns, 17 R grenades" }
+            { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
+            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
+            { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns, 14 R grenades" },
+            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns, 15 R grenades" },
+            { name: "Overlord", hp: 20, def:28, notes: "scaled heavy guns, 16 R grenades" },
+            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns, 17 R grenades" }
         ]
     },
     O6: {
         label: "Revenants", notes: "immune rad, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghost", hp: 7, notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 11, notes: "scaled heavy melee" },
-            { name: "Phantom", hp: 15, notes: "scaled heavy melee" },
-            { name: "Spectre", hp: 19, notes: "scaled heavy melee" },
-            { name: "Wraith", hp: 23, notes: "scaled heavy melee" },
-            { name: "Lich", hp: 27, notes: "scaled heavy melee" }
+            { name: "Ghost", hp: 4, def: 6 ,  notes: "scaled heavy melee" },
+            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee" },
+            { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee" },
+            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee" },
+            { name: "Wraith", hp: 12, def: 22, notes: "scaled heavy melee" },
+            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee" }
         ]
     }
 };
