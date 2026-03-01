@@ -188,7 +188,7 @@
 
     const lines = [
       `${cat.label} — ${cat.notes || ""}`,
-      `${totalEnemies}× ${subtype.name} (${subtype.hp} HP)`,
+      `${totalEnemies}× ${subtype.name} (${subtype.hp} HP, ${subtype.def} DEF)`,
       subtype.notes ? `(${subtype.notes})` : ""
     ].filter(Boolean);
 
@@ -221,6 +221,7 @@
 </script>
 </body>
 </html>
+
 
 
 
