@@ -283,12 +283,12 @@ export const zoneTable = {
 export const monsterData = {
     E1: {
         label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Recruit", hp: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 8, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Officer", hp: 12, notes: "scaled weapons, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, notes: "scaled weapons, 14x mines" }, // 11-12
-            { name: "Lieutenant", hp: 20, notes: "scaled weapons, 15x mines" }, // 13-14
-            { name: "General", hp: 24, notes: "scaled weapons, 16x mines" } // 15+
+            { name: "Recruit", hp: 10 def 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Soldier", hp: 12 def 8, notes: "scaled weapons, 12x mines" }, // 7-8
+            { name: "Officer", hp: 14 def 12, notes: "scaled weapons, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16 def 16, notes: "scaled weapons, 14x mines" }, // 11-12
+            { name: "Lieutenant", hp: 18 def 20, notes: "scaled weapons, 15x mines" }, // 13-14
+            { name: "General", hp: 20 def 24, notes: "scaled weapons, 16x mines" } // 15+
         ]
     },
     E2: {
