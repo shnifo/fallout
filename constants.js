@@ -169,9 +169,9 @@ export const perkData = {
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Ignore the effects of rubble and sprint moves +1 distance." },
         { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on blank tiles." },
-        { name: "Guerrilla", desc: "All terrain also counts as cover and your attacks ignore obstructions." },
+        { name: "Guerrilla", desc: "All special terrain also counts as cover and your attacks ignore obstructions." },
         { name: "Sniper", desc: "Atacks ignore cover and long range weapons gain +1 range." },
-        { name: "Perfectionist", desc: "Crits restore luck, heal 10% HP, and deal +1 damage if attacking." },
+        { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
         { name: "Jack of All Trades", desc: "Gain another skill that uses stats different from your current skill." },
         { name: "Quantum Clip", desc: "Gain an infinite ammo box that changes ammo types each round." },
         { name: "Rivers of Blood", desc: "Physical damage aimed shots cause the target to bleed." },
@@ -199,12 +199,12 @@ export const perkData = {
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Potted plants give 66% more yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Potted plants give two-thirds more yield if held for the whole level." },
         { name: "Side Hustle", desc: "Gain an additional background." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Artifacts can convert durability back to HP and artifact weapons do +1 damage." },
+        { name: "Extraterrestrial", desc: "Artifacts and artifact weapons can convert durability to and from HP at a 1:10 ratio." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -212,7 +212,7 @@ export const perkData = {
         { name: "Terrifying Presence", desc: "Gain the ability to frighten and command hostile creatures." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
-        { name: "True Grit", desc: "Resist always rolls at least 2 dice and can be used on other players." },
+        { name: "True Grit", desc: "Resist can be used on other players and causes the roll to be a minimum of 3 dice." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Overkill", desc: "Aimed shot kills cause the target to explode for half their max HP." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
@@ -283,32 +283,32 @@ export const zoneTable = {
 export const monsterData = {
     E1: {
         label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Recruit", hp: 10, def: 8, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 12, def: 12, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Officer", hp: 14, def: 16, notes: "scaled weapons, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 20, notes: "scaled weapons, 14x mines" }, // 11-12
-            { name: "Lieutenant", hp: 18, def: 24, notes: "scaled weapons, 15x mines" }, // 13-14
-            { name: "General", hp: 20, def: 28, notes: "scaled weapons, 16x mines" } // 15+
+            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" }, // 7-8
+            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" }, // 11-12
+            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
+            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" } // 15+
         ]
     },
     E2: {
         label: "Beasts", notes: "on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty)
-            { name: "Squid", hp: 6, def: 10, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
-            { name: "Wildcat", hp: 8, def: 14, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 10, def: 18, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 12, def: 22, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 14, def: 26, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
+            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
+            { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
+            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" }, //giant bear
+            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
             { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
-            { name: "Gator", hp: 4, def: 12, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 6, def: 16, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
-            { name: "Salamander", hp: 8, def: 18, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Lumpy", hp: 10, def: 22, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
-            { name: "Hornet", hp: 12, def: 26, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
-            { name: "Terminite", hp: 24, def: 30, notes: "2x12 P melee, grapples on 6" } //Giant termites
+            { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
+            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
+            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
+            { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
     E4: {
@@ -324,46 +324,46 @@ export const monsterData = {
     E5: {
         label: "Robots", notes: "take +1 dmg per cripple. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
-            { name: "Watchdog", hp: 11, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 12, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
-            { name: "Patriot", hp: 13, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 14, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 15, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: {
         label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
-            { name: "Sentry", hp: 8, def: 12, notes: "scaled energy weapons + 11E mines" },
-            { name: "Patroller", hp: 9, def: 16, notes: "scaled energy weapons + 12E mines" },
-            { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons + 13E mines" },
-            { name: "Eradicator", hp: 11, def: 24, notes: "scaled energy weapons +14E mines" },
-            { name: "Assassin", hp: 12, def: 28, notes: "scaled energy weapons +15E mines" },
-            { name: "Terminator", hp: 13, def: 32, notes: "scaled energy weapons +16E mines" }
+            { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
+            { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons +1 dmg, 12E mines" },
+            { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
+            { name: "Eradicator", hp: 12, def: 24, notes: "scaled energy weapons +2 dmg, 14E mines" },
+            { name: "Assassin", hp: 14, def: 28, notes: "scaled energy weapons +2 dmg, 15E mines" },
+            { name: "Terminator", hp: 16, def: 32, notes: "scaled energy weapons +3 dmg, 16E mines" }
         ]
     },
     O1: {
         label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
-            { name: "Initiate", hp: 12, def: 6, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 16, def: 9, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 20, def: 12, notes: "scaled mutated weapons" },
-            { name: "Priest", hp: 24, def: 15, notes: "scaled mutated weapons" },
-            { name: "Fanatic", hp: 28, def: 18, notes: "scaled mutated weapons" },
-            { name: "Elder", hp: 32, def: 21, notes: "scaled mutated weapons" }
+            { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
+            { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Priest", hp: 16, def: 16, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Fanatic", hp: 18, def: 20, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Elder", hp: 20, def: 24, notes: "scaled mutated weapons +3 dmg" }
         ]
     },
     O2: {
         label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
-            { name: "Observer", hp: 5, def: 10,  notes: "2x5 E, mid" },
-            { name: "Assimilator", hp: 7, def: 13, notes: "2x6 R, mid" },
-            { name: "Excavator", hp: 9, def: 16, notes: "3x7 X, short" },
-            { name: "Destroyer", hp: 11, def: 19, notes: "10 X splash, mid" },
-            { name: "Suppressor", hp: 13, def: 21, notes: "2x9 E + freeze, mid" },
-            { name: "Invader", hp: 15, def: 24, notes: "12 R splash+burn, long" }
+            { name: "Observer", hp: 4, def: 12,  notes: "2x5 E, mid" },
+            { name: "Assimilator", hp: 6, def: 16, notes: "2x6 R, mid" },
+            { name: "Excavator", hp: 8, def: 20, notes: "3x7 X, short" },
+            { name: "Destroyer", hp: 10, def: 22, notes: "10 X splash, mid" },
+            { name: "Suppressor", hp: 12, def: 26, notes: "2x9 E + freeze, mid" },
+            { name: "Invader", hp: 14, def: 30, notes: "12 R splash+burn, long" }
         ]
     },
     O3: {
         label: "Zombies", notes: "immune rad, special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
-            { name: "Shambler", hp:12, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
             { name: "Ravager", hp: 24, def: 15, notes: "8 P+R melee, grapples on 6" },
@@ -373,32 +373,32 @@ export const monsterData = {
     },
     O4: {
         label: "Aberrations", notes: "immune rad, special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
-            { name: "Tangler", hp: 8, def: 11, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
+            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Buzzer", hp: 12, def: 19, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
-            { name: "Bloat", hp: 14, def: 23, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
-            { name: "Widow", hp: 16, def: 27, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 18, def: 31, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
+            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
+            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
+            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
         label: "Mutants", notes: "immune rad, special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
             { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
-            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
-            { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns, 14 R grenades" },
-            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns, 15 R grenades" },
-            { name: "Overlord", hp: 20, def:28, notes: "scaled heavy guns, 16 R grenades" },
-            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns, 17 R grenades" }
+            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns +1 dmg, 13 R grenades" },
+            { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
+            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns +2 dmg, 15 R grenades" },
+            { name: "Overlord", hp: 20, def:28, notes: "scaled heavy guns +2 dmg, 16 R grenades" },
+            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns +3 dmg, 17 R grenades" }
         ]
     },
     O6: {
         label: "Revenants", notes: "immune rad, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghost", hp: 4, def: 6 ,  notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee" },
-            { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee" },
-            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee" },
-            { name: "Wraith", hp: 12, def: 22, notes: "scaled heavy melee" },
-            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee" }
+            { name: "Ghost", hp: 4, def: 6,  notes: "scaled heavy melee" },
+            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
+            { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
+            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee +2 dmg" },
+            { name: "Wraith", hp: 12, def: 22, notes: "scaled heavy melee +2 dmg" },
+            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee +3 dmg" }
         ]
     }
 };
@@ -437,7 +437,7 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 
 export const chemTable = [ // rename: potions? concoctions?
     { name: "Jet", effect: "+1 to all stats and movement/sprint distance for 1 day (Addictive), 20c" }, // rename: Jolt
-    { name: "Psycho", effect: "+2 damage for 1 day (Addictive), 20c" }, // rename: haywire
+    { name: "Psycho", effect: "+1 damage for 1 day (Addictive), 20c" }, // rename: haywire
     { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive), 20c" }, // rename: sonic
     { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive), 20c" }, // rename: neuro
     { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive), 20c" }, // rename: crank
