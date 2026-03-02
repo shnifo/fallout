@@ -204,7 +204,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Artifacts and artifact weapons can convert durability to and from HP at a 1:10 ratio." },
+        { name: "Extraterrestrial", desc: "Artifacts and alien weapons can convert durability to and from HP at a 1:10 ratio." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -262,7 +262,7 @@ export const zoneTable = {
     41: "Military Base: Contains a mutated weapon.",
     42: "Farm: Contains dairy cows. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 20c). Crit: 3× yield.",
     43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are mutated",
+    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are alien",
     45: "Campsite: Can scavenge for 1d6 flares. Crit: find 3×.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction’s settlement 3 hexes away.",
@@ -362,7 +362,7 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "immune rad, special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
+        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
@@ -372,7 +372,7 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "immune rad, special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
+        label: "Aberrations", notes: "special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
             { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
@@ -382,7 +382,7 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "immune rad, special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
+        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
             { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
             { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns +1 dmg, 13 R grenades" },
             { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
@@ -392,7 +392,7 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "immune rad, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+        label: "Revenants", notes: "half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
             { name: "Ghost", hp: 4, def: 6,  notes: "scaled heavy melee" },
             { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
             { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
@@ -408,13 +408,13 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. can combine with a weapon to transform it into a CHA weapon. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules but repairs with HP.
-    {name: "Earth Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
-    {name: "Water Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
-    {name: "Fire Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
-    {name: "Dark Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
-    {name: "Wind Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
-    {name: "Light Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. Combine with a weapon to transform it into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, replaces weapon durability, repairs with HP.
+    {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
+    {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
+    {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
+    {name: "Purple Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
+    {name: "Green Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
+    {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
 export const plants = [ // "Generates a resource every time you level up, bulky",
