@@ -115,12 +115,12 @@ export const ammoTable = [ // crit = get ammo of your choice (random grenade tie
     { type: "MF-cell", roll: "1d6+1", cost: 15 } 
 ];
 export const grenadeTable = [
-    { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "15c" },
-    { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "20c" },
-    { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "25c" },
-    { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "30c" },
-    { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "35c" },
-    { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "40c" }
+    { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "20c" },
+    { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "25c" },
+    { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
+    { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "35c" },
+    { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "40c" },
+    { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "45c" }
 ];
 
 /*
