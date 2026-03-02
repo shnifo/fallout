@@ -352,7 +352,7 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed 50% HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
+        label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
             { name: "Observer", hp: 4, def: 12,  notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 6, def: 16, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 8, def: 20, notes: "3x7 X, short" },
