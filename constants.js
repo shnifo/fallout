@@ -19,9 +19,9 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 11, text: "Infantry armor: +18 def, 150c" },
     { roll: 12, text: "Assault armor: +20 def, 160c" },
     { roll: 13, text: "Mutant armor: +22 def, 170c" },
-    { roll: 14, text: "Kinetic armor: +24 def, 180c" },
+    { roll: 14, text: "Fiber armor: +24 def, 180c" },
     { roll: 15, text: "Dragon armor: +26 def, +190c" },
-    { roll: 16, text: "Alien armor: +28 def, 200c" }
+    { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
 
 export /* crit = rearrange armor values and gain random legendary effect. Legendaries have 2x value.
