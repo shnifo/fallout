@@ -468,25 +468,25 @@ export const shopTypes = [
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
-    ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (flashlight)"],
+    ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
     ["+1/2 Hunger", "STR", "Burning calories from prolongued heavy lifting (autojacker)"],
     ["+1/2 Thirst", "AGI", "Stuck in an overly dehumidified area (generator)"],
     ["+1/2 Hunger", "END", "Burning calories breaking through obstacles (hammerator)"],
-    ["Lose 5/10 HP", "CHA", "Witnesses a gruesomely disturbing scene (flashlight)"],
+    ["Lose 5/10 HP", "CHA", "Witnesses a gruesomely disturbing scene (illuminator)"],
     ["Lose 5/10 HP", "INT", "Chemicals cause hallucination (breatherator)"],
     ["Lose 5/10 HP", "CHA", "path is blocked while being chased (hammerator)"],
     ["Lose 5/10 HP", "AGI", "Fired on by automated defenses (hackerator)"],
     ["Lose 5/10 HP", "INT", "Get buried under collapsed rubble (autojacker)"],
     ["Lose 5/10 HP", "CHA", "Have to scare off nearby deadly animals (autojacker)"],
     ["+1/2 Fatigue", "STR", "Overexertion from opening unpowered doors (generator)"],
-    ["+1/2 Fatigue", "AGI", "Running from defenses in the dark (flashlight)"],
-    ["+1/2 Fatigue", "INT", "Getting lost in confusing area (flashlight)"],
+    ["+1/2 Fatigue", "AGI", "Running from defenses in the dark (illuminator)"],
+    ["+1/2 Fatigue", "INT", "Getting lost in confusing area (illuminator)"],
     ["+1/2 Fatigue", "END", "Exposure to extreme cold (generator)"],
     ["+1/2 Fatigue", "END", "Low oxygen area (breatherator)"],
     ["+1/2 Fatigue", "STR", "Exhaustion from climbing elevator shafts (generator)"],
     ["+1/2 Rads", "STR", "Scavenge through heavy toxic waste barrel dump (autojacker)"],
     ["+1/2 Rads", "END", "Treks through irradiated water (breatherator)"],
-    ["+1/2 Rads", "AGI", "Navigating large area full of radiation (flashlight)"],
+    ["+1/2 Rads", "AGI", "Navigating large area full of radiation (illuminator)"],
     ["+1/2 Rads", "CHA", "encounter Wandering radiation cleanup bots (hackerator)"],
     ["+1/2 Rads", "END", "dig up buried loot in irradiated room (hammerator)"],
     ["+1/2 Rads", "INT", "activate radiation filtration system (generator)"],
@@ -674,7 +674,7 @@ export const factions = [
         desc: "Bureaucratic progressive society, republic, weary"
     },
     {
-        name: "The Solis Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Rations",
         desc: "Communist monarchy, slavers, hateful"
     },
