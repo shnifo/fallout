@@ -87,10 +87,10 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [14, "Extreme Melee", "10 P", "-", "melee", "STR", "110c"],
         [99, "Ultimate Melee", "11 P", "-", "melee", "STR", "130c"]],
         O4: [[6, "Brass Knuckles", "2x4 P", "-", "melee", "END", "30c"],
-        [8, "Bladed Gauntlet", "2x5 P", "-", "melee", "END", "50c"],
+        [8, "Wristblade, "2x5 P", "-", "melee", "END", "50c"],
         [10, "Tiger Paw", "2x6 P", "-", "melee", "END", "70c"],
-        [12, "Pneumatic Fist", "2x7 P", "-", "melee", "END", "90c"],
-        [14, "Demon Horn", "2x8 P", "-", "melee", "END", "110c"],
+        [12, "Piston Glove", "2x7 P", "-", "melee", "END", "90c"],
+        [14, "Ursa Claw", "2x8 P", "-", "melee", "END", "110c"],
         [99, "Godhand", "2x9 P", "-", "melee", "END", "130c"]],
         O5: [[6, "Shock Baton", "2x4 E", "-", "melee", "STR", "50c"],
         [8, "Welding Torch", "2x5 X", "-", "melee", "STR", "70c"],
@@ -119,7 +119,7 @@ export const grenadeTable = [
     { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "25c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
     { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "35c" },
-    { max: 14, name: "Tesla Grenade", dmg: "15 X splash", cost: "40c" },
+    { max: 14, name: "Electron Grenade", dmg: "15 X splash", cost: "40c" },
     { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "45c" }
 ];
 
@@ -130,7 +130,7 @@ RECIPES
 Autojacker + 1 of each scrap = Backpack: can share slot with 5 other bulky items
 1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
 1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
-Hackerator + 1 of each scrap = Analyzer: learn weapon+armor of 1 enemy before initiative
+Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range. 
 1 tech scrap + melee/unarmed: hydraulic mod: +2 dmg, 1 turn cooldown 
 1 fuel + 1 animal flesh = 1 stimpak
 Hammerator + 1 of each scrap = Helmet: +1 all armor
@@ -204,7 +204,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Artifacts and alien weapons can convert durability to and from HP at a 1:10 ratio." },
+        { name: "Extraterrestrial", desc: "Mutated weapons ." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -317,7 +317,7 @@ export const monsterData = {
             { name: "Rodent", hp: 8, def: 16, notes: "2x6 P melee, grapples on 6" },
             { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 14, def: 28, notes: "2x10 P + freeze, grapples on 6" }, //Giant anglerfish adapted for land
+            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
             { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
         ]
     },
@@ -332,7 +332,7 @@ export const monsterData = {
         ]
     },
     E6: {
-        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
+        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
             { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons +1 dmg, 12E mines" },
             { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
@@ -342,7 +342,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
             { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons +1 dmg" },
             { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
@@ -377,7 +377,7 @@ export const monsterData = {
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
             { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
-            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
+            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
@@ -408,7 +408,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. Combine with a weapon to transform it into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, replaces weapon durability, repairs with HP.
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 10 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, repairs with HP.
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -562,7 +562,7 @@ export const townQuests = [ //Quest reward = 1d6+level x 10 caps.
     { roll: 31, text: `Uprising – A slaver town faces a slave rebellion. Choose a side.` },
     { roll: 32, text: `Establish Trade Routes – Make contact with nearby settlements to open trade.` },
     { roll: 33, text: `Recover Lost Technology – Rumors say a nearby X faction settlement has valuable pre-war tech they arent using. help retrieve it or activate it for the others.` },
-    { roll: 34, text: `Stolen GECK" – Raiders from X faction stole a GECK needed to terraform barren fields. Infiltrate and recover, or help them create a new life` },
+    { roll: 34, text: `Stolen resources" – Raiders from X faction stole resources needed to establish a thriving colony. Infiltrate and recover, or help them create a new life` },
     { roll: 35, text: `Investigate the Crime – A crime has occurred; find the culprit.` },
     { roll: 36, text: `"The Ghoulfather" – A ghoul crime lord wants one last score against X faction.` },
 
