@@ -204,7 +204,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Mutated weapons ." },
+        { name: "Extraterrestrial", desc: "Artifacts and mutated weapons can convert durability to and from HP at a 1:10 ratio." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
     ],
 
@@ -408,7 +408,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 10 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, repairs with HP.
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, repairs with HP.
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
