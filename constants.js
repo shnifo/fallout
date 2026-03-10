@@ -292,7 +292,7 @@ export const monsterData = {
         ]
     },
     E2: {
-        label: "Beasts", notes: "on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty)
+        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty), bear trap = +1 injury and 2x cripple legs
             { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
             { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
@@ -352,13 +352,13 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, explode end of turn when killed HP X splash, Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
-            { name: "Observer", hp: 4, def: 12,  notes: "2x5 E, mid" },
-            { name: "Assimilator", hp: 6, def: 16, notes: "2x6 R, mid" },
-            { name: "Excavator", hp: 8, def: 20, notes: "3x7 X, short" },
-            { name: "Destroyer", hp: 10, def: 22, notes: "10 X splash, mid" },
-            { name: "Suppressor", hp: 12, def: 26, notes: "2x9 E + freeze, mid" },
-            { name: "Invader", hp: 14, def: 30, notes: "12 R splash+burn, long" }
+        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
+            { name: "Observer", hp: 2, def: 4,  notes: "2x5 E, mid" },
+            { name: "Assimilator", hp: 4, def: 8, notes: "2x6 R, mid" },
+            { name: "Excavator", hp: 6, def: 12, notes: "3x7 X, short" },
+            { name: "Destroyer", hp: 8, def: 16, notes: "10 X splash, mid" },
+            { name: "Suppressor", hp: 10, def: 20, notes: "2x9 E + freeze, mid" },
+            { name: "Invader", hp: 12, def: 24, notes: "12 R splash+burn, long" }
         ]
     },
     O3: {
@@ -372,13 +372,13 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: rad source, on death: creates rad source, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
+        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
             { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
             { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
             { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scanner" } //weapons and machinery fused with mutated flesh
+            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
@@ -392,8 +392,8 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghost", hp: 4, def: 6,  notes: "scaled heavy melee" },
+        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+            { name: "Ghast", hp: 4, def: 6,  notes: "scaled heavy melee" },
             { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
             { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
             { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee +2 dmg" },
