@@ -160,7 +160,7 @@ export const perkData = {
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "You cannot be shoved, grappled, or inflicted with ailments by hostile creatures." },
         { name: "Saboteur", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
-        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon in your inventory." }
+        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon have." }
     ],
 
     AGILITY: [
@@ -184,32 +184,32 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "Gain +1 fatigue to scavenge a settlement." },
-        { name: "Fat Stacks", desc: "Item stack sizes over 10 no longer become heavy." },
+        { name: "Deep Pockets", desc: "Item stack sizes over 10 no longer become heavy." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
-        { name: "Perseverance", desc: "After rolling with a stat at 0 or 1, restore skill." },
+        { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
-        { name: "Guardian", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
+        { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
         { name: "Point-blank", desc: "Shotguns do +1 damage against enemies in melee range." },
         { name: "Exposure Therapy", desc: "Rad damage aimed shots poison the target." }
     ],
 
     INTELLIGENCE: [
         { name: "Pocket Change", desc: "Looting killed humans always yields an extra 5 caps." },
-        { name: "Substance Enthusiast", desc: "Chems last twice as long and all addictive substances heal +10% HP on use." },
+        { name: "Substance Enthusiast", desc: "Mutagens last twice as long and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Potted plants give two-thirds more yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Potted plants give double yield if held for the whole level." },
         { name: "Side Hustle", desc: "Gain an additional background." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Artifacts and mutated weapons can convert durability to and from HP at a 1:10 ratio." },
-        { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you are holding." }
+        { name: "Extraterrestrial", desc: "Artifacts can convert durability to and from HP at a 1:10 ratio." },
+        { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you have." }
     ],
 
     CHARISMA: [
-        { name: "Terrifying Presence", desc: "Gain the ability to frighten and command hostile creatures." },
+        { name: "Terrifying Presence", desc: "You can command creatures under 4 HP within short range to flee or attack their allies." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist can be used on other players and causes the roll to be a minimum of 3 dice." },
@@ -229,7 +229,7 @@ export const backgroundData = [
     { name: "Mechanic", desc: "Repairing armor does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
-    { name: "Exterminator", desc: "You know when enemies have under 5 HP and can execute them on your turn." },
+    { name: "Exterminator", desc: "You know when enemies have under 4 HP and can execute them on your turn." },
     { name: "Guard", desc: "You can convert 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
@@ -242,7 +242,7 @@ export const backgroundData = [
 // === Zone Table (kept as-is) ===
 export const zoneTable = {
     11: "Office: Contains 2 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
-    12: "Mall: Use flashlight when scavenging for +3 rerolls ",
+    12: "Mall: Use illuminator when scavenging for +3 rerolls ",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
     15: "University: Contains a 1D artifact",
@@ -250,27 +250,27 @@ export const zoneTable = {
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
     22: "Armory: Scavenging armor gives +3 rerolls with no multi-scavenge penalty.",
     23: "Park: Contains a random giant potted plant. (heavy, double yield).",
-    24: "Railyard: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
+    24: "Railyard: Scavenging for scrap gives +3 rerolls, no multi-scavenge penalty, and 1d3 flares",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
     33: "Workshop: Has a workbench; repairing items only costs 2 scrap.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Gas Station: Can spend 10 caps to gain 1 fuel, up to 3d6.",
+    35: "Gas Station: contains 3 pumps with 3d6 fuel, each costing 10/20/30 caps per.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
     41: "Military Base: Contains a mutated weapon.",
-    42: "Farm: Contains dairy cows. CHA/STR(fatigue) to scavenge 1d6 milk/flesh (-2 thirst/hunger, +10% HP, 20c). Crit: 3× yield.",
+    42: "Farm: Contains 2d6 animal flesh.",
     43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are alien",
-    45: "Campsite: Can scavenge for 1d6 flares. Crit: find 3×.",
+    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are mutated",
+    45: "Campsite: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction’s settlement 3 hexes away.",
-    52: "Laboratory: Generates a Ruins from 5 choices 3 hexes away.",
+    52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Gardens: Can STR(injury) scavenge for a megamelon that gives 5x -1 hunger+thirst, heavy.",
+    56: "Laboratory: Contains a random mutagen roll.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
     62: "Restaurant: Order food (1d6+5 power rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all skill/luck/resist.",
@@ -408,7 +408,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. small/ecell/large/MFcell/fuel cost converted to 2/3/3/4/5 HP cost. uses weapon roll rules, repairs with HP.
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -418,12 +418,12 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
 ];
 
 export const plants = [ // "Generates a resource every time you level up, bulky",
-    {name: "Potted Sludgeflower", effect: "Generates 3 fuel on level up, 100c"},
-    {name: "Potted Fleshroom", effect: "Generates 6 clean flesh on level up, 100c"},
-    {name: "Potted Mutfruit", effect: "Generates 6 clean water on level up, 100c"},
-    {name: "Potted Radovera", effect: "Generates 3 bandage on level up, 100c"},
-    {name: "Potted Indigourd", effect: "Generates 3 rad-x on level up, 100c"},
-    {name: "Potted Tobacoca", effect: "Generates 3 adrenaline on level up, 100c"}
+    {name: "Potted Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
+    {name: "Potted Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
+    {name: "Potted Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
+    {name: "Potted Radovera", effect: "Generates 2 bandage on level up, 100c"},
+    {name: "Potted Indigourd", effect: "Generates 2 rad-x on level up, 100c"},
+    {name: "Potted Tobacoca", effect: "Generates 2 adrenaline on level up, 100c"}
     ];
 
 export const medTable = [ //crit = find chosen med and also find random chem roll
@@ -435,13 +435,13 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
     { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
 
-export const chemTable = [ // rename: potions? concoctions?
-    { name: "Jet", effect: "+1 to all stats and movement/sprint distance for 1 day (Addictive), 20c" }, // rename: Jolt
-    { name: "Psycho", effect: "+1 damage for 1 day (Addictive), 20c" }, // rename: haywire
-    { name: "Rocket", effect: "+2 movement/sprint distance for 1 day (Addictive), 20c" }, // rename: sonic
-    { name: "Mentats", effect: "+2 INT, +2 AGI for 1 day (Addictive), 20c" }, // rename: neuro
-    { name: "Buffout", effect: "+2 STR, +2 END for 1 day (Addictive), 20c" }, // rename: crank
-    { name: "Beer", effect: "+2 CHA for 1 day, -2 thirst (Addictive), 20c" }
+export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
+    { name: "Iron Mutagen", effect: "+2 to all armor values for 1 day (Addictive), 30c" }, 
+    { name: "Frenzy Mutagen", effect: "+2 damage for 1 day (Addictive), 30c" }, 
+    { name: "Warp Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
+    { name: "Mind Mutagen", effect: "+2 INT, +2 CHA for 1 day (Addictive), 30c" }, 
+    { name: "Body Mutagen", effect: "+2 STR, +2 END for 1 day (Addictive), 30c" }, 
+    { name: "Pure Mutagen", effect: "+1 movement/sprint distance, damage, and all armor for 1 day (addictive), 30c" }
 ];
 
 
@@ -659,17 +659,17 @@ export const factions = [
         desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
     },
     {
-        name: "Resurgence", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. 
+        name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
         tag: "Meds",
         desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary"
     },
     {
-        name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
+        name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
         desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" 
     },
     {
-        name: "Republic of New Country", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent.  
+        name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted. 
         tag: "Weapons",
         desc: "Bureaucratic progressive society, republic, weary"
     },
@@ -754,7 +754,7 @@ export const tileTypes = [
     { name: "Explosive", symbol: "💣", color: "#e25822" },
     { name: "Cover", symbol: "🧱", color: "#888888" },
     { name: "Ruins", symbol: "🪨", color: "#6b4f3a" },
-    { name: "Impassible", symbol: "❌", color: "#4a148c" },
+    { name: "Obstruction", symbol: "❌", color: "#4a148c" },
     { name: "Special", symbol: "⭐", color: "#e6c200" },
     { name: "Blank", symbol: "", color: "#2b2b2b" }
 ];
@@ -762,7 +762,7 @@ export const tileTypes = [
 export const rowLabels = ["A", "B", "C", "D", "E"];
 export const colLabels = ["1", "2", "3", "4", "5"];
 // Fixed equal weights (you can still tweak these numbers if desired)
-export const fixedWeights = [1, 2, 2, 1, 3, 6]; // Explosive, Cover, Ruins, Impassible, Special, Blank
+export const fixedWeights = [1, 2, 2, 1, 3, 6]; // Explosive, Cover, Ruins, Obstruction, Special, Blank
 
 
 
