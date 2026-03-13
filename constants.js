@@ -1,4 +1,3 @@
-
 /// ARMOR & WEAPONS ///
 export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
 1. Divine: Replenish one influence on initiative and after being crit
@@ -106,7 +105,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. weapons become mutated. one use, 100c, bulky
+export const ammoTable = [
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -122,28 +121,6 @@ export const grenadeTable = [
     { max: 14, name: "Electron Grenade", dmg: "15 X splash", cost: "40c" },
     { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "45c" }
 ];
-
-/*
-RECIPES
-1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo 
-1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c
-Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory.
-1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
-1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
-Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range. 
-1 tech scrap + melee/unarmed: hydraulic mod: +2 dmg, 1 turn cooldown 
-1 fuel + 1 animal flesh = 1 stimpak
-Hammerator + 1 of each scrap = Helmet: +1 all armor
-1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit
-1 fuel + 1 mutant flesh = 1 radaway 
-Generator + 1 of each scrap = Forcefield: +10 max HP
-1 armor scrap + gun + melee = gunblade mod: (-1 dmg to both, combine weapons, can attack with both weapons in same action where applicable)
-1 fuel + 1 human flesh = 1 adrenaline
-Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping
-1 all scrap + weapon = Calibrated mod: +1 dmg. 
-1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP. 
-Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons
-*/
 
 // ---------- PERK DATA ----------
 
@@ -220,7 +197,7 @@ export const perkData = {
         { name: "Technophile", desc: "Heal +10% HP when you use a technology or craft an item with one." },
         { name: "Art of the Deal", desc: "Haggling is twice as effective." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
-        { name: "Cool Guys Don’t Look at Explosions", desc: "Gain +5 explosive armor." }
+        { name: "Cool Guys Don't Look at Explosions", desc: "Gain +5 explosive armor." }
     ]
 };
 
@@ -239,7 +216,7 @@ export const backgroundData = [
     { name: "Electrician", desc: "You can convert 3 E-cells ↔ 2 MF-cells." }
 ];
 
-// === Zone Table (kept as-is) ===
+// === Zone Table ===
 export const zoneTable = {
     11: "Office: Contains 2 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
     12: "Mall: Use illuminator when scavenging for +3 rerolls ",
@@ -265,7 +242,7 @@ export const zoneTable = {
     44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are mutated",
     45: "Campsite: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
-    51: "Stadium: Generates any faction’s settlement 3 hexes away.",
+    51: "Stadium: Generates any faction's settlement 3 hexes away.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
@@ -279,60 +256,60 @@ export const zoneTable = {
     66: "Church: No battle. Friendly merchant with 2 bodyguards sells 2 random items from military equipment, artifacts or plants ."
 };
 
-// === Monster Data (unchanged) ===
+// === Monster Data ===
 export const monsterData = {
     E1: {
         label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" }, // 7-8
-            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" }, // 11-12
-            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
-            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" } // 15+
+            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" },
+            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" },
+            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" },
+            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" },
+            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" },
+            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" }
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty), bear trap = +1 injury and 2x cripple legs
-            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
+        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [
+            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" },
             { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
-            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
+            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" },
+            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" },
+            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" },
+            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" }
         ]
     },
     E3: {
-        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
+        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
-            { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" },
+            { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" },
+            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" },
             { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
-            { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" } //Giant termites
+            { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" }
         ]
     },
     E4: {
-        label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
+        label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [
+            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },
             { name: "Rodent", hp: 8, def: 16, notes: "2x6 P melee, grapples on 6" },
-            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
+            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" },
             { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
-            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
+            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" },
+            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," }
         ]
     },
     E5: {
         label: "Robots", notes: "take +1 dmg per cripple. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
-            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
-            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },
+            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" },
+            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" },
+            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" },
+            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" }
         ]
     },
     E6: {
-        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
+        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
             { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons +1 dmg, 12E mines" },
             { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
@@ -342,7 +319,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [
             { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons +1 dmg" },
             { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
@@ -352,7 +329,7 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
+        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [
             { name: "Observer", hp: 2, def: 4,  notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 4, def: 8, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 6, def: 12, notes: "3x7 X, short" },
@@ -362,7 +339,7 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
+        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
@@ -372,17 +349,17 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
-            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
-            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
-            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
-            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
+        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [
+            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" },
+            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" },
+            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" },
+            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" },
+            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" },
+            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" }
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
+        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [
             { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
             { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns +1 dmg, 13 R grenades" },
             { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
@@ -392,7 +369,7 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [
             { name: "Ghast", hp: 4, def: 6,  notes: "scaled heavy melee" },
             { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
             { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
@@ -404,11 +381,8 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-//crit workbench = scraps of your choice and a plant.
-//crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
-//crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
+export const artifacts = [
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -417,25 +391,25 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
-export const plants = [ // "Generates a resource every time you level up, bulky",
+export const plants = [
     {name: "Potted Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
     {name: "Potted Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
     {name: "Potted Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
     {name: "Potted Radovera", effect: "Generates 2 bandage on level up, 100c"},
     {name: "Potted Indigourd", effect: "Generates 2 rad-x on level up, 100c"},
     {name: "Potted Tobacoca", effect: "Generates 2 adrenaline on level up, 100c"}
-    ];
-
-export const medTable = [ //crit = find chosen med and also find random chem roll
-    { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" }, // rename: mutagone? chromocure? geneclean? antioxidants?
-    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
-    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
-    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" }, // rename: mutagone? chromocure? geneclean? 
-    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
 
-export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
+export const medTable = [
+    { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
+    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" },
+    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
+    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
+    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" },
+    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" }
+];
+
+export const chemTable = [
     { name: "Iron Mutagen", effect: "+2 to all armor values for 1 day (Addictive), 30c" }, 
     { name: "Frenzy Mutagen", effect: "+2 damage for 1 day (Addictive), 30c" }, 
     { name: "Warp Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
@@ -444,8 +418,7 @@ export const chemTable = [ // rename: mutagens, substances that grant temporary 
     { name: "Pure Mutagen", effect: "+1 movement/sprint distance, damage, and all armor for 1 day (addictive), 30c" }
 ];
 
-
-export const techTable = [ //crit = find chosen tech and also find random alien artifact
+export const techTable = [
     { name: "Generator", effect: "Provide power for electronics, 50c" },
     { name: "Autojacker", effect: "Portable hydraulic jack for moving heavy and jammed objects, 50c" },
     { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
@@ -454,8 +427,6 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
     { name: "Hackerator", effect: "Opens electronic locks and hacks computers, 50c" }
 ];
 
-
-// Shop types and their corresponding generator functions
 export const shopTypes = [
     { name: "Weapons" },
     { name: "Armor" },
@@ -465,7 +436,7 @@ export const shopTypes = [
     { name: "Water" }
 ];
 
-export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
+export const complications = [
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
@@ -498,8 +469,6 @@ export const complications = [ //When rolling complications, if the bracketed te
     ["+1/2 Injury", "AGI", "Avoid gunfire from defenses (hackerator)"]
 ];
 
-
-// ===== TOWN DESCRIPTORS =====
 export const townDescriptors = [ 
     { roll: 11, name: "Old Fort", desc: "A pre-war military fort repurposed by settlers for defense and shelter, complete with makeshift barracks and watchtowers." },
     { roll: 12, name: "Western Town", desc: "An abandoned western town brought back to life by settlers who have repaired and occupied its buildings." },
@@ -507,35 +476,30 @@ export const townDescriptors = [
     { roll: 14, name: "Train Station", desc: "An old train station turned into a central hub for a small settlement, with train cars repurposed as homes." },
     { roll: 15, name: "Wind Farm", desc: "Settlers have established a community around an old wind farm, using the remaining turbines to generate power." },
     { roll: 16, name: "Abandoned Airport", desc: "The terminal and hangars have been turned into living spaces and workshops by a group of settlers." },
-
     { roll: 21, name: "Deserted Factory Town", desc: "An old factory complex repurposed into a settlement, with the factory buildings serving as homes and workshops." },
     { roll: 22, name: "Ruined Hotel", desc: "A large, partially collapsed hotel now houses a community, with rooms turned into living quarters." },
     { roll: 23, name: "Fishing Village", desc: "Located near a dried-up lakebed, settlers rely on small-scale farming and trade for survival." },
     { roll: 24, name: "Cliffside Dwellings", desc: "Homes built into the sides of cliffs, offering natural defense and a unique living environment." },
     { roll: 25, name: "Desert Outpost", desc: "A small, fortified settlement built around a well or water source, serving as a rest stop for travelers." },
     { roll: 26, name: "Abandoned Theme Park", desc: "The remains of an old amusement park now house a quirky community that has repurposed the attractions." },
-
     { roll: 31, name: "Scrap Yard", desc: "A large junkyard turned settlement, with homes and workshops built from scavenged materials." },
     { roll: 32, name: "Power Plant Village", desc: "A small community has formed around the ruins of a power plant, using its resources for energy and shelter." },
     { roll: 33, name: "Desert Monastery", desc: "An old religious site now inhabited by settlers who maintain the buildings and gardens." },
     { roll: 34, name: "Deserted Prison", desc: "The cells and facilities of an old prison now house a community, providing a secure and fortified location." },
     { roll: 35, name: "Abandoned Mall", desc: "The remains of a shopping mall now serve as a large, communal living space for settlers." },
     { roll: 36, name: "Water Tower Town", desc: "A settlement has formed around a large water tower, with homes and farms benefiting from the stored water." },
-
     { roll: 41, name: "Canyon Settlement", desc: "A community built within a canyon, using the natural formations for defense and shelter." },
     { roll: 42, name: "Deserted School Campus", desc: "An old school repurposed into a settlement, with classrooms and gyms turned into living spaces." },
     { roll: 43, name: "Oil Rig Community", desc: "An old, once ocean-based oil rig now houses a small, industrious settlement." },
     { roll: 44, name: "Ruined Cathedral", desc: "The remains of a large church now serve as a communal living space and meeting hall for settlers." },
     { roll: 45, name: "Old Gas Station", desc: "A small settlement has formed around an old gas station, using its infrastructure for trade and repair." },
     { roll: 46, name: "Desert Market Town", desc: "A town built around a central market square, where traders and settlers gather to exchange goods." },
-
     { roll: 51, name: "Fallen Bridge Camp", desc: "A settlement has formed beneath the remains of a large collapsed bridge, using the structure for shelter." },
     { roll: 52, name: "Drive-In Theater", desc: "The old projection booth and concession stands have been repurposed into homes and shops for a small community." },
     { roll: 53, name: "Airplane Graveyard", desc: "Settlers have turned old, grounded planes into homes and workshops in a sprawling community." },
     { roll: 54, name: "Shipping Container Village", desc: "A settlement made from repurposed shipping containers, providing sturdy and modular living spaces." },
     { roll: 55, name: "Ruined Observatory", desc: "An old observatory turned into a fortified settlement, using the high ground for defense." },
     { roll: 56, name: "Desert Commune", desc: "A community with an unexploded nuclear bomb in the center." },
-
     { roll: 61, name: "Small Farmstead", desc: "A group of settlers is attempting to grow crops and raise livestock, using irrigation systems and old farming techniques." },
     { roll: 62, name: "Shanty Town", desc: "A collection of makeshift homes built from scrap metal and other scavenged materials, housing a small community." },
     { roll: 63, name: "Trading Post", desc: "A bustling hub where traders from various parts of the wasteland come to barter goods and services." },
@@ -543,43 +507,38 @@ export const townDescriptors = [
     { roll: 65, name: "Ruined Suburb", desc: "An old suburban neighborhood being repurposed by settlers, with houses turned into communal living spaces." },
     { roll: 66, name: "Vault", desc: "A vault that allows visitors and trades with outsiders." }
 ];
-// ===== MAIN QUEST TABLE =====
-export const townQuests = [ //Quest reward = 1d6+level x 10 caps.
-    { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning food supplies to ‘thin the weak.’ Expose them, join them, or take their place.` },
+
+export const townQuests = [
+    { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning food supplies to 'thin the weak.' Expose them, join them, or take their place.` },
     { roll: 12, text: `"Election Day" – An election is being held to decide if they want to continue on their current faction or convert to another after being visited by an envoy.` },
     { roll: 13, text: `Retrieve the Stolen Goods – Thieves from X faction have stolen valuable supplies from the town, and the player must recover them.` },
     { roll: 14, text: `Investigate the Sabotage – Someone from X faction is sabotaging the town's equipment; find and stop them.` },
     { roll: 15, text: `Secure the Power Source – The town's power source is failing; find a new one or repair the existing one involving X faction.` },
     { roll: 16, text: `"The Price of Safety" – A settlement wants a massive wall built, but the only materials are sacred to a nearby X faction settlement.` },
-
     { roll: 21, text: `Help the Farmers – Crops are failing; determine the cause and fix it.` },
     { roll: 22, text: `Recruit New Settlers – The town needs more people; recruit settlers from other areas.` },
     { roll: 23, text: `Resolve a Dispute – Two important town members are in conflict; mediate a resolution.` },
     { roll: 24, text: `Feed the Hunger – The town hides a secret: they are reluctant cannibals suffering withdrawal.` },
     { roll: 25, text: `"The Hardest Goodbye" – A survivor asks you to put down their feral ghoul spouse… unless they can be saved.` },
     { roll: 26, text: `Escort the Diplomat – Safely escort a diplomat to a neighboring settlement.` },
-
     { roll: 31, text: `Uprising – A slaver town faces a slave rebellion. Choose a side.` },
     { roll: 32, text: `Establish Trade Routes – Make contact with nearby settlements to open trade.` },
     { roll: 33, text: `Recover Lost Technology – Rumors say a nearby X faction settlement has valuable pre-war tech they arent using. help retrieve it or activate it for the others.` },
     { roll: 34, text: `Stolen resources" – Raiders from X faction stole resources needed to establish a thriving colony. Infiltrate and recover, or help them create a new life` },
     { roll: 35, text: `Investigate the Crime – A crime has occurred; find the culprit.` },
     { roll: 36, text: `"The Ghoulfather" – A ghoul crime lord wants one last score against X faction.` },
-
     { roll: 41, text: `Convince the Skeptics – Some townsfolk doubt an important discovery; win them over.` },
     { roll: 42, text: `Reclaim the Outpost – A nearby outpost has been taken by X enemy; reclaim it.` },
     { roll: 43, text: `"The Guilty Innocent" – A beloved hero is secretly guilty; expose or protect them.` },
-    { roll: 44, text: `"Psycho Circus" – A chem dealer’s new formula turns people feral.` },
+    { roll: 44, text: `"Psycho Circus" – A chem dealer's new formula turns people feral.` },
     { roll: 45, text: `"The Arena" – A raider warband has built a combat arena in town.` },
     { roll: 46, text: `Flesh for Flesh – Nearby X faction needs to trade citizens for genetic diversity, but something isnt quite right.` },
-
     { roll: 51, text: `"The Price of Freedom" – A nearby town will release captives… for a price.` },
     { roll: 52, text: `Investigate the Ruins – Strange activity reported in nearby ruins, it is currently being looted by X faction who do not want to share.` },
-    { roll: 53, text: `"AI Overlord" – An AI controls a town and won’t let workers take breaks or leave. Find a way to stop the AI from ruining the town.` },
+    { roll: 53, text: `"AI Overlord" – An AI controls a town and won't let workers take breaks or leave. Find a way to stop the AI from ruining the town.` },
     { roll: 54, text: `Quell the Rebellion – A group of townsfolk plan a rebellion; some want to stay with the current leaders and some want to splinter to X faction. Choose a side.` },
     { roll: 55, text: `The Disappearing – Many townsfolk exploring near X faction settlement nearby never come back. find out why. ` },
     { roll: 56, text: `Heal the Injured – Several citizens need medical supplies urgently. There is a nearby settlement of X faction that may be able to help` },
-
     { roll: 61, text: `Protect the Scavengers – Escort a scavenger party to a nearby ruins inhabited by a difficult enemy.` },
     { roll: 62, text: `"New Gods of the Old World" – The town worships a nuclear bomb that sits unexploded and unstable in the middle of town. It may not be completely dormant...` },
     { roll: 63, text: `Rescue the Captives – X faction kidnapped townsfolk; infiltrate and rescue them.` },
@@ -587,17 +546,17 @@ export const townQuests = [ //Quest reward = 1d6+level x 10 caps.
     { roll: 65, text: `Refugee Crisis - Several refugees have come to the town but are not being accepted in due to lack of resources. resolve the conflict. ` },
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
-// ===== PROFESSION QUESTS =====
-export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player has associated background, quest is auto completed without any rolls.
+
+export const professionQuests = {
     Technician: [
         "Dead Signal – Restore a dead radio relay using a salvaged comm tower part.",
-        "Gun Show – Upgrade a scavenger’s sentimental weapon.",
+        "Gun Show – Upgrade a scavenger's sentimental weapon.",
         "Cold Steel – Repair one of each: weapon, armor, and tech."
     ],
     Mechanic: [
-        "Steel & Silence – Upgrade a stealth merc’s armor.",
+        "Steel & Silence – Upgrade a stealth merc's armor.",
         "Harden the Hide – Restore riot gear using ceramic plates.",
-        "Overhaul – Reinforce a caravan’s busted armor."
+        "Overhaul – Reinforce a caravan's busted armor."
     ],
     Farmer: [
         "Tainted Crop – Cure a fungal infection in irradiated melons.",
@@ -606,11 +565,11 @@ export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player
     ],
     Chef: [
         "Thirsty Business – Convert meat into fuel for town tech.",
-        "Kitchen Sink Science – Recreate a legendary morale‑boosting stew.",
-        "Grill Master – Produce exotic‑meat fuel for a merchant."
+        "Kitchen Sink Science – Recreate a legendary morale-boosting stew.",
+        "Grill Master – Produce exotic-meat fuel for a merchant."
     ],
     Exterminator: [
-        "Rats in the Walls – Clear a mole‑rat infestation.",
+        "Rats in the Walls – Clear a mole-rat infestation.",
         "Big Game Hunt – Kill a mutant alpha predator.",
         "Pest Control – Clear bloatflies from a junkyard."
     ],
@@ -620,12 +579,12 @@ export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player
         "Order in the Wastes – Retrieve stolen ammo crates."
     ],
     Plumber: [
-        "Pipe Dream – Repair a vault’s sludge‑clogged plumbing.",
+        "Pipe Dream – Repair a vault's sludge-clogged plumbing.",
         "Backflow – Fix upstream contamination of clean water.",
         "Thirst Trap – Purify a dirty desert pool."
     ],
     Doctor: [
-        "Wounded Pride – Convert wrong meds into life‑saving ones.",
+        "Wounded Pride – Convert wrong meds into life-saving ones.",
         "First Do Harm – Replace swapped placebos before riots start.",
         "Curative Measures – Synthesize medicine for a rare plague."
     ],
@@ -636,7 +595,7 @@ export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player
     ],
     Engineer: [
         "Arc Spark – Repair a malfunctioning tech turret.",
-        "Linebreaker – Rebuild a settlement’s power fence.",
+        "Linebreaker – Rebuild a settlement's power fence.",
         "Mind the Gap – Restore a failing bridge lift system."
     ],
     Tailor: [
@@ -646,46 +605,20 @@ export const professionQuests = { //quest reward = 1d6+level x 5 caps. if player
     ],
     Electrician: [
         "Overload – Convert a broken fusion cell into usable energy.",
-        "Power Play – Restore power to a Nuka‑Cola billboard.",
+        "Power Play – Restore power to a Nuka-Cola billboard.",
         "Mission Impossible – Disable an unstable bomb guarded by threats."
     ]
 };
 
-// ===== FACTIONS =====
 export const factions = [
-    {
-        name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
-        tag: "Armor",
-        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
-    },
-    {
-        name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
-        tag: "Meds",
-        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary"
-    },
-    {
-        name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
-        tag: "Water",
-        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" 
-    },
-    {
-        name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted. 
-        tag: "Weapons",
-        desc: "Bureaucratic progressive society, republic, weary"
-    },
-    {
-        name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
-        tag: "Rations",
-        desc: "Communist monarchy, slavers, hateful"
-    },
-    {
-        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
-        tag: "Technology",
-        desc: "Small town commune, anarchy, friendly"
-    }
+    { name: "The Metallion", tag: "Armor", desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" },
+    { name: "Terra Nova", tag: "Meds", desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary" },
+    { name: "Providence", tag: "Water", desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" },
+    { name: "The Sundered Republic", tag: "Weapons", desc: "Bureaucratic progressive society, republic, weary" },
+    { name: "The Empire", tag: "Rations", desc: "Communist monarchy, slavers, hateful" },
+    { name: "The Alliance", tag: "Technology", desc: "Small town commune, anarchy, friendly" }
 ];
 
-// ===== NPC TABLE =====
 export const npcTable = [
   { roll: 11, name: "Bitter War Veteran", desc: "Gruff, one-eyed, tells long stories of battles no one remembers. Distrusts outsiders." },
   { roll: 12, name: "Cheerful Merchant", desc: "Overly optimistic, insists every item is 'a steal,' even junk." },
@@ -693,41 +626,36 @@ export const npcTable = [
   { roll: 14, name: "Wandering Bard", desc: "Plays a battered guitar, trades songs for food. Knows odd rumors." },
   { roll: 15, name: "Cynical Medic", desc: "Skilled healer but mocks patients for getting hurt in the first place." },
   { roll: 16, name: "Soft-Spoken Farmer", desc: "Avoids conflict, loves talking about soil and crops." },
-
   { roll: 21, name: "Scrap Artist", desc: "Creates sculptures from junk, values beauty over practicality." },
   { roll: 22, name: "Cold Bounty Hunter", desc: "Says little, eyes everyone as a potential target." },
   { roll: 23, name: "Story-Hoarding Elder", desc: "Collects tales like treasure, trades them for supplies." },
   { roll: 24, name: "Outcast Mutant", desc: "Mistrustful but surprisingly gentle; hides disfigurements." },
   { roll: 25, name: "Disgraced Officer", desc: "Still wears a faded uniform, insists on strict protocol." },
   { roll: 26, name: "Gambling Addict", desc: "Always shuffling a deck, willing to bet on anything." },
-
   { roll: 31, name: "Feral Child", desc: "Skittish and dirty, communicates with whistles and hand signals." },
   { roll: 32, name: "Smooth-Talking Swindler", desc: "Can make junk sound valuable and lies sound sweet." },
   { roll: 33, name: "Inventive Tinkerer", desc: "Constantly fiddling with devices, absent-minded in conversation." },
   { roll: 34, name: "Runaway Cultist", desc: "Avoids eye contact, refuses to talk about their past faith." },
   { roll: 35, name: "Grumpy Fisherman", desc: "Complains about everything except fishing." },
   { roll: 36, name: "Nomadic Trader", desc: "Has goods from distant places, shares strange slang." },
-
   { roll: 41, name: "Desert Hermit", desc: "Lives alone by choice, mutters about 'the old ways.'" },
   { roll: 42, name: "Overzealous Guard", desc: "Takes rules way too seriously, even in casual conversation." },
   { roll: 43, name: "Scarred Pit Fighter", desc: "Proud of every scar, constantly seeks challenges." },
   { roll: 44, name: "Lovesick Drunk", desc: "Always talking about a lost lover, drinks to remember." },
   { roll: 45, name: "Animal Whisperer", desc: "Talks to animals as if they respond, claims they do." },
   { roll: 46, name: "Irradiated Prophet", desc: "Speaks in riddles, claims visions come from 'the Glow.'" },
-
   { roll: 51, name: "Hoarder", desc: "Collects anything shiny or unusual, highly territorial." },
   { roll: 52, name: "Traveling Preacher", desc: "Preaches hope in the wasteland but hides deep doubt." },
   { roll: 53, name: "Retired Raider", desc: "Calm now, but still has a dangerous glint in their eye." },
-  { roll: 54, name: "Wanderlust Explorer", desc: "Maps everything, constantly seeks 'what’s over that hill.'" },
+  { roll: 54, name: "Wanderlust Explorer", desc: "Maps everything, constantly seeks 'what's over that hill.'" },
   { roll: 55, name: "Charismatic Drifter", desc: "Always has a story, usually half true." },
   { roll: 56, name: "Grinning Bodyguard", desc: "Enjoys their work a little too much." },
-
   { roll: 61, name: "Silent Gunslinger", desc: "Answers with nods, lets their weapon do the talking." },
   { roll: 62, name: "Bitter Widow/Widower", desc: "Blames the wasteland for everything lost." },
   { roll: 63, name: "Scavenger Kid", desc: "Tiny, bold, and far too street-smart for their age." },
   { roll: 64, name: "Flamboyant Trader", desc: "Dresses extravagantly, announces every sale dramatically." },
   { roll: 65, name: "Fortune Teller", desc: "Uses cards, bones, or bottle caps to 'see' the future." },
-  { roll: 66, name: "Sleepless Night Watchman", desc: "Stares into the dark like they’re waiting for something awful." }
+  { roll: 66, name: "Sleepless Night Watchman", desc: "Stares into the dark like they're waiting for something awful." }
 ];
 
 export const statNames = ["STR", "AGI", "END", "INT", "CHA"];
@@ -749,7 +677,6 @@ export const statAbbrev = {
 
 export const negNames = ["Hunger", "Thirst", "Fatigue", "Rads", "Injury"];
 
-
 export const tileTypes = [
     { name: "Explosive", symbol: "💣", color: "#e25822" },
     { name: "Cover", symbol: "🧱", color: "#888888" },
@@ -761,8 +688,22 @@ export const tileTypes = [
 
 export const rowLabels = ["A", "B", "C", "D", "E"];
 export const colLabels = ["1", "2", "3", "4", "5"];
-// Fixed equal weights (you can still tweak these numbers if desired)
-export const fixedWeights = [1, 2, 2, 1, 3, 6]; // Explosive, Cover, Ruins, Obstruction, Special, Blank
+export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
+export const fleshTable = [
+  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads" },
+  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads" },
+  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become cannibal" },
+];
 
-
+export const rationWaterTable = [
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads" },
+  { name: "Clean Water",       effect: "-1 Thirst" },
+  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP" },
+  { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads" },
+  { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads" },
+  { name: "Clean Ration",      effect: "-1 Hunger" },
+  { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP" },
+  { name: "Wasteland Soup",    effect: "-3 Hunger, -3 Thirst, +30% HP" },
+];
