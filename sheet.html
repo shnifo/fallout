@@ -1829,8 +1829,8 @@ function buildIndexUI() {
     rationWaterTable.map(r => [r.name, r.effect])));
 
 	// RECIPES
-  html += indexSection("RECIPES", indexTable(["Recipe"],
-    recipeTable.map(r => [r.recipe])));
+  html += indexSection("RECIPES", indexTable(["Book","Recipe"],
+    recipeTable.map(r => [r.book, r.recipe])));
 
   el.innerHTML = html;
 }
