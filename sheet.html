@@ -324,8 +324,13 @@
 }
 
 .slot.drag-over {
-  outline: 2px dashed #2cff2c;
-  outline-offset: 3px;
+  border-top: 3px solid #2cff2c;
+  box-shadow: 0 -4px 8px #2cff2c;
+}
+
+.slot.drag-over-bottom {
+  border-bottom: 3px solid #2cff2c;
+  box-shadow: 0 4px 8px #2cff2c;
 }
 
 #inventory.drag-top .slot[data-index="0"] {
@@ -1427,7 +1432,10 @@ function getSlotAtPoint(x, y) {
 }
 
 function clearDragOver() {
-  document.querySelectorAll(".slot").forEach(s => s.classList.remove("drag-over"));
+  document.querySelectorAll(".slot").forEach(s => {
+    s.classList.remove("drag-over");
+    s.classList.remove("drag-over-bottom");
+  });
   const invDiv = document.getElementById("inventory");
   if (invDiv) invDiv.classList.remove("drag-top");
 }
@@ -1446,8 +1454,16 @@ function updateDragOver(x, y) {
     return;
   }
   const target = getSlotAtPoint(x, y);
-  if (target && parseInt(target.dataset.index) !== dragSrcIndex) {
-    target.classList.add("drag-over");
+  if (!target) return;
+  const destIndex = parseInt(target.dataset.index);
+  if (destIndex === dragSrcIndex) return;
+  // Highlight the slot that will shift down (one below the insertion point)
+  const nextSlot = document.querySelector(`.slot[data-index="${destIndex + 1}"]`);
+  if (nextSlot) {
+    nextSlot.classList.add("drag-over");
+  } else {
+    // Dropping at the end — highlight bottom of last slot
+    target.classList.add("drag-over-bottom");
   }
 }
 
