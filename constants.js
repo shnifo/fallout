@@ -697,10 +697,10 @@ export const fleshTable = [
 ];
 
 export const rationWaterTable = [
-  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c"" },
-  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c"" },
-  { name: "Clean Water",       effect: "-1 Thirst, 5c"" },
-  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c"" },
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c" },
+  { name: "Clean Water",       effect: "-1 Thirst, 5c" },
+  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
   { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads, 5c" },
   { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
