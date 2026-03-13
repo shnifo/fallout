@@ -78,7 +78,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [10, "Incinerator", "11 X splash+burn", "fuel", "mid", "AGI", "130c"],
         [12, "Liquifier", "12 X splash+burn", "fuel", "mid", "AGI", "160c"],
         [14, "Hellfire", "13 X splash+burn", "fuel", "mid", "AGI", "190c"],
-        [99, "Pyroclasm", "14 X splash+burn", "fuel", "short", "AGI", "220c"]],
+        [99, "Pyroclasm", "14 X splash+burn", "fuel", "mid", "AGI", "220c"]],
         O3: [[6, "Weak Melee", "6 P", "-", "melee", "STR", "30c"],
         [8, "Medium Melee", "7 P", "-", "melee", "STR", "50c"],
         [10, "Strong Melee", "8 P", "-", "melee", "STR", "70c"],
