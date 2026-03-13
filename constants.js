@@ -106,24 +106,24 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
     };
 
 export const recipeTable = [
-    { recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
-    { recipe: "1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c" },
-    { recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory" },
-    { recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope" },
-    { recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
-    { recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range"},
-    { recipe: "1 tech scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown " },
-    { recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
-    { recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor" },
-    { recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
-    { recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
-    { recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP" },
-    { recipe: "1 armor scrap + gun + melee = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action where applicable" },
-    { recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
-    { recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping" },
-    { recipe: "1 all scrap + weapon = Calibrated mod: +1 dmg" },
-    { recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
-    { recipe: "Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons" }
+    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
+    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope" },
+    { book: "Gunsmith Magazine", recipe: "1 tech scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown" },
+    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
+    { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action where applicable" },
+    { book: "Gunsmith Magazine", recipe: "1 all scrap + weapon = Calibrated mod: +1 dmg" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
+    { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory, 50c" },
+    { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, bulky, 50c"},
+    { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, bulky, 50c" }
 ];
 
 
