@@ -104,27 +104,28 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [14, "Thermite Glove", "10 E", "-", "melee", "END", "130c"],
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
-/*
-RECIPES
-1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo 
-1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c
-Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory.
-1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
-1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
-Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range. 
-1 tech scrap + melee/unarmed: hydraulic mod: +2 dmg, 1 turn cooldown 
-1 fuel + 1 animal flesh = 1 stimpak
-Hammerator + 1 of each scrap = Helmet: +1 all armor
-1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit
-1 fuel + 1 mutant flesh = 1 radaway 
-Generator + 1 of each scrap = Forcefield: +10 max HP
-1 armor scrap + gun + melee = gunblade mod: (-1 dmg to both, combine weapons, can attack with both weapons in same action where applicable)
-1 fuel + 1 human flesh = 1 adrenaline
-Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping
-1 all scrap + weapon = Calibrated mod: +1 dmg. 
-1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP. 
-Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons
-*/
+
+export const recipeTable = [
+    { recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
+    { recipe: "1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c" },
+    { recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory" },
+    { recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope" },
+    { recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
+    { recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range"},
+    { recipe: "1 tech scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown " },
+    { recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
+    { recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor" },
+    { recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
+    { recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
+    { recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP" },
+    { recipe: "1 armor scrap + gun + melee = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action where applicable" },
+    { recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
+    { recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping" },
+    { recipe: "1 all scrap + weapon = Calibrated mod: +1 dmg" },
+    { recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
+    { recipe: "Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons" }
+];
+
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, bulky
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
