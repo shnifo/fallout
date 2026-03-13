@@ -691,19 +691,18 @@ export const colLabels = ["1", "2", "3", "4", "5"];
 export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
 export const fleshTable = [
-  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads" },
-  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads" },
-  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become cannibal" },
+  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
+  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads, 5c" },
+  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become cannibal, 5c" },
 ];
 
 export const rationWaterTable = [
-  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads" },
-  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads" },
-  { name: "Clean Water",       effect: "-1 Thirst" },
-  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP" },
-  { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads" },
-  { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads" },
-  { name: "Clean Ration",      effect: "-1 Hunger" },
-  { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP" },
-  { name: "Wasteland Soup",    effect: "-3 Hunger, -3 Thirst, +30% HP" },
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c"" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c"" },
+  { name: "Clean Water",       effect: "-1 Thirst, 5c"" },
+  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c"" },
+  { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads, 5c" },
+  { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads, 5c" },
+  { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
+  { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP, 10c" },
 ];
