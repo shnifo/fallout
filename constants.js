@@ -127,7 +127,7 @@ export const grenadeTable = [
 RECIPES
 1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo 
 1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c
-Autojacker + 1 of each scrap = Backpack: can share slot with 5 other bulky items
+Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory.
 1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
 1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
 Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range. 
