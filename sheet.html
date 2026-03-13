@@ -1789,16 +1789,16 @@ function buildIndexUI() {
   html += indexSection("WEAPONS", weaponHtml);
 
   // ARMOR
-  html += indexSection("ARMOR", indexTable(["Roll","Armor"],
-    armorTable.map(a => [a.roll, a.text])));
+  html += indexSection("ARMOR", indexTable(["Armor"],
+    armorTable.map(a => [a.text])));
 
   // AMMO
   html += indexSection("AMMO", indexTable(["Type","Amount","Cost/unit"],
     ammoTable.map(a => [a.type, a.roll, a.cost + "c"])));
 
   // GRENADES
-  html += indexSection("GRENADES", indexTable(["Max Roll","Name","Damage","Cost"],
-    grenadeTable.map(g => [g.max === Infinity ? "15+" : "≤"+g.max, g.name, g.dmg, g.cost])));
+  html += indexSection("GRENADES", indexTable(["Name","Damage","Range","Stat","Cost"],
+    grenadeTable.map(g => [g.name, g.dmg, "mid", "STR", g.cost])));
 
   // MEDS
   html += indexSection("MEDS", indexTable(["Name","Effect"],
