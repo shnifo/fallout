@@ -104,8 +104,29 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [14, "Thermite Glove", "10 E", "-", "melee", "END", "130c"],
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
+/*
+RECIPES
+1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo 
+1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c
+Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory.
+1 gun scrap + gun = scope mod: +2 dmg, action to aim scope. 
+1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)
+Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range. 
+1 tech scrap + melee/unarmed: hydraulic mod: +2 dmg, 1 turn cooldown 
+1 fuel + 1 animal flesh = 1 stimpak
+Hammerator + 1 of each scrap = Helmet: +1 all armor
+1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit
+1 fuel + 1 mutant flesh = 1 radaway 
+Generator + 1 of each scrap = Forcefield: +10 max HP
+1 armor scrap + gun + melee = gunblade mod: (-1 dmg to both, combine weapons, can attack with both weapons in same action where applicable)
+1 fuel + 1 human flesh = 1 adrenaline
+Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping
+1 all scrap + weapon = Calibrated mod: +1 dmg. 
+1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP. 
+Illuminator + 1 of each scrap = Scanner: +1 dmg with weapons
+*/
 
-export const ammoTable = [ //crit = choose any type of ammo to roll, grenades have random tier, and also find a transmuter which lets you insert items from weapons, armor, scrap, food, water, ammo. result is randomly rolled from chosen category. one use, bulky, 100c.
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, bulky
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -260,56 +281,56 @@ export const zoneTable = {
 export const monsterData = {
     E1: {
         label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
-            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" },
-            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" },
-            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" },
-            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" },
-            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" },
-            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" }
+            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" }, // 7-8
+            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" }, // 11-12
+            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
+            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" } // 15+
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [
-            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" },
+        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty), bear trap = +1 injury and 2x cripple legs
+            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
             { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" },
-            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" },
-            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" },
-            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" }
+            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
+            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" }, //giant bear
+            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
+            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
-        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [
+        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" },
-            { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" },
-            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" },
+            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
+            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
-            { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" }
+            { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
     E4: {
-        label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [
-            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },
+        label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
+            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Rodent", hp: 8, def: 16, notes: "2x6 P melee, grapples on 6" },
-            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" },
+            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" },
-            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," }
+            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
+            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
         ]
     },
     E5: {
         label: "Robots", notes: "take +1 dmg per cripple. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
-            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },
-            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" },
-            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" },
-            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" },
-            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" }
+            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: {
-        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [
+        label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
             { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons +1 dmg, 12E mines" },
             { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
@@ -319,7 +340,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
             { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons +1 dmg" },
             { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
@@ -329,7 +350,7 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [
+        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
             { name: "Observer", hp: 2, def: 4,  notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 4, def: 8, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 6, def: 12, notes: "3x7 X, short" },
@@ -339,7 +360,7 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [
+        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
@@ -349,17 +370,17 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [
-            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" },
-            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" },
-            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" },
-            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" },
-            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" },
-            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" }
+        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
+            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
+            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
+            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
+            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
+            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [
+        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
             { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
             { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns +1 dmg, 13 R grenades" },
             { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
@@ -369,7 +390,7 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [
+        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
             { name: "Ghast", hp: 4, def: 6,  notes: "scaled heavy melee" },
             { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
             { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
@@ -381,13 +402,11 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-/*
-crit rations: find healthy rations
-crit water: find power water
-crit scrap: can choose which scrap is found and find a plant
+//crit workbench = scraps of your choice and a plant.
+//crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
+//crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
 
-*/
-export const artifacts = [
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -396,25 +415,25 @@ export const artifacts = [
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
-export const plants = [ 
+export const plants = [ // "Generates a resource every time you level up, bulky",
     {name: "Potted Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
     {name: "Potted Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
     {name: "Potted Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
     {name: "Potted Radovera", effect: "Generates 2 bandage on level up, 100c"},
     {name: "Potted Indigourd", effect: "Generates 2 rad-x on level up, 100c"},
     {name: "Potted Tobacoca", effect: "Generates 2 adrenaline on level up, 100c"}
-];
+    ];
 
-export const medTable = [ //crit: choose what meds you find and get a random mutagen roll
+export const medTable = [ //crit = find chosen med and also find random chem roll
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" },
+    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
-    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" },
-    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" }
+    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" }, // rename: mutagone? chromocure? geneclean? 
+    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
 
-export const chemTable = [
+export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
     { name: "Iron Mutagen", effect: "+2 to all armor values for 1 day (Addictive), 30c" }, 
     { name: "Frenzy Mutagen", effect: "+2 damage for 1 day (Addictive), 30c" }, 
     { name: "Warp Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
@@ -423,7 +442,8 @@ export const chemTable = [
     { name: "Pure Mutagen", effect: "+1 movement/sprint distance, damage, and all armor for 1 day (addictive), 30c" }
 ];
 
-export const techTable = [ //crit: choose which tech you find and get a random artifact
+
+export const techTable = [ //crit = find chosen tech and also find random alien artifact
     { name: "Generator", effect: "Provide power for electronics, 50c" },
     { name: "Autojacker", effect: "Portable hydraulic jack for moving heavy and jammed objects, 50c" },
     { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
@@ -432,6 +452,8 @@ export const techTable = [ //crit: choose which tech you find and get a random a
     { name: "Hackerator", effect: "Opens electronic locks and hacks computers, 50c" }
 ];
 
+
+// Shop types and their corresponding generator functions
 export const shopTypes = [
     { name: "Weapons" },
     { name: "Armor" },
@@ -441,7 +463,7 @@ export const shopTypes = [
     { name: "Water" }
 ];
 
-export const complications = [
+export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
@@ -615,13 +637,38 @@ export const professionQuests = {
     ]
 };
 
+// ===== FACTIONS =====
 export const factions = [
-    { name: "The Metallion", tag: "Armor", desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" },
-    { name: "Terra Nova", tag: "Meds", desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary" },
-    { name: "Providence", tag: "Water", desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" },
-    { name: "The Sundered Republic", tag: "Weapons", desc: "Bureaucratic progressive society, republic, weary" },
-    { name: "The Empire", tag: "Rations", desc: "Communist monarchy, slavers, hateful" },
-    { name: "The Alliance", tag: "Technology", desc: "Small town commune, anarchy, friendly" }
+    {
+        name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
+        tag: "Armor",
+        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
+    },
+    {
+        name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
+        tag: "Meds",
+        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary"
+    },
+    {
+        name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
+        tag: "Water",
+        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" 
+    },
+    {
+        name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted. 
+        tag: "Weapons",
+        desc: "Bureaucratic progressive society, republic, weary"
+    },
+    {
+        name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        tag: "Rations",
+        desc: "Communist monarchy, slavers, hateful"
+    },
+    {
+        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
+        tag: "Technology",
+        desc: "Small town commune, anarchy, friendly"
+    }
 ];
 
 export const npcTable = [
