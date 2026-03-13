@@ -130,20 +130,22 @@
     
     .hp-area {
       display:grid;
-      grid-template-columns: 1fr 72px;
+      grid-template-columns: 1fr auto;
       gap:8px;
       align-items:stretch;
       margin:10px 0;
+      min-width:0;
     }
 
     .hp-box {
       position:relative;
       height:180px;
       display:flex;
-	  
       flex-direction:column;
       align-items:center;
       padding-top:6px;
+      min-width:0;
+      overflow:hidden;
     }
 
     .hp-title {
@@ -220,7 +222,7 @@
 	#hp {
       font-size:42px;
       text-align:center;
-      width:160px;
+      width: clamp(100px, 40%, 160px);
       background:#081408;
       border:1px solid #2cff2c;
       padding:4px;
@@ -231,14 +233,16 @@
       flex-direction:row;
       align-items:center;
       justify-content:center;
-      gap:6px;
+      flex-wrap:wrap;
+      gap:4px;
       margin-top:6px;
+      width:100%;
     }
 	
     .addiction-box {
-      width: 70px;
-      min-width: 70px;
-      font-size: 10px;
+      width: clamp(54px, 12vw, 70px);
+      min-width: 0;
+      font-size: clamp(8px, 2vw, 10px);
       text-align:center;
       cursor:pointer;
       background:#081408;
@@ -286,7 +290,8 @@
       display:grid;
       grid-template-rows: repeat(3, 1fr);
       gap:6px;
-	  transform: translateX(-4px);
+      width: 60px;
+      min-width: 60px;
     }
 
     .use-box {
