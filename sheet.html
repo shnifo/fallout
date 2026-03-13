@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,20 +31,20 @@
 	border: none;
 	text-align: center;
 	font-size: 25px;
-	padding: 0;          /* removes extra space */
+	padding: 0;
 	margin: 0;
-	line-height: 1;      /* keeps height tight */
-	width: 45px;         /* adjust to taste */
+	line-height: 1;
+	width: 45px;
 }
 
 	.stat-box {
-	  padding: 6px 0;   /* reduce vertical padding */
+	  padding: 6px 0;
 	}
 
 
 	
 	.grid.title.card {
-	  margin-top: 10px; /* adjust to taste */
+	  margin-top: 10px;
 	}
 		
 	html, body {
@@ -65,7 +64,7 @@
   flex:1 1 0;
   min-width:0;
   box-sizing:border-box;
-  padding-top: 6px; /* instead of 10px */ 
+  padding-top: 6px;
   padding-bottom: 4px;
   border: 2px solid;
   display:flex;
@@ -87,54 +86,42 @@
   font-size: clamp(25px, 8vw, 30px);
   font-weight: bold;
   line-height: 1;
-  padding: 0;          /* no internal spacing */
+  padding: 0;
   margin: 0;
-
   background: transparent;
   border: none;
-
   color: var(--armor-color);
   width: 55px;
-
-  /* remove the scaling — this is what caused vertical padding illusion */
   transform: none;
   display: inline-block;
 }
 
-
-
-/* underline style for the chosen character */
 .armor-label .underline {
   text-decoration: underline;
-  text-underline-offset: 1px;     /* nicer spacing */
-  text-decoration-thickness: 1px; /* a bit bolder */
+  text-underline-offset: 1px;
+  text-decoration-thickness: 1px;
 }
-
 
     .p-theme { background:#331111; border-color:#ff5c5c; }
     .n-theme { background:#112233; border-color:#5ca9ff; }
     .x-theme { background:#332211; border-color:#ffb85c; }
     .r-theme { background:#113311; border-color:#6dff6d; }
 	
-	/* Physical */
 	.armor-box.p-theme input {
 	  color: #ff5c5c;
 	  border-color: #ff5c5c;
 	}
 
-	/* Energy */
 	.armor-box.e-theme input {
 	  color: #5ca9ff;
 	  border-color: #5ca9ff;
 	}
 
-	/* Explosive */
 	.armor-box.x-theme input {
 	  color: #ffb85c;
 	  border-color: #ffb85c;
 	}
 
-	/* Radiation */
 	.armor-box.r-theme input {
 	  color: #6dff6d;
 	  border-color: #6dff6d;
@@ -191,8 +178,8 @@
   position: absolute;
   max-width: 100%;
   overflow: hidden;
-  right: 4px;          /* move right */
-  top: 1%;            /* move upward */
+  right: 4px;
+  top: 1%;
   transform: translateY(-50%);
   font-size: clamp(14px, 3vw, 20px);
   padding: clamp(2px, 0.5vw, 4px) clamp(4px, 1vw, 8px);
@@ -209,19 +196,19 @@
 	  top: 1%;
 	  left: 4px;
 	  padding: 0;
-	  background: #081408;            /* dark Pip‑Boy background */
-	  border: 1px solid #ff3c3c;      /* dark red outline */
-	  box-shadow: 0 0 6px #ff3c3c;    /* matching glow */
+	  background: #081408;
+	  border: 1px solid #ff3c3c;
+	  box-shadow: 0 0 6px #ff3c3c;
 	}
 
 .armor-dmg-input {
   width: 40px;
-  background: transparent !important;   /* force override */
-  border: none !important;              /* remove border */
-  outline: none !important;             /* remove focus ring */
-  -webkit-appearance: none !important;  /* remove iOS/Chrome styling */
-  -moz-appearance: none !important;     /* remove Firefox styling */
-  appearance: none !important;          /* remove generic styling */
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  appearance: none !important;
   color: #9fef9f;
   font-size: clamp(14px, 3vw, 20px);
   text-align: center;
@@ -244,20 +231,22 @@
       flex-direction:row;
       align-items:center;
       justify-content:center;
-      gap:12px;
+      gap:6px;
       margin-top:6px;
     }
 	
-	
-
     .addiction-box {
-      width:110px;
+      width: 70px;
+      min-width: 70px;
+      font-size: 10px;
       text-align:center;
       cursor:pointer;
       background:#081408;
       border-color:#2cff2c;
       color:#9fef9f;
       box-shadow:none;
+      line-height: 1.3;
+      padding: 4px 2px;
     }
 
     .withdraw-box {
@@ -297,7 +286,7 @@
       display:grid;
       grid-template-rows: repeat(3, 1fr);
       gap:6px;
-	  transform: translateX(-4px); /* move left without resizing */
+	  transform: translateX(-4px);
     }
 
     .use-box {
@@ -336,9 +325,9 @@
     .slot textarea {
   flex:1;
   resize:none;
-  font-size: clamp(12px, 3vw, 16px);   /* inventory text size */
-  line-height: 1.3em;                  /* more breathing room */
-  min-height: 3.2em;                   /* ensures 2 rows fit cleanly */
+  font-size: clamp(12px, 3vw, 16px);
+  line-height: 1.3em;
+  min-height: 3.2em;
 }
 
     .heavy-toggle {
@@ -436,8 +425,6 @@
       cursor:pointer;
     }
 	
-/* Top-right buttons */
-
 .perks-btn {
   background:#081408;
   color:#9fef9f;
@@ -446,11 +433,9 @@
   font-family:monospace;
   cursor:pointer;
   box-shadow:0 0 6px #2cff2c;
-  margin-right: 16px; /* ← move left slightly */
+  margin-right: 16px;
 }
 
-
-/* Back button */
 .back-btn {
   background:#081408;
   color:#9fef9f;
@@ -458,7 +443,6 @@
   padding:4px 10px;
   font-family:monospace;
   cursor:pointer;
-  
   box-shadow:0 0 6px #2cff2c;
   margin-bottom:10px;
 }
@@ -489,7 +473,7 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0; /* no horizontal padding */
+  padding: 0;
 }
 
 .title-bar h2 { margin-left: 16px; }
@@ -497,12 +481,12 @@
 .title-left {
   display: flex;
   align-items: center;
-  gap: 8px; /* spacing between PERKS and toggle */
+  gap: 8px;
 }
 
 
 #backBtn {
-  margin-right: 16px; /* move SHEET left — adjust value as needed */
+  margin-right: 16px;
 }
 
 .perk-header {
@@ -511,7 +495,7 @@
   gap: 8px;
   max-width: 100%;
   overflow: hidden;
-  margin-left: 16px; /* match major-header */
+  margin-left: 16px;
 }
 
 .perk-header h3 {
@@ -527,12 +511,10 @@
   transition: transform 0.2s;
 }
 
-/* When collapsed, rotate triangle to point right */
 .perk-header.collapsed .triangle {
   transform: rotate(-90deg);
 }
 
-/* Collapsible content */
 .perk-list {
   display: none;
 }
@@ -565,14 +547,14 @@
   width: 100%;
   max-width: 100%;
   flex-wrap: wrap;
-  margin-top: 8px; /* adjust to taste */
+  margin-top: 8px;
   margin-left: 10px;
   
 }
 
 .perk-text {
   flex: 1;
-  min-width: 0; /* CRITICAL */
+  min-width: 0;
   padding-right: 10px;  
   box-sizing: border-box;
   overflow-wrap: break-word;
@@ -617,7 +599,7 @@
   overflow-x: hidden;
 }
 .perk-section {
-  margin-bottom: 10px; /* adjust to taste */
+  margin-bottom: 10px;
 }
 
 #specialWrapper.collapsed {
@@ -631,7 +613,7 @@
   cursor: pointer;
   color: #9fef9f;
   text-shadow: 0 0 6px #0f0;
-  margin-left: 0px; /* same as your Perks title */
+  margin-left: 0px;
 }
 
 .major-header .triangle {
@@ -644,10 +626,7 @@
 }
 
 #notesWrapper {
-  
   padding-right: 16px;
-	
-  
 }
 #notesHeader {
   margin-top: 32px;
@@ -671,18 +650,17 @@
 }
 
 #stats b {
-  font-size: 20px;        /* bigger label text */
-  line-height: 1;         /* removes vertical dead space */
-  margin: 0 0 2px 0;     /* tighten spacing above the input */
-  display: inline-block;  /* allows line-height to behave predictably */
+  font-size: 20px;
+  line-height: 1;
+  margin: 0 0 2px 0;
+  display: inline-block;
 }
 
 
-/* TAKEN toggle aligned with SAVE / LOAD */
 .taken-toggle {
-  display: flex;          /* cleaner, no inline spacing */
+  display: flex;
   justify-content: flex-start;
-  align-items: center;    /* vertically center contents */
+  align-items: center;
   gap: 6px;
   padding: 4px 10px;
   background: #081408;
@@ -693,7 +671,7 @@
 
 
 .taken-toggle input {
-  display: none; /* hide native checkbox */
+  display: none;
 }
 
 .taken-toggle .perk-box {
@@ -765,6 +743,16 @@
         <label class="withdraw-box">
           <input type="checkbox" id="withdraw2">
         </label>
+
+        <div id="addictionFleshToggle" class="use-box addiction-box">ADDICTED<br>(FLESH)</div>
+
+        <label class="withdraw-box">
+          <input type="checkbox" id="withdraw3">
+        </label>
+
+        <label class="withdraw-box">
+          <input type="checkbox" id="withdraw4">
+        </label>
       </div>
     </div>
 
@@ -813,8 +801,8 @@ window.state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   level: "",
   caps: "",
   hp: "20/20",
-  perks: {},          // perk checkbox states
-  perkSections: {},   // perk section open/closed
+  perks: {},
+  perkSections: {},
   stats: Object.fromEntries(statNames.map(s => [s, ""])),
   specialStats: Object.fromEntries(statNames.map(s => [s, false])),
   armor: { Physical:"0", Energy:"0", Explosive:"0", Radiation:"0" },
@@ -831,12 +819,16 @@ window.state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   })),
   uses: { skill:true, luck:true, resist:true },
   addiction: false,
+  addictionFlesh: false,
   withdraw1: false,
   withdraw2: false,
+  withdraw3: false,
+  withdraw4: false,
   starredStats: Object.fromEntries(statNames.map(s => [s, false]))
 };
 state.starredStats = state.starredStats || Object.fromEntries(statNames.map(s => [s, false]));
 state.showTakenOnly = state.showTakenOnly ?? false;
+if (state.addictionFlesh === undefined) state.addictionFlesh = false;
 
 
 function toggleSpecial(stat, el) {
@@ -847,7 +839,6 @@ function toggleSpecial(stat, el) {
 	
 	window.toggleSpecial = toggleSpecial;
 
-// Ensure new keys exist even for older saves
 if (!state.perks) state.perks = {};
 if (!state.perkSections) state.perkSections = {};
 
@@ -922,15 +913,14 @@ function chgNeg(n, d) {
 
   el.innerText = val;
 
-  // Color tiers
   if (val >= 8) {
-    el.style.color = "#ff4c4c";     // red
+    el.style.color = "#ff4c4c";
   } else if (val >= 6) {
-    el.style.color = "#ff7f3f";     // HP orange (redder orange)
+    el.style.color = "#ff7f3f";
   } else if (val >= 4) {
-    el.style.color = "#ffd84d";     // yellow
+    el.style.color = "#ffd84d";
   } else {
-    el.style.color = "#9fef9f";     // green
+    el.style.color = "#9fef9f";
   }
 
   save();
@@ -944,21 +934,17 @@ function evaluateCapsExpression(expr, currentTotal) {
 
   cleaned = cleaned.replace(/\s+/g, "");
 
-  // Case 1: trailing operator like "250+" or "400-"
   if (/^\d+[+-]$/.test(cleaned)) {
     const amt = parseInt(cleaned.slice(0, -1), 10);
     const op = cleaned.slice(-1);
     return currentTotal + (op === "+" ? amt : -amt);
   }
 
-  // Case 2: starts with + or - → relative change
   if (/^[+-]\d+$/.test(cleaned)) {
     const delta = parseInt(cleaned, 10);
     return currentTotal + delta;
   }
 
-  // Case 3: contains + or - inside → try to evaluate simple chain
-  // For now we support only one operation (most common use-case)
   const opMatch = cleaned.match(/^(\d+)([+-])(\d+)$/);
   if (opMatch) {
     const base = parseInt(opMatch[1], 10);
@@ -968,19 +954,16 @@ function evaluateCapsExpression(expr, currentTotal) {
     return result;
   }
 
-  // Case 4: just a plain number → set absolute value
   if (/^\d+$/.test(cleaned)) {
     return parseInt(cleaned, 10);
   }
 
-  // Anything else → invalid
   return null;
 }	
 	window.evaluateCapsExpression = evaluateCapsExpression;
 
 ////// CAPS CALCULATOR //////
 
-// Internal value is always a number
 state.caps = Number.isFinite(state.caps) ? Number(state.caps) : 0;
 
 const capsInput = document.getElementById("caps");
@@ -989,31 +972,25 @@ function updateCapsDisplay() {
 }
 	window.updateCapsDisplay = updateCapsDisplay;
 
-// Apply on load
 updateCapsDisplay();
 
-// Allow typing expressions (+ - digits spaces)
 capsInput.addEventListener("input", e => {
   const val = e.target.value;
 
-  // Very permissive filter: only digits, +, -, and spaces
-  // (we do real validation on blur/Enter)
   if (/^[0-9+\-\s]*$/.test(val)) {
     // ok
   } else {
-    // revert
     e.target.value = state.caps === 0 ? "" : String(state.caps);
   }
 });
 
-// Commit changes only on blur or Enter
 capsInput.addEventListener("blur", applyCapsChange);
 
 capsInput.addEventListener("keydown", e => {
   if (e.key === "Enter") {
-    e.preventDefault();           // ← stops form submit / focus jump
+    e.preventDefault();
     applyCapsChange();
-    capsInput.blur();             // hides keyboard & commits
+    capsInput.blur();
   }
 });
 
@@ -1030,7 +1007,7 @@ function applyCapsChange() {
   const result = evaluateCapsExpression(raw, state.caps);
 
   if (result === null) {
-    updateCapsDisplay(); // revert
+    updateCapsDisplay();
     return;
   }
 
@@ -1156,7 +1133,6 @@ function buildPerkUI() {
 
   Object.keys(perkData).forEach(stat => {
 
-  // Hide SPECIAL headers entirely when showing taken only
   if (state.showTakenOnly) return;
 
   const section = document.createElement("div");
@@ -1178,7 +1154,6 @@ function buildPerkUI() {
   perkData[stat].forEach(perk => {
     const id = `${stat}-${perk.name}`;
 
-    // If filtering, skip un-taken perks
     if (state.showTakenOnly && !state.perks[id]) return;
 
     const item = document.createElement("label");
@@ -1230,19 +1205,16 @@ function buildPerkUI() {
   specialWrapper.appendChild(flat);
 	}
   
-	// BACKGROUNDS HEADER
 	const bgHeader = document.createElement("h2");
 	bgHeader.className = "major-header";
 	bgHeader.innerHTML = `<span class="triangle">▼</span> BACKGROUNDS`;
 	container.appendChild(bgHeader);
 
-	// BACKGROUNDS LIST (always visible)
 	const bgListWrapper = document.createElement("div");
 	bgListWrapper.id = "backgroundsWrapper";
 	bgListWrapper.className = "perk-list open";
 	container.appendChild(bgListWrapper);
 
-	// Add each background directly
 	backgroundData.forEach(bg => {
   const id = `Background-${bg.name}`;
 
@@ -1265,29 +1237,24 @@ function buildPerkUI() {
 });
 
 
-// Restore saved collapse state
 if (state.perkSections["Backgrounds"] === false) {
   bgListWrapper.classList.remove("open");
   bgHeader.classList.add("collapsed");
 }
 
-// Attach collapse handler
 bgHeader.onclick = () => toggleBackgrounds(bgHeader);
 
-	// RECIPES & NOTES HEADER
 	const notesHeader = document.createElement("h2");
 	notesHeader.className = "major-header";
-	notesHeader.id = "notesHeader"; // ← ADD THIS
+	notesHeader.id = "notesHeader";
 	notesHeader.innerHTML = `<span class="triangle">▼</span> RECIPES & NOTES`;
 	container.appendChild(notesHeader);
 
-	// WRAPPER FOR TEXT AREA
 	const notesWrapper = document.createElement("div");
 	notesWrapper.id = "notesWrapper";
-	notesWrapper.className = "perk-list open"; // starts open
+	notesWrapper.className = "perk-list open";
 	container.appendChild(notesWrapper);
 
-	// TEXT AREA
 	const notesBox = document.createElement("textarea");
 	notesBox.id = "notesBox";
 	notesBox.style.width = "100%";
@@ -1298,14 +1265,10 @@ bgHeader.onclick = () => toggleBackgrounds(bgHeader);
 	notesBox.style.padding = "8px";
 	notesBox.style.fontFamily = "monospace";
 	notesBox.style.boxSizing = "border-box";
-	notesBox.style.resize = "vertical";     // allow vertical resizing (use "both" for both axes)
-	
+	notesBox.style.resize = "vertical";
 
-
-	// Load saved text
 	notesBox.value = state.notes || "";
 
-	// Save on input
 	notesBox.addEventListener("input", () => {
 	  state.notes = notesBox.value;
 	  save();
@@ -1313,18 +1276,15 @@ bgHeader.onclick = () => toggleBackgrounds(bgHeader);
 
 	notesWrapper.appendChild(notesBox);
 
-	// Restore collapse state
 	if (state.perkSections["NOTES"] === false) {
 	  notesWrapper.classList.remove("open");
 	  notesHeader.classList.add("collapsed");
 	}
 
-	// Attach collapse handler
 	notesHeader.onclick = () => toggleNotes(notesHeader);
 
 
 
-  // Hook up checkbox change → save
   container.querySelectorAll(".perk-check").forEach(box => {
     box.addEventListener("change", () => {
       const id = box.dataset.id;
@@ -1341,11 +1301,9 @@ document.getElementById("showTakenToggle").addEventListener("change", e => {
   state.showTakenOnly = e.target.checked;
   save();
 
-  // Update the tick in the top button
   const box = document.querySelector(".taken-toggle .perk-box");
   box.textContent = e.target.checked ? "✔" : "";
 
-  // Rebuild the perk UI
   buildPerkUI();
   
 });
@@ -1409,7 +1367,6 @@ function hidePerksScreen() {
 // ---------- INIT ----------
 
 function init() {
-  // Front page fields
   document.getElementById("perksBtn").onclick = showPerksScreen;
   document.getElementById("backBtn").onclick = hidePerksScreen;
   document.getElementById("perksTitle").onclick = togglePerks;
@@ -1441,12 +1398,10 @@ function init() {
 
 	capsInput.addEventListener("input", e => {
   const val = e.target.value.trim();
-  // Only update state if it's a valid number or empty
   if (val === "" || /^\d+$/.test(val)) {
     state.caps = val === "" ? 0 : Number(val);
     save();
   }
-  // Note: we don't call updateCapsDisplay() here — it's not needed during typing
 });
  
 
@@ -1478,7 +1433,6 @@ if (takenToggle) {
 
 statNames.forEach(s => {
 
-  // 1. Build the stat row
   statsDiv.innerHTML +=
     `<div class='card stat-box center'>
        <b onclick="toggleStatStar(this)"
@@ -1492,13 +1446,11 @@ statNames.forEach(s => {
   const label = statsDiv.querySelector(`b[data-stat="${s}"]`);
 
   if (state.starredStats && state.starredStats[s]) {
-    // restore gold + stars
     label.dataset.base = s;
     label.dataset.starred = "true";
     label.textContent = `${s}`;
     label.classList.add("stat-starred");
 
-    // optional: goldify number box too
     const box = label.parentElement.querySelector(".stat-input");
     if (box) box.classList.add("stat-starred");
 
@@ -1541,19 +1493,18 @@ armorTypes.forEach(([label, c]) => {
        </div>`;
   });
   
-// COLORIZE STATUSES
 negNames.forEach(n => {
   const val = state.neg[n];
   const el = document.getElementById(n);
 
   if (val >= 8) {
-    el.style.color = "#ff4c4c";      // red
+    el.style.color = "#ff4c4c";
   } else if (val >= 6) {
-    el.style.color = "#ff7f3f";      // HP orange (redder orange)
+    el.style.color = "#ff7f3f";
   } else if (val >= 4) {
-    el.style.color = "#ffd84d";      // yellow
+    el.style.color = "#ffd84d";
   } else {
-    el.style.color = "";             // reset to default (green)
+    el.style.color = "";
   }
 });
 
@@ -1626,6 +1577,22 @@ negNames.forEach(n => {
   };
   renderAddiction();
 
+  // Addiction (Flesh) toggle
+  const addictionFleshEl = document.getElementById("addictionFleshToggle");
+  function renderAddictionFlesh() {
+    addictionFleshEl.className = "use-box addiction-box";
+    if (state.addictionFlesh) {
+      addictionFleshEl.classList.add("use-off");
+    }
+  }
+  window.renderAddictionFlesh = renderAddictionFlesh;
+  addictionFleshEl.onclick = () => {
+    state.addictionFlesh = !state.addictionFlesh;
+    save();
+    renderAddictionFlesh();
+  };
+  renderAddictionFlesh();
+
   // Armor damage input
   const armorInput = document.getElementById("armorDmgInput");
   armorInput.addEventListener("input", () => {
@@ -1644,7 +1611,6 @@ function toggleStatStar(el) {
   const box = el.parentElement.querySelector(".stat-input");
 
   if (el.dataset.starred === "true") {
-    // unstar
     el.textContent = el.dataset.base;
     el.classList.remove("stat-starred");
     el.dataset.starred = "false";
@@ -1653,7 +1619,6 @@ function toggleStatStar(el) {
     state.starredStats[stat] = false;
 
   } else {
-    // star
     el.dataset.base = el.textContent;
     el.textContent = `${el.dataset.base}`;
     el.classList.add("stat-starred");
@@ -1671,7 +1636,6 @@ function toggleStatStar(el) {
 function withUnderlinedChar(word, ch) {
   const i = word.toLowerCase().indexOf(ch.toLowerCase());
   if (i === -1) {
-    // If the character isn't found, just return the word uppercased
     return word.toUpperCase();
   }
   const before = word.slice(0, i).toUpperCase();
@@ -1685,8 +1649,6 @@ function withUnderlinedChar(word, ch) {
 
 
 function exportSheet() {
-  // ... same sync code as above ...
-
   let baseName = (state.name || "fallout-character")
     .trim()
     .toLowerCase()
@@ -1707,11 +1669,10 @@ function exportSheet() {
     suggested
   );
 
-  if (!fileName) return; // cancelled
+  if (!fileName) return;
 
   const finalName = fileName.endsWith(".json") ? fileName : fileName + ".json";
 
-  // ... same blob/download code as above ...
   const data = JSON.stringify(state, null, 2);
   const blob = new Blob([data], { type: "application/json" });
   const url = URL.createObjectURL(blob);
@@ -1739,11 +1700,9 @@ function importSheet() {
       try {
         const loaded = JSON.parse(reader.result);
 
-        // Merge loaded data into your state
        Object.assign(state, loaded);
 		save();
 
-		// FULL UI rebuild
 		init();
 		buildPerkUI();
 
@@ -1767,7 +1726,7 @@ function togglePerkFilter() {
   attachTooltips();
 }
 	window.togglePerkFilter = togglePerkFilter;
-// Restore the top toggle's checkmark
+
 document.querySelector(".taken-toggle .perk-box").textContent =
   state.showTakenOnly ? "✔" : "";
 
