@@ -527,7 +527,7 @@
   width: 100%;
   max-width: 900px;
   margin: 0 auto;
-  padding: 0;
+  padding: 12px 0 0;
 }
 
 .title-bar h2 { margin-left: 16px; }
@@ -779,19 +779,15 @@
 
 .index-copyable {
   cursor: pointer;
-  border-bottom: 1px dashed #2cff2c44;
-  transition: color 0.1s, background 0.1s;
 }
 
-.index-copyable:active {
+.index-copyable:active td {
   color: #fff;
 }
 
-.index-copied {
+.index-copied td {
   color: #081408 !important;
   background: #2cff2c;
-  border-radius: 2px;
-  padding: 0 2px;
 }
 
 
@@ -1760,15 +1756,12 @@ function copyToClipboard(text) {
 }
 window.copyToClipboard = copyToClipboard;
 
-function indexTable(headers, rows, nameCol = 0) {
+function indexTable(headers, rows) {
   let t = `<table class="index-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>`;
   rows.forEach(r => {
-    t += `<tr>${r.map((c, i) => {
-      if (i === nameCol) {
-        return `<td><span class="index-copyable" onclick="indexCopy(this,'${String(c).replace(/'/g, "\\'")}')">${c}</span></td>`;
-      }
-      return `<td>${c}</td>`;
-    }).join("")}</tr>`;
+    const fullText = r.join(" | ");
+    const safe = fullText.replace(/'/g, "\\'");
+    t += `<tr class="index-copyable" onclick="indexCopy(this,'${safe}')">${r.map(c=>`<td>${c}</td>`).join("")}</tr>`;
   });
   t += `</tbody></table>`;
   return t;
