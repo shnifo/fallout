@@ -12,7 +12,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 4, text: "Leather armor: +7 def, 80c" },
     { roll: 5, text: "Chain armor: +8 def, 90c" },
     { roll: 6, text: "Metal armor: +9 def, 100c" },
-    { roll: 7, text: "Plate armor: +10 def, 110c" },
+    { roll: 7, text: "Servo armor: +10 def, 110c" },
     { roll: 8, text: "Ranger armor: +12 def, 120c" },
     { roll: 9, text: "Kinetic armor: +14 def, 130c" },
     { roll: 10, text: "Combat armor: +16 def, 140c" },
