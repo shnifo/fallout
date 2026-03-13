@@ -280,17 +280,17 @@ export const zoneTable = {
 // === Monster Data ===
 export const monsterData = {
     E1: {
-        label: "Mercenaries", notes: "special: hidden land mines. Loot: broken equipment, human flesh (-1 hunger, unique addictive)", subs: [
+        label: "Mercenaries", notes: "special: hidden land mines. Loot: weapons, armor, human flesh ", subs: [
             { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons +1 dmg, 12x mines" }, // 7-8
+            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons, 12x mines" }, // 7-8
             { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +2 dmg, 14x mines" }, // 11-12
+            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +1 dmg, 14x mines" }, // 11-12
             { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
-            { name: "General", hp: 20, def: 24, notes: "scaled weapons +3 dmg, 16x mines" } // 15+
+            { name: "General", hp: 20, def: 24, notes: "scaled weapons +2 dmg, 16x mines" } // 15+
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // animal flesh =  (-1 hunger, dirty), bear trap = +1 injury and 2x cripple legs
+        label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // bear trap = +1 injury and 2x cripple legs
             { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
             { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
@@ -332,21 +332,21 @@ export const monsterData = {
     E6: {
         label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
             { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
-            { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons +1 dmg, 12E mines" },
+            { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons, 12E mines" },
             { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
-            { name: "Eradicator", hp: 12, def: 24, notes: "scaled energy weapons +2 dmg, 14E mines" },
+            { name: "Eradicator", hp: 12, def: 24, notes: "scaled energy weapons +1 dmg, 14E mines" },
             { name: "Assassin", hp: 14, def: 28, notes: "scaled energy weapons +2 dmg, 15E mines" },
-            { name: "Terminator", hp: 16, def: 32, notes: "scaled energy weapons +3 dmg, 16E mines" }
+            { name: "Terminator", hp: 16, def: 32, notes: "scaled energy weapons +2 dmg, 16E mines" }
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, does not pay HP cost. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
             { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Priest", hp: 16, def: 16, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Priest", hp: 16, def: 16, notes: "scaled mutated weapons +1 dmg" },
             { name: "Fanatic", hp: 18, def: 20, notes: "scaled mutated weapons +2 dmg" },
-            { name: "Elder", hp: 20, def: 24, notes: "scaled mutated weapons +3 dmg" }
+            { name: "Elder", hp: 20, def: 24, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
     O2: {
@@ -360,7 +360,7 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation, mutant flesh = (-1 hunger, -1 injury, +1 rads).
+        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
@@ -380,23 +380,23 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: broken weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
+        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
             { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
-            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns +1 dmg, 13 R grenades" },
+            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
             { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
-            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns +2 dmg, 15 R grenades" },
+            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg, 15 R grenades" },
             { name: "Overlord", hp: 20, def:28, notes: "scaled heavy guns +2 dmg, 16 R grenades" },
-            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns +3 dmg, 17 R grenades" }
+            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg, 17 R grenades" }
         ]
     },
     O6: {
-        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot:broken weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot: weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
             { name: "Ghast", hp: 4, def: 6,  notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee +1 dmg" },
+            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee" },
             { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
-            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee +2 dmg" },
+            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee +1 dmg" },
             { name: "Wraith", hp: 12, def: 22, notes: "scaled heavy melee +2 dmg" },
-            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee +3 dmg" }
+            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee +2 dmg" }
         ]
     }
 };
