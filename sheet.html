@@ -902,7 +902,7 @@
   <div id="indexContent" style="padding:0 16px 40px;"></div>
 </div>
 <script type="module">
-  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData, weapons, ammoTable, grenadeTable, medTable, chemTable, techTable, artifacts, plants, armorTable, fleshTable, rationWaterTable } from './constants.js';
+  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData, weapons, recipeTable, ammoTable, grenadeTable, medTable, chemTable, techTable, artifacts, plants, armorTable, fleshTable, rationWaterTable } from './constants.js';
 
 const STORAGE_KEY = "fallout_character_v10";
 
@@ -1827,6 +1827,10 @@ function buildIndexUI() {
   // WATER & RATIONS
   html += indexSection("WATER & RATIONS", indexTable(["Item","Effect"],
     rationWaterTable.map(r => [r.name, r.effect])));
+
+	// RECIPES
+  html += indexSection("RECIPES", indexTable(["Recipe"],
+    recipeTable.map(r => [r.recipe])));
 
   el.innerHTML = html;
 }
