@@ -328,6 +328,11 @@
   outline-offset: 3px;
 }
 
+#inventory.drag-top .slot[data-index="0"] {
+  border-top: 3px solid #2cff2c;
+  box-shadow: 0 -4px 8px #2cff2c;
+}
+
 
     .slot-top {
       display:grid;
@@ -1423,9 +1428,54 @@ function getSlotAtPoint(x, y) {
 
 function clearDragOver() {
   document.querySelectorAll(".slot").forEach(s => s.classList.remove("drag-over"));
+  const invDiv = document.getElementById("inventory");
+  if (invDiv) invDiv.classList.remove("drag-top");
 }
 
-function attachDragHandles(slot, i) {
+function isAboveFirstSlot(y) {
+  const firstSlot = document.querySelector(".slot[data-index='0']");
+  if (!firstSlot) return false;
+  const rect = firstSlot.getBoundingClientRect();
+  return y < rect.top + rect.height * 0.35;
+}
+
+function updateDragOver(x, y) {
+  clearDragOver();
+  if (isAboveFirstSlot(y)) {
+    document.getElementById("inventory").classList.add("drag-top");
+    return;
+  }
+  const target = getSlotAtPoint(x, y);
+  if (target && parseInt(target.dataset.index) !== dragSrcIndex) {
+    target.classList.add("drag-over");
+  }
+}
+
+function finishDrop(target, y) {
+  removeGhost();
+  clearDragOver();
+  const srcSlot = document.querySelector(`.slot[data-index="${dragSrcIndex}"]`);
+  if (srcSlot) srcSlot.classList.remove("drag-dragging");
+
+  if (isAboveFirstSlot(y)) {
+    const item = state.inventory.splice(dragSrcIndex, 1)[0];
+    state.inventory.unshift(item);
+    save();
+    renderInventory();
+  } else if (target) {
+    const destIndex = parseInt(target.dataset.index);
+    if (!isNaN(destIndex) && destIndex !== dragSrcIndex) {
+      const item = state.inventory.splice(dragSrcIndex, 1)[0];
+      const adjustedDest = destIndex > dragSrcIndex ? destIndex - 1 : destIndex;
+      state.inventory.splice(adjustedDest + 1, 0, item);
+      save();
+      renderInventory();
+    }
+  }
+
+  isDragging = false;
+  dragSrcIndex = null;
+}
   const handle = slot.querySelector(".dropdown-toggle");
 
   // ── TOUCH ──
@@ -1446,9 +1496,7 @@ function attachDragHandles(slot, i) {
     e.preventDefault();
     const touch = e.touches[0];
     moveGhost(touch.clientX, touch.clientY);
-    clearDragOver();
-    const target = getSlotAtPoint(touch.clientX, touch.clientY);
-    if (target && target !== slot) target.classList.add("drag-over");
+    updateDragOver(touch.clientX, touch.clientY);
   }, { passive: false });
 
   handle.addEventListener("touchend", e => {
@@ -1456,7 +1504,7 @@ function attachDragHandles(slot, i) {
     if (!isDragging) return;
     const touch = e.changedTouches[0];
     const target = getSlotAtPoint(touch.clientX, touch.clientY);
-    finishDrop(target);
+    finishDrop(target, touch.clientY);
   });
 
   handle.addEventListener("touchcancel", () => {
@@ -1479,38 +1527,15 @@ function attachDragHandles(slot, i) {
   window.addEventListener("mousemove", e => {
     if (!isDragging || dragSrcIndex !== i) return;
     moveGhost(e.clientX, e.clientY);
-    clearDragOver();
-    const target = getSlotAtPoint(e.clientX, e.clientY);
-    if (target && parseInt(target.dataset.index) !== i) target.classList.add("drag-over");
+    updateDragOver(e.clientX, e.clientY);
   });
 
   window.addEventListener("mouseup", e => {
     if (!isDragging || dragSrcIndex !== i) return;
     clearTimeout(holdTimer);
     const target = getSlotAtPoint(e.clientX, e.clientY);
-    finishDrop(target);
+    finishDrop(target, e.clientY);
   });
-}
-
-function finishDrop(target) {
-  removeGhost();
-  clearDragOver();
-  const srcSlot = document.querySelector(`.slot[data-index="${dragSrcIndex}"]`);
-  if (srcSlot) srcSlot.classList.remove("drag-dragging");
-
-  if (target) {
-    const destIndex = parseInt(target.dataset.index);
-    if (!isNaN(destIndex) && destIndex !== dragSrcIndex) {
-      const tmp = state.inventory[dragSrcIndex];
-      state.inventory[dragSrcIndex] = state.inventory[destIndex];
-      state.inventory[destIndex] = tmp;
-      save();
-      renderInventory();
-    }
-  }
-
-  isDragging = false;
-  dragSrcIndex = null;
 }
 
 function cancelDrag(slot) {
