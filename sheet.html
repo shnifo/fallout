@@ -319,9 +319,37 @@
   margin:0px;
 }
 
+.slot.drag-dragging {
+  opacity: 0.35;
+}
+
+.slot.drag-over {
+  outline: 2px dashed #2cff2c;
+  outline-offset: 3px;
+}
+
+.drag-handle {
+  width: 22px;
+  min-width: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: #2cff2c;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  opacity: 0.6;
+}
+
+.drag-handle:active {
+  cursor: grabbing;
+  opacity: 1;
+}
+
     .slot-top {
       display:grid;
-      grid-template-columns: 32px 1fr 36px;
+      grid-template-columns: 22px 32px 1fr 36px;
       gap:6px;
       height:4.5em;
       align-items:stretch;
@@ -1369,6 +1397,190 @@ function hidePerksScreen() {
 	window.hidePerksScreen = hidePerksScreen;
 
 
+// ---------- INVENTORY RENDER + DRAG & DROP (touch + mouse) ----------
+
+let dragSrcIndex = null;
+let ghostEl = null;
+let holdTimer = null;
+let isDragging = false;
+
+function createGhost(slot) {
+  ghostEl = slot.cloneNode(true);
+  ghostEl.style.position = "fixed";
+  ghostEl.style.pointerEvents = "none";
+  ghostEl.style.opacity = "0.75";
+  ghostEl.style.zIndex = "9999";
+  ghostEl.style.width = slot.offsetWidth + "px";
+  ghostEl.style.left = "-9999px";
+  ghostEl.style.top = "-9999px";
+  ghostEl.style.background = "#0f2f0f";
+  ghostEl.style.border = "2px solid #2cff2c";
+  ghostEl.style.boxShadow = "0 0 12px #2cff2c";
+  document.body.appendChild(ghostEl);
+}
+
+function moveGhost(x, y) {
+  if (!ghostEl) return;
+  ghostEl.style.left = (x - ghostEl.offsetWidth / 2) + "px";
+  ghostEl.style.top  = (y - 30) + "px";
+}
+
+function removeGhost() {
+  if (ghostEl) { ghostEl.remove(); ghostEl = null; }
+}
+
+function getSlotAtPoint(x, y) {
+  const els = document.elementsFromPoint(x, y);
+  for (const el of els) {
+    const slot = el.closest(".slot");
+    if (slot && slot.dataset.index !== undefined) return slot;
+  }
+  return null;
+}
+
+function clearDragOver() {
+  document.querySelectorAll(".slot").forEach(s => s.classList.remove("drag-over"));
+}
+
+function attachDragHandles(slot, i) {
+  const handle = slot.querySelector(".drag-handle");
+
+  // ── TOUCH ──
+  handle.addEventListener("touchstart", e => {
+    const touch = e.touches[0];
+    holdTimer = setTimeout(() => {
+      isDragging = true;
+      dragSrcIndex = i;
+      slot.classList.add("drag-dragging");
+      createGhost(slot);
+      moveGhost(touch.clientX, touch.clientY);
+    }, 200);
+  }, { passive: true });
+
+  handle.addEventListener("touchmove", e => {
+    clearTimeout(holdTimer);
+    if (!isDragging) return;
+    e.preventDefault();
+    const touch = e.touches[0];
+    moveGhost(touch.clientX, touch.clientY);
+    clearDragOver();
+    const target = getSlotAtPoint(touch.clientX, touch.clientY);
+    if (target && target !== slot) target.classList.add("drag-over");
+  }, { passive: false });
+
+  handle.addEventListener("touchend", e => {
+    clearTimeout(holdTimer);
+    if (!isDragging) return;
+    const touch = e.changedTouches[0];
+    const target = getSlotAtPoint(touch.clientX, touch.clientY);
+    finishDrop(target);
+  });
+
+  handle.addEventListener("touchcancel", () => {
+    clearTimeout(holdTimer);
+    cancelDrag(slot);
+  });
+
+  // ── MOUSE ──
+  handle.addEventListener("mousedown", e => {
+    if (e.button !== 0) return;
+    holdTimer = setTimeout(() => {
+      isDragging = true;
+      dragSrcIndex = i;
+      slot.classList.add("drag-dragging");
+      createGhost(slot);
+      moveGhost(e.clientX, e.clientY);
+    }, 200);
+  });
+
+  window.addEventListener("mousemove", e => {
+    if (!isDragging || dragSrcIndex !== i) return;
+    moveGhost(e.clientX, e.clientY);
+    clearDragOver();
+    const target = getSlotAtPoint(e.clientX, e.clientY);
+    if (target && parseInt(target.dataset.index) !== i) target.classList.add("drag-over");
+  });
+
+  window.addEventListener("mouseup", e => {
+    if (!isDragging || dragSrcIndex !== i) return;
+    clearTimeout(holdTimer);
+    const target = getSlotAtPoint(e.clientX, e.clientY);
+    finishDrop(target);
+  });
+}
+
+function finishDrop(target) {
+  removeGhost();
+  clearDragOver();
+  const srcSlot = document.querySelector(`.slot[data-index="${dragSrcIndex}"]`);
+  if (srcSlot) srcSlot.classList.remove("drag-dragging");
+
+  if (target) {
+    const destIndex = parseInt(target.dataset.index);
+    if (!isNaN(destIndex) && destIndex !== dragSrcIndex) {
+      const tmp = state.inventory[dragSrcIndex];
+      state.inventory[dragSrcIndex] = state.inventory[destIndex];
+      state.inventory[destIndex] = tmp;
+      save();
+      renderInventory();
+    }
+  }
+
+  isDragging = false;
+  dragSrcIndex = null;
+}
+
+function cancelDrag(slot) {
+  clearTimeout(holdTimer);
+  removeGhost();
+  clearDragOver();
+  if (slot) slot.classList.remove("drag-dragging");
+  isDragging = false;
+  dragSrcIndex = null;
+}
+
+function renderInventory() {
+  const invDiv = document.getElementById("inventory");
+  invDiv.innerHTML = "";
+
+  state.inventory.forEach((it, i) => {
+    const slot = document.createElement("div");
+    slot.className = "card slot";
+    slot.dataset.index = i;
+
+    slot.innerHTML =
+      `<div class="slot-top">
+         <div class="drag-handle" title="Hold to drag">☰</div>
+         <div id="dropbtn${i}" class="dropdown-toggle" onclick="toggleDropdown(${i})">▼</div>
+         <textarea rows='3'
+           oninput="state.inventory[${i}].name=this.value;save();">${it.name}</textarea>
+         <div id="heavy${i}" class="heavy-toggle" onclick="toggleHeavy(${i})"></div>
+       </div>
+       <div id="droparea${i}" class="dropdown-area"></div>`;
+
+    invDiv.appendChild(slot);
+    attachDragHandles(slot, i);
+
+    renderHeavy(i);
+    renderDropdown(i);
+    const area = document.getElementById("droparea" + i);
+    area.innerHTML = "";
+    it.counters.forEach((c, j) => {
+      area.innerHTML +=
+        `<div class="card neg-card inv-counter-card">
+           <input class="neg-title-input" type="text" value="${c.title}"
+             oninput="state.inventory[${i}].counters[${j}].title=this.value;save();">
+           <div class="inv-counter-btn-row">
+             <button class="neg-btn inv-counter-btn" onclick="chgCounter(${i},${j},-1)">−</button>
+             <div id="count${i}_${j}" class="inv-counter-value">${c.value}</div>
+             <button class="neg-btn inv-counter-btn" onclick="chgCounter(${i},${j},1)">+</button>
+           </div>
+         </div>`;
+    });
+  });
+}
+  window.renderInventory = renderInventory;
+
 // ---------- INIT ----------
 
 function init() {
@@ -1517,39 +1729,7 @@ negNames.forEach(n => {
  
 
   // Inventory
-  const invDiv = document.getElementById("inventory");
-  invDiv.innerHTML = "";
-  state.inventory.forEach((it, i) => {
-    invDiv.innerHTML +=
-      `<div class='card slot'>
-         <div class="slot-top">
-           <div id="dropbtn${i}" class="dropdown-toggle" onclick="toggleDropdown(${i})">▼</div>
-           <textarea rows='3'
-             oninput="state.inventory[${i}].name=this.value;save();">${it.name}</textarea>
-           <div id="heavy${i}" class="heavy-toggle" onclick="toggleHeavy(${i})"></div>
-         </div>
-         <div id="droparea${i}" class="dropdown-area"></div>
-       </div>`;
-  });
-
-  state.inventory.forEach((it, i) => {
-    renderHeavy(i);
-    renderDropdown(i);
-    const area = document.getElementById("droparea" + i);
-    area.innerHTML = "";
-    it.counters.forEach((c, j) => {
-      area.innerHTML +=
-        `<div class="card neg-card inv-counter-card">
-           <input class="neg-title-input" type="text" value="${c.title}"
-             oninput="state.inventory[${i}].counters[${j}].title=this.value;save();">
-           <div class="inv-counter-btn-row">
-             <button class="neg-btn inv-counter-btn" onclick="chgCounter(${i},${j},-1)">−</button>
-             <div id="count${i}_${j}" class="inv-counter-value">${c.value}</div>
-             <button class="neg-btn inv-counter-btn" onclick="chgCounter(${i},${j},1)">+</button>
-           </div>
-         </div>`;
-    });
-  });
+  renderInventory();
 
   // Uses
   ["skill","luck","resist"].forEach(k => {
