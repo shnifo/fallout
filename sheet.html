@@ -1468,7 +1468,6 @@ function updateDragOver(x, y) {
 }
 
 function finishDrop(target, y) {
-  removeGhost();
   clearDragOver();
   const srcSlot = document.querySelector(`.slot[data-index="${dragSrcIndex}"]`);
   if (srcSlot) srcSlot.classList.remove("drag-dragging");
@@ -1503,8 +1502,6 @@ function attachDragHandles(slot, i) {
       isDragging = true;
       dragSrcIndex = i;
       slot.classList.add("drag-dragging");
-      createGhost(slot);
-      moveGhost(touch.clientX, touch.clientY);
     }, 200);
   }, { passive: true });
 
@@ -1513,12 +1510,17 @@ function attachDragHandles(slot, i) {
     if (!isDragging) return;
     e.preventDefault();
     const touch = e.touches[0];
+    if (!ghostEl) {
+      createGhost(slot);
+      moveGhost(touch.clientX, touch.clientY);
+    }
     moveGhost(touch.clientX, touch.clientY);
     updateDragOver(touch.clientX, touch.clientY);
   }, { passive: false });
 
   handle.addEventListener("touchend", e => {
     clearTimeout(holdTimer);
+    removeGhost();
     if (!isDragging) return;
     const touch = e.changedTouches[0];
     const target = getSlotAtPoint(touch.clientX, touch.clientY);
@@ -1537,20 +1539,22 @@ function attachDragHandles(slot, i) {
       isDragging = true;
       dragSrcIndex = i;
       slot.classList.add("drag-dragging");
-      createGhost(slot);
-      moveGhost(e.clientX, e.clientY);
     }, 200);
   });
 
   window.addEventListener("mousemove", e => {
     if (!isDragging || dragSrcIndex !== i) return;
+    if (!ghostEl) {
+      createGhost(slot);
+    }
     moveGhost(e.clientX, e.clientY);
     updateDragOver(e.clientX, e.clientY);
   });
 
   window.addEventListener("mouseup", e => {
-    if (!isDragging || dragSrcIndex !== i) return;
     clearTimeout(holdTimer);
+    removeGhost();
+    if (!isDragging || dragSrcIndex !== i) return;
     const target = getSlotAtPoint(e.clientX, e.clientY);
     finishDrop(target, e.clientY);
   });
