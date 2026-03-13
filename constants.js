@@ -105,7 +105,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
-export const ammoTable = [
+export const ammoTable = [ //crit = choose any type of ammo to roll, grenades have random tier, and also find a transmuter which lets you insert items from weapons, armor, scrap, food, water, ammo. result is randomly rolled from chosen category. one use, bulky, 100c.
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -381,7 +381,12 @@ export const monsterData = {
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
+/*
+crit rations: find healthy rations
+crit water: find power water
+crit scrap: can choose which scrap is found and find a plant
 
+*/
 export const artifacts = [
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
@@ -391,7 +396,7 @@ export const artifacts = [
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
-export const plants = [
+export const plants = [ 
     {name: "Potted Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
     {name: "Potted Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
     {name: "Potted Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
@@ -400,7 +405,7 @@ export const plants = [
     {name: "Potted Tobacoca", effect: "Generates 2 adrenaline on level up, 100c"}
 ];
 
-export const medTable = [
+export const medTable = [ //crit: choose what meds you find and get a random mutagen roll
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" },
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
@@ -418,7 +423,7 @@ export const chemTable = [
     { name: "Pure Mutagen", effect: "+1 movement/sprint distance, damage, and all armor for 1 day (addictive), 30c" }
 ];
 
-export const techTable = [
+export const techTable = [ //crit: choose which tech you find and get a random artifact
     { name: "Generator", effect: "Provide power for electronics, 50c" },
     { name: "Autojacker", effect: "Portable hydraulic jack for moving heavy and jammed objects, 50c" },
     { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
