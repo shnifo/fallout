@@ -87,7 +87,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [14, "Extreme Melee", "10 P", "-", "melee", "STR", "110c"],
         [99, "Ultimate Melee", "11 P", "-", "melee", "STR", "130c"]],
         O4: [[6, "Brass Knuckles", "2x4 P", "-", "melee", "END", "30c"],
-        [8, "Wristblade, "2x5 P", "-", "melee", "END", "50c"],
+        [8, "Wristblade", "2x5 P", "-", "melee", "END", "50c"],
         [10, "Tiger Paw", "2x6 P", "-", "melee", "END", "70c"],
         [12, "Piston Glove", "2x7 P", "-", "melee", "END", "90c"],
         [14, "Ursa Claw", "2x8 P", "-", "melee", "END", "110c"],
