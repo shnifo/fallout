@@ -48,7 +48,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [10, "Hunting Rifle", "9 P", "large", "long", "AGI", "90c"],
         [12, "Combat Rifle", "10 P", "large", "long", "AGI", "110c"],
         [14, "Assault Rifle", "11 P", "large", "long", "AGI", "130c"],
-        [99, "Furiosa", "12 P", "lg rounds", "long", "AGI", "150c"]],
+        [99, "Furiosa", "12 P", "large", "long", "AGI", "150c"]],
         E4: [[6, "Laser Rifle", "8 E", "MF-cell", "long", "INT", "60c"],
         [8, "Plasma Rifle", "9 E", "MF-cell", "long", "INT", "80c"],
         [10, "Sonic Rifle", "10 E", "MF-cell", "long", "INT", "100c"],
