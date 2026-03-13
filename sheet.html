@@ -309,6 +309,33 @@
     .neg-btn { padding:1px 4px; background:#081408; color:#9fef9f; border:1px solid #2cff2c; font-size:14px; }
 
     .inventory { grid-template-columns:1fr; }
+
+.backpack-row {
+  display: flex;
+  justify-content: center;
+  margin: 8px 0 4px;
+}
+
+.backpack-box {
+  font-size: 12px;
+  padding: 4px 14px;
+  gap: 6px;
+  border: 1px solid #2cff2c;
+  cursor: pointer;
+  user-select: none;
+}
+
+.backpack-check {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border: 1px solid #2cff2c;
+  margin-right: 6px;
+  vertical-align: middle;
+  font-size: 12px;
+  line-height: 12px;
+  text-align: center;
+}
 	
     .slot {
   display:flex;
@@ -770,7 +797,7 @@
           <input type="checkbox" id="withdraw2">
         </label>
 
-        <div id="addictionFleshToggle" class="use-box addiction-box">ADDICTED<br>(FLESH)</div>
+        <div id="addictionFleshToggle" class="use-box addiction-box">CANNIBAL</div>
 
         <label class="withdraw-box">
           <input type="checkbox" id="withdraw3">
@@ -792,6 +819,13 @@
   <div class="grid negatives" id="negatives"></div>
 
   <div class="grid inventory" id="inventory"></div>
+
+  <div class="backpack-row">
+    <div id="backpackToggle" class="use-box backpack-box" onclick="toggleBackpack()">
+      <span id="backpackCheck" class="backpack-check"></span>
+      BACKPACK
+    </div>
+  </div>
 </div>
 
 <div id="perksScreen" class="hidden-screen">
@@ -833,7 +867,7 @@ window.state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   specialStats: Object.fromEntries(statNames.map(s => [s, false])),
   armor: { Physical:"0", Energy:"0", Explosive:"0", Radiation:"0" },
   neg: Object.fromEntries(negNames.map(n => [n, 0])),
-  inventory: Array.from({length:12}, () => ({
+  inventory: Array.from({length:15}, () => ({
     name: "",
     heavy: false,
     dropdown: false,
@@ -850,11 +884,17 @@ window.state = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
   withdraw2: false,
   withdraw3: false,
   withdraw4: false,
+  backpack: false,
   starredStats: Object.fromEntries(statNames.map(s => [s, false]))
 };
 state.starredStats = state.starredStats || Object.fromEntries(statNames.map(s => [s, false]));
 state.showTakenOnly = state.showTakenOnly ?? false;
 if (state.addictionFlesh === undefined) state.addictionFlesh = false;
+if (state.backpack === undefined) state.backpack = false;
+// Ensure inventory always has 15 slots
+while (state.inventory.length < 15) {
+  state.inventory.push({ name:"", heavy:false, dropdown:false, counters:[{title:"",value:0},{title:"",value:0},{title:"",value:0}] });
+}
 
 
 function toggleSpecial(stat, el) {
@@ -1569,11 +1609,30 @@ function cancelDrag(slot) {
   dragSrcIndex = null;
 }
 
+function toggleBackpack() {
+  state.backpack = !state.backpack;
+  save();
+  renderBackpackToggle();
+  renderInventory();
+}
+window.toggleBackpack = toggleBackpack;
+
+function renderBackpackToggle() {
+  const check = document.getElementById("backpackCheck");
+  const box = document.getElementById("backpackToggle");
+  if (!check || !box) return;
+  check.textContent = state.backpack ? "✔" : "";
+  box.className = "use-box backpack-box " + (state.backpack ? "use-on" : "");
+}
+window.renderBackpackToggle = renderBackpackToggle;
+
 function renderInventory() {
   const invDiv = document.getElementById("inventory");
   invDiv.innerHTML = "";
 
-  state.inventory.forEach((it, i) => {
+  const visibleCount = state.backpack ? 15 : 12;
+
+  state.inventory.slice(0, visibleCount).forEach((it, i) => {
     const slot = document.createElement("div");
     slot.className = "card slot";
     slot.dataset.index = i;
@@ -1759,6 +1818,7 @@ negNames.forEach(n => {
 
   // Inventory
   renderInventory();
+  renderBackpackToggle();
 
   // Uses
   ["skill","luck","resist"].forEach(k => {
