@@ -1476,6 +1476,8 @@ function finishDrop(target, y) {
   isDragging = false;
   dragSrcIndex = null;
 }
+
+function attachDragHandles(slot, i) {
   const handle = slot.querySelector(".dropdown-toggle");
 
   // ── TOUCH ──
