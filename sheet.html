@@ -746,6 +746,36 @@
   line-height: 1;
 }
 
+.index-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: clamp(11px, 2.5vw, 13px);
+  margin-bottom: 6px;
+}
+
+.index-table th {
+  text-align: left;
+  color: #7cff7c;
+  border-bottom: 1px solid #2cff2c;
+  padding: 3px 6px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.index-table td {
+  padding: 3px 6px;
+  border-bottom: 1px solid #1a3a1a;
+  vertical-align: top;
+}
+
+.index-table tr:last-child td {
+  border-bottom: none;
+}
+
+.index-section {
+  margin-bottom: 8px;
+}
+
 
 
   </style>
@@ -755,6 +785,7 @@
 
 <div class="title-bar">
   <div class="title-left"><h2>FALLOUT CHARACTER SHEET</h2></div>
+  <button id="indexBtn" class="perks-btn">INDEX</button>
   <button id="perksBtn" class="perks-btn">PERKS</button>
 </div>
 
@@ -823,7 +854,7 @@
   <div class="backpack-row">
     <div id="backpackToggle" class="use-box backpack-box" onclick="toggleBackpack()">
       <span id="backpackCheck" class="backpack-check"></span>
-      BACKPACK
+      HARNESS
     </div>
   </div>
 </div>
@@ -849,9 +880,15 @@
 </div>
 
 
-<script type="module" src="constants.js"></script>
+<div id="indexScreen" class="hidden-screen">
+  <div class="title-bar">
+    <div class="title-left"><h2>INDEX</h2></div>
+    <button class="perks-btn" id="indexBackBtn">SHEET</button>
+  </div>
+  <div id="indexContent" style="padding:0 16px 40px;"></div>
+</div>
 <script type="module">
-  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData } from './constants.js';
+  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData, weapons, ammoTable, grenadeTable, medTable, chemTable, techTable, artifacts, plants, armorTable, fleshTable, rationWaterTable } from './constants.js';
 
 const STORAGE_KEY = "fallout_character_v10";
 
@@ -1669,12 +1706,116 @@ function renderInventory() {
 }
   window.renderInventory = renderInventory;
 
+// ---------- INDEX UI ----------
+
+const weaponCategories = {
+  "Physical Pistols":    weapons.E1,
+  "Energy Pistols":      weapons.E2,
+  "Physical Rifles":     weapons.E3,
+  "Energy Rifles":       weapons.E4,
+  "Physical Shotguns":   weapons.E5,
+  "Energy Shotguns":     weapons.E6,
+  "Explosives":          weapons.O1,
+  "Fire Weapons":        weapons.O2,
+  "Melee (Blade/Blunt)": weapons.O3,
+  "Unarmed (Physical)":  weapons.O4,
+  "Melee (Energy)":      weapons.O5,
+  "Unarmed (Energy)":    weapons.O6,
+};
+
+function indexSection(title, html) {
+  return `<div class="index-section">
+    <h2 class="major-header" style="cursor:default;margin:16px 0 6px;">${title}</h2>
+    ${html}
+  </div>`;
+}
+
+function indexTable(headers, rows) {
+  let t = `<table class="index-table"><thead><tr>${headers.map(h=>`<th>${h}</th>`).join("")}</tr></thead><tbody>`;
+  rows.forEach(r => { t += `<tr>${r.map(c=>`<td>${c}</td>`).join("")}</tr>`; });
+  t += `</tbody></table>`;
+  return t;
+}
+
+function buildIndexUI() {
+  const el = document.getElementById("indexContent");
+  if (!el) return;
+  let html = "";
+
+  // WEAPONS
+  let weaponHtml = "";
+  Object.entries(weaponCategories).forEach(([cat, list]) => {
+    weaponHtml += `<p style="color:#7cff7c;font-size:13px;margin:10px 0 4px;">${cat}</p>`;
+    weaponHtml += indexTable(["Name","Dmg","Ammo","Range","Stat","Cost"],
+      list.map(w => [w[1], w[2], w[3], w[4], w[5], w[6]]));
+  });
+  html += indexSection("WEAPONS", weaponHtml);
+
+  // ARMOR
+  html += indexSection("ARMOR", indexTable(["Roll","Armor"],
+    armorTable.map(a => [a.roll, a.text])));
+
+  // AMMO
+  html += indexSection("AMMO", indexTable(["Type","Amount","Cost/unit"],
+    ammoTable.map(a => [a.type, a.roll, a.cost + "c"])));
+
+  // GRENADES
+  html += indexSection("GRENADES", indexTable(["Max Roll","Name","Damage","Cost"],
+    grenadeTable.map(g => [g.max === Infinity ? "15+" : "≤"+g.max, g.name, g.dmg, g.cost])));
+
+  // MEDS
+  html += indexSection("MEDS", indexTable(["Name","Effect"],
+    medTable.map(m => [m.name, m.effect])));
+
+  // MUTAGENS
+  html += indexSection("MUTAGENS", indexTable(["Name","Effect"],
+    chemTable.map(c => [c.name, c.effect])));
+
+  // TECH
+  html += indexSection("TECH", indexTable(["Name","Effect"],
+    techTable.map(t => [t.name, t.effect])));
+
+  // ARTIFACTS
+  html += indexSection("ARTIFACTS", indexTable(["Name","Effect"],
+    artifacts.map(a => [a.name, a.effect])));
+
+  // PLANTS
+  html += indexSection("PLANTS", indexTable(["Name","Effect"],
+    plants.map(p => [p.name, p.effect])));
+
+  // FLESH
+  html += indexSection("FLESH", indexTable(["Type","Effect"],
+    fleshTable.map(f => [f.name, f.effect])));
+
+  // WATER & RATIONS
+  html += indexSection("WATER & RATIONS", indexTable(["Item","Effect"],
+    rationWaterTable.map(r => [r.name, r.effect])));
+
+  el.innerHTML = html;
+}
+window.buildIndexUI = buildIndexUI;
+
+function showIndexScreen() {
+  buildIndexUI();
+  document.getElementById("indexScreen").style.display = "block";
+  window.scrollTo(0, 0);
+}
+window.showIndexScreen = showIndexScreen;
+
+function hideIndexScreen() {
+  document.getElementById("indexScreen").style.display = "none";
+  window.scrollTo(0, 0);
+}
+window.hideIndexScreen = hideIndexScreen;
+
 // ---------- INIT ----------
 
 function init() {
   document.getElementById("perksBtn").onclick = showPerksScreen;
   document.getElementById("backBtn").onclick = hidePerksScreen;
   document.getElementById("perksTitle").onclick = togglePerks;
+  document.getElementById("indexBtn").onclick = showIndexScreen;
+  document.getElementById("indexBackBtn").onclick = hideIndexScreen;
 
 	const nameInput = document.getElementById("name");
 	const skillInput = document.getElementById("skillName");
