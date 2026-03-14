@@ -159,7 +159,7 @@ export const perkData = {
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "You cannot be shoved, grappled, or inflicted with ailments by hostile creatures." },
         { name: "Saboteur", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
-        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon have." }
+        { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon you have." }
     ],
 
     AGILITY: [
@@ -213,7 +213,7 @@ export const perkData = {
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
-        { name: "Esper", desc: "You can spend HP instead of ammo when attacking equal to 40% the ammo's value." },
+        { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide a free crit loot roll from their faction shop." },
         { name: "Technophile", desc: "Heal +10% HP when you use a technology or craft an item with one." },
@@ -759,3 +759,15 @@ export const rationWaterTable = [
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
   { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP, 10c" },
 ];
+
+export const moraleTable = [
+  { value: "+5", effect: "quest to join faction (must defeat tier 6 battle)" },
+  { value: "+4", effect: "20% discount" },
+  { value: "+3", effect: "faction shop also sells crit loot" },
+  { value: "+2", effect: "10% discount" },
+  { value: "+1", effect: "Gain access to faction shop" },
+  { value: "-1", effect: "-50% quest rewards" },
+  { value: "-2", effect: "+100% prices" },
+  { value: "-3", effect: "faction collapses and can no longer be rolled" },
+];
+
