@@ -417,12 +417,12 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
 ];
 
 export const plants = [ // "Generates a resource every time you level up",
-    {name: "Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
-    {name: "Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
-    {name: "Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
-    {name: "Radovera", effect: "Generates 2 bandage on level up, 100c"},
-    {name: "Indigourd", effect: "Generates 2 rad-x on level up, 100c"},
-    {name: "Tobacoca", effect: "Generates 2 adrenaline on level up, 100c"}
+    {name: "Sludgeflower", effect: "Generates 3 fuel on level up, 100c"},
+    {name: "Fleshroom", effect: "Generates 5 clean flesh on level up, 100c"},
+    {name: "Mutfruit", effect: "Generates 5 clean water on level up, 100c"},
+    {name: "Radovera", effect: "Generates 3 bandage on level up, 100c"},
+    {name: "Indigourd", effect: "Generates 3 rad-x on level up, 100c"},
+    {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, 100c"}
     ];
 
 export const medTable = [ //crit = find chosen med and also find random chem roll
