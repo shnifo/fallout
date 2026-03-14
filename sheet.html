@@ -1834,7 +1834,7 @@ function buildIndexUI() {
 
 		// RECIPES
   html += indexSection("MORALE", indexTable(["Value","Effect"],
-    recipeTable.map(m => [m.value, m.effect))));
+    moraleTable.map(m => [m.value, m.effect))));
 
   el.innerHTML = html;
 }
