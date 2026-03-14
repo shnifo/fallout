@@ -281,7 +281,7 @@ export const zoneTable = {
 // === Monster Data ===
 export const monsterData = {
     E1: {
-        label: "Mercenaries", notes: "special: hidden land mines. Loot: weapons, armor, human flesh ", subs: [
+        label: "Cannibals", notes: "special: hidden land mines. Loot: weapons, armor, human flesh ", subs: [
             { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
             { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons, 12x mines" }, // 7-8
             { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
