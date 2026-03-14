@@ -118,16 +118,16 @@ export const recipeTable = [
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
-    { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not go in inventory, 50c" },
-    { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, bulky, 50c"},
-    { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, bulky, 50c" },
-    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, bulky, 50c" },
-    { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, bulky, 50c" },
-    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, bulky, 50c" }
+    { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, 50c" },
+    { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, 50c"},
+    { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, 50c" },
+    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, 50c" },
+    { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, 50c" },
+    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, 50c" }
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, bulky
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, 
     { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -416,7 +416,7 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
-export const plants = [ // "Generates a resource every time you level up, bulky",
+export const plants = [ // "Generates a resource every time you level up",
     {name: "Sludgeflower", effect: "Generates 2 fuel on level up, 100c"},
     {name: "Fleshroom", effect: "Generates 4 clean flesh on level up, 100c"},
     {name: "Mutfruit", effect: "Generates 4 clean water on level up, 100c"},
