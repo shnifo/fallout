@@ -1832,9 +1832,9 @@ function buildIndexUI() {
   html += indexSection("RECIPES", indexTable(["Book","Recipe"],
     recipeTable.map(r => [r.book, r.recipe])));
 
-		// RECIPES
+		// MORALE
   html += indexSection("MORALE", indexTable(["Value","Effect"],
-    moraleTable.map(m => [m.value, m.effect))));
+    moraleTable.map(m => [m.value, m.effect])));
 
   el.innerHTML = html;
 }
