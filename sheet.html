@@ -899,6 +899,9 @@
     <div class="title-left"><h2>INDEX</h2></div>
     <button class="perks-btn" id="indexBackBtn">SHEET</button>
   </div>
+  <div style="padding: 8px 16px 4px;">
+    <input id="indexSearch" placeholder="SEARCH..." style="width:100%;box-sizing:border-box;font-size:14px;">
+  </div>
   <div id="indexContent" style="padding:0 16px 40px;"></div>
 </div>
 <script type="module">
@@ -1789,16 +1792,16 @@ function buildIndexUI() {
   html += indexSection("WEAPONS", weaponHtml);
 
   // ARMOR
-  html += indexSection("ARMOR", indexTable(["Armor"],
-    armorTable.map(a => [a.text])));
+  html += indexSection("ARMOR", indexTable(["Roll","Armor"],
+    armorTable.map(a => [a.roll, a.text])));
 
   // AMMO
   html += indexSection("AMMO", indexTable(["Type","Amount","Cost/unit"],
     ammoTable.map(a => [a.type, a.roll, a.cost + "c"])));
 
   // GRENADES
-  html += indexSection("GRENADES", indexTable(["Name","Damage","Range","Stat","Cost"],
-    grenadeTable.map(g => [g.name, g.dmg, "mid", "STR", g.cost])));
+  html += indexSection("GRENADES", indexTable(["Max Roll","Name","Damage","Cost"],
+    grenadeTable.map(g => [g.max === Infinity ? "15+" : "≤"+g.max, g.name, g.dmg, g.cost])));
 
   // MEDS
   html += indexSection("MEDS", indexTable(["Name","Effect"],
@@ -1828,11 +1831,11 @@ function buildIndexUI() {
   html += indexSection("WATER & RATIONS", indexTable(["Item","Effect"],
     rationWaterTable.map(r => [r.name, r.effect])));
 
-	// RECIPES
+  // RECIPES
   html += indexSection("RECIPES", indexTable(["Book","Recipe"],
     recipeTable.map(r => [r.book, r.recipe])));
 
-		// MORALE
+  // MORALE
   html += indexSection("MORALE", indexTable(["Value","Effect"],
     moraleTable.map(m => [m.value, m.effect])));
 
@@ -1844,8 +1847,36 @@ function showIndexScreen() {
   buildIndexUI();
   document.getElementById("indexScreen").style.display = "block";
   window.scrollTo(0, 0);
+  const search = document.getElementById("indexSearch");
+  search.value = "";
+  search.oninput = () => filterIndex(search.value.trim().toLowerCase());
 }
 window.showIndexScreen = showIndexScreen;
+
+function filterIndex(query) {
+  // Filter rows
+  document.querySelectorAll(".index-table tbody tr").forEach(row => {
+    const text = row.textContent.toLowerCase();
+    row.style.display = (!query || text.includes(query)) ? "" : "none";
+  });
+  // Hide section headers if all their rows are hidden
+  document.querySelectorAll(".index-section").forEach(section => {
+    const rows = section.querySelectorAll("tbody tr");
+    const anyVisible = Array.from(rows).some(r => r.style.display !== "none");
+    // Also check category labels (weapon subcategories)
+    const subLabels = section.querySelectorAll("p");
+    subLabels.forEach(label => {
+      // Find the table immediately after this label
+      let next = label.nextElementSibling;
+      if (next && next.tagName === "TABLE") {
+        const subRows = next.querySelectorAll("tbody tr");
+        const subVisible = Array.from(subRows).some(r => r.style.display !== "none");
+        label.style.display = (!query || subVisible) ? "" : "none";
+      }
+    });
+    section.style.display = (!query || anyVisible) ? "" : "none";
+  });
+}
 
 function hideIndexScreen() {
   document.getElementById("indexScreen").style.display = "none";
