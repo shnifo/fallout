@@ -1792,16 +1792,16 @@ function buildIndexUI() {
   html += indexSection("WEAPONS", weaponHtml);
 
   // ARMOR
-  html += indexSection("ARMOR", indexTable(["Roll","Armor"],
-    armorTable.map(a => [a.roll, a.text])));
+  html += indexSection("ARMOR", indexTable(["Armor"],
+    armorTable.map(a => [a.text])));
 
   // AMMO
   html += indexSection("AMMO", indexTable(["Type","Amount","Cost/unit"],
     ammoTable.map(a => [a.type, a.roll, a.cost + "c"])));
 
   // GRENADES
-  html += indexSection("GRENADES", indexTable(["Max Roll","Name","Damage","Cost"],
-    grenadeTable.map(g => [g.max === Infinity ? "15+" : "≤"+g.max, g.name, g.dmg, g.cost])));
+  html += indexSection("GRENADES", indexTable(["Name","Damage","Cost"],
+    grenadeTable.map(g => [g.name, g.dmg, g.cost])));
 
   // MEDS
   html += indexSection("MEDS", indexTable(["Name","Effect"],
@@ -1865,6 +1865,20 @@ function filterIndex(query) {
   });
 
   document.querySelectorAll(".index-section").forEach(section => {
+    const titleEl = section.querySelector("h2");
+    const titleMatch = !query || (titleEl && titleEl.textContent.toLowerCase().includes(query));
+
+    if (titleMatch) {
+      // Show everything in the section
+      section.style.display = "";
+      section.querySelectorAll(".index-table").forEach(t => {
+        t.style.display = "";
+        t.querySelectorAll("tbody tr").forEach(r => r.style.display = "");
+      });
+      section.querySelectorAll("p").forEach(p => p.style.display = "");
+      return;
+    }
+
     // Hide weapon subcategory labels if their table is hidden
     section.querySelectorAll("p").forEach(label => {
       const nextTable = label.nextElementSibling;
@@ -1872,9 +1886,8 @@ function filterIndex(query) {
         label.style.display = nextTable.style.display === "none" ? "none" : "";
       }
     });
-    // Hide whole section if all its tables are hidden
-    const tables = section.querySelectorAll(".index-table");
-    const anyTableVisible = Array.from(tables).some(t => t.style.display !== "none");
+
+    const anyTableVisible = Array.from(section.querySelectorAll(".index-table")).some(t => t.style.display !== "none");
     section.style.display = (!query || anyTableVisible) ? "" : "none";
   });
 }
