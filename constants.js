@@ -437,20 +437,20 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
     { name: "Iron Mutagen", effect: "+2 to all armor values for 1 day (Addictive), 30c" }, 
     { name: "Frenzy Mutagen", effect: "+2 damage for 1 day (Addictive), 30c" }, 
-    { name: "Warp Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
-    { name: "Mind Mutagen", effect: "+2 INT, +2 CHA for 1 day (Addictive), 30c" }, 
-    { name: "Body Mutagen", effect: "+2 STR, +2 END for 1 day (Addictive), 30c" }, 
-    { name: "Pure Mutagen", effect: "+1 movement/sprint distance, damage, and all armor for 1 day (addictive), 30c" }
+    { name: "Speed Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
+    { name: "Psyche Mutagen", effect: "+2 INT, +2 CHA for 1 day (Addictive), 30c" }, 
+    { name: "Flesh Mutagen", effect: "+2 STR, +2 END for 1 day (Addictive), 30c" }, 
+    { name: "Pure Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }
 ];
 
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact
-    { name: "Generator", effect: "Provide power for electronics, 50c" },
-    { name: "Autojacker", effect: "Portable hydraulic jack for moving heavy and jammed objects, 50c" },
+    { name: "Generator", effect: "portable generator that provides power for electronics, 50c" },
+    { name: "Autojacker", effect: "Hydraulic jack for moving heavy and jammed objects, 50c" },
     { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
-    { name: "Breatherator", effect: "For low oxygen or underwater areas, 50c" },
-    { name: "Illuminator", effect: "For dark or foggy areas, 50c" },
-    { name: "Hackerator", effect: "Opens electronic locks and hacks computers, 50c" }
+    { name: "Breatherator", effect: "breathing device For low oxygen or underwater areas, 50c" },
+    { name: "Illuminator", effect: "powerful light emitter For dark or foggy areas, 50c" },
+    { name: "Hackerator", effect: "hacking device that opens electronic locks and hacks computers, 50c" }
 ];
 
 
