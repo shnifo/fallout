@@ -67,7 +67,7 @@ export /* crit = rearrange armor values and gain random legendary effect. Legend
         [12, "Pulse Emitter", "3x7 E", "E-cell", "short", "INT", "90c"],
         [14, "Tesla Cannon", "3x8 E", "E-cell", "short", "INT", "100c"],
         [99, "Helios", "3x9 E", "E-cell", "short", "INT", "110c"]],
-        O1: [[6, "Hand Mortar", "10 X splash X", "fuel", "long", "AGI", "80c"],
+        O1: [[6, "Hand Mortar", "10 X splash", "fuel", "long", "AGI", "80c"],
         [8, "Grenade Launcher", "11 X splash", "fuel", "long", "AGI", "110c"],
         [10, "Grenade Cannon", "12 X splash", "fuel", "long", "AGI", "140c"],
         [12, "Missile Launcher", "13 X splash", "fuel", "long", "AGI", "170c"],
