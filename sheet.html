@@ -1854,23 +1854,28 @@ function showIndexScreen() {
 window.showIndexScreen = showIndexScreen;
 
 function filterIndex(query) {
-  document.querySelectorAll(".index-table tbody tr").forEach(row => {
-    row.style.display = (!query || row.textContent.toLowerCase().includes(query)) ? "" : "none";
+  document.querySelectorAll(".index-table").forEach(table => {
+    let anyVisible = false;
+    table.querySelectorAll("tbody tr").forEach(row => {
+      const match = !query || row.textContent.toLowerCase().includes(query);
+      row.style.display = match ? "" : "none";
+      if (match) anyVisible = true;
+    });
+    table.style.display = (!query || anyVisible) ? "" : "none";
   });
 
   document.querySelectorAll(".index-section").forEach(section => {
-    const rows = section.querySelectorAll("tbody tr");
-    const anyVisible = Array.from(rows).some(r => r.style.display !== "none");
-    section.style.display = (!query || anyVisible) ? "" : "none";
-
-    // Hide/show weapon subcategory labels based on their table's visibility
+    // Hide weapon subcategory labels if their table is hidden
     section.querySelectorAll("p").forEach(label => {
       const nextTable = label.nextElementSibling;
       if (nextTable && nextTable.tagName === "TABLE") {
-        const subVisible = Array.from(nextTable.querySelectorAll("tbody tr")).some(r => r.style.display !== "none");
-        label.style.display = (!query || subVisible) ? "" : "none";
+        label.style.display = nextTable.style.display === "none" ? "none" : "";
       }
     });
+    // Hide whole section if all its tables are hidden
+    const tables = section.querySelectorAll(".index-table");
+    const anyTableVisible = Array.from(tables).some(t => t.style.display !== "none");
+    section.style.display = (!query || anyTableVisible) ? "" : "none";
   });
 }
 
