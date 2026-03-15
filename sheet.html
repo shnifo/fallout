@@ -1854,27 +1854,23 @@ function showIndexScreen() {
 window.showIndexScreen = showIndexScreen;
 
 function filterIndex(query) {
-  // Filter rows
   document.querySelectorAll(".index-table tbody tr").forEach(row => {
-    const text = row.textContent.toLowerCase();
-    row.style.display = (!query || text.includes(query)) ? "" : "none";
+    row.style.display = (!query || row.textContent.toLowerCase().includes(query)) ? "" : "none";
   });
-  // Hide section headers if all their rows are hidden
+
   document.querySelectorAll(".index-section").forEach(section => {
     const rows = section.querySelectorAll("tbody tr");
     const anyVisible = Array.from(rows).some(r => r.style.display !== "none");
-    // Also check category labels (weapon subcategories)
-    const subLabels = section.querySelectorAll("p");
-    subLabels.forEach(label => {
-      // Find the table immediately after this label
-      let next = label.nextElementSibling;
-      if (next && next.tagName === "TABLE") {
-        const subRows = next.querySelectorAll("tbody tr");
-        const subVisible = Array.from(subRows).some(r => r.style.display !== "none");
+    section.style.display = (!query || anyVisible) ? "" : "none";
+
+    // Hide/show weapon subcategory labels based on their table's visibility
+    section.querySelectorAll("p").forEach(label => {
+      const nextTable = label.nextElementSibling;
+      if (nextTable && nextTable.tagName === "TABLE") {
+        const subVisible = Array.from(nextTable.querySelectorAll("tbody tr")).some(r => r.style.display !== "none");
         label.style.display = (!query || subVisible) ? "" : "none";
       }
     });
-    section.style.display = (!query || anyVisible) ? "" : "none";
   });
 }
 
