@@ -317,7 +317,7 @@ export const monsterData = {
             { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
             { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
-            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with multiple heads
+            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with 3 heads
         ]
     },
     E5: {
@@ -341,7 +341,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons =  (damage converted to radiation) 
+        label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
@@ -355,13 +355,13 @@ export const monsterData = {
             { name: "Observer", hp: 2, def: 4,  notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 4, def: 8, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 6, def: 12, notes: "3x7 X, short" },
-            { name: "Destroyer", hp: 8, def: 16, notes: "10 X splash, mid" },
-            { name: "Suppressor", hp: 10, def: 20, notes: "2x9 E + freeze, mid" },
-            { name: "Invader", hp: 12, def: 24, notes: "12 R splash+burn, long" }
+            { name: "Destroyer", hp: 8, def: 16, notes: "11 X splash, mid" },
+            { name: "Suppressor", hp: 10, def: 20, notes: "2x0 E + freeze, mid" },
+            { name: "Invader", hp: 12, def: 24, notes: "13 R splash+burn, long" }
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, 2x HP, 1/2 armor, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
+        label: "Zombies", notes: "special: cover, +1 spd, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
@@ -437,10 +437,10 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
     { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
     { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
-    { name: "Frenzy Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Frenzy Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Pure Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }, 
-    { name: "Pure Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }
+    { name: "Rage Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
+    { name: "Rage Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
+    { name: "Focus Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }, 
+    { name: "Focus Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }
 ];
 
 
@@ -643,32 +643,32 @@ export const factions = [
     {
         name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
         tag: "Armor",
-        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful" 
+        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier +1 human guards" 
     },
     {
         name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
         tag: "Meds",
-        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary"
+        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary, max tier -1 android guards"
     },
     {
         name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
-        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly" 
+        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier -1 mutant guards" 
     },
     {
-        name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted. 
+        name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted.
         tag: "Weapons",
-        desc: "Bureaucratic progressive society, republic, weary"
+        desc: "Bureaucratic progressive society, republic, weary, max tier human guards"
     },
     {
         name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
-        tag: "Rations",
-        desc: "Communist monarchy, slavers, hateful"
+        tag: "Technology",
+        desc: "Communist monarchy, slavers, hateful, max tier human guards, does not use guns"
     },
     {
-        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself.  
-        tag: "Technology",
-        desc: "Small town commune, anarchy, friendly"
+        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army
+        tag: "Rations",
+        desc: "Small town commune, anarchy, friendly, max tier +1 human guards"
     }
 ];
 
