@@ -112,7 +112,7 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action where applicable" },
     { book: "Gunsmith Magazine", recipe: "1 all scrap + weapon = Calibrated mod: +1 dmg" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap= 1 molatov: 10 X Splash+ burn, mid, STR, 20c" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 10 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
@@ -203,7 +203,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Artifacts can convert durability to and from HP at a 1:10 ratio." },
+        { name: "Extraterrestrial", desc: "Mutagens are twice as effective and repairing artifacts now costs 10 HP." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you have." }
     ],
 
@@ -213,7 +213,7 @@ export const perkData = {
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
-        { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking." },
+        { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide a free crit loot roll from their faction shop." },
         { name: "Technophile", desc: "Heal +10% HP when you use a technology or craft an item with one." },
@@ -229,13 +229,13 @@ export const backgroundData = [
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies have under 4 HP and can execute them on your turn." },
-    { name: "Guard", desc: "You can convert 3 small rounds ↔ 2 large rounds." },
+    { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 chems into 2 of another chem." },
+    { name: "Scientist", desc: "You can convert a mutagen into another mutagen." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert 3 E-cells ↔ 2 MF-cells." }
+    { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
 ];
 
 // === Zone Table ===
@@ -404,8 +404,8 @@ export const monsterData = {
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench = scraps of your choice and a plant.
-//crit water: all replaced with power water (-1 thirst, -1 fatigue, +10% HP) 
-//crit food: all replaced with healthy rations (-1 hunger, -1 rads, +10% HP)
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->power (-1 thirst, -1 fatigue, +10% HP) 
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP)
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -435,11 +435,11 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 ];
 
 export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
-    { name: "Iron Mutagen", effect: "+2 to all armor values for 1 day (Addictive), 30c" }, 
-    { name: "Frenzy Mutagen", effect: "+2 damage for 1 day (Addictive), 30c" }, 
-    { name: "Speed Mutagen", effect: "+2 AGI, +1 movement/sprint distance for 1 day (Addictive), 30c" }, 
-    { name: "Psyche Mutagen", effect: "+2 INT, +2 CHA for 1 day (Addictive), 30c" }, 
-    { name: "Flesh Mutagen", effect: "+2 STR, +2 END for 1 day (Addictive), 30c" }, 
+    { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
+    { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
+    { name: "Frenzy Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
+    { name: "Frenzy Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
+    { name: "Pure Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }, 
     { name: "Pure Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }
 ];
 
