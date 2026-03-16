@@ -3,626 +3,219 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Integer & Weapon Generator</title>
+<title>Integer &amp; Weapon Generator</title>
 <style>
-/* Ensure padding doesn't break widths */
 * { box-sizing: border-box; }
-
-body {
-  font-family: system-ui, sans-serif;
-  background: #1e1e2f;
-  color: #eee;
-  margin: 0;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+body { font-family: system-ui, sans-serif; background: #1e1e2f; color: #eee; margin: 0; padding: 1rem; display: flex; flex-direction: column; align-items: center; }
 h1,h2 { text-align:center; margin:.5rem 0; }
-
-.container {
-  background: #2a2a40;
-  padding: 1rem;
-  border-radius: 1rem;
-  width: 100%;
-  max-width: 400px;
-  box-sizing: border-box;
-  margin-bottom: 1rem;
-}
-
-/* form controls */
-input[type=number], input[type=range], select, button {
-  width:100%;
-  padding:.5rem;
-  border-radius:.5rem;
-  border:none;
-  text-align:center;
-  margin-bottom:.6rem;
-  font-size:1rem;
-  box-sizing: border-box;
-}
-button { background:#4e8cff; color:#fff; font-weight:bold; }
-button:hover { background:#2a6ce2; }
-
-.bars{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  height:120px; /* prevents overlap with button */
-  margin-top:1rem; /* gap under the button */
-}
-.bar-container{ display:flex; flex-direction:column; align-items:center; width:22%; }
-.bar{
-  width:100%;
-  border-radius:.3rem;
-  min-height:5px;
-  transition:height .3s ease;
-  display:flex;
-  justify-content:center;
-  align-items:flex-end;
-  color:#fff;
-  font-size:1rem;
-  font-weight:bold;
-  text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000;
-  overflow:hidden;
-}
-#bar1{ background:linear-gradient(180deg,#ff5e5e,#d43e3e); } /* Physical - red */
-#bar2{ background:linear-gradient(180deg,#5ec8ff,#2e9ed4); } /* Energy - blue */
-#bar3{ background:linear-gradient(180deg,#ffbd5e,#e68b2e); } /* Explosive - orange */
-#bar4{ background:linear-gradient(180deg,#5eff7d,#2ed451); } /* Rad - green */
-
-.label{ margin-top:.3rem; font-size:.8rem; color:#ccc; text-align:center; }
-
-.weapon-output{
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.3rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-.weapon-output span{ color:#4e8cff; font-weight:700; }
+.container { background: #2a2a40; padding: 1rem; border-radius: 1rem; width: 100%; max-width: 400px; box-sizing: border-box; margin-bottom: 1rem; }
+input[type=number], input[type=range], select, button { width:100%; padding:.5rem; border-radius:.5rem; border:none; text-align:center; margin-bottom:.6rem; font-size:1rem; box-sizing: border-box; }
+button { background:#4e8cff; color:#fff; font-weight:bold; } button:hover { background:#2a6ce2; }
+.bars { display:flex; justify-content:space-between; align-items:flex-end; height:120px; margin-top:1rem; }
+.bar-container { display:flex; flex-direction:column; align-items:center; width:22%; }
+.bar { width:100%; border-radius:.3rem; min-height:5px; transition:height .3s ease; display:flex; justify-content:center; align-items:flex-end; color:#fff; font-size:1rem; font-weight:bold; text-shadow:-1px -1px 0 #000,1px -1px 0 #000,-1px 1px 0 #000,1px 1px 0 #000; overflow:hidden; }
+#bar1 { background:linear-gradient(180deg,#ff5e5e,#d43e3e); }
+#bar2 { background:linear-gradient(180deg,#5ec8ff,#2e9ed4); }
+#bar3 { background:linear-gradient(180deg,#ffbd5e,#e68b2e); }
+#bar4 { background:linear-gradient(180deg,#5eff7d,#2ed451); }
+.label { margin-top:.3rem; font-size:.8rem; color:#ccc; text-align:center; }
+.weapon-output { background:#1e1e2f; border-radius:.5rem; padding:.3rem; text-align:center; margin-top:.5rem; line-height:1.3; font-size:.95rem; }
+.weapon-output span { color:#4e8cff; font-weight:700; }
 .small { font-size:0.85rem; color:#bbb; }
-
-#ComplicationOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-	#ammoOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-
-#RationWaterOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-	#medsOnlyOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-	#chemsOnlyOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-
-	#techOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-	#artifactOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-	#plantOutput {
-  background:#1e1e2f;
-  border-radius:.5rem;
-  padding:.6rem;
-  text-align:center;
-  margin-top:.5rem;
-  line-height:1.3;
-  font-size:.95rem;
-}
-
-.filter-row {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  width: 100%;
-}
-
-.filter-box {
-  flex: 1;
-}
-
-.filter-box label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 4px;
-}
-
-.filter-box select {
-  width: 100%;
-  padding: 4px;
-  font-size: 14px;
-  border-radius: 6px;
-  border: 1px solid #555;
-  background: #222;
-  color: #fff;
-}
-/* Make town output more compact on small screens */
-#townOutput {
-  font-size: 0.92rem;           /* slightly smaller base text */
-  line-height: 1.28;            /* tighter line spacing */
-  padding: 0.5rem;
-  margin-top: 0.4rem;
-}
-
-#townOutput b {
-  font-size: 1.05rem;           /* headings still stand out a bit */
-}
-
-#townOutput i {
-  font-size: 0.86rem;           /* flavor text smaller */
-  opacity: 0.9;
-  line-height: 1.25;
-}
-
-/* Reduce vertical spacing everywhere in town output */
-#townOutput > * {
-  margin: 0.35rem 0;            /* was probably ~0.8–1rem */
-}
-
-#townOutput div[style*="margin-left"] {
-  margin: 0.3rem 0 0.3rem 12px !important;  /* tighter indent & spacing */
-  font-size: 0.9rem;
-}
-
-/* Make shop items more compact */
-#townOutput b + div {
-  margin-bottom: 0.4rem !important;
-}
-
-/* Optional: even smaller on very narrow screens */
-@media (max-width: 420px) {
-  #townOutput {
-    font-size: 0.88rem;
-    line-height: 1.25;
-  }
-  #townOutput b {
-    font-size: 1rem;
-  }
-}
-.section-spacer {
-  height: 0rem;       /* ← adjust this value — 0.3 to 0.6rem feels good on mobile */
-  width: 100%;
-}
+#ComplicationOutput, #ammoOutput, #RationWaterOutput, #medsOnlyOutput, #chemsOnlyOutput, #techOutput, #artifactOutput, #plantOutput { background:#1e1e2f; border-radius:.5rem; padding:.6rem; text-align:center; margin-top:.5rem; line-height:1.3; font-size:.95rem; }
+.filter-row { display:flex; justify-content:space-between; gap:8px; width:100%; }
+.filter-box { flex:1; }
+.filter-box select { width:100%; padding:4px; font-size:14px; border-radius:6px; border:1px solid #555; background:#222; color:#fff; }
+#townOutput { font-size:0.92rem; line-height:1.28; padding:0.5rem; margin-top:0.4rem; }
+#townOutput b { font-size:1.05rem; }
+#townOutput i { font-size:0.86rem; opacity:0.9; line-height:1.25; }
+#townOutput > * { margin:0.35rem 0; }
+#townOutput div[style*="margin-left"] { margin:0.3rem 0 0.3rem 12px !important; font-size:0.9rem; }
+.section-spacer { height:0rem; width:100%; }
 </style>
 <script type="module" src="constants.js"></script>
 </head>
 <body>
 
-
 <div class="container">
-<h2>🎲 Armor Distributor</h2>
-  <input type="number" id="inputValue" min="0" value="10" placeholder="Enter integer">
-
-  <!-- Hidden evenness slider (kept so JS can reference it; value remains 0.5 by default) -->
-  <input type="range" id="evennessSlider" min="0" max="1" step="0.01" value="0.5" style="display:none;">
-
-  <button onclick="distribute()">Distribute</button>
-
-  <div class="bars">
-    <div class="bar-container">
-      <div class="bar" id="bar1"><span></span></div>
-      <div class="label">Physical</div>
-    </div>
-    <div class="bar-container">
-      <div class="bar" id="bar2"><span></span></div>
-      <div class="label">Energy</div>
-    </div>
-    <div class="bar-container">
-      <div class="bar" id="bar3"><span></span></div>
-      <div class="label">Explosive</div>
-    </div>
-    <div class="bar-container">
-      <div class="bar" id="bar4"><span></span></div>
-      <div class="label">Rad</div>
-    </div>
-  </div>
+<h2>&#127922; Armor Distributor</h2>
+<input type="number" id="inputValue" min="0" value="10" placeholder="Enter integer">
+<input type="range" id="evennessSlider" min="0" max="1" step="0.01" value="0.5" style="display:none;">
+<button onclick="distribute()">Distribute</button>
+<div class="bars">
+  <div class="bar-container"><div class="bar" id="bar1"><span></span></div><div class="label">Physical</div></div>
+  <div class="bar-container"><div class="bar" id="bar2"><span></span></div><div class="label">Energy</div></div>
+  <div class="bar-container"><div class="bar" id="bar3"><span></span></div><div class="label">Explosive</div></div>
+  <div class="bar-container"><div class="bar" id="bar4"><span></span></div><div class="label">Rad</div></div>
 </div>
+</div>
+
 <div class="container">
-<h2>🎚️ Party Level</h2>
+<h2>&#127962; Party Level</h2>
 <input type="number" id="partyLevel" min="1" value="5" placeholder="Party Level">
-<h2>🛡️ Armor Generator</h2>
-<div id="armorTitle"  style="font-size: 18px; text-align: center; margin-bottom: 10px;">No armor generated yet</div>
-<button id="generateArmorBtn" onclick="generateArmor()">Generate Armor</button>
-
-
-
-<h2>⚔️ Weapon Generator</h2>
-
-  <div class="filter-row">
-	  <div class="filter-box">
-	  <select id="damageFilter">
-		<option value="all">All Damage Types</option>
-		<option value="P">Physical (P)</option>
-		<option value="E">Energy (E)</option>
-		<option value="X">Explosive (X)</option>
-		<option value="R">Rad (R)</option>
-	  </select>
-	  </div>
-	   <div class="filter-box">
-	  <select id="typeFilter">
-  <option value="all">all</option>
-  <option value="melee">melee</option>
-  <option value="range">range</option>          
-  <option value="short">short</option>
-  <option value="mid">mid</option>
-  <option value="long">long</option>
-</select>
-	  
-		</div>
-
-	</div>
+<h2>&#128737;&#65039; Armor Generator</h2>
+<div id="armorTitle" style="font-size:18px;text-align:center;margin-bottom:10px;">No armor generated yet</div>
+<button onclick="generateArmor()">Generate Armor</button>
+<h2>&#9876;&#65039; Weapon Generator</h2>
+<div class="filter-row">
+  <div class="filter-box">
+    <select id="damageFilter">
+      <option value="all">All Damage Types</option>
+      <option value="P">Physical (P)</option>
+      <option value="E">Energy (E)</option>
+      <option value="X">Explosive (X)</option>
+      <option value="R">Rad (R)</option>
+    </select>
+  </div>
+  <div class="filter-box">
+    <select id="typeFilter">
+      <option value="all">all</option>
+      <option value="melee">melee</option>
+      <option value="range">range</option>
+      <option value="short">short</option>
+      <option value="mid">mid</option>
+      <option value="long">long</option>
+    </select>
+  </div>
+</div>
 <button onclick="generateWeapon()">Generate Weapon</button>
-  <div id="weaponResult" class="weapon-output small"></div>
-</div> 
-
-<div class="container">  
-  <h2>⚠️ Complications </h2>
-  <button onclick="generateComplications()">Generate Complications</button>
-  <div id="ComplicationOutput" class="output"></div>
-</div>
-	
-<div class="container">
-	<div class="generator-box">
-  	<h2>💥 Ammo</h2>
- 	 <button onclick="generateAmmo()">Generate Ammo</button>
-  	<div id="ammoOutput" class="output"></div>
-</div></div>  
-
-
-	
-<div class="container">		
-<h2>🍞 Scrap/Rations/Water </h2>
-<button onclick="generateRations()">Generate Items</button>
-<div id="RationWaterOutput" style="margin-top: 10px;"></div>
+<div id="weaponResult" class="weapon-output small"></div>
 </div>
 
-<div class="container">
-  <h2>💉 Meds</h2>
-  <button onclick="generateMeds()">Generate Meds</button>
-  <div id="medsOnlyOutput" class="output"></div>
-</div>
-
-<div class="container">
-  <h2>☣️ Chems</h2>
-  <button onclick="generateChems()">Generate Chems</button>
-  <div id="chemsOnlyOutput" class="output"></div>
-</div>
-
-
-<div class="container">
-  <div class="generator-box">
-    <h2>🧰 Technology</h2>
-    <button onclick="generateTech()">Generate Technology</button>
-    <div id="techOutput" class="output"></div>
-  </div>
-</div>
-
-	<div class="container">
-  <div class="generator-box">
-    <h2>🧿 Artifact Generator</h2>
-    <button onclick="generateArtifact()">Generate Artifact</button>
-    <div id="artifactOutput" class="output"></div>
-  </div>
-</div>
-
-	<div class="container">
-  <div class="generator-box">
-    <h2>🌿 Plant Generator</h2>
-    <button onclick="generatePlant()">Generate Plant</button>
-    <div id="plantOutput" class="output"></div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="generator-box">
-    <h2>🏘️ Town Generator</h2>
-    <button onclick="generateTown()">Generate Town</button>
-    <div id="townOutput" class="output"></div>
-  </div>
-</div>
-
-
+<div class="container"><h2>&#9888;&#65039; Complications</h2><button onclick="generateComplications()">Generate Complications</button><div id="ComplicationOutput"></div></div>
+<div class="container"><h2>&#128165; Ammo</h2><button onclick="generateAmmo()">Generate Ammo</button><div id="ammoOutput"></div></div>
+<div class="container"><h2>&#127838; Scrap/Rations/Water</h2><button onclick="generateRations()">Generate Items</button><div id="RationWaterOutput" style="margin-top:10px;"></div></div>
+<div class="container"><h2>&#128137; Meds</h2><button onclick="generateMeds()">Generate Meds</button><div id="medsOnlyOutput"></div></div>
+<div class="container"><h2>&#9763;&#65039; Mutagens</h2><button onclick="generateChems()">Generate Mutagens</button><div id="chemsOnlyOutput"></div></div>
+<div class="container"><h2>&#129520; Technology</h2><button onclick="generateTech()">Generate Technology</button><div id="techOutput"></div></div>
+<div class="container"><h2>&#129407; Artifact Generator</h2><button onclick="generateArtifact()">Generate Artifact</button><div id="artifactOutput"></div></div>
+<div class="container"><h2>&#127807; Plant Generator</h2><button onclick="generatePlant()">Generate Plant</button><div id="plantOutput"></div></div>
+<div class="container"><h2>&#127960;&#65039; Town Generator</h2><button onclick="generateTown()">Generate Town</button><div id="townOutput"></div></div>
 
 <script type="module">
 import { armorTable, weapons, complications, rationTypes, medTable, chemTable, ammoTable, grenadeTable, techTable, factions, townDescriptors, npcTable, townQuests, professionQuests, shopTypes, artifacts, plants } from './constants.js';
 
-/* ---------- Integer Distributor ---------- */
-function rollDie(sides){ return Math.floor(Math.random()*sides)+1; }
-
-/* Keep same variable name the rest of the code expects */
+function rollDie(sides) { return Math.floor(Math.random() * sides) + 1; }
 const slider = document.getElementById('evennessSlider');
 
 function generateDistribution(total) {
   const evenness = parseFloat(slider.value) || 0;
   const base = total / 4;
   let parts = [];
-
   if (evenness === 0) {
     parts = [base, base, base, base];
   } else {
     let devs = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
     const sumDev = devs.reduce((a, b) => a + b, 0);
     devs = devs.map(d => d - sumDev / 4);
-
     parts = devs.map(d => base + base * d);
-
     const factor = total / parts.reduce((a, b) => a + b, 0);
     parts = parts.map(p => Math.round(p * factor));
-
     let diff = total - parts.reduce((a, b) => a + b, 0);
-    for (let i = 0; i < Math.abs(diff); i++) {
-      parts[i % 4] += diff > 0 ? 1 : -1;
-    }
+    for (let i = 0; i < Math.abs(diff); i++) parts[i % 4] += diff > 0 ? 1 : -1;
   }
-
   return parts;
 }
-	function distribute() {
+
+function distribute() {
   const total = parseInt(document.getElementById('inputValue').value) || 0;
   const parts = generateDistribution(total);
-
   const maxVal = Math.max(...parts, 1);
-  const containerH = 120;
-
   parts.forEach((p, i) => {
     const bar = document.getElementById('bar' + (i + 1));
-    bar.style.height = (p / maxVal * containerH) + 'px';
+    bar.style.height = (p / maxVal * 120) + 'px';
     bar.querySelector('span').textContent = p;
   });
 }
-	
-	
-/* initialize on load */
 window.addEventListener('load', distribute);
 
-// ===== ARMOR GENERATOR =====
-
-// helper for single die roll
-
-function generateArmor() {
+// maxTier: forces die roll = 6, used for shop generation
+function generateArmor(maxTier = false) {
   const level = parseInt(document.getElementById("partyLevel").value) || 0;
-  const roll = Math.min(16, rollDie(6) + level);
-
+  const dieRoll = maxTier ? 6 : rollDie(6);
+  const roll = Math.min(16, dieRoll + level);
   const armorEntry = armorTable.find(a => a.roll === roll);
   if (!armorEntry) return;
-
   let armorText = armorEntry.text;
-
-  // Extract DEF value from text (number after "+X def")
   const defMatch = armorText.match(/\+(\d+)\s*def/i);
-  if (!defMatch) {
-    console.error("No DEF value found in armor text:", armorText);
-    return;
-  }
-
+  if (!defMatch) return;
   let defValue = parseInt(defMatch[1], 10);
-
-  // Handle Heavy logic
   let isHeavy = /heavy/i.test(armorText);
   if (!isHeavy && rollDie(6) <= 2) {
     isHeavy = true;
-    defValue += 4;	
-	armorText = armorText.replace(/\+\d+\s*def/i, `+${defValue} def`);
+    defValue += 4;
+    armorText = armorText.replace(/\+\d+\s*def/i, `+${defValue} def`);
   }
-
-  // Distribute DEF using existing logic
-   const distribution = generateDistribution(defValue);
-	if (typeof updateBars === "function") {
-    updateBars(values);
-  }
-
-  // Output armor text + distribution
+  const distribution = generateDistribution(defValue);
   const distText = `(${distribution.join(", ")})`;
-	
-	// Split armor name from the rest of the text
-
-const nameMatch = armorText.match(/^([^:]+):\s*(.*)$/);
-
-let armorName = armorText;
-let armorStats = "";
-
-if (nameMatch) {
-  armorName = nameMatch[1];
-  armorStats = nameMatch[2];
-}
-if (isHeavy) {
-  armorName = `<span style="color:red; font-weight:bold;">(H)</span> ${armorName}`;
-}
-	
-// Output with name on first line, stats on second
-document.getElementById("armorTitle").innerHTML = `
-  <b>${armorName}</b><br>
-  ${armorStats} ${distText}
-`;
+  const nameMatch = armorText.match(/^([^:]+):\s*(.*)$/);
+  let armorName = armorText, armorStats = "";
+  if (nameMatch) { armorName = nameMatch[1]; armorStats = nameMatch[2]; }
+  if (isHeavy) armorName = `<span style="color:red;font-weight:bold;">(H)</span> ${armorName}`;
+  document.getElementById("armorTitle").innerHTML = `<b>${armorName}</b><br>${armorStats} ${distText}`;
 }
 
-/* ---------- Weapon data & generator (unchanged logic) ---------- */
-
-/* Weapon generator with filters */
-function generateWeapon(){
+// maxTier: forces die roll = 6, used for shop generation
+function generateWeapon(maxTier = false) {
   const level = parseInt(document.getElementById('partyLevel').value) || 1;
   const dmgFilter = document.getElementById('damageFilter').value;
   const typeFilter = document.getElementById('typeFilter').value;
   const out = document.getElementById('weaponResult');
-
-  let attempt=0, chosen=null, category="", tierRoll=0;
-  while(attempt<50){
+  let attempt = 0, chosen = null;
+  while (attempt < 50) {
     attempt++;
     const d1 = rollDie(6), d2 = rollDie(6);
-    category = (d1 % 2 === 0 ? 'E' : 'O') + d2;
-    tierRoll = rollDie(6) + level;
+    const category = (d1 % 2 === 0 ? 'E' : 'O') + d2;
+    const tierRoll = (maxTier ? 6 : rollDie(6)) + level;
     const table = weapons[category];
-    if(!table) continue;
-    const weapon = table.find(e=>tierRoll<=e[0]) || table[table.length-1];
-
-    // determine damage letter: first letter from damage string that matches P, E, X, R
+    if (!table) continue;
+    const weapon = table.find(e => tierRoll <= e[0]) || table[table.length - 1];
     const dmgMatch = (weapon[2] || "").match(/[PEXR]/);
     const dmgType = dmgMatch ? dmgMatch[0] : "P";
-
-    // weapon type: treat "melee" string as melee, everything else as range
-        // weapon type + range band
-    const rangeBand = weapon[4];  // "melee", "short", "mid", "long"
-    const wepType   = (rangeBand === "melee") ? "melee" : "range";
-
+    const rangeBand = weapon[4];
     let matchesType = false;
-
-    if (typeFilter === "all") {
-      matchesType = true;
-    } else if (typeFilter === "melee") {
-      matchesType = (rangeBand === "melee");
-    } else if (typeFilter === "range") {
-      matchesType = (rangeBand !== "melee");          // any ranged
-    } else {
-      // short / mid / long
-      matchesType = (rangeBand === typeFilter);
-    }
-
-    if ((dmgFilter === "all" || dmgFilter === dmgType) &&
-        matchesType) {
-      chosen = weapon;
-      break;
+    if (typeFilter === "all") matchesType = true;
+    else if (typeFilter === "melee") matchesType = (rangeBand === "melee");
+    else if (typeFilter === "range") matchesType = (rangeBand !== "melee");
+    else matchesType = (rangeBand === typeFilter);
+    if ((dmgFilter === "all" || dmgFilter === dmgType) && matchesType) { chosen = weapon; break; }
+  }
+  if (!chosen) { out.innerHTML = `<span>No weapon matches your filters.</span>`; return; }
+  let isHeavy = Math.random() < 1 / 3;
+  let damageText = chosen[2];
+  if (isHeavy) {
+    const axbMatch = damageText.match(/^(\d+)x(\d+)\s*(.*)$/i);
+    if (axbMatch) damageText = `${axbMatch[1]}x${parseInt(axbMatch[2]) + 1} ${axbMatch[3]}`.trim();
+    else {
+      const flatMatch = damageText.match(/^(\d+)\s*(.*)$/i);
+      if (flatMatch) damageText = `${parseInt(flatMatch[1]) + 1} ${flatMatch[2]}`.trim();
     }
   }
-  // 🎯 Heavy mechanic (1/3 chance)
-let isHeavy = Math.random() < 1 / 3;
-
-// Copy damage text so we can modify it safely
-let damageText = chosen[2];
-
-if (isHeavy) {
-  // AxB weapons (e.g. 3x6 P, 2x4 E)
-  const axbMatch = damageText.match(/^(\d+)x(\d+)\s*(.*)$/i);
-
-  if (axbMatch) {
-    const a = axbMatch[1]; // first number stays the same
-    const b = parseInt(axbMatch[2], 10) + 1; // ONLY increase second number
-    const rest = axbMatch[3] || "";
-
-    damageText = `${a}x${b} ${rest}`.trim();
-  } else {
-    // Flat damage (e.g. 7 P, 10 X splash)
-    const flatMatch = damageText.match(/^(\d+)\s*(.*)$/i);
-    if (flatMatch) {
-      const base = parseInt(flatMatch[1], 10) + 1;
-      const rest = flatMatch[2] || "";
-
-      damageText = `${base} ${rest}`.trim();
-    }
-  }
+  out.innerHTML = `<span style="font-size:1.25em;font-weight:bold;">${isHeavy ? "<span style='color:red;font-weight:bold;'>(H)</span> " : ""}${chosen[1]}</span><br>Damage: ${damageText} &bull; Ammo: ${chosen[3]}<br>Range: ${chosen[4]} &bull; Stat: ${chosen[5]} &bull; Value: ${chosen[6]}`;
 }
-
-   
-  if(!chosen){
-    out.innerHTML = `<span>No weapon matches your filters.</span>`;
-    return;
-  }
-
-  out.innerHTML = `<span style="font-size:1.25em; font-weight:bold;">${isHeavy ? "<span style='color:red; font-weight:bold;'>(H)</span> " : ""}${chosen[1]}</span><br>
-                 Damage: ${damageText}  •  Ammo: ${chosen[3]}<br>
-                 Range: ${chosen[4]}  •  Stat: ${chosen[5]}  •  Value: ${chosen[6]}`;
-}
-// ===== COMPLICATION GENERATOR =====
 
 function generateComplications() {
-  const c1 = complications[Math.floor(Math.random() * complications.length)];
-  
-  document.getElementById("ComplicationOutput").innerHTML =
-    ` ${c1[0]} | Stat: ${c1[1]}<br><i>${c1[2]}</i>`;
+  const c = complications[Math.floor(Math.random() * complications.length)];
+  document.getElementById("ComplicationOutput").innerHTML = `${c[0]} | Stat: ${c[1]}<br><i>${c[2]}</i>`;
 }
 
-// ===== RATION GENERATOR =====
 function generateRations() {
   const rolls = rollDie(6) + rollDie(6);
-
-  const counts = {
-    "Armor/Clean": 0,
-    "Gun/Dirty": 0,
-    "Tech/Irradiated": 0
-  };
-
-  for (let i = 0; i < rolls; i++) {
-    const type = rationTypes[Math.floor(Math.random() * rationTypes.length)];
-    counts[type]++;
-  }
-
+  const counts = { "Armor/Clean": 0, "Gun/Dirty": 0, "Tech/Irradiated": 0 };
+  for (let i = 0; i < rolls; i++) counts[rationTypes[Math.floor(Math.random() * rationTypes.length)]]++;
   let output = `<b>Total Items:</b> ${rolls}<br>`;
-  for (const type in counts) {
-    if (counts[type] > 0) {
-      output += `${type}: ${counts[type]}<br>`;
-    }
-  }
-
+  for (const t in counts) if (counts[t] > 0) output += `${t}: ${counts[t]}<br>`;
   document.getElementById("RationWaterOutput").innerHTML = output;
-
-//////// MEDS AND CHEMS GENERATORS ///////
 }
+
 function generateMeds() {
   const med = medTable[Math.floor(Math.random() * medTable.length)];
-  const count = rollDie(6) + 1;
-
-  document.getElementById("medsOnlyOutput").innerHTML = `
-    <b>${med.name} x${count}</b><br>
-    <i>${med.effect}</i>
-  `;
+  document.getElementById("medsOnlyOutput").innerHTML = `<b>${med.name} x${rollDie(6) + 1}</b><br><i>${med.effect}</i>`;
 }
+
 function generateChems() {
   const chem = chemTable[Math.floor(Math.random() * chemTable.length)];
-  const count = rollDie(6) + 1;
-
-  document.getElementById("chemsOnlyOutput").innerHTML = `
-    <b>${chem.name} x${count}</b><br>
-    <i>${chem.effect}</i>
-  `;
+  document.getElementById("chemsOnlyOutput").innerHTML = `<b>${chem.name} x${rollDie(6) + 1}</b><br><i>${chem.effect}</i>`;
 }
 
 function rollGrenadeByLevel(level) {
@@ -630,261 +223,108 @@ function rollGrenadeByLevel(level) {
   return grenadeTable.find(g => roll <= g.max);
 }
 
-// Simple dice roller helper
 function rollDice(diceStr) {
   const match = diceStr.match(/(\d*)d(\d+)([+-]\d+)?/i);
   if (!match) return 0;
-
-  const count = parseInt(match[1], 10) || 1;
-  const sides = parseInt(match[2], 10);
-  const modifier = parseInt(match[3], 10) || 0;
-
+  const count = parseInt(match[1], 10) || 1, sides = parseInt(match[2], 10), modifier = parseInt(match[3], 10) || 0;
   let total = 0;
-  for (let i = 0; i < count; i++) {
-    total += Math.floor(Math.random() * sides) + 1;
-  }
-
-  const result = total + modifier;
-
-  // 🔒 HARD CLAMP TO VALID RANGE
-  const min = count + modifier;
-  const max = count * sides + modifier;
-
-  return Math.max(min, Math.min(result, max));
+  for (let i = 0; i < count; i++) total += Math.floor(Math.random() * sides) + 1;
+  return Math.max(count + modifier, Math.min(total + modifier, count * sides + modifier));
 }
-
 
 function generateAmmo() {
   const selected = ammoTable[Math.floor(Math.random() * ammoTable.length)];
   const quantity = rollDice(selected.roll);
   const level = parseInt(document.getElementById("partyLevel").value) || 0;
-
-  // Special grenade handling
   if (selected.type === "Grenades") {
     const grenade = rollGrenadeByLevel(level);
-    document.getElementById("ammoOutput").innerHTML =
-      `${quantity} x ${grenade.name}<br>` +
-      `${grenade.dmg}, thrown, STR, ${grenade.cost}`;
+    document.getElementById("ammoOutput").innerHTML = `${quantity} x ${grenade.name}<br>${grenade.dmg}, thrown, STR, ${grenade.cost}`;
     return;
   }
-  // Normal ammo output
   const costText = selected.cost > 0 ? `${selected.cost}c each` : "";
-  document.getElementById("ammoOutput").innerHTML =
-    `${quantity} x ${selected.type} ${costText}`;
+  document.getElementById("ammoOutput").innerHTML = `${quantity} x ${selected.type} ${costText}`;
 }
-
-// ===== TECHNOLOGY GENERATOR =====
-
 
 function generateTech() {
   const tech = techTable[Math.floor(Math.random() * techTable.length)];
-
-  document.getElementById("techOutput").innerHTML = `
-    <b>${tech.name}</b><br>
-    <i>${tech.effect}</i>
-  `;
+  document.getElementById("techOutput").innerHTML = `<b>${tech.name}</b><br><i>${tech.effect}</i>`;
 }
 
 function generateArtifact() {
   const artifact = artifacts[Math.floor(Math.random() * artifacts.length)];
-  
-  document.getElementById("artifactOutput").innerHTML = `
-    <b>${artifact.name}</b><br>
-    ${artifact.effect}<br>
-    <small>(action to use, 6 = no HP cost, crit = heal 3 hp instead)</small>
-  `;
+  document.getElementById("artifactOutput").innerHTML = `<b>${artifact.name}</b><br>${artifact.effect}<br><small>(action to use, 6 = no HP cost, crit = heal 3 hp instead)</small>`;
 }
 
 function generatePlant() {
   const plant = plants[Math.floor(Math.random() * plants.length)];
-  const sharedDesc = "Generates a resource every time you level up, bulky, 100c";
-  
-  document.getElementById("plantOutput").innerHTML = `
-    <b>${plant.name}</b><br>
-    ${plant.effect}<br>
-    <i>${sharedDesc}</i>
-  `;
+  document.getElementById("plantOutput").innerHTML = `<b>${plant.name}</b><br>${plant.effect}<br><i>Generates a resource every time you level up, bulky, 100c</i>`;
 }
 
-	
-	// ===== TOWN GENERATOR =====
-
-
-function getRivalFaction(mainFactionName) {
-  const rivals = factions.filter(f => f.name !== mainFactionName);
+function getRivalFaction(name) {
+  const rivals = factions.filter(f => f.name !== name);
   return rivals[Math.floor(Math.random() * rivals.length)];
 }
 
 function generateTown() {
   let output = "";
-
-  // ===== TOWN TYPE =====
-  const d1 = rollDie(6);
-  const d2 = rollDie(6);
-  const roll = d1 * 10 + d2;
-
-  const descriptor = townDescriptors.find(t => t.roll === roll);
-
-  output += `<b>Town Type:</b> ${descriptor?.name || "Unknown Settlement"}<br>`;
-  output += `<i>${descriptor?.desc || ""}</i><div class="section-spacer"></div>`;
-  
-    // ===== FACTION =====
-	const faction = factions[Math.floor(Math.random() * factions.length)];
-
-	output += `<b>Faction:</b> ${faction.name} <br>`;
-	output += `<i>${faction.desc}</i><div class="section-spacer"></div>`;
-	
-	
-	// ===== NOTABLE NPCs (3 total) =====
-	output += `<b>Notable NPCs:</b><br>`;
-
-	for (let i = 0; i < 3; i++) {
-	  const n1 = rollDie(6);
-	  const n2 = rollDie(6);
-	  const nRoll = n1 * 10 + n2;
-
-	  const npc = npcTable.find(n => n.roll === nRoll);
-
-	  output += `<div style="margin-left:10px; margin-bottom:6px;">
-				   <b>${npc?.name || "Unknown NPC"}:</b>
-				   <i>${npc?.desc || ""}</i>
-				 <div class="section-spacer"></div></div>`;
-	}
-
-	
-
-
-
-	// ===== MAIN QUEST =====
-	const q1 = rollDie(6);
-	const q2 = rollDie(6);
-	const qRoll = q1 * 10 + q2;
-
-	let quest = townQuests.find(q => q.roll === qRoll)?.text || "Unknown Quest";
-
-	// If the quest references "X faction", insert a rival faction
-	if (quest.includes("X faction") || quest.includes("X enemy")) {
-	  const rival = getRivalFaction(faction.name);
-	  quest = quest.replace(/X faction|X enemy/g, rival.name);
-	}
-
-	output += `<b>Main Quest:</b> ${quest}<div class="section-spacer"></div>`;
-
-
-  // ===== SIDEQUEST (Profession Quest) =====
+  const descriptor = townDescriptors.find(t => t.roll === rollDie(6) * 10 + rollDie(6));
+  output += `<b>Town Type:</b> ${descriptor?.name || "Unknown"}<br><i>${descriptor?.desc || ""}</i><div class="section-spacer"></div>`;
+  const faction = factions[Math.floor(Math.random() * factions.length)];
+  output += `<b>Faction:</b> ${faction.name}<br><i>${faction.desc}</i><div class="section-spacer"></div>`;
+  output += `<b>Notable NPCs:</b><br>`;
+  for (let i = 0; i < 3; i++) {
+    const npc = npcTable.find(n => n.roll === rollDie(6) * 10 + rollDie(6));
+    output += `<div style="margin-left:10px;margin-bottom:6px;"><b>${npc?.name || "Unknown"}:</b> <i>${npc?.desc || ""}</i><div class="section-spacer"></div></div>`;
+  }
+  let quest = townQuests.find(q => q.roll === rollDie(6) * 10 + rollDie(6))?.text || "Unknown Quest";
+  if (quest.includes("X faction") || quest.includes("X enemy")) {
+    quest = quest.replace(/X faction|X enemy/g, getRivalFaction(faction.name).name);
+  }
+  output += `<b>Main Quest:</b> ${quest}<div class="section-spacer"></div>`;
   const professions = Object.keys(professionQuests);
   const chosenProf = professions[Math.floor(Math.random() * professions.length)];
-  const sidequest = professionQuests[chosenProf][Math.floor(Math.random() * 3)];
-
-  output += `<b>Sidequest (${chosenProf}):</b> ${sidequest}<div class="section-spacer"></div>`;
-
-
-  // ===== SHOPS =====
-output += "";
-
-// 1. Find the faction's signature shop
-const signatureShop = shopTypes.find(shop => shop.name.toLowerCase().includes(faction.tag.toLowerCase())) 
-                     || shopTypes.find(shop => shop.name === "Weapons"); // fallback
-
-// 2. We'll display 3 shops total
-const shopSlots = [1, 2, 3];
-
-// We want the signature shop to appear exactly once → we'll place it randomly among the 3 slots
-const signatureSlotIndex = Math.floor(Math.random() * 3); // 0, 1 or 2
-
-for (let i = 0; i < shopSlots.length; i++) {
-  let chosenShop;
-
-  if (i === signatureSlotIndex) {
-    // This is the guaranteed faction shop
-    chosenShop = signatureShop;
-  } else {
-    // Random shop, but try to avoid duplicating the signature one too often
-    let attempts = 0;
-    do {
-      chosenShop = shopTypes[Math.floor(Math.random() * shopTypes.length)];
-      attempts++;
-    } while (chosenShop.name === signatureShop.name && attempts < 10);
-  }
-
-  output += `<b>Shop ${i+1}: ${chosenShop.name}</b> `;
-  
-  // Mark the faction specialty shop
-  if (chosenShop.name === signatureShop.name) {
-    output += `<span style="color:#4e8cff; font-weight:bold;">(Faction)</span><div class="section-spacer"></div>`;
-  }
- 
-
-  // Generate 2 items for this shop
-  for (let r = 0; r < 2; r++) {
-    let result = "";
-    switch (chosenShop.name) {
-      case "Weapons":
-        generateWeapon();
-        result = document.getElementById("weaponResult").innerHTML;
-        break;
-      case "Armor":
-        generateArmor();
-        result = document.getElementById("armorTitle").innerHTML;
-        break;
-      case "Meds":
-        generateMeds();
-        result = document.getElementById("medsOnlyOutput").innerHTML;
-        break;
-      case "Rations":
-        generateRations();
-        result = document.getElementById("RationWaterOutput").innerHTML;
-        break;
-      case "Tech":
-        generateTech();
-        result = document.getElementById("techOutput").innerHTML;
-        break;
-      case "Water":
-        generateRations();
-        result = document.getElementById("RationWaterOutput").innerHTML;
-        break;
-      default:
-        result = "<i>(no items generated)</i>";
+  output += `<b>Sidequest (${chosenProf}):</b> ${professionQuests[chosenProf][Math.floor(Math.random() * 3)]}<div class="section-spacer"></div>`;
+  const signatureShop = shopTypes.find(s => s.name.toLowerCase().includes(faction.tag.toLowerCase())) || shopTypes[0];
+  const signatureSlot = Math.floor(Math.random() * 3);
+  for (let i = 0; i < 3; i++) {
+    let shop;
+    if (i === signatureSlot) {
+      shop = signatureShop;
+    } else {
+      let attempts = 0;
+      do { shop = shopTypes[Math.floor(Math.random() * shopTypes.length)]; attempts++; }
+      while (shop.name === signatureShop.name && attempts < 10);
     }
-
-    output += `<div style="margin-left:14px; margin-bottom:8px;">${result}</div><div class="section-spacer"></div>`;
+    output += `<b>Shop ${i + 1}: ${shop.name}</b> `;
+    if (shop.name === signatureShop.name) output += `<span style="color:#4e8cff;font-weight:bold;">(Faction)</span>`;
+    output += `<div class="section-spacer"></div>`;
+    for (let r = 0; r < 2; r++) {
+      let result = "";
+      // Weapons and Armor always roll max tier (die = 6) in shops
+      if (shop.name === "Weapons") { generateWeapon(true); result = document.getElementById("weaponResult").innerHTML; }
+      else if (shop.name === "Armor") { generateArmor(true); result = document.getElementById("armorTitle").innerHTML; }
+      else if (shop.name === "Meds") { generateMeds(); result = document.getElementById("medsOnlyOutput").innerHTML; }
+      else if (shop.name === "Rations" || shop.name === "Water") { generateRations(); result = document.getElementById("RationWaterOutput").innerHTML; }
+      else if (shop.name === "Tech") { generateTech(); result = document.getElementById("techOutput").innerHTML; }
+      else result = "<i>(no items)</i>";
+      output += `<div style="margin-left:14px;margin-bottom:8px;">${result}</div><div class="section-spacer"></div>`;
+    }
   }
-
-
-}
-
   document.getElementById("townOutput").innerHTML = output;
 }
 
-window.generatePlant = generatePlant;
-window.generateArtifact = generateArtifact;
-window.generateTech = generateTech;
-window.generateWeapon = generateWeapon;
+window.distribute = distribute;
 window.generateArmor = generateArmor;
+window.generateWeapon = generateWeapon;
 window.generateComplications = generateComplications;
 window.generateRations = generateRations;
 window.generateMeds = generateMeds;
 window.generateChems = generateChems;
 window.generateAmmo = generateAmmo;
+window.generateTech = generateTech;
+window.generateArtifact = generateArtifact;
+window.generatePlant = generatePlant;
 window.generateTown = generateTown;
-	
-window.distribute = distribute;
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
