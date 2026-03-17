@@ -167,12 +167,12 @@ export const perkData = {
         { name: "Gunslinger", desc: "Pistol attacks do +1 damage if you moved this turn." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Ignore the effects of rubble and sprint moves +1 distance." },
-        { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on blank tiles." },
+        { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on clear terrain." },
         { name: "Guerrilla", desc: "All special terrain also counts as cover and your attacks ignore obstructions." },
         { name: "Sniper", desc: "Atacks ignore cover and long range weapons gain +1 range." },
         { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
-        { name: "Jack of All Trades", desc: "Gain another skill that uses stats different from your current skill." },
-        { name: "Quantum Clip", desc: "Each ammo type you use has a 1/6 chance to not be consumed by your guns, changing each turn." },
+        { name: "Jack of All Trades", desc: "Gain another skill and another background." },
+        { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapons." },
         { name: "Rivers of Blood", desc: "Physical damage aimed shots cause the target to bleed." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
     ],
@@ -199,7 +199,7 @@ export const perkData = {
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants give double yield if held for the whole level." },
-        { name: "Side Hustle", desc: "Gain an additional background." },
+        { name: "Creative Thinking", desc: "You can use any technology when scavenging to add +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
@@ -216,7 +216,7 @@ export const perkData = {
         { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide a free crit loot roll from their faction shop." },
-        { name: "Technophile", desc: "Heal +10% HP when you use a technology or craft an item with one." },
+        { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
         { name: "Art of the Deal", desc: "Haggling is twice as effective." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don't Look at Explosions", desc: "Gain +5 explosive armor." }
@@ -240,15 +240,15 @@ export const backgroundData = [
 
 // === Zone Table ===
 export const zoneTable = {
-    11: "Office: Contains 2 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
-    12: "Mall: Use illuminator when scavenging for +3 rerolls ",
+    11: "Office: Contains 3 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
+    12: "Mall: Use illuminator when scavenging for +3 rerolls, repeatable.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
     15: "University: Contains a 1D artifact",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
     22: "Armory: Scavenging armor gives +3 rerolls with no multi-scavenge penalty.",
-    23: "Park: Contains a random giant potted plant. (heavy, double yield).",
+    23: "Park: Contains a random giant plant. (heavy, double yield).",
     24: "Railyard: Scavenging for scrap gives +3 rerolls, no multi-scavenge penalty, and 1d3 flares",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
@@ -256,12 +256,12 @@ export const zoneTable = {
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
     33: "Workshop: Has a workbench; repairing items only costs 2 scrap.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Gas Station: contains 3 pumps with 3d6 fuel, each costing 10/20/30 caps per.",
+    35: "Gas Station: contains 3 pumps with 3d6 fuel, each costing 10/20/30 caps per fuel.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
-    41: "Military Base: Contains a mutated weapon.",
-    42: "Farm: Contains 2d6 animal flesh.",
-    43: "Quarry: Use explosives to excavate heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Scavenging for weapons gives +3 rerolls, no multi-scavenge penalty, and all weapons are mutated",
+    41: "Military Base: Scavenging for weapons gives +3 rerolls and no multi-scavenge penalty.",
+    42: "Farm: Contains 1d6+5 animal flesh.",
+    43: "Quarry: Use a grenade or fuel-consuming weapon to excavate a heavy ore worth 1d6×20c.",
+    44: "Crashed Ship: Contains a transmuter. Scavenged weapons are mutated",
     45: "Campsite: Contains 1d6 flares (20c). Flares reduce enemies by 1 in Ruins.",
     46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates any faction's settlement 3 hexes away.",
@@ -271,11 +271,11 @@ export const zoneTable = {
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: Contains a random mutagen roll.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
-    62: "Restaurant: Order food (1d6+5 power rations) that arrives on level up.",
-    63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all skill/luck/resist.",
+    62: "Restaurant: Order food (1d6+5 healthy rations) that arrives on level up.",
+    63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Supermarket: Scavenging stackables gives +3 rerolls with no multi-scavenge penalty.",
-    66: "Church: No battle. Friendly merchant with 2 bodyguards sells 2 random items from military equipment, artifacts or plants ."
+    66: "Church: No battle. Friendly merchant with 2 max tier +1 bodyguards sells items from 2 random crit loot rolls."
 };
 
 // === Monster Data ===
@@ -305,7 +305,7 @@ export const monsterData = {
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Lumpy", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Wartfrog", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
             { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
@@ -332,7 +332,7 @@ export const monsterData = {
     },
     E6: {
         label: "Androids", notes: "terrain 4-5: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
-            { name: "Sentry", hp: 4, def: 12, notes: "scaled energy weapons, 11E mines" },
+            { name: "Sentry", hp: 6, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 8, def: 16, notes: "scaled energy weapons, 12E mines" },
             { name: "Trooper", hp: 10, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
             { name: "Eradicator", hp: 12, def: 24, notes: "scaled energy weapons +1 dmg, 14E mines" },
@@ -364,14 +364,14 @@ export const monsterData = {
         label: "Zombies", notes: "special: cover, +1 spd, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
             { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
-            { name: "Emitter", hp: 20, def: 12, notes: "9 R splash, melee" },
+            { name: "Emitter", hp: 20, def: 12, notes: "9 R splash+poison other, melee" },
             { name: "Ravager", hp: 24, def: 15, notes: "8 P+R melee, grapples on 6" },
             { name: "Firebrand", hp: 28, def: 18, notes: "11 X splash+burn other, melee" },
             { name: "Frostbrand", hp: 32, def: 21, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: rad source, on death: explodes for HP as rad splash, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
+        label: "Aberrations", notes: "special: rad source, regenerate 2 hp per turn, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
             { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
@@ -381,23 +381,23 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
-            { name: "Exile", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
-            { name: "Recluse", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
-            { name: "Outsider", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
-            { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg, 15 R grenades" },
-            { name: "Abomination", hp: 20, def:28, notes: "scaled heavy guns +2 dmg, 16 R grenades" },
-            { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg, 17 R grenades" }
+        label: "Mutants", notes: "special: rad source, each have random mutagen effect. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
+            { name: "Exile", hp: 12, def: 12, notes: "scaled heavy guns" },
+            { name: "Recluse", hp: 14, def: 16, notes: "scaled heavy guns" },
+            { name: "Outsider", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg" },
+            { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg" },
+            { name: "Abomination", hp: 20, def:28, notes: "scaled heavy guns +2 dmg" },
+            { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg" }
         ]
     },
     O6: {
-        label: "Revenants", notes: "special: hidden bear traps, half sneak, have ninja, Loot: weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghast", hp: 4, def: 6,  notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 6, def: 10, notes: "scaled heavy melee" },
-            { name: "Phantom", hp: 8, def: 14, notes: "scaled heavy melee +1 dmg" },
-            { name: "Spectre", hp: 10, def: 18, notes: "scaled heavy melee +1 dmg" },
-            { name: "Wraith", hp: 12, def: 22, notes: "scaled heavy melee +2 dmg" },
-            { name: "Lich", hp: 14, def: 26, notes: "scaled heavy melee +2 dmg" }
+        label: "Revenants", notes: "special: hidden bear traps, half sneak, ninja, hovers (cover vs melee) Loot: weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
+            { name: "Ghast", hp: 12, def: 6,  notes: "scaled heavy melee" },
+            { name: "Spirit", hp: 14, def: 10, notes: "scaled heavy melee" },
+            { name: "Phantom", hp: 16, def: 14, notes: "scaled heavy melee +1 dmg" },
+            { name: "Spectre", hp: 18, def: 18, notes: "scaled heavy melee +1 dmg" },
+            { name: "Wraith", hp: 20, def: 22, notes: "scaled heavy melee +2 dmg" },
+            { name: "Lich", hp: 22, def: 26, notes: "scaled heavy melee +2 dmg" }
         ]
     }
 };
@@ -408,11 +408,11 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP)
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
-    {name: "Orange Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
-    {name: "Blue Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
-    {name: "Red Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
+    {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
+    {name: "Green Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
+    {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
     {name: "Purple Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
-    {name: "Green Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
+    {name: "Blue Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
 ];
 
@@ -533,7 +533,7 @@ export const townDescriptors = [
     { roll: 66, name: "Vault", desc: "A vault that allows visitors and trades with outsiders." }
 ];
 
-export const townQuests = [
+export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
     { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning food supplies to 'thin the weak.' Expose them, join them, or take their place.` },
     { roll: 12, text: `"Election Day" – An election is being held to decide if they want to continue on their current faction or convert to another after being visited by an envoy.` },
     { roll: 13, text: `Retrieve the Stolen Goods – Thieves from X faction have stolen valuable supplies from the town, and the player must recover them.` },
@@ -572,7 +572,7 @@ export const townQuests = [
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
 
-export const professionQuests = {
+export const professionQuests = { //prof quest rewards = 1d6+level x 5 caps
     Technician: [
         "Dead Signal – Restore a dead radio relay using a salvaged comm tower part.",
         "Gun Show – Upgrade a scavenger's sentimental weapon.",
