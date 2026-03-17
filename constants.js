@@ -148,7 +148,7 @@ export const grenadeTable = [
 
 export const perkData = {
     STRENGTH: [
-        { name: "Big Back", desc: "Gain +1 heavy limit and your limbs cannot be crippled." },
+        { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
         { name: "Wrecking Ball", desc: "Melee and thrown attacks can spend your movement to do +1 damage." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
         { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
@@ -157,7 +157,7 @@ export const perkData = {
         { name: "Boomer", desc: "Splash damage aimed shots splash to short range." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
-        { name: "Iron Man", desc: "You cannot be shoved, grappled, or inflicted with ailments by hostile creatures." },
+        { name: "Iron Man", desc: "Your limbs cannot be crippled." },
         { name: "Saboteur", desc: "Explosive guns do +1 damage and your attacks always detonate explosive tiles." },
         { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon you have." }
     ],
@@ -179,11 +179,11 @@ export const perkData = {
 
     ENDURANCE: [
         { name: "Artisan", desc: "Consume only 2 scrap when you repair an item at 2 durability." },
-        { name: "Fast Metabolism", desc: "Gain +10 max HP and addiction withdrawl only lasts 1 day." },
+        { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "Gain +1 fatigue to scavenge a settlement." },
-        { name: "Deep Pockets", desc: "Item stack sizes over 10 no longer become heavy." },
+        { name: "Test Subject", desc: "Mutagens last twice as long and withdrawl effects only last 1 day." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -194,7 +194,7 @@ export const perkData = {
 
     INTELLIGENCE: [
         { name: "Pocket Change", desc: "Looting killed humans always yields an extra 5 caps." },
-        { name: "Substance Enthusiast", desc: "Mutagens last twice as long and all addictive substances heal +10% HP on use." },
+        { name: "Substance Enthusiast", desc: "Mutagens are twice as effective and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
@@ -203,7 +203,7 @@ export const perkData = {
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
-        { name: "Extraterrestrial", desc: "Mutagens are twice as effective and repairing artifacts now costs 10 HP." },
+        { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you have." }
     ],
 
@@ -746,7 +746,7 @@ export const fixedWeights = [1, 2, 2, 1, 3, 6];
 export const fleshTable = [
   { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads, 5c" },
-  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become cannibal, 5c" },
+  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become addicted to human flesh, 5c" },
 ];
 
 export const rationWaterTable = [
