@@ -193,13 +193,13 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Pocket Change", desc: "Looting killed humans always yields an extra 5 caps." },
+        { name: "Pocket Change", desc: "Looting killed humans always yields an extra 10 caps." },
         { name: "Substance Enthusiast", desc: "Mutagens are twice as effective and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants give double yield if held for the whole level." },
-        { name: "Creative Thinking", desc: "You can use any technology when scavenging, each adding +1 dice to the roll." },
+        { name: "Creative Thinking", desc: "You can use non-matching technology when scavenging, each adding +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
