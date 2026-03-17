@@ -23,7 +23,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
 
-export /* crit = rearrange armor values and gain random legendary effect. Legendaries have 2x value.
+export /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash  (or adds +1 splash range)
