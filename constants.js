@@ -418,8 +418,8 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
 
 export const plants = [ // "Generates a resource every time you level up",
     {name: "Sludgeflower", effect: "Generates 3 fuel on level up, 100c"},
-    {name: "Fleshroom", effect: "Generates 5 clean flesh on level up, 100c"},
-    {name: "Mutfruit", effect: "Generates 5 clean water on level up, 100c"},
+    {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, 100c"},
+    {name: "Mutfruit", effect: "Generates 3 clean water on level up, 100c"},
     {name: "Radovera", effect: "Generates 3 bandage on level up, 100c"},
     {name: "Indigourd", effect: "Generates 3 rad-x on level up, 100c"},
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, 100c"}
