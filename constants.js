@@ -199,7 +199,7 @@ export const perkData = {
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants give double yield if held for the whole level." },
-        { name: "Creative Thinking", desc: "You can use any technology when scavenging to add +1 dice to the roll." },
+        { name: "Creative Thinking", desc: "You can use any technology when scavenging, each adding +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
