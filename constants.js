@@ -281,13 +281,13 @@ export const zoneTable = {
 // === Monster Data ===
 export const monsterData = {
     E1: {
-        label: "Cannibals", notes: "special: hidden land mines. Loot: weapons, armor, human flesh ", subs: [
-            { name: "Recruit", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Soldier", hp: 12, def: 8, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Officer", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 16, notes: "scaled weapons +1 dmg, 14x mines" }, // 11-12
-            { name: "Lieutenant", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
-            { name: "General", hp: 20, def: 24, notes: "scaled weapons +2 dmg, 16x mines" } // 15+
+        label: "Cannibals", notes: "special: hidden land mines, have +1 all armor. Loot: weapons, armor, human flesh ", subs: [
+            { name: "Raider", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
+            { name: "Savage", hp: 12, def: 8, notes: "scaled weapons, 12x mines" }, // 7-8
+            { name: "Barbarian", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
+            { name: "Berserker", hp: 16, def: 16, notes: "scaled weapons +1 dmg, 14x mines" }, // 11-12
+            { name: "Juggernaut", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
+            { name: "Chieftain", hp: 20, def: 24, notes: "scaled weapons +2 dmg, 16x mines" } // 15+
         ]
     },
     E2: {
