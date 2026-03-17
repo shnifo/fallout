@@ -375,19 +375,19 @@ export const monsterData = {
             { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
             { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
-            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant mound of flesh with legs
+            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant volatile mound of flesh with legs
             { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: weapons, mutant flesh", subs: [ //Humans that have been mutated to become smarter, stronger, and violent, appearance based on morlocks
-            { name: "Skirmisher", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
-            { name: "Brute", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
-            { name: "Enforcer", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
-            { name: "Leader", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg, 15 R grenades" },
-            { name: "Overlord", hp: 20, def:28, notes: "scaled heavy guns +2 dmg, 16 R grenades" },
-            { name: "Mastermind", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg, 17 R grenades" }
+        label: "Mutants", notes: "special: rad source, each have 1 rad grenade. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
+            { name: "Exile", hp: 12, def: 12, notes: "scaled heavy guns, 12 R grenades" },
+            { name: "Recluse", hp: 14, def: 16, notes: "scaled heavy guns, 13 R grenades" },
+            { name: "Outsider", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg, 14 R grenades" },
+            { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg, 15 R grenades" },
+            { name: "Abomination", hp: 20, def:28, notes: "scaled heavy guns +2 dmg, 16 R grenades" },
+            { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg, 17 R grenades" }
         ]
     },
     O6: {
@@ -435,12 +435,9 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 ];
 
 export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
-    { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
-    { name: "Iron Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" }, 
+    { name: "Steel Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" },
     { name: "Rage Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Rage Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Focus Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }, 
-    { name: "Focus Mutagen", effect: "+1 to all stats for 1 day (addictive), 30c" }
+    { name: "Focus Mutagen", effect: "+1 to all stat rolls for 1 day (addictive), 30c" }
 ];
 
 
