@@ -118,12 +118,12 @@ export const recipeTable = [
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
-    { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, 50c" },
-    { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, 50c"},
-    { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, 50c" },
-    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, 50c" },
-    { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, 50c" },
-    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, 50c" }
+    { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, bulky, 50c"},
+    { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, bulky, 50c" }
 ];
 
 
@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Pocket Change", desc: "Looting killed humans always yields an extra 10 caps." },
+        { name: "Spare Change", desc: "Looting killed humans always yields an extra 10 caps." },
         { name: "Substance Enthusiast", desc: "Mutagens are twice as effective and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
@@ -417,12 +417,12 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
 ];
 
 export const plants = [ // "Generates a resource every time you level up",
-    {name: "Sludgeflower", effect: "Generates 3 fuel on level up, 100c"},
-    {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, 100c"},
-    {name: "Mutfruit", effect: "Generates 3 clean water on level up, 100c"},
-    {name: "Radovera", effect: "Generates 3 bandage on level up, 100c"},
-    {name: "Indigourd", effect: "Generates 3 rad-x on level up, 100c"},
-    {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, 100c"}
+    {name: "Sludgeflower", effect: "Generates 3 fuel on level up, bulky, 100c"},
+    {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, bulky, 100c"},
+    {name: "Mutfruit", effect: "Generates 3 clean water on level up, bulky, 100c"},
+    {name: "Radovera", effect: "Generates 3 bandage on level up, bulky, 100c"},
+    {name: "Indigourd", effect: "Generates 3 rad-x on level up, bulky, 100c"},
+    {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
 export const medTable = [ //crit = find chosen med and also find random chem roll
@@ -743,7 +743,7 @@ export const fixedWeights = [1, 2, 2, 1, 3, 6];
 export const fleshTable = [
   { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads, 5c" },
-  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or become addicted to human flesh, 5c" },
+  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain human flesh addiction, 5c" },
 ];
 
 export const rationWaterTable = [
