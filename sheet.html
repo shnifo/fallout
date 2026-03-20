@@ -2072,22 +2072,6 @@ negNames.forEach(n => {
   };
   renderAddiction();
 
-  // Addiction (Flesh) toggle
-  const addictionFleshEl = document.getElementById("addictionFleshToggle");
-  function renderAddictionFlesh() {
-    addictionFleshEl.className = "use-box addiction-box";
-    if (state.addictionFlesh) {
-      addictionFleshEl.classList.add("use-off");
-    }
-  }
-  window.renderAddictionFlesh = renderAddictionFlesh;
-  addictionFleshEl.onclick = () => {
-    state.addictionFlesh = !state.addictionFlesh;
-    save();
-    renderAddictionFlesh();
-  };
-  renderAddictionFlesh();
-
   // Armor damage input
   const armorInput = document.getElementById("armorDmgInput");
   armorInput.addEventListener("input", () => {
