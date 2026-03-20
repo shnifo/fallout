@@ -281,29 +281,29 @@ export const zoneTable = {
 // === Monster Data ===
 export const monsterData = {
     E1: {
-        label: "Cannibals", notes: "special: hidden bear traps. Loot: weapons, human flesh", subs: [
+        label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, human flesh", subs: [ // bear trap = 2x cripple legs
             { name: "Raider", hp: 12, def: 8, notes: "scaled melee" }, // 1-6
-            { name: "Savage", hp: 16, def: 14, notes: "scaled melee" }, // 7-8
-            { name: "Barbarian", hp: 20, def: 18, notes: "scaled melee +1 dmg" }, // 9-10
-            { name: "Berserker", hp: 24, def: 22, notes: "scaled melee +1 dmg" }, // 11-12
-            { name: "Juggernaut", hp: 28, def: 26, notes: "scaled melee +2 dmg" }, // 13-14
-            { name: "Chieftain", hp: 32, def: 30, notes: "scaled melee +2 dmg" } // 15+
+            { name: "Savage", hp: 14, def: 12, notes: "scaled melee" }, // 7-8
+            { name: "Barbarian", hp: 16, def: 16, notes: "scaled melee +1 dmg" }, // 9-10
+            { name: "Berserker", hp: 18, def: 20, notes: "scaled melee +1 dmg" }, // 11-12
+            { name: "Juggernaut", hp: 20, def: 24, notes: "scaled melee +2 dmg" }, // 13-14
+            { name: "Chieftain", hp: 22, def: 28, notes: "scaled melee +2 dmg" } // 15+
         ]
     },
     E2: {
         label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // bear trap = +1 injury and 2x cripple legs
-            { name: "Squid", hp: 6, def: 5, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
-            { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 14, def: 25, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
+            { name: "Squid", hp: 6, def: 10, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
+            { name: "Wildcat", hp: 8, def: 14, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Raptor", hp: 10, def: 18, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
+            { name: "Ursa", hp: 12, def: 22, notes: "2x9 P melee, shove on 6" }, //giant bear
+            { name: "Mammoth", hp: 14, def: 26, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
             { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head does +2 dmg" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Bubbler", hp: 6, def: 12, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Cryotoad", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
@@ -381,23 +381,23 @@ export const monsterData = {
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have random mutagen effect. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
+        label: "Mutants", notes: "special: rad source, each have random mutagen effect. Loot: weapons, mutant flesh, mutagen", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
             { name: "Exile", hp: 12, def: 12, notes: "scaled heavy guns" },
             { name: "Recluse", hp: 14, def: 16, notes: "scaled heavy guns" },
             { name: "Outsider", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg" },
             { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg" },
-            { name: "Abomination", hp: 20, def:28, notes: "scaled heavy guns +2 dmg" },
+            { name: "Abomination", hp: 20, def: 28, notes: "scaled heavy guns +2 dmg" },
             { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg" }
         ]
     },
     O6: {
-        label: "Mercenaries", notes: "special: hidden land mines, have +1 all armor. Loot: weapons, human flesh", subs: [
-            { name: "Recruit", hp: 10, def: 4, notes: "scaled guns, 11x mines" }, // 1-6
-            { name: "Lieutenant", hp: 12, def: 8, notes: "scaled guns, 12x mines" }, // 7-8
-            { name: "Officer", hp: 14, def: 12, notes: "scaled guns +1 dmg, 13x mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 16, notes: "scaled guns +1 dmg, 14x mines" }, // 11-12
-            { name: "General", hp: 18, def: 20, notes: "scaled guns +2 dmg, 15x mines" }, // 13-14
-            { name: "Elite", hp: 20, def: 24, notes: "scaled guns +2 dmg, 16x mines" } // 15+
+        label: "Mercenaries", notes: "special: hidden land mines, have 1x grenade each equal to mines, have +1 all armor. Loot: weapons, human flesh", subs: [
+            { name: "Recruit", hp: 10, def: 4, notes: "scaled guns, 11X mines" }, // 1-6
+            { name: "Lieutenant", hp: 12, def: 8, notes: "scaled guns, 12X mines" }, // 7-8
+            { name: "Officer", hp: 14, def: 12, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
+            { name: "Captain", hp: 16, def: 16, notes: "scaled guns +1 dmg, 14 X mines" }, // 11-12
+            { name: "General", hp: 18, def: 20, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Elite", hp: 20, def: 24, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
 };
