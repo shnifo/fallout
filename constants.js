@@ -199,7 +199,7 @@ export const perkData = {
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Potted plants give +100% yield if held for the whole level." },
-        { name: "Creative Thinking", desc: "You can use unassociated technology when scavenging, each adding +1 dice to the roll." },
+        { name: "Creative Thinking", desc: "You can use unassociated technology when scavenging instead to add +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
@@ -269,7 +269,7 @@ export const zoneTable = {
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: Contains a random mutagen roll.",
+    56: "Laboratory: contains a random mutagen max roll.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
     62: "Restaurant: Order food (1d6+5 healthy rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
@@ -281,13 +281,13 @@ export const zoneTable = {
 // === Monster Data ===
 export const monsterData = {
     E1: {
-        label: "Cannibals", notes: "special: hidden land mines, have +1 all armor. Loot: weapons, armor, human flesh ", subs: [
-            { name: "Raider", hp: 10, def: 4, notes: "scaled weapons, 11x mines" }, // 1-6
-            { name: "Savage", hp: 12, def: 8, notes: "scaled weapons, 12x mines" }, // 7-8
-            { name: "Barbarian", hp: 14, def: 12, notes: "scaled weapons +1 dmg, 13x mines" }, // 9-10
-            { name: "Berserker", hp: 16, def: 16, notes: "scaled weapons +1 dmg, 14x mines" }, // 11-12
-            { name: "Juggernaut", hp: 18, def: 20, notes: "scaled weapons +2 dmg, 15x mines" }, // 13-14
-            { name: "Chieftain", hp: 20, def: 24, notes: "scaled weapons +2 dmg, 16x mines" } // 15+
+        label: "Cannibals", notes: "special: hidden bear traps. Loot: weapons, human flesh", subs: [
+            { name: "Raider", hp: 12, def: 8, notes: "scaled melee" }, // 1-6
+            { name: "Savage", hp: 16, def: 14, notes: "scaled melee" }, // 7-8
+            { name: "Barbarian", hp: 20, def: 18, notes: "scaled melee +1 dmg" }, // 9-10
+            { name: "Berserker", hp: 24, def: 22, notes: "scaled melee +1 dmg" }, // 11-12
+            { name: "Juggernaut", hp: 28, def: 26, notes: "scaled melee +2 dmg" }, // 13-14
+            { name: "Chieftain", hp: 32, def: 30, notes: "scaled melee +2 dmg" } // 15+
         ]
     },
     E2: {
@@ -303,17 +303,17 @@ export const monsterData = {
     E3: {
         label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head ignores armor" }, //giant bipdal lobsters covered in thick chitin except face
+            { name: "Bubbler", hp: 6, def: 12, notes: "7 P/R melee, 2x armor, aim head does +2 dmg" }, //giant bipdal lobsters covered in thick chitin except face
             { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Wartfrog", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
+            { name: "Cryotoad", hp: 10, def: 20, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
             { name: "Hornet", hp: 12, def: 24, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
             { name: "Terminite", hp: 14, def: 28, notes: "2x12 P melee, grapples on 6" } //Giant termites
         ]
     },
     E4: {
         label: "Burrowers", notes: "special: burrow. half are burrowed, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R melee, flies (cover vs melee)" },//Giant silverfish that fly
-            { name: "Rodent", hp: 8, def: 16, notes: "2x6 P melee, grapples on 6" },
+            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
+            { name: "Rodent", hp: 8, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
             { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
             { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
             { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
@@ -342,12 +342,12 @@ export const monsterData = {
     },
     O1: {
         label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
-            { name: "Initiate", hp: 10, def: 4, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 12, def: 8, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 14, def: 12, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Priest", hp: 16, def: 16, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Fanatic", hp: 18, def: 20, notes: "scaled mutated weapons +2 dmg" },
-            { name: "Elder", hp: 20, def: 24, notes: "scaled mutated weapons +2 dmg" }
+            { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
+            { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
+            { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Priest", hp: 16, def: 20, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Fanatic", hp: 18, def: 24, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Elder", hp: 20, def: 28, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
     O2: {
@@ -362,12 +362,12 @@ export const monsterData = {
     },
     O3: {
         label: "Zombies", notes: "special: cover, +1 spd, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
-            { name: "Shambler", hp: 12, def: 6, notes: "2x5 R melee, grapples on 6" },
-            { name: "Stalker", hp: 16, def: 9, notes: "2x6 R melee, grapples on 6" },
-            { name: "Emitter", hp: 20, def: 12, notes: "9 R splash+poison other, melee" },
-            { name: "Ravager", hp: 24, def: 15, notes: "8 P+R melee, grapples on 6" },
-            { name: "Firebrand", hp: 28, def: 18, notes: "11 X splash+burn other, melee" },
-            { name: "Frostbrand", hp: 32, def: 21, notes: "12 E splash+freeze other, melee" }
+            { name: "Shambler", hp: 12, def: 6, notes: "2x5 P/R melee, grapples on 6" },
+            { name: "Stalker", hp: 16, def: 10, notes: "2x6 P/R melee, grapples on 6" },
+            { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
+            { name: "Ravager", hp: 24, def: 18, notes: "8 P+R melee, grapples on 6" },
+            { name: "Firebrand", hp: 28, def: 22, notes: "11 X splash+burn other, melee" },
+            { name: "Frostbrand", hp: 32, def: 26, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
@@ -391,13 +391,13 @@ export const monsterData = {
         ]
     },
     O6: {
-        label: "Revenants", notes: "special: hidden bear traps, half sneak, ninja, hovers (cover vs melee) Loot: weapons, mutant flesh", subs: [ //mutated giant ghostly floating humans that can sneak
-            { name: "Ghast", hp: 12, def: 6,  notes: "scaled heavy melee" },
-            { name: "Spirit", hp: 14, def: 10, notes: "scaled heavy melee" },
-            { name: "Phantom", hp: 16, def: 14, notes: "scaled heavy melee +1 dmg" },
-            { name: "Spectre", hp: 18, def: 18, notes: "scaled heavy melee +1 dmg" },
-            { name: "Wraith", hp: 20, def: 22, notes: "scaled heavy melee +2 dmg" },
-            { name: "Lich", hp: 22, def: 26, notes: "scaled heavy melee +2 dmg" }
+        label: "Mercenaries", notes: "special: hidden land mines, have +1 all armor. Loot: weapons, human flesh", subs: [
+            { name: "Recruit", hp: 10, def: 4, notes: "scaled guns, 11x mines" }, // 1-6
+            { name: "Lieutenant", hp: 12, def: 8, notes: "scaled guns, 12x mines" }, // 7-8
+            { name: "Officer", hp: 14, def: 12, notes: "scaled guns +1 dmg, 13x mines" }, // 9-10
+            { name: "Captain", hp: 16, def: 16, notes: "scaled guns +1 dmg, 14x mines" }, // 11-12
+            { name: "General", hp: 18, def: 20, notes: "scaled guns +2 dmg, 15x mines" }, // 13-14
+            { name: "Elite", hp: 20, def: 24, notes: "scaled guns +2 dmg, 16x mines" } // 15+
         ]
     }
 };
@@ -461,7 +461,7 @@ export const shopTypes = [
     { name: "Water" }
 ];
 
-export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +3 to the scavenge roll. 
+export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
@@ -640,17 +640,17 @@ export const factions = [
     {
         name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
         tag: "Armor",
-        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier +1 human guards" 
+        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier mercenary guards" 
     },
     {
         name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
         tag: "Meds",
-        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary, max tier -1 android guards"
+        desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary, max tier android guards"
     },
     {
         name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
-        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier -1 mutant guards" 
+        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier mutant guards" 
     },
     {
         name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted.
@@ -660,12 +660,12 @@ export const factions = [
     {
         name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Technology",
-        desc: "Communist monarchy, slavers, hateful, max tier human guards, does not use guns"
+        desc: "Communist monarchy, slavers, hateful, max tier cannibal guards"
     },
     {
         name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army
         tag: "Rations",
-        desc: "Small town commune, anarchy, friendly, max tier +1 human guards"
+        desc: "Small town commune, anarchy, friendly, max tier human guards"
     }
 ];
 
@@ -743,7 +743,7 @@ export const fixedWeights = [1, 2, 2, 1, 3, 6];
 export const fleshTable = [
   { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads, 5c" },
-  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain human flesh addiction, 5c" },
+  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain addiction, 5c" },
 ];
 
 export const rationWaterTable = [
