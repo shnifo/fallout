@@ -1,7 +1,7 @@
 /// ARMOR & WEAPONS ///
 export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
 1. Divine: Replenish one influence on initiative and after being crit
-2. Protected: Ignore the next damage source after initiative and after being crit
+2. Protected: Gain 1 shield after initiative and after being crit
 3. Reflexive: Take an extra action after initiative and immediately after being crit
 4. Bloody: Heal 10% after combat and after being crit
 5. Swift: +1 sneak and sprint rolls
@@ -243,7 +243,7 @@ export const zoneTable = {
     11: "Office: Contains 3 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
     12: "Mall: Use illuminator when scavenging for +3 rerolls, repeatable.",
     13: "Bunker: Scavenged items have +1 durability.",
-    14: "Graveyard: Contains map to legendary loot 3 random hexes away.",
+    14: "Graveyard: Contains map to crit loot 3 random hexes away.",
     15: "University: Contains a 1D artifact",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
@@ -252,7 +252,7 @@ export const zoneTable = {
     24: "Railyard: Scavenging for scrap gives +3 rerolls, no multi-scavenge penalty, and 1d3 flares",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
-    31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
+    31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
     33: "Workshop: Has a workbench; repairing items only costs 2 scrap.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
@@ -269,7 +269,7 @@ export const zoneTable = {
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: contains a random mutagen max roll.",
+    56: "Laboratory: contains a random mutagen roll.",
     61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
     62: "Restaurant: Order food (1d6+5 healthy rations) that arrives on level up.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
@@ -292,7 +292,7 @@ export const monsterData = {
     },
     E2: {
         label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // bear trap = +1 injury and 2x cripple legs
-            { name: "Squid", hp: 6, def: 5, notes: "6 R mid" }, //giant land adapted squids that spray irradiated ink
+            { name: "Squid", hp: 6, def: 5, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
             { name: "Wildcat", hp: 8, def: 10, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 10, def: 15, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
             { name: "Ursa", hp: 12, def: 20, notes: "2x9 P melee, shove on 6" }, //giant bear
