@@ -154,7 +154,7 @@ export const perkData = {
         { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Karate Kid", desc: "Melee aimed shots can shove or grapple the target instead of crippling." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
-        { name: "Boomer", desc: "Splash damage aimed shots splash to short range." },
+        { name: "Boomer", desc: "Explosive splash damage aimed shots splash to short range." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
