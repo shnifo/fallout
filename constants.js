@@ -204,7 +204,7 @@ export const perkData = {
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze but remove burn." },
         { name: "Overclock", desc: "Energy damage aimed shots apply burn but remove freeze." },
         { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
-        { name: "Magnetic Field", desc: "Gain +1 rad armor for each unique technology you have." }
+        { name: "Magnetic Field", desc: "Gain +1 rad armor for each additional tech you have beyond two." }
     ],
 
     CHARISMA: [
