@@ -362,8 +362,8 @@ export const monsterData = {
     },
     O3: {
         label: "Zombies", notes: "special: cover, +1 spd, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
-            { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
-            { name: "Stalker", hp: 16, def: 9, notes: "6 P+R melee, grapples on 6" },
+            { name: "Shambler", hp: 12, def: 6, notes: "2x5 R melee, grapples on 6" },
+            { name: "Stalker", hp: 16, def: 9, notes: "2x6 R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 12, notes: "9 R splash+poison other, melee" },
             { name: "Ravager", hp: 24, def: 15, notes: "8 P+R melee, grapples on 6" },
             { name: "Firebrand", hp: 28, def: 18, notes: "11 X splash+burn other, melee" },
