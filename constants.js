@@ -471,7 +471,7 @@ export const complications = [ //When rolling complications, if the bracketed te
     ["Lose 5/10 HP", "CHA", "Witnesses a gruesomely disturbing scene (illuminator)"],
     ["Lose 5/10 HP", "INT", "Chemicals cause hallucination (breatherator)"],
     ["Lose 5/10 HP", "CHA", "path is blocked while being chased (hammerator)"],
-    ["Lose 5/10 HP", "AGI", "Fired on by automated defenses (hackerator)"],
+    ["Lose 5/10 HP", "AGI", "have to navigate electrified area (hackerator)"],
     ["Lose 5/10 HP", "INT", "Get buried under collapsed rubble (autojacker)"],
     ["Lose 5/10 HP", "CHA", "Have to scare off nearby deadly animals (autojacker)"],
     ["+1/2 Fatigue", "STR", "Overexertion from opening unpowered doors (generator)"],
