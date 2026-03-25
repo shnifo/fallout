@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Sadism", desc: "After applying ailments to an enemy, add +1 stack to all ailments on them." },
+        { name: "Overengineering", desc: "You can repair items to 4 durability." },
         { name: "Substance Enthusiast", desc: "Mutagens are twice as effective and all addictive substances heal +10% HP on use." },
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
@@ -239,17 +239,17 @@ export const backgroundData = [
 ];
 
 // === Zone Table ===
-export const zoneTable = {
-    11: "Office: Contains 3 Vending machines with hidden 1d6 power water for 10c each. Autojacker to open.",
-    12: "Mall: Use illuminator when scavenging for +3 rerolls, repeatable.",
+export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
+    11: "Office: Contains 3 Vending machines with hidden 1d6 energy water for 10c each. Autojacker to open.",
+    12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to crit loot 3 random hexes away.",
     15: "University: Contains a 1D artifact",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
-    22: "Armory: Scavenging armor gives +3 rerolls with no multi-scavenge penalty.",
+    22: "Armory: Scavenging armor is abundant.",
     23: "Park: Contains a random giant plant. (heavy, +100% yield).",
-    24: "Railyard: Scavenging for scrap gives +3 rerolls, no multi-scavenge penalty, and 1 flare",
+    24: "Railyard: Scavenging scrap is abundant and gives 1 flare",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Ship yourselves or your items to any cleared hex.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
@@ -258,23 +258,23 @@ export const zoneTable = {
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
     35: "Gas Station: contains 3 pumps with 3d6 fuel, each costing 10/20/30 caps per fuel.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
-    41: "Military Base: Scavenging for weapons gives +3 rerolls and no multi-scavenge penalty.",
-    42: "Farm: scavenging for rations has no multi-scavenge penalty, and all rations are replaced with animal flesh.",
-    43: "Quarry: Use a grenade or fuel-consuming weapon to excavate a heavy ore worth 1d6×20c.",
+    41: "Military Base: Scavenging weapons is abundant.",
+    42: "Farm: scavenging for rations is abundant, and all rations are replaced with animal flesh.",
+    43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
     44: "Crashed Ship: Contains a transmuter. Scavenged weapons are mutated",
     45: "Campsite: Contains 3 flares (20c). Flares reduce enemies by 1 in Ruins.",
-    46: "Foundry: Spend 5 of its associated scrap to upgrade any weapon with +1 damage",
+    46: "Foundry: Spend 3 of its associated scrap to upgrade any weapon with +1 damage",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: Can scavenge for mutagens directly here. crit= 2x yield of chosen mutagen",
-    61: "Hospital: When you heal or remove a status, heal +10% or remove 1 extra.",
-    62: "Restaurant: Order food (1d6+5 healthy rations) that arrives on level up.",
+    56: "Laboratory: contains a random mutagen roll.",
+    61: "Hospital: Scavenging meds is abundant.",
+    62: "Supermarket: Scavenging here gives +3 rerolls.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
-    65: "Supermarket: Scavenging stackables gives +3 rerolls with no multi-scavenge penalty.",
+    65: "Brewery: Scavenging water is abundant.",
     66: "Church: No battle. Friendly merchant with 2 max tier +1 bodyguards sells items from 2 random crit loot rolls."
 };
 
@@ -404,7 +404,7 @@ export const monsterData = {
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench = scraps of your choice and a plant.
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->power (-1 thirst, -1 fatigue, +10% HP) 
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP)
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
@@ -750,7 +750,7 @@ export const rationWaterTable = [
   { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c" },
   { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c" },
   { name: "Clean Water",       effect: "-1 Thirst, 5c" },
-  { name: "Power Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
+  { name: "Energy Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
   { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads, 5c" },
   { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
