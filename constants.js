@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Terrifying Presence", desc: "You can command creatures under 4 HP within short range to flee or attack their allies." },
+        { name: "Terrifying Presence", desc: "You can command creatures under half HP in melee range to flee or attack their allies." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -228,11 +228,11 @@ export const backgroundData = [
     { name: "Mechanic", desc: "Repairing armor does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
-    { name: "Exterminator", desc: "You know when enemies have under 4 HP and can execute them on your turn." },
+    { name: "Exterminator", desc: "You know when enemies are under half HP and can use your action to execute them in melee range." },
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert a mutagen into another mutagen." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen of your choice." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -292,16 +292,16 @@ export const monsterData = {
     },
     E2: {
         label: "Beasts", notes: "special: hidden bear traps, on death: allies can immediately take action. Loot: animal flesh", subs: [ // bear trap = +1 injury and 2x cripple legs
-            { name: "Squid", hp: 6, def: 10, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
-            { name: "Wildcat", hp: 8, def: 14, notes: "7 P melee + bleed, +1 spd" },
-            { name: "Raptor", hp: 10, def: 18, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 12, def: 22, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 14, def: 26, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
-            { name: "Dragon", hp: 16, def: 30, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
+            { name: "Squid", hp: 6, def: 14, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
+            { name: "Wildcat", hp: 8, def: 18, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Raptor", hp: 10, def: 22, notes: " 8 P melee, grapple on 6, +1 spd, +2 dmg if moved 2 distance" }, //lab grown dinosaurs
+            { name: "Ursa", hp: 12, def: 26, notes: "2x9 P melee, shove on 6" }, //giant bear
+            { name: "Mammoth", hp: 14, def: 30, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
+            { name: "Dragon", hp: 16, def: 34, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
         ]
     },
     E3: {
-        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmers each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP and the same attack as the adult
+        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmer each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP, same attack as adult, no loot
             { name: "Gator", hp: 4, def: 8, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 6, def: 12, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 8, def: 16, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
@@ -342,12 +342,12 @@ export const monsterData = {
     },
     O1: {
         label: "Cultists", notes: "1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
-            { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Priest", hp: 16, def: 20, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Fanatic", hp: 18, def: 24, notes: "scaled mutated weapons +2 dmg" },
-            { name: "Elder", hp: 20, def: 28, notes: "scaled mutated weapons +2 dmg" }
+            { name: "Initiate", hp: 14, def: 6, notes: "scaled mutated weapons" },
+            { name: "Acolyte", hp: 16, def: 10, notes: "scaled mutated weapons" },
+            { name: "Disciple", hp: 18, def: 14, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Priest", hp: 20, def: 18, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Fanatic", hp: 22, def: 22, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Elder", hp: 24, def: 26, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
     O2: {
@@ -361,43 +361,43 @@ export const monsterData = {
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
-            { name: "Shambler", hp: 12, def: 6, notes: "2x5 P/R melee, grapples on 6" },
-            { name: "Stalker", hp: 16, def: 10, notes: "2x6 P/R melee, grapples on 6" },
+        label: "Zombies", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
+            { name: "Shambler", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Stalker", hp: 16, def: 10, notes: "6 P+R melee, grapples on 6" },
             { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Ravager", hp: 24, def: 18, notes: "8 P+R melee, grapples on 6" },
+            { name: "Ravager", hp: 24, def: 18, notes: "3x10 P melee, grapples on 6" },
             { name: "Firebrand", hp: 28, def: 22, notes: "11 X splash+burn other, melee" },
             { name: "Frostbrand", hp: 32, def: 26, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
         label: "Aberrations", notes: "special: rad source, regenerate 2 hp per turn, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
-            { name: "Tangler", hp: 8, def: 10, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
-            { name: "Crawler", hp: 10, def: 15, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Buzzer", hp: 12, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
-            { name: "Bloat", hp: 14, def: 25, notes: "10 P melee, explodes 15X splash on death" }, //giant volatile mound of flesh with legs
-            { name: "Widow", hp: 16, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 18, def: 35, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Tangler", hp: 6, def: 14, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
+            { name: "Crawler", hp: 8, def: 18, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
+            { name: "Buzzer", hp: 10, def: 22, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
+            { name: "Bloat", hp: 12, def: 26, notes: "10 P melee, explodes 15X splash on death" }, //giant volatile mound of flesh with legs
+            { name: "Widow", hp: 14, def: 30, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 16, def: 34, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: rad source, each have random mutagen effect. Loot: weapons, mutant flesh, mutagen", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
-            { name: "Exile", hp: 12, def: 12, notes: "scaled heavy guns" },
-            { name: "Recluse", hp: 14, def: 16, notes: "scaled heavy guns" },
-            { name: "Outsider", hp: 16, def: 20,  notes: "scaled heavy guns +1 dmg" },
-            { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 dmg" },
-            { name: "Abomination", hp: 20, def: 28, notes: "scaled heavy guns +2 dmg" },
-            { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 dmg" }
+        label: "Mutants", notes: "special: rad source. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
+            { name: "Reject", hp: 12, def: 12, notes: "scaled heavy weapons" },
+            { name: "Exile", hp: 14, def: 16, notes: "scaled heavy weapons" },
+            { name: "Forsaken", hp: 16, def: 20,  notes: "scaled heavy guns +1 weapons" },
+            { name: "Periah", hp: 18, def: 24, notes: "scaled heavy guns +1 weapons" },
+            { name: "Abomination", hp: 20, def: 28, notes: "scaled heavy guns +2 weapons" },
+            { name: "Monstrosity", hp: 22, def: 32, notes: "scaled heavy guns +2 weapons" }
         ]
     },
     O6: {
-        label: "Mercenaries", notes: "special: hidden land mines, have 1x grenade each equal to mines, have +1 all armor. Loot: weapons, human flesh", subs: [
-            { name: "Recruit", hp: 10, def: 4, notes: "scaled guns, 11X mines" }, // 1-6
-            { name: "Lieutenant", hp: 12, def: 8, notes: "scaled guns, 12X mines" }, // 7-8
-            { name: "Officer", hp: 14, def: 12, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
-            { name: "Captain", hp: 16, def: 16, notes: "scaled guns +1 dmg, 14 X mines" }, // 11-12
-            { name: "General", hp: 18, def: 20, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
-            { name: "Elite", hp: 20, def: 24, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
+        label: "Mercenaries", notes: "special: hidden land mines, have 1x grenade each. Loot: weapons, human flesh", subs: [
+            { name: "Recruit", hp: 12, def: 8, notes: "scaled guns, 11X mines/grenades" }, // 1-6
+            { name: "Lieutenant", hp: 14, def: 12, notes: "scaled guns, 12X mines/grenades" }, // 7-8
+            { name: "Officer", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines/grenades" }, // 9-10
+            { name: "Captain", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X mines/grenades" }, // 11-12
+            { name: "General", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines/grenades" }, // 13-14
+            { name: "Elite", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines/grenades" } // 15+
         ]
     }
 };
@@ -435,9 +435,9 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
 ];
 
 export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
-    { name: "Steel Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" },
-    { name: "Rage Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Focus Mutagen", effect: "+1 to all stat rolls for 1 day (addictive), 30c" }
+    { name: "Body Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" },
+    { name: "Mind Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
+    { name: "Soul Mutagen", effect: "+1 to all stat rolls for 1 day (addictive), 30c" }
 ];
 
 
