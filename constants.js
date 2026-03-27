@@ -128,11 +128,11 @@ export const recipeTable = [
 
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, 
-    { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
+    { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
-    { type: "Large rounds", roll: "1d6+2", cost: 10 }, 
+    { type: "Large rounds", roll: "1d6+3", cost: 10 }, 
     { type: "MF-cell", roll: "1d6+1", cost: 15 } 
 ];
 export const grenadeTable = [
@@ -232,7 +232,7 @@ export const backgroundData = [
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen of your choice." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated consumables into a mutagen of your choice." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -244,9 +244,9 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to crit loot 3 random hexes away.",
-    15: "University: Contains a 1D artifact",
+    15: "University: Gain a random perk book. Read instead of sleeping/scavenging 3 times to gain that perk, bulky, 100c. ",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
-    21: "Museum: Can scavenge for heavy relics worth 1d6x50c. crit:3d6",
+    21: "Museum: Contains a 1D artifact.",
     22: "Armory: Scavenging armor is abundant.",
     23: "Park: Contains a random giant plant. (heavy, +100% yield).",
     24: "Railyard: Scavenging scrap is abundant and gives 1 flare",
@@ -263,11 +263,11 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
     44: "Crashed Ship: Contains a transmuter. Scavenged weapons are mutated",
     45: "Campsite: Contains 3 flares (20c). Flares reduce enemies by 1 in Ruins.",
-    46: "Foundry: Spend 3 of its associated scrap to upgrade any weapon with +1 damage",
+    46: "Foundry: Can upgrade one crafted equipment item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Generates an adjacent Subway. Contains 1 flare for each Subway on map.",
-    54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator each way to avoid rads.",
+    54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: contains a random mutagen roll.",
     61: "Hospital: Scavenging meds is abundant.",
