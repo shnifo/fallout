@@ -107,7 +107,7 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
 
 export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
-    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope" },
+    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope at target" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action where applicable" },
@@ -158,13 +158,13 @@ export const perkData = {
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
-        { name: "Saboteur", desc: "Your attacks always detonate explosive tiles and you are unaffected by hidden traps." },
+        { name: "Saboteur", desc: "Your attacks always detonate explosive tiles and you automatially disarm traps you trigger." },
         { name: "Heavy Metal", desc: "Gain +1 energy armor for each heavy weapon you have." }
     ],
 
     AGILITY: [
         { name: "Specialist", desc: "Deal +1 damage with all attacks of a chosen weapon type." },
-        { name: "Zero Waste", desc: "Each slain creature you loot has a 50% chance to yield an additional scrap/flesh." },
+        { name: "Zero Waste", desc: "Slain creatures you loot have a 50% chance to yield an additional scrap/flesh." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Ignore the effects of rubble and sprint moves +1 distance." },
         { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on clear terrain." },
@@ -291,13 +291,13 @@ export const monsterData = {
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: territory (beast has full cover on their territory), on death: allies immediately take action. Loot: animal flesh", subs: [ 
-            { name: "Squid", hp: 8, def: 14, notes: "5 X splash, mid" }, //giant land adapted squids that spray explosive ink
+        label: "Beasts", notes: "special: lair (beast has full cover in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
+            { name: "Kappa", hp: 8, def: 14, notes: "6 X splash, mid" }, //Sea creatures that spit volatile fluids
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
-            { name: "Ursa", hp: 14, def: 26, notes: "2x9 P melee, shove on 6" }, //giant bear
-            { name: "Mammoth", hp: 16, def: 30, notes: "2x10 P melee + bleed, shove on 6, +1 spd" }, //previously deathclaw, same functionality
-            { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short, flies (cover vs melee)" } //Giant flying lizards that spew toxic ash.
+            { name: "Yeti", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, 
+            { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, 
+            { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short" } //Giant lizards that spew toxic ash.
         ]
     },
     E3: {
@@ -305,23 +305,23 @@ export const monsterData = {
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Cryotoad", hp: 16, def: 24, notes: "9 E + freeze, mid" }, //Giant toads that attack with beams of ice
-            { name: "Hornet", hp: 18, def: 28, notes: "11 P melee + poison, flies (cover vs melee), +1 spd" },
-            { name: "Terminite", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant termites
+            { name: "Basilisk", hp: 16, def: 24, notes: "9 E + freeze, mid" }, //Giant Snakes that fire a psychic beam with their eyes
+            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies (cover vs melee), +1 spd" },
+            { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants
         ]
     },
     E4: {
         label: "Burrowers", notes: "special: burrow, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
-            { name: "Silverfish", hp: 6, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
-            { name: "Rodent", hp: 8, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
-            { name: "Ninetails", hp: 10, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
-            { name: "Pyrodillos", hp: 12, def: 24, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 14, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
-            { name: "Hydra", hp: 16, def: 32, notes: "3x11 P melee + poison," } //Giant snake with 3 heads
+            { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
+            { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
+            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
+            { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" },
+            { name: "Angler", hp: 18, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
+            { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with 3 heads
         ]
     },
     E5: {
-        label: "Robots", notes: "special: explosive, take +1 dmg per cripple. Loot: armor scraps", subs: [
+        label: "Robots", notes: "special: explosive tile, take +1 dmg per cripple. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
             { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
             { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
@@ -356,7 +356,7 @@ export const monsterData = {
             { name: "Assimilator", hp: 4, def: 10, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 6, def: 14, notes: "3x7 X, short" },
             { name: "Destroyer", hp: 8, def: 18, notes: "11 X splash, mid" },
-            { name: "Suppressor", hp: 10, def: 22, notes: "2x0 E + freeze, mid" },
+            { name: "Suppressor", hp: 10, def: 22, notes: "2x10 E + freeze, mid" },
             { name: "Invader", hp: 12, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
@@ -374,7 +374,7 @@ export const monsterData = {
         label: "Aberrations", notes: "special: rad source, regenerate 2 hp per round, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
             { name: "Tangler", hp: 6, def: 16, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
             { name: "Crawler", hp: 8, def: 20, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Buzzer", hp: 10, def: 24, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation with a proboscis that emits freezing chemicals
+            { name: "Chimaera", hp: 10, def: 24, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
             { name: "Bloat", hp: 12, def: 28, notes: "10 P melee, explodes 15X splash on death" }, //giant volatile mound of flesh with legs
             { name: "Widow", hp: 14, def: 32, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 16, def: 36, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
