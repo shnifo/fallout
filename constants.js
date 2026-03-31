@@ -7,7 +7,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
 5. Swift: +1 sneak and sprint rolls
 6. Ethereal: Gain cover against melee attacks   */
     { roll: 2, text: "Junk armor: +5 def, 60c" },
-    { roll: 3, text: "Raider armor: +6 def, 70c" },
+    { roll: 3, text: "Scrap armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
     { roll: 5, text: "Chain armor: +8 def, 90c" },
     { roll: 6, text: "Metal armor: +9 def, 100c" },
@@ -128,8 +128,8 @@ export const recipeTable = [
 
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, 
-    { type: "Small rounds", roll: "1d6+4", cost: 5 }, 
-    { type: "E-cell", roll: "1d6+2", cost: 10 },  
+    { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
+    { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
     { type: "Large rounds", roll: "1d6+3", cost: 10 }, 
@@ -168,7 +168,7 @@ export const perkData = {
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Sprint moves +1 distance, and grants you defend if you do not attack." },
         { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on clear terrain." },
-        { name: "Guerrilla", desc: "Rubble is instead treated as cover and your attacks ignore obstructions." },
+        { name: "Guerrilla", desc: "Rubble is instead treated as cover for you." },
         { name: "Sniper", desc: "Attacks ignore cover and weapons with long or extra long range gain +1 range." },
         { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
         { name: "Jack of All Trades", desc: "Gain another skill and another background." },
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Wrecking Ball", desc: "You can clear special terrain by hitting it with a melee aimed shot." },
+        { name: "Wrecking Ball", desc: "you can clear train by attacking it with an aimed shot." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots inflict poison." }
     ],
 
