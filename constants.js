@@ -154,7 +154,7 @@ export const perkData = {
         { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Karate Kid", desc: "Melee aimed shots can shove or grapple the target instead of crippling." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
-        { name: "Boomer", desc: "Explosive splash damage aimed shots splash to short range." },
+        { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
         { name: "Chiropractor", desc: "When you cripple a limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
@@ -163,8 +163,8 @@ export const perkData = {
     ],
 
     AGILITY: [
-        { name: "Specialist", desc: "Deal +1 damage with all attacks of a chosen weapon type." },
-        { name: "Zero Waste", desc: "Slain creatures you loot have a 50% chance to yield an additional scrap/flesh." },
+        { name: "Specialist", desc: "Deal +1 damage with all attacks using a chosen weapon type." },
+        { name: "Zero Waste", desc: "Harvesting slain creatures has a 50% chance to yield an additional scrap/flesh." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Sprint moves +1 distance, and grants you defend if you do not attack." },
         { name: "Ninja", desc: "You can move while sneaking, and can still attempt to sneak on clear terrain." },
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Wrecking Ball", desc: "You can clear special terrain by attacking it with a melee aimed shot." },
+        { name: "Wrecking Ball", desc: "You can clear special terrain by hitting it with a melee aimed shot." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots inflict poison." }
     ],
 
