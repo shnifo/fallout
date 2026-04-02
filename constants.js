@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Wrecking Ball", desc: "you can clear train by attacking it with an aimed shot." },
+        { name: "Wrecking Ball", desc: "you can clear terrain in combat by attacking it with an aimed shot." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots inflict poison." }
     ],
 
@@ -291,7 +291,7 @@ export const monsterData = {
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: lair (beast has full cover in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
+        label: "Beasts", notes: "special: lair (beast has full cover and +2 dmg in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "6 X splash, mid" }, //Sea creatures that spit volatile fluids
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee + bleed, +1 spd" },
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
@@ -301,7 +301,7 @@ export const monsterData = {
         ]
     },
     E3: {
-        label: "Nesters", notes: "special: eggs, 50% to hatch into swarmer each round. Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP, same attack as adult, no loot
+        label: "Nesters", notes: "special: eggs (50% to hatch into swarmer each round), Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP, same attack as adult, no loot
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
@@ -341,7 +341,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "special: rad source, 1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
+        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 14, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 16, def: 12, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 18, def: 16, notes: "scaled mutated weapons +1 dmg" },
@@ -371,11 +371,11 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: rad source, regenerate 2 hp per round, Loot: mutant flesh", subs: [ // rad source = 50% to gain 1 rad if you enter/start turn on tile. 
-            { name: "Tangler", hp: 6, def: 16, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacle vines 
-            { name: "Crawler", hp: 8, def: 20, notes: "8 R melee, +1 spd" }, //giant centipede made out of human limbs
+        label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is highly irradiated causing all players to deal -2 dmg and take +2 dmg
+            { name: "Tangle", hp: 6, def: 16, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
+            { name: "Crawler", hp: 8, def: 20, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
             { name: "Chimaera", hp: 10, def: 24, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
-            { name: "Bloat", hp: 12, def: 28, notes: "10 P melee, explodes 15X splash on death" }, //giant volatile mound of flesh with legs
+            { name: "Bloat", hp: 12, def: 28, notes: "10 P melee, explodes 15X sshort plash on death" }, //giant volatile mound of flesh with legs
             { name: "Widow", hp: 14, def: 32, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 16, def: 36, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
