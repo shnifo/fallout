@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Artisan", desc: "Consume only 2 scrap when you repair an item at 2 durability." },
+        { name: "Artisan", desc: "Consume only 2 scrap when you repair an item to maximum durability." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
@@ -202,7 +202,7 @@ export const perkData = {
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots inflict freeze." },
-        { name: "Overclock", desc: "You can convert aimed shots with energy damage guns to radiation damage." },
+        { name: "Overclock", desc: "You can convert energy damage with guns to radiation damage." },
         { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
     ],
