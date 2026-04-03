@@ -202,7 +202,7 @@ export const perkData = {
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots inflict freeze." },
-        { name: "Overclock", desc: "You can make guns that do energy damage do radiation damage instead." },
+        { name: "Overclock", desc: "You can convert aimed shots with energy damage guns to radiation damage." },
         { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
     ],
@@ -342,12 +342,12 @@ export const monsterData = {
     },
     O1: {
         label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
-            { name: "Initiate", hp: 14, def: 8, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 16, def: 12, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 18, def: 16, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Priest", hp: 20, def: 20, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Fanatic", hp: 22, def: 24, notes: "scaled mutated weapons +2 dmg" },
-            { name: "Elder", hp: 24, def: 28, notes: "scaled mutated weapons +2 dmg" }
+            { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
+            { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
+            { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Priest", hp: 16, def: 20, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Fanatic", hp: 18, def: 24, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Elder", hp: 20, def: 28, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
     O2: {
@@ -372,12 +372,12 @@ export const monsterData = {
     },
     O4: {
         label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is highly irradiated causing all players to deal -2 dmg and take +2 dmg
-            { name: "Tangle", hp: 6, def: 16, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
-            { name: "Crawler", hp: 8, def: 20, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Chimaera", hp: 10, def: 24, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
-            { name: "Bloat", hp: 12, def: 28, notes: "10 P melee, explodes 15X sshort plash on death" }, //giant volatile mound of flesh with legs
-            { name: "Widow", hp: 14, def: 32, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 16, def: 36, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
+            { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
+            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, explodes 15X sshort plash on death" }, //giant volatile mound of flesh with legs
+            { name: "Widow", hp: 14, def: 28, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
+            { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
