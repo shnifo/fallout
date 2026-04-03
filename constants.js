@@ -232,7 +232,7 @@ export const backgroundData = [
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 irradiated consumables into a mutagen of your choice." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen of your choice." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -419,7 +419,7 @@ export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp ins
 export const plants = [ // "Generates a resource every time you level up",
     {name: "Sludgeflower", effect: "Generates 3 fuel on level up, bulky, 100c"},
     {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, bulky, 100c"},
-    {name: "Mutfruit", effect: "Generates 3 clean water on level up, bulky, 100c"},
+    {name: "Meloconut", effect: "Generates 3 clean water on level up, bulky, 100c"},
     {name: "Radovera", effect: "Generates 3 bandage on level up, bulky, 100c"},
     {name: "Indigourd", effect: "Generates 3 rad-x on level up, bulky, 100c"},
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
@@ -670,37 +670,37 @@ export const factions = [
 ];
 
 export const npcTable = [
-  { roll: 11, name: "Bitter War Veteran", desc: "Gruff, one-eyed, tells long stories of battles no one remembers. Distrusts outsiders." },
+  { roll: 11, name: "Bitter War Veteran", desc: "Gruff, injured, tells long stories of battles, distrusts outsiders." },
   { roll: 12, name: "Cheerful Elder", desc: "Overly optimistic, belives in leaving a better future for their people." },
   { roll: 13, name: "Paranoid Scavenger", desc: "Constantly scanning the horizon, mutters about being followed." },
-  { roll: 14, name: "Wandering Bard", desc: "Plays a battered guitar, trades songs for information and goods." },
+  { roll: 14, name: "Wandering Bard", desc: "Plays a battered insturment, trades songs for information and goods." },
   { roll: 15, name: "Traumatized Medic", desc: "Skilled healer suffering from the trauma of wasteland brutaility." },
   { roll: 16, name: "Soft-Spoken Farmer", desc: "Avoids conflict, loves talking about soil and crops." },
   { roll: 21, name: "Aspiring Artist", desc: "Young and keen amateur artist trying to make a living through their craft." },
-  { roll: 22, name: "Cold Bounty Hunter", desc: "Says little, eyes everyone as a potential target." },
-  { roll: 23, name: "Story-Hoarding Elder", desc: "Collects tales like treasure, trades them for supplies." },
+  { roll: 22, name: "Nervous Introvert", desc: "Says little, stutters words, has hidden skills." },
+  { roll: 23, name: "Pessimistic Elder", desc: "Believes there is no hope for the future, blames the current generation." },
   { roll: 24, name: "Outcast Mutant", desc: "Mistrustful but surprisingly gentle; hides disfigurements." },
   { roll: 25, name: "Disgraced Officer", desc: "Still wears a faded uniform, insists on strict protocol." },
   { roll: 26, name: "Gambling Addict", desc: "Always shuffling a deck, willing to bet on anything." },
   { roll: 31, name: "Recovering Addict", desc: "Skittish and dirty, struggling with withdrawl but motivated to recover." },
   { roll: 32, name: "Smooth-Talking Swindler", desc: "Can make junk sound valuable and lies sound sweet." },
   { roll: 33, name: "Inventive Tinkerer", desc: "Constantly fiddling with devices, absent-minded in conversation." },
-  { roll: 34, name: "Runaway Cultist", desc: "Avoids eye contact, refuses to talk about their past faith." },
+  { roll: 34, name: "Secret Cultist", desc: "Subtly attempts to recruit into the cult, views radiation as a gift" },
   { roll: 35, name: "Grumpy Retiree", desc: "Complains about everything, believes the new generation is weak." },
   { roll: 36, name: "Foerign Nomad", desc: "Settled after visiting from a distand land with strange customs." },
   { roll: 41, name: "Desert Hermit", desc: "Lives alone by choice, mutters about 'the old ways.'" },
   { roll: 42, name: "Overzealous Guard", desc: "Takes rules way too seriously, even in casual conversation." },
   { roll: 43, name: "Scarred Pit Fighter", desc: "Proud of every scar, constantly seeks challenges, loves to duel." },
   { roll: 44, name: "Injured Veteran", desc: "Always talking about their battles, drinks to remember, and to forget." },
-  { roll: 45, name: "Animal Whisperer", desc: "Talks to animals as if they respond, claims they do." },
-  { roll: 46, name: "Irradiated Prophet", desc: "Speaks in riddles, claims visions come from 'the visitors'." },
+  { roll: 45, name: "Animal Whisperer", desc: "Has a pet, talks to animals as if they respond." },
+  { roll: 46, name: "Irradiated Prophet", desc: "Speaks in riddles, claims radiation gives him true visions." },
   { roll: 51, name: "Hoarder", desc: "Collects anything shiny or unusual, highly territorial." },
-  { roll: 52, name: "Traveling Preacher", desc: "Member of the cult that rambles about alien conspiracy." },
-  { roll: 53, name: "Retired Raider", desc: "Calm now, but still jittery, misses the savage life." },
-  { roll: 54, name: "Wanderlust Explorer", desc: "Maps everything, constantly seeks 'what's over that hill.'" },
-  { roll: 55, name: "Charismatic Drifter", desc: "Always has a story, usually half true." },
-  { roll: 56, name: "Grinning Bodyguard", desc: "Enjoys their work a little too much." },
-  { roll: 61, name: "Silent Gunslinger", desc: "Answers with nods, lets their weapon do the talking." },
+  { roll: 52, name: "Traveling Preacher", desc: "Member of the cult that rambles about aliens being real." },
+  { roll: 53, name: "Retired Raider", desc: "Heavily scarred. Calm now, but still jittery, misses the savage life." },
+  { roll: 54, name: "Wanderlust Explorer", desc: "Curious about the world, constantly seeks 'what's over that hill.'" },
+  { roll: 55, name: "Charismatic Charlatan", desc: "Always trying to charm, cowardly but will manipulate for gain." },
+  { roll: 56, name: "Grinning Bodyguard", desc: "Enjoys their work a little too much, looks forward to a fight." },
+  { roll: 61, name: "Genius Inventor", desc: "Always building and fixing robots, knows a lot about science and tech." },
   { roll: 62, name: "Bitter Widow/Widower", desc: "Blames the wasteland for everything lost." },
   { roll: 63, name: "Scavenger Kid", desc: "Tiny, bold, and far too street-smart for their age." },
   { roll: 64, name: "Flamboyant Trader", desc: "Dresses extravagantly, announces every sale dramatically." },
@@ -742,7 +742,7 @@ export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
 export const fleshTable = [
   { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
-  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads, 5c" },
+  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads (irradiated), 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain addiction, 5c" },
 ];
 
@@ -758,7 +758,7 @@ export const rationWaterTable = [
 ];
 
 export const moraleTable = [
-  { value: "+5", effect: "quest to join faction (must defeat tier 6 battle)" },
+  { value: "+5", effect: "unlock quest to join faction (must defeat tier 6 battle)" },
   { value: "+4", effect: "20% discount" },
   { value: "+3", effect: "faction shop also sells crit loot" },
   { value: "+2", effect: "10% discount" },
