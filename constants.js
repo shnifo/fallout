@@ -72,13 +72,13 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
         [10, "Ballista", "12 X splash next round", "fuel", "extra long", "AGI", "140c"],
         [12, "Cannon", "13 X splash next round", "fuel", "extra long", "AGI", "170c"],
         [14, "Howitzer", "14 X splash next round", "fuel", "extra long", "AGI", "200c"],
-        [99, "Judgement", "15 X splash next round", "fuel", "extra long", "AGI", "230c"]],
+        [99, "Lightbringer", "15 X splash next round", "fuel", "extra long", "AGI", "230c"]],
         O2: [[6, "Hand Mortar", "9 X splash", "fuel", "mid", "AGI", "70c"],
         [8, "Grenade Launcher", "10 X splash", "fuel", "mid", "AGI", "100c"],
         [10, "Stinger", "11 X splash", "fuel", "mid", "AGI", "130c"],
         [12, "Rocket Launcher", "12 X splash", "fuel", "mid", "AGI", "160c"],
         [14, "Bazooka", "13 X splash", "fuel", "mid", "AGI", "190c"],
-        [99, "Little Friend", "14 X splash", "fuel", "mid", "AGI", "220c"]],
+        [99, "Judgement", "14 X splash", "fuel", "mid", "AGI", "220c"]],
         O3: [[6, "Weak Melee", "6 P", "-", "melee", "STR", "30c"],
         [8, "Medium Melee", "7 P", "-", "melee", "STR", "50c"],
         [10, "Strong Melee", "8 P", "-", "melee", "STR", "70c"],
@@ -149,10 +149,10 @@ export const grenadeTable = [
 export const perkData = {
     STRENGTH: [
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
-        { name: "Pyromaniac", desc: "Explosive damage aimed shots inflict burn." },
+        { name: "Pyromaniac", desc: "Explosive damage aimed shots apply burn to the main target." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
         { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
-        { name: "Karate Kid", desc: "Melee aimed shots can shove or grapple the target instead of crippling." },
+        { name: "Forbidden Technique", desc: "Shove moves the target 2 distance and grapple lasts 2 turns." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
@@ -173,7 +173,7 @@ export const perkData = {
         { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
         { name: "Jack of All Trades", desc: "Gain another skill and another background." },
         { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapons." },
-        { name: "Rivers of Blood", desc: "Physical damage aimed shots inflict bleed." },
+        { name: "Rivers of Blood", desc: "Physical damage aimed shots apply bleed." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
     ],
 
@@ -189,7 +189,7 @@ export const perkData = {
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
         { name: "Wrecking Ball", desc: "you can clear terrain in combat by attacking it with an aimed shot." },
-        { name: "Exposure Therapy", desc: "Radiation damage aimed shots inflict poison." }
+        { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
     INTELLIGENCE: [
@@ -201,7 +201,7 @@ export const perkData = {
         { name: "Green Thumb", desc: "Potted plants give +100% yield if held for the whole level." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "Your skill, luck, and resist can be used in place of one another." },
-        { name: "Reverse Polarity", desc: "Energy damage aimed shots inflict freeze." },
+        { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
         { name: "Overclock", desc: "You can convert energy damage with guns to radiation damage." },
         { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
