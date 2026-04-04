@@ -636,7 +636,7 @@ export const professionQuests = { //prof quest rewards = 1d6+level x 5 caps
 };
 
 // ===== FACTIONS =====
-export const factions = [
+export const factions = [ // towns have 1d6 guards per player, rolled when generating the town. total population is 3d6 per player. 
     {
         name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
         tag: "Armor",
@@ -648,24 +648,24 @@ export const factions = [
         desc: "Trying to rebuild society with hostorical best practice and science, democracy, weary, max tier android guards"
     },
     {
-        name: "Providence", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
+        name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
         desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier mutant guards" 
     },
     {
         name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted.
         tag: "Weapons",
-        desc: "Bureaucratic progressive society, republic, weary, max tier human guards"
+        desc: "Bureaucratic progressive society, republic, weary, max tier mercenary guards"
     },
     {
-        name: "The Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Technology",
         desc: "Communist monarchy, slavers, hateful, max tier cannibal guards"
     },
     {
         name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army
         tag: "Rations",
-        desc: "Small town commune, anarchy, friendly, max tier human guards"
+        desc: "Small town commune, anarchy, friendly, max tier mercenary guards"
     }
 ];
 
@@ -688,13 +688,13 @@ export const npcTable = [
   { roll: 34, name: "Secret Cultist", desc: "Subtly attempts to recruit into the cult, views radiation as a gift" },
   { roll: 35, name: "Grumpy Retiree", desc: "Complains about everything, believes the new generation is weak." },
   { roll: 36, name: "Foerign Nomad", desc: "Settled after visiting from a distand land with strange customs." },
-  { roll: 41, name: "Desert Hermit", desc: "Lives alone by choice, mutters about 'the old ways.'" },
+  { roll: 41, name: "Doomsday Prepper", desc: "A recluse that hoards resources and distrusts others, expects impending apocalypse.'" },
   { roll: 42, name: "Overzealous Guard", desc: "Takes rules way too seriously, even in casual conversation." },
   { roll: 43, name: "Scarred Pit Fighter", desc: "Proud of every scar, constantly seeks challenges, loves to duel." },
   { roll: 44, name: "Injured Veteran", desc: "Always talking about their battles, drinks to remember, and to forget." },
   { roll: 45, name: "Animal Whisperer", desc: "Has a pet, talks to animals as if they respond." },
   { roll: 46, name: "Irradiated Prophet", desc: "Speaks in riddles, claims radiation gives him true visions." },
-  { roll: 51, name: "Hoarder", desc: "Collects anything shiny or unusual, highly territorial." },
+  { roll: 51, name: "Hoarder", desc: "Collects all manner of junk, claims it has value and use." },
   { roll: 52, name: "Traveling Preacher", desc: "Member of the cult that rambles about aliens being real." },
   { roll: 53, name: "Retired Raider", desc: "Heavily scarred. Calm now, but still jittery, misses the savage life." },
   { roll: 54, name: "Wanderlust Explorer", desc: "Curious about the world, constantly seeks 'what's over that hill.'" },
