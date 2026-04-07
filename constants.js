@@ -111,7 +111,7 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
-    { book: "Gunsmith Magazine", recipe: "1 all scrap + weapon = Calibrated mod: +1 dmg" },
+    { book: "Gunsmith Magazine", recipe: "1 all scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 10 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
