@@ -895,7 +895,7 @@
   <div id="indexContent" style="padding:0 16px 40px;"></div>
 </div>
 <script type="module">
-  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData, weapons, recipeTable, ammoTable, grenadeTable, medTable, chemTable, techTable, artifacts, plants, armorTable, fleshTable, rationWaterTable, moraleTable } from './constants.js';
+  import { statNames, armorTypes, statAbbrev, negNames, perkData, backgroundData, weapons, recipeTable, ammoTable, grenadeTable, medTable, techTable, artifacts, plants, armorTable, fleshTable, rationWaterTable, moraleTable } from './constants.js';
 
 const STORAGE_KEY = "fallout_character_v10";
 
@@ -1722,12 +1722,12 @@ const weaponCategories = {
   "Energy Rifles":       weapons.E4,
   "Physical Shotguns":   weapons.E5,
   "Energy Shotguns":     weapons.E6,
-  "Artillery":          weapons.O1,
-  "Explosives":        weapons.O2,
-  "Melee (Physical)": weapons.O3,
+  "Explosive Artillery": weapons.O1,
+  "Explosive Launcher":  weapons.O2,
+  "Melee (Physical)": 	 weapons.O3,
   "Unarmed (Physical)":  weapons.O4,
-  "Melee (Special)":      weapons.O5,
-  "Unarmed (Special)":    weapons.O6,
+  "Melee (Special)":     weapons.O5,
+  "Unarmed (Special)":   weapons.O6,
 };
 
 function indexSection(title, html) {
@@ -1796,10 +1796,6 @@ function buildIndexUI() {
   // MEDS
   html += indexSection("MEDS", indexTable(["Name","Effect"],
     medTable.map(m => [m.name, m.effect])));
-
-  // MUTAGENS
-  html += indexSection("MUTAGENS", indexTable(["Name","Effect"],
-    chemTable.map(c => [c.name, c.effect])));
 
   // TECH
   html += indexSection("TECH", indexTable(["Name","Effect"],
