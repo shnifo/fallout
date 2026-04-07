@@ -227,12 +227,12 @@ export const backgroundData = [
     { name: "Technician", desc: "Repairing weapons does not require a roll." },
     { name: "Mechanic", desc: "Repairing armor does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
-    { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
+    { name: "Chef", desc: "You can convert any 3 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies are under half HP and can use your action to execute them in melee range." },
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen of your choice." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -425,7 +425,7 @@ export const plants = [ // "Generates a resource every time you level up",
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
-export const medTable = [ //crit = find chosen med and also find random chem roll
+export const medTable = [ //crit = find chosen med and also find 2d3 mutagens (+1 to all rolls for 1 day, addictive, 30c)
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
     { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" }, // rename: mutagone? chromocure? geneclean? antioxidants?
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
@@ -433,13 +433,6 @@ export const medTable = [ //crit = find chosen med and also find random chem rol
     { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" }, // rename: mutagone? chromocure? geneclean? 
     { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
-
-export const chemTable = [ // rename: mutagens, substances that grant temporary beneficial mutations
-    { name: "Body Mutagen", effect: "+1 to all armor values for 1 day (Addictive), 30c" },
-    { name: "Mind Mutagen", effect: "+1 to damage for 1 day (Addictive), 30c" },  
-    { name: "Soul Mutagen", effect: "+1 to all stat rolls for 1 day (addictive), 30c" }
-];
-
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact
     { name: "Generator", effect: "portable generator that provides power for electronics, 50c" },
