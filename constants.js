@@ -109,9 +109,9 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
     { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope at target" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + melee/unarmed: hydraulic mod: +1 dmg, 1 turn cooldown" },
-    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: ailment mod: -1 dmg, +1 ailment stack per hit" },
+    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon: stability mod: -1 dmg, +1 to attack roll result (up to 5)" },
+    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
-    { book: "Gunsmith Magazine", recipe: "1 all scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 10 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, 100c, 
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and access to a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, recharge by spending 1D from artifact. 
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Wrecking Ball", desc: "you can clear terrain in combat by attacking it with an aimed shot." },
+        { name: "Wrecking Ball", desc: "you can clear terrain in combat by attacking it with explosive damage." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
@@ -198,7 +198,7 @@ export const perkData = {
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Potted plants give +100% yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Potted plants give +2 yield if held for the whole level." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
@@ -217,7 +217,7 @@ export const perkData = {
         { name: "Vampire", desc: "You can drink the blood of recently deceased creatures." },
         { name: "I Know a Place", desc: "Chosen faction settlements provide a free crit loot roll from their faction shop." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
-        { name: "Art of the Deal", desc: "Haggling is twice as effective." },
+        { name: "Art of the Deal", desc: "Successfully haggling gives a 10% better deal." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don't Look at Explosions", desc: "Gain +5 explosive armor." }
     ]
@@ -240,7 +240,7 @@ export const backgroundData = [
 
 // === Zone Table ===
 export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
-    11: "Office: Contains 3 Vending machines with hidden 1d6 energy water for 10c each. Autojacker to open.",
+    11: "Office: Contains 3 Vending machines with hidden 1d3 energy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Graveyard: Contains map to crit loot 3 random hexes away.",
@@ -248,30 +248,30 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Contains a random artifact.",
     22: "Armory: Scavenging armor is abundant.",
-    23: "Park: Contains a random giant plant. (heavy, +100% yield).",
+    23: "Park: Contains a random giant plant. (heavy, +2 yield).",
     24: "Railyard: Generates another Railyard 10 hexes away. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
-    33: "Workshop: Has a workbench; repairing items only costs 2 scrap.",
+    33: "Workshop: Scavenging tech is abundant.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Gas Station: contains 3 pumps with 3d6 fuel, each costing 10/20/30 caps per fuel.",
+    35: "Gas Station: contains 3 pumps with 1d6 fuel each, each costing 10/20/30 caps per fuel.",
     36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
     41: "Army Base: Scavenging weapons is abundant.",
-    42: "Restaurant: scavenging for rations is abundant",
+    42: "Restaurant: scavenging rations is abundant",
     43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
     44: "Crashed Ship: Contains a transmuter. Scavenged weapons are mutated",
     45: "Outpost: Scavenging ammo is abundant.",
-    46: "Foundry: Can upgrade one crafted equipment item to heavy with doubled effect",
+    46: "Foundry: Can upgrade one Tinker's Digest crafted item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
-    53: "Airport: Pay 10c per player to fly yourselves to any cleared hex.",
+    53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: contains a random mutagen roll.",
     61: "Hospital: Scavenging meds is abundant.",
-    62: "Supermarket: Scavenging here gives +3 rerolls.",
+    62: "Supermarket: Gain +3 rerolls when scavenging.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
@@ -341,7 +341,7 @@ export const monsterData = {
         ]
     },
     O1: {
-        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, 1D artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
+        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
@@ -374,8 +374,8 @@ export const monsterData = {
         label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is highly irradiated causing all players to deal -2 dmg and take +2 dmg
             { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
-            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, explodes 15X sshort plash on death" }, //giant volatile mound of flesh with legs
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
+            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, explodes 15 R short splash on death" }, //giant volatile mound of flesh with legs
             { name: "Widow", hp: 14, def: 28, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
