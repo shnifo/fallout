@@ -266,7 +266,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     46: "Foundry: Can upgrade one crafted equipment item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
-    53: "Airport: Ship yourselves or your items to any cleared hex.",
+    53: "Airport: Pay 10c per player to fly yourselves to any cleared hex.",
     54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator to avoid rads.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: contains a random mutagen roll.",
