@@ -279,7 +279,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
 };
 
 // === Monster Data ===
-export const monsterData = {
+export const monsterData = { //flies = ignores rubble and has cover vs melee attacks
     E1: {
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
@@ -301,12 +301,12 @@ export const monsterData = {
         ]
     },
     E3: {
-        label: "Nesters", notes: "special: eggs (50% to hatch into swarmer each round), Loot: animal flesh", subs: [ // swarmers have 0 armor, 1 HP, same attack as adult, no loot
+        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult, no loot. can stomp eggs as action
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Basilisk", hp: 16, def: 24, notes: "9 E + freeze, mid" }, //Giant Snakes that fire a psychic beam with their eyes
-            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies (cover vs melee), +1 spd" },
+            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" },
             { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants
         ]
     },
@@ -351,7 +351,7 @@ export const monsterData = {
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, ignore rubble, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
+        label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
             { name: "Observer", hp: 2, def: 6,  notes: "2x5 E, mid" },
             { name: "Assimilator", hp: 4, def: 10, notes: "2x6 R, mid" },
             { name: "Excavator", hp: 6, def: 14, notes: "3x7 X, short" },
@@ -371,10 +371,10 @@ export const monsterData = {
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is highly irradiated causing all players to deal -2 dmg and take +2 dmg
+        label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is toxic causing all players to deal -2 dmg and take +2 dmg
             { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R, melee+freeze, flies (has cover against melee)" }, //giant flying amalgamation that spits freezing chemicals
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R, melee+freeze, flies" }, //giant flying amalgamation that spits freezing chemicals
             { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, explodes 15 R short splash on death" }, //giant volatile mound of flesh with legs
             { name: "Widow", hp: 14, def: 28, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
