@@ -172,7 +172,7 @@ export const perkData = {
         { name: "Sniper", desc: "Attacks ignore cover and weapons with long or extra long range gain +1 range." },
         { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
         { name: "Jack of All Trades", desc: "Gain another skill and another background." },
-        { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapons." },
+        { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapon attacks." },
         { name: "Rivers of Blood", desc: "Physical damage aimed shots apply bleed." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
     ],
