@@ -409,11 +409,11 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
-    {name: "Green Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
-    {name: "Purple Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"},
+    {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"},
+    {name: "Green Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
     {name: "Blue Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
-    {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"}
+    {name: "Purple Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"}     
 ];
 
 export const plants = [ // "Generates a resource every time you level up",
