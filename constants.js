@@ -549,7 +549,7 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
     { roll: 42, text: `Ghost in the Shell – A faulty AI controls the town's infrastructure and has started locking people in for "safety violations".` },
     { roll: 43, text: `"The Guilty Innocent" – A beloved hero is secretly guilty; expose or protect them.` },
     { roll: 44, text: `"Psycho Circus" – A chem dealer's new formula turns people feral.` },
-    { roll: 45, text: `"The Arena" – A Group of degenerates built a combat arena in town. shut it down, bet on the winner, or join in the fun.` },
+    { roll: 45, text: `"The Arena" – A Group of youngsters built a combat arena in town, attracting riffraff. shut it down, bet on the winner, or join in the fun.` },
     { roll: 46, text: `The Long Penance – A town elder is starving the people as a form of religious penance.  Expose them, help them, or take their place..` },
     { roll: 51, text: `"The Trade" – Town has captives from a nearby X faction settlement they are at war with. Need to broker an exchange for their own captives back.` },
     { roll: 52, text: `Investigate the Ruins – Strange activity reported in nearby ruins, it is currently being looted by X faction who do not want to share.` },
