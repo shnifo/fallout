@@ -202,7 +202,7 @@ export const perkData = {
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
-        { name: "Chip Away", desc: "If an enemys armor reduces your attack to 0 damage, reduce the associated armor by 1" },
+        { name: "Expose Weakness", desc: "Aimed shots with guns can cripple armor, reducing the associated armor type by 1." },
         { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
     ],
