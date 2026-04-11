@@ -291,9 +291,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: lair (beast has full cover and +2 dmg in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
+        label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "6 X splash, mid" }, //Sea creatures that spit volatile fluids
-            { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee + bleed, +1 spd" },
+            { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" },
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
             { name: "Yeti", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, 
             { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, 
@@ -381,7 +381,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: hidden bear traps. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but more paranoid and violent, appearance based on morlocks
+        label: "Mutants", notes: "special: hidden bear traps. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but disfigured and more paranoid and violent, appearance based on morlocks
             { name: "Reject", hp: 8, def: 14, notes: "scaled heavy weapons, 11 P trap + 2x cripple legs" },
             { name: "Exile", hp: 10, def: 18, notes: "scaled heavy weapons, 12 P trap + 2x cripple legs" },
             { name: "Forsaken", hp: 12, def: 22,  notes: "scaled heavy weapons +1 dmg, 13 P trap + 2x cripple legs" },
