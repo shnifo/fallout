@@ -50,10 +50,10 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
         [14, "Assault Rifle", "11 P", "large", "long", "AGI", "130c"],
         [99, "Furiosa", "12 P", "large", "long", "AGI", "150c"]],
         E4: [[6, "Laser Rifle", "2x5 E", "MF-cell", "long", "INT", "60c"],
-        [8, "UV Rifle", "2x6 E", "MF-cell", "long", "INT", "80c"],
-        [10, "X Rifle", "2x7 E", "MF-cell", "long", "INT", "100c"],
+        [8, "Photon Rifle", "2x6 E", "MF-cell", "long", "INT", "80c"],
+        [10, "Ultraviolet Rifle", "2x7 E", "MF-cell", "long", "INT", "100c"],
         [12, "Gamma Rifle", "2x8 E", "MF-cell", "long", "INT", "120c"],
-        [14, "Quark Rifle", "2x9 E", "MF-cell", "long", "INT", "140c"],
+        [14, "Electron Rifle", "2x9 E", "MF-cell", "long", "INT", "140c"],
         [99, "Neutrino", "2x10 E", "MF-cell", "long", "INT", "160c"]],
         E5: [[6, "Boomstick", "3x4 P", "small", "short", "AGI", "50c"],
         [8, "Hunting Shotgun", "3x5 P", "small", "short", "AGI", "60c"],
@@ -61,7 +61,7 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
         [12, "Combat Shotgun", "3x7 P", "small", "short", "AGI", "80c"],
         [14, "Riot Shotgun", "3x8 P", "small", "short", "AGI", "90c"],
         [99, "Invictus", "3x9 P", "small", "short", "AGI", "100c"]],
-        E6: [[6, "IR Emitter", "8 E", "E-cell", "short", "INT", "60c"],
+        E6: [[6, "Infrared Emitter", "8 E", "E-cell", "short", "INT", "60c"],
         [8, "Plasma Blaster", "9 E", "E-cell", "short", "INT", "70c"],
         [10, "Pulse Cannon", "10 E", "E-cell", "short", "INT", "80c"],
         [12, "Microwave Emitter", "11 E", "E-cell", "short", "INT", "90c"],
@@ -139,9 +139,9 @@ export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "20c" },
     { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "25c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
-    { max: 12, name: "Plasma Grenade", dmg: "14 X splash", cost: "35c" },
-    { max: 14, name: "Electron Grenade", dmg: "15 X splash", cost: "40c" },
-    { max: Infinity, name: "Atomic Grenade", dmg: "16 X splash", cost: "45c" }
+    { max: 12, name: "Hydrogen Grenade", dmg: "14 X splash", cost: "35c" },
+    { max: 14, name: "Fission Grenade", dmg: "15 X splash", cost: "40c" },
+    { max: Infinity, name: "Fusion Grenade", dmg: "16 X splash", cost: "45c" }
 ];
 
 // ---------- PERK DATA ----------
