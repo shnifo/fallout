@@ -261,7 +261,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     41: "Army Base: Scavenging weapons is abundant.",
     42: "Restaurant: scavenging rations is abundant",
     43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Contains a transmuter. Scavenged weapons are mutated",
+    44: "Crashed Ship: Contains an elite crawler that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg, all armor, and hp. harvest for legendary mutagen (make item legendary)",
     45: "Outpost: Scavenging ammo is abundant.",
     46: "Foundry: Can upgrade one Tinker's Digest crafted item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
@@ -275,11 +275,11 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
-    66: "Church: No battle. Friendly merchant with 2 max tier +1 bodyguards sells items from 2 random crit loot rolls."
+    66: "Church: No battle. Friendly merchant with 2 max+1 tier mercenary guards sells items from 2 random crit loot rolls."
 };
 
 // === Monster Data ===
-export const monsterData = { //flies = ignores rubble and has cover vs melee attacks
+export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. 
     E1: {
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
