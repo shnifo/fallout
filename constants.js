@@ -375,7 +375,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
             { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R, melee+freeze, flies" }, //giant flying amalgamation that spits freezing chemicals
-            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, explodes 15 R short splash on death" }, //giant volatile mound of flesh with legs
+            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, on death: splash to mid CHA save or lose 5 HP" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
             { name: "Widow", hp: 14, def: 28, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
             { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
@@ -528,16 +528,16 @@ export const townDescriptors = [
 
 export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
     { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning townsfolk to 'thin the weak.' Expose them, join them, or take their place.` },
-    { roll: 12, text: `"Election Day" – An election is being held to decide if they want to continue on their current faction or convert to another after being visited by an envoy.` },
-    { roll: 13, text: `Retrieve the Stolen Goods – Thieves from X faction have stolen valuable supplies from the town, and the player must recover them.` },
+    { roll: 12, text: `"Pilgrim Dreams" – Pilgrims from X faction have been arriving in town for weeks, drawn by dreams none of them can describe. They don't leave or sleep, just gather in a circle, waiting...` },
+    { roll: 13, text: `Wishing Well – The town's well goes deeper than it should. Something has been dropping offerings into it — from below. It leads to a fleshy chamber inhabited by horrible monstrosity.` },
     { roll: 14, text: `Investigate the Sabotage – Someone is sabotaging the town's equipment; find and stop them.` },
     { roll: 15, text: `Secure the Power Source – The town's power source is failing; find a new one or repair the existing one involving X faction.` },
     { roll: 16, text: `"The Price of Safety" – A settlement wants a massive wall built, but the only materials are sacred to a nearby X faction settlement.` },
     { roll: 21, text: `Help the Farmers – Crops are failing; determine the cause and fix it.` },
     { roll: 22, text: `Recruit New Settlers – The town needs more people and is willing to give a signing bonus. recruit from nearby X faction town or convince locals to jump ship.` },
-    { roll: 23, text: `Resolve a Dispute – Two important town members are in conflict; mediate a resolution.` },
+    { roll: 23, text: `The Bad Doctor – A maddened scientist is performing experiments on the citizens, turning them into grotesque mutants. Join, stop, or improve the experiments. ` },
     { roll: 24, text: `Feed the Hunger – The town hides a secret: they are reluctant cannibals suffering withdrawal.` },
-    { roll: 25, text: `"The Hardest Goodbye" – A survivor asks you to put down their feral ghoul spouse… unless they can be saved.` },
+    { roll: 25, text: `"Little House on the Wasteland" – The town has a creepy reclusive family that doesnt seem to age. Always cheerful and wanting to invite visitors to their home. ` },
     { roll: 26, text: `The Hunger – The town secretly practices cannibalism to survive — they want you to either join, forget what you saw, or help them stop.` },
     { roll: 31, text: `Uprising – A town faces a rebellion against authority. Choose a side.` },
     { roll: 32, text: `Establish Trade Routes – Make contact with nearby settlements to open trade.` },
