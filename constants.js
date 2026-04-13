@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and access to a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables.  one use, recharge by spending 1D from artifact. 
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and access to a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. one use, recharge by spending 1D from artifact. 
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -404,9 +404,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench = scraps of your choice and a plant.
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) 
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP)
-//collecting all 6 artifacts, they can be assembled to create a teleporter to meet the aliens who will imbue each player with a one time +1 to any stat (up to 4).
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find half an alien mirror, bordered by. combine halves to create a full mirror, which will duplicate any item, but both items become blessed and cannot be duplicated.  
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury) and get alien coins per 2 flesh.  use reroll any roll, including non skill rolls. (coin has a smiling mouth on it)
+//artifacts look like geometric shapes with hands growing on them.  they can be assembled to create a teleporter to meet Unguivorathul who will imbue each player with a one time +1 to any stat (up to 4).
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -435,7 +435,7 @@ export const medTable = [ //crit = find chosen med and also find 2d3 mutagens (+
     { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
 ];
 
-export const techTable = [ //crit = find chosen tech and also find random alien artifact
+export const techTable = [ //crit = find chosen tech and also find random alien artifact that you do not have
     { name: "Generator", effect: "portable generator that provides power for electronics, 50c" },
     { name: "Autojacker", effect: "Hydraulic jack for moving heavy and jammed objects, 50c" },
     { name: "Hammerator", effect: "Hand jackhammer for expanding openings or clearing rubble, 50c" },
