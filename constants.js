@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Wrecking Ball", desc: "you can clear terrain in combat by attacking it with explosive damage." },
+        { name: "Landscaping", desc: "you can clear terrain in combat by attacking it with explosive damage." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
