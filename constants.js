@@ -183,7 +183,7 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Test Subject", desc: "Mutagens last twice as long and addiction withdrawl only lasts 1 day." },
+        { name: "Homo Superior", desc: "Mutagens last twice as long and you are unaffected by toxic tiles." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -198,7 +198,7 @@ export const perkData = {
         { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Potted plants give +2 yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Plants give +2 yield if held for the whole level." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
@@ -215,7 +215,7 @@ export const perkData = {
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
-        { name: "I Know a Place", desc: "Chosen faction settlements provide a free crit loot roll from their faction shop." },
+        { name: "Sane in the Membrane", desc: "You are unaffected by madness and addiction withdrawl only lasts 1 day." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
         { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
@@ -279,7 +279,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
 };
 
 // === Monster Data ===
-export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. 
+export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes fatigue
     E1: {
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
@@ -292,7 +292,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     E2: {
         label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
-            { name: "Kappa", hp: 8, def: 14, notes: "6 X splash, mid" }, //Sea creatures that spit volatile fluids
+            { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" },
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
             { name: "Yeti", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, 
@@ -315,9 +315,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
             { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
-            { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" },
-            { name: "Angler", hp: 18, def: 28, notes: "2x10 R + freeze, short" }, //Giant bipedal anglerfish that stuns enemies with its radioactie light source
-            { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with 3 heads
+            { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
+            { name: "Angler", hp: 18, def: 28, notes: "10 R + freeze + madness, short, flies" }, //giant hovering anglerfish that stuns enemies with its radioactie light source
+            { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
     E5: {
@@ -353,8 +353,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     O2: {
         label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
             { name: "Observer", hp: 2, def: 6,  notes: "2x5 E, mid" },
-            { name: "Assimilator", hp: 4, def: 10, notes: "2x6 R, mid" },
-            { name: "Excavator", hp: 6, def: 14, notes: "3x7 X, short" },
+            { name: "Excavator", hp: 4, def: 10, notes: "2x6 X, mid" },
+            { name: "Assimilator", hp: 6, def: 14, notes: "7 R+madness, short" },
             { name: "Destroyer", hp: 8, def: 18, notes: "11 X splash, mid" },
             { name: "Suppressor", hp: 10, def: 22, notes: "2x10 E + freeze, mid" },
             { name: "Invader", hp: 12, def: 26, notes: "13 R splash+burn, long" }
@@ -363,9 +363,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     O3: {
         label: "Zombies", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
             { name: "Shambler", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
-            { name: "Stalker", hp: 18, def: 10, notes: "6 P+R melee, grapples on 6" },
+            { name: "Haunter", hp: 18, def: 10, notes: "5 P + madness, melee" },
             { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Ravager", hp: 22, def: 18, notes: "3x10 P melee, grapples on 6" },
+            { name: "Bleeder", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
             { name: "Firebrand", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
             { name: "Frostbrand", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
         ]
@@ -373,21 +373,21 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     O4: {
         label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is toxic causing all players to deal -2 dmg and take +2 dmg
             { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
-            { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human limbs
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R, melee+freeze, flies" }, //giant flying amalgamation that spits freezing chemicals
-            { name: "Bloat", hp: 12, def: 24, notes: "10 P melee, on death: splash to mid CHA save or lose 5 HP" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
-            { name: "Widow", hp: 14, def: 28, notes: "9 P+R+psn melee, +1 spd, grapples on 6" }, //giant spider made out of human limbs
-            { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+burn/P+bleed/R+poison, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
+            { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
+            { name: "Widow", hp: 14, def: 28, notes: "11 P+psn+madness melee, +1 spd, grapples on 6" }, //giant spider covered in human faces
+            { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: hidden bear traps. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are stronger but disfigured and more paranoid and violent, appearance based on morlocks
-            { name: "Reject", hp: 8, def: 14, notes: "scaled heavy weapons, 11 P trap + 2x cripple legs" },
-            { name: "Exile", hp: 10, def: 18, notes: "scaled heavy weapons, 12 P trap + 2x cripple legs" },
-            { name: "Forsaken", hp: 12, def: 22,  notes: "scaled heavy weapons +1 dmg, 13 P trap + 2x cripple legs" },
-            { name: "Periah", hp: 14, def: 26, notes: "scaled heavy weapons +1 dmg, 14 P trap + 2x cripple legs" },
-            { name: "Abomination", hp: 16, def: 30, notes: "scaled heavy weapons +2 dmg, 15 P trap + 2x cripple legs" },
-            { name: "Monstrosity", hp: 18, def: 34, notes: "scaled heavy weapons +2 dmg, 16 P trap + 2x cripple legs" }
+        label: "Mutants", notes: "special: madness zone. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are disfigured and insane. madness zone = Entering/starting turn in area make madness roll
+            { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
+            { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
+            { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
+            { name: "Periah", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
+            { name: "Abomination", hp: 16, def: 30, notes: "scaled physical weapons +2 dmg" },
+            { name: "Monstrosity", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
         ]
     },
     O6: {
