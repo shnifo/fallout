@@ -183,7 +183,7 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Mutagens last twice as long and you are unaffected by toxic tiles." },
+        { name: "Homo Superior", desc: "Mutagens last twice as long and suppress the effects of statuses over 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -341,7 +341,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O1: {
-        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
+        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation, area outside of safe zone is toxic causing all players to deal -2 dmg and take +2 dmg
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
@@ -361,7 +361,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by radiation
+        label: "Zombies", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation
             { name: "Shambler", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Haunter", hp: 18, def: 10, notes: "5 P + madness, melee" },
             { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
@@ -371,21 +371,21 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: safe zone, regenerate 2 hp per round, Loot: mutant flesh", subs: [ //area outside of safe zone is toxic causing all players to deal -2 dmg and take +2 dmg
+        label: "Aberrations", notes: "special: madness zone. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness zone = start of each round, make madness roll if in area
             { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
             { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
             { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
             { name: "Widow", hp: 14, def: 28, notes: "11 P+psn+madness melee, +1 spd, grapples on 6" }, //giant spider covered in human faces
-            { name: "Cybermutant", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: madness zone. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are disfigured and insane. madness zone = Entering/starting turn in area make madness roll
+        label: "Mutants", notes: "special: madness zone. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are disfigured and insane. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
             { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
-            { name: "Periah", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
+            { name: "Relinquished", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
             { name: "Abomination", hp: 16, def: 30, notes: "scaled physical weapons +2 dmg" },
             { name: "Monstrosity", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
         ]
@@ -406,6 +406,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench = scraps of your choice and a plant.
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) 
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP)
+//collecting all 6 artifacts, they can be assembled to create a teleporter to meet the aliens who will imbue each player with a one time +1 to any stat (up to 4).
 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
