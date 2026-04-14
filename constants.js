@@ -281,7 +281,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
 // === Monster Data ===
 export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes fatigue
     E1: {
-        label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, human flesh", subs: [ 
+        label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
             { name: "Savage", hp: 16, def: 12, notes: "scaled melee , 12 P trap + 2x cripple legs" }, // 7-8
             { name: "Barbarian", hp: 18, def: 16, notes: "scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
@@ -331,7 +331,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E6: {
-        label: "Androids", notes: "special: hidden pulse mines. Loot: weapons, tech scrap", subs: [ // humanoid robots built for war and espionage
+        label: "Androids", notes: "special: hidden pulse mines. Loot: tech scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
             { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12E mines" },
             { name: "Trooper", hp: 14, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
@@ -381,7 +381,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: madness zone. Loot: weapons, mutant flesh", subs: [ //overly mutated humans that are disfigured and insane. 
+        label: "Mutants", notes: "special: madness zone. Loot:  mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
             { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
