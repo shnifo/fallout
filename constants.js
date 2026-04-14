@@ -632,7 +632,7 @@ export const professionQuests = { //prof quest rewards = 1d6+level x 5 caps
 // ===== FACTIONS =====
 export const factions = [ // towns have 1d6 guards per player, rolled when generating the town. total population is 3d6 per player. 
     {
-        name: "The Metallion", //Militaristic faction that vows to retake the wasteland by establishing the strongest army to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. 
+        name: "The Metallion", //Militaristic faction that vows to retake the wasteland by building the ultimate machine to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. secretly lead by a leader who wishes to become a metalmorph and uses the party to help them achieve this.  
         tag: "Armor",
         desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier mercenary guards" 
     },
@@ -652,12 +652,12 @@ export const factions = [ // towns have 1d6 guards per player, rolled when gener
         desc: "Bureaucratic progressive society, republic, weary, max tier mercenary guards"
     },
     {
-        name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables. Believe technology is the cause of their downfall and outlaws it.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Technology",
         desc: "Communist monarchy, slavers, hateful, max tier cannibal guards"
     },
     {
-        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army
+        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army. Believe too large a society becomes an easy target for otherworldly influences, prefer to keep small towns.
         tag: "Rations",
         desc: "Small town commune, anarchy, friendly, max tier mercenary guards"
     }
