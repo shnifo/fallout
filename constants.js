@@ -11,9 +11,9 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 4, text: "Leather armor: +7 def, 80c" },
     { roll: 5, text: "Chain armor: +8 def, 90c" },
     { roll: 6, text: "Metal armor: +9 def, 100c" },
-    { roll: 7, text: "Servo armor: +10 def, 110c" },
-    { roll: 8, text: "Ranger armor: +12 def, 120c" },
-    { roll: 9, text: "Kinetic armor: +14 def, 130c" },
+    { roll: 7, text: "Scavenger armor: +10 def, 110c" },
+    { roll: 8, text: "Outcast armor: +12 def, 120c" },
+    { roll: 9, text: "Ranger armor: +14 def, 130c" },
     { roll: 10, text: "Combat armor: +16 def, 140c" },
     { roll: 11, text: "Infantry armor: +18 def, 150c" },
     { roll: 12, text: "Assault armor: +20 def, 160c" },
@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and access to a transmuter (converts items to random roll from another category from weapon, armor, ammo, food, water, scrap at a ratio of 1 D to 3 stackables. one use, recharge by spending 1D from artifact. 
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts to chosen item: clean flesh , clean water, omni scrap) 
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -215,7 +215,7 @@ export const perkData = {
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
-        { name: "Sane in the Membrane", desc: "You are unaffected by madness and addiction withdrawl only lasts 1 day." },
+        { name: "Sane in the Membrane", desc: "Gain immunity to madness and addiction withdrawl only lasts 1 day." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
         { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
@@ -351,7 +351,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O2: {
-        label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //futuristic robots deployed by aliens
+        label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
             { name: "Observer", hp: 2, def: 6,  notes: "2x5 E, mid" },
             { name: "Excavator", hp: 4, def: 10, notes: "2x6 X, mid" },
             { name: "Assimilator", hp: 6, def: 14, notes: "7 R+madness, short" },
@@ -372,7 +372,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     O4: {
         label: "Aberrations", notes: "special: madness zone. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness zone = start of each round, make madness roll if in area
-            { name: "Tangle", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
+            { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
             { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
             { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
@@ -403,11 +403,11 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 };
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
-//crit workbench = scraps of your choice and a plant.
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find half an alien mirror, bordered by. combine halves to create a full mirror, which will duplicate any item, but both items become blessed and cannot be duplicated.  
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury) and get alien coins per 2 flesh.  use reroll any roll, including non skill rolls. (coin has a smiling mouth on it)
-//artifacts look like geometric shapes with hands growing on them.  they can be assembled to create a teleporter to meet Unguivorathul who will imbue each player with a one time +1 to any stat (up to 4).
+//crit workbench: scraps of your choice and a plant. 
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become blessed and cannot be duplicated.  
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get flesh coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
 
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a teleporter to meet Unguivorathul who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -462,7 +462,7 @@ export const complications = [ //When rolling complications, if the bracketed te
     ["+1/2 Hunger", "STR", "Burning calories from prolongued heavy lifting (autojacker)"],
     ["+1/2 Thirst", "AGI", "Stuck in an overly dehumidified area (generator)"],
     ["+1/2 Hunger", "END", "Burning calories breaking through obstacles (hammerator)"],
-    ["Lose 5/10 HP", "CHA", "Witnesses a gruesomely disturbing scene (illuminator)"],
+    ["Lose 5/10 HP", "CHA", "Witnesses horrific creatures moving in the shadows (illuminator)"],
     ["Lose 5/10 HP", "INT", "Chemicals cause hallucination (breatherator)"],
     ["Lose 5/10 HP", "CHA", "path is blocked while being chased (hammerator)"],
     ["Lose 5/10 HP", "AGI", "have to navigate electrified area (hackerator)"],
@@ -734,21 +734,29 @@ export const rowLabels = ["A", "B", "C", "D", "E"];
 export const colLabels = ["1", "2", "3", "4", "5"];
 export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
-export const fleshTable = [
+export const miscTable = [
+  { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
+  { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
+  { name: "Tech Scrap",  effect: "Repair tech, 5c" },
+  { name: "Omni Scrap",  effect: "Repair any item, 5c" },
+  { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads (irradiated), 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain addiction, 5c" },
+  { name: "Eldritch Coin",   effect: "Reroll a single die from ANY roll, 10c" },
+    
 ];
 
 export const rationWaterTable = [
   { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c" },
   { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c" },
   { name: "Clean Water",       effect: "-1 Thirst, 5c" },
-  { name: "Energy Water",       effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
+  { name: "Energy Water",      effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
   { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads, 5c" },
   { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads, 5c" },
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
   { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP, 10c" },
+  
 ];
 
 export const moraleTable = [
