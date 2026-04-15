@@ -407,7 +407,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become blessed and cannot be duplicated.  
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get flesh coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
 
-//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a teleporter to meet Unguivorathul who will imbue each player with a one time +1 to any stat (up to 4).
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
