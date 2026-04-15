@@ -297,7 +297,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
             { name: "Yeti", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, 
             { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, 
-            { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short" } //Giant lizards that spew toxic ash.
+            { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short, flies" } //Giant winged lizards that spew toxic ash.
         ]
     },
     E3: {
@@ -314,9 +314,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         label: "Burrowers", notes: "special: burrow, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
             { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
-            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee" }, //foxes with electrified tails
+            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee, +1 spd" }, //foxes with electrified tails
             { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
-            { name: "Angler", hp: 18, def: 28, notes: "10 R + freeze + madness, short, flies" }, //giant hovering anglerfish that stuns enemies with its radioactie light source
+            { name: "Angler", hp: 18, def: 28, notes: "10 R + freeze + madness, short, flies" }, //giant hovering anglerfish that stuns enemies with its radioactive light source
             { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
@@ -381,7 +381,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: madness zone. Loot:  mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
+        label: "Mutants", notes: "special: madness zone. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
             { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
