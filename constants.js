@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts to chosen item: clean flesh , clean water, omni scrap) 
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts to omni scrap 
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -652,7 +652,7 @@ export const factions = [ // towns have 1d6 guards per player, rolled when gener
         desc: "Bureaucratic progressive society, republic, weary, max tier mercenary guards"
     },
     {
-        name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts slavery, provides minimal due process for disagreeables. Believe technology is the cause of their downfall and outlaws it.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
+        name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts a caste system, provides minimal due process for disagreeables. Believe technology is the cause of their downfall and outlaws it.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Technology",
         desc: "Communist monarchy, slavers, hateful, max tier cannibal guards"
     },
