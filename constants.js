@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "You can harvest your own flesh and it contributes three times as much to offering vessels." },
+        { name: "Exalted Flesh", desc: "You can harvest your own flesh and it contributes three times as much for offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -249,7 +249,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     21: "Museum: Contains a random artifact.",
     22: "Armory: Scavenging armor is abundant.",
     23: "Park: Contains a random giant plant. (heavy, +2 yield).",
-    24: "Railyard: Generates another Railyard 10 hexes away. You can fast travel between cleared Railyards.",
+    24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
