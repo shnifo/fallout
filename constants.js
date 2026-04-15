@@ -151,7 +151,7 @@ export const perkData = {
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
         { name: "Pyromaniac", desc: "Explosive damage aimed shots apply burn." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
-        { name: "Conditioning", desc: "Remove 1 injury when you sleep while at full HP." },
+        { name: "Healing Factor", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Secret Technique", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -3 damage." },
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Terrifying Presence", desc: "You can command creatures under half HP in melee range to flee or attack their allies." },
+        { name: "Exalted Flesh", desc: "You can harvest your own flesh and it contributes three times as much to offering vessels." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
