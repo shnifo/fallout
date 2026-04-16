@@ -731,7 +731,7 @@ export const statAbbrev = {
     CHARISMA: "CHA"
 };
 
-export const negNames = ["Hunger", "Thirst", "Fatigue", "Rads", "Injury"];
+export const negNames = ["Hunger", "Thirst", "Fatigue", "Mutation", "Injury"];
 
 export const tileTypes = [
     { name: "Explosive", symbol: "💣", color: "#e25822" },
