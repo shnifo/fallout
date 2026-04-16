@@ -183,7 +183,7 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Mutagens last twice as long and suppress the effects of statuses over 5." },
+        { name: "Homo Superior", desc: "Mutagens last twice as long and suppress the effects of having statuses over 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "You can harvest your own flesh and it contributes three times as much for offerings." },
+        { name: "Exalted Flesh", desc: "You can harvest your own flesh for consumption and it contributes triple for offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -291,7 +291,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E2: {
-        label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair), on death: allies immediately take action. Loot: animal flesh", subs: [ 
+        label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair) Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" },
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
@@ -361,13 +361,13 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O3: {
-        label: "Reborn", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
-            { name: "Shambler", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
-            { name: "Haunter", hp: 18, def: 10, notes: "5 P + madness, melee" },
-            { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Bleeder", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
-            { name: "Firebrand", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Frostbrand", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
+        label: "Revenants", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
+            { name: "Lifemarked", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Chaosmarked", hp: 18, def: 10, notes: "8 P + madness, melee" },
+            { name: "Radmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
+            { name: "Bloodmarked", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
+            { name: "Firemarked", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
+            { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
         ]
     },
     O4: {
@@ -392,12 +392,12 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     O6: {
         label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
-            { name: "Recruit", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
-            { name: "Lieutenant", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
-            { name: "Officer", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
-            { name: "Captain", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
-            { name: "General", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
-            { name: "Elite", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
+            { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
+            { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
+            { name: "Traveler", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
+            { name: "Survivor", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
+            { name: "Wastelander", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Ranger", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
 };
