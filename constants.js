@@ -5,7 +5,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
 3. Reflexive: Take an extra action after initiative and immediately after being crit
 4. Bloody: Heal 10% after combat and after being crit
 5. Swift: +1 sneak and sprint rolls
-6. Ethereal: Gain cover against melee attacks   */
+6. Winged: Gain cover against melee attacks   */
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Scrap armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
@@ -18,7 +18,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 11, text: "Infantry armor: +18 def, 150c" },
     { roll: 12, text: "Assault armor: +20 def, 160c" },
     { roll: 13, text: "Mutant armor: +22 def, 170c" },
-    { roll: 14, text: "Goliath armor: +24 def, 180c" },
+    { roll: 14, text: "Paladin armor: +24 def, 180c" },
     { roll: 15, text: "Dragon armor: +26 def, 190c" },
     { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
