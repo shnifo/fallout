@@ -283,7 +283,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     E1: {
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
-            { name: "Savage", hp: 16, def: 12, notes: "scaled melee , 12 P trap + 2x cripple legs" }, // 7-8
+            { name: "Savage", hp: 16, def: 12, notes: "scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
             { name: "Barbarian", hp: 18, def: 16, notes: "scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
             { name: "Berserker", hp: 20, def: 20, notes: "scaled melee +1 dmg, 14 P trap + 2x cripple legs" }, // 11-12
             { name: "Juggernaut", hp: 22, def: 24, notes: "scaled melee +2 dmg, 15 P trap + 2x cripple legs" }, // 13-14
@@ -361,7 +361,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O3: {
-        label: "Zombies", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation
+        label: "Reborn", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
             { name: "Shambler", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Haunter", hp: 18, def: 10, notes: "5 P + madness, melee" },
             { name: "Emitter", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
@@ -391,13 +391,13 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O6: {
-        label: "Mercenaries", notes: "special: hidden land mines, have 1x grenade each. Loot: weapons, armor, human flesh", subs: [
-            { name: "Recruit", hp: 12, def: 8, notes: "scaled guns, 11X mines/grenades" }, // 1-6
-            { name: "Lieutenant", hp: 14, def: 12, notes: "scaled guns, 12X mines/grenades" }, // 7-8
-            { name: "Officer", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines/grenades" }, // 9-10
-            { name: "Captain", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X mines/grenades" }, // 11-12
-            { name: "General", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines/grenades" }, // 13-14
-            { name: "Elite", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines/grenades" } // 15+
+        label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
+            { name: "Recruit", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
+            { name: "Lieutenant", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
+            { name: "Officer", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
+            { name: "Captain", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
+            { name: "General", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Elite", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
 };
@@ -513,7 +513,7 @@ export const townDescriptors = [
     { roll: 44, name: "Ruined Cathedral", desc: "The remains of a large church now serve as a communal living space and meeting hall for settlers." },
     { roll: 45, name: "Old Gas Station", desc: "A small settlement has formed around an old gas station, using its infrastructure for trade and repair." },
     { roll: 46, name: "Desert Market Town", desc: "A town built around a central market square, where traders and settlers gather to exchange goods." },
-    { roll: 51, name: "Fallen Bridge Camp", desc: "A settlement has formed beneath the remains of a large collapsed bridge, using the structure for shelter." },
+    { roll: 51, name: "Interchange Camp", desc: "A settlement has formed beneath the remains of a large highway interchange, using the structure for shelter." },
     { roll: 52, name: "Drive-In Theater", desc: "The old projection booth and concession stands have been repurposed into homes and shops for a small community." },
     { roll: 53, name: "Airplane Graveyard", desc: "Settlers have turned old, grounded planes into homes and workshops in a sprawling community." },
     { roll: 54, name: "Shipping Container Village", desc: "A settlement made from repurposed shipping containers, providing sturdy and modular living spaces." },
@@ -524,7 +524,7 @@ export const townDescriptors = [
     { roll: 63, name: "Trading Post", desc: "A bustling hub where traders from various parts of the wasteland come to barter goods and services." },
     { roll: 64, name: "Ranch", desc: "A larger-scale farm with fields and animal pens, providing food and supplies for a small settlement." },
     { roll: 65, name: "Ruined Suburb", desc: "An old suburban neighborhood being repurposed by settlers, with houses turned into communal living spaces." },
-    { roll: 66, name: "Vault", desc: "A vault that allows visitors and trades with outsiders." }
+    { roll: 66, name: "Bomb Shelter", desc: "A deep underground bomb shelter that allows visitors and trades with outsiders." }
 ];
 
 export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
@@ -566,68 +566,80 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
 
-export const professionQuests = { //prof quest rewards = 1d6+level x 5 caps
+export const professionQuests = { // prof quest rewards = 1d6+level x 5 caps
     Technician: [
-        "Dead Signal – Restore a dead radio relay using a salvaged comm tower part.",
-        "Gun Show – Upgrade a scavenger's sentimental weapon.",
-        "Cold Steel – Repair one of each: weapon, armor, and tech."
+        "Wire & Will – Restore a militia’s failing weapons before raiders arrive in three days.",
+        "Too Intact – Repair or destroy a pre‑war weapon that steals something undefinable from anyone who touches it.",
+        "Locked Stock – Diagnose why a gunrunner’s entire arsenal seized up overnight before their creditors arrive."
     ],
+
     Mechanic: [
-        "Steel & Silence – Upgrade a stealth merc's armor.",
-        "Harden the Hide – Restore riot gear using ceramic plates.",
-        "Overhaul – Reinforce a caravan's busted armor."
+        "Fused & Failing – Separate armor fused to a garrison’s skin before infection spreads.",
+        "Hollow Guest – Investigate armor containing something alive that has reshaped the metal around itself.",
+        "Silent Impact – Restore armor ruined from the inside out after an attack that left no exterior marks."
     ],
+
     Farmer: [
-        "Tainted Crop – Cure a fungal infection in irradiated melons.",
-        "Dig Deep – Convert an old garden into a viable plot.",
-        "The Root Problem – Track mutated vines destroying a well."
+        "Poison Harvest – Purify irradiated grain before the next generation mutates beyond recovery.",
+        "Dependency Plot – Expose deliberate food contamination and produce enough clean rations to keep the town alive.",
+        "Rot in the Soil – Track down what’s re‑irradiating clean rations within hours of production."
     ],
+
     Chef: [
-        "Thirsty Business – Convert meat into fuel for town tech.",
-        "Kitchen Sink Science – Recreate a legendary morale-boosting stew.",
-        "Grill Master – Produce exotic-meat fuel for a merchant."
+        "Cold Burn – Convert flesh into fuel to keep a starving noise generator keep the shadows at bay.",
+        "Sacred Cuts – Recover hoarded cult meat or convert it before the town’s power grid collapses.",
+        "Unquiet Flesh – Harvest meat from a creature that shouldn’t exist but could feed the town."
     ],
+
     Exterminator: [
-        "Rats in the Walls – Clear a mole-rat infestation.",
-        "Big Game Hunt – Kill a mutant alpha predator.",
-        "Pest Control – Clear bloatflies from a junkyard."
+        "Mercy Hunter – Track a creature killing only the vulnerable and end its unnatural pattern.",
+        "Below the Boards – Clear a nest beneath the settlement before anyone learns how deep it goes.",
+        "Should’ve Killed It – Execute a captured threat that is moments from breaking containment."
     ],
-    Police: [
-        "Gun Balance – Convert small ammo to large for guards.",
-        "Hold the Line – Arm and organize a civilian watch.",
-        "Order in the Wastes – Retrieve stolen ammo crates."
+
+    Guard: [
+        "Wrong Caliber – Convert ammunition so the militia can face an imminent threat.",
+        "Mismatch Cache – Make a weapons cache useful despite none of the ammo matching the guns.",
+        "On the Move – Convert large rounds to small mid‑journey to keep a convoy armed and moving."
     ],
+
     Plumber: [
-        "Pipe Dream – Repair a vault's sludge-clogged plumbing.",
-        "Backflow – Fix upstream contamination of clean water.",
-        "Thirst Trap – Purify a dirty desert pool."
+        "Pipeborn – Purify a town’s water after something crawled up through the pipes and fouled it.",
+        "Shared Poison – Clean enough water for three settlements caught in a faction’s power play.",
+        "Ghost Filter – Repair a half‑living filtration system producing clean but unsettlingly luminescent water."
     ],
+
     Doctor: [
-        "Wounded Pride – Convert wrong meds into life-saving ones.",
-        "First Do Harm – Replace swapped placebos before riots start.",
-        "Curative Measures – Synthesize medicine for a rare plague."
+        "Shifting Symptoms – Synthesize a treatment for an illness that manifests differently in every patient.",
+        "Broken Dependency – Convert meds to undermine a faction’s monopoly without harming dependent patients.",
+        "Triage Alchemy – Turn a field hospital’s surplus into what’s desperately needed before patients die waiting."
     ],
+
     Scientist: [
-        "Happy Accidents – Combine random chems safely.",
-        "Stimulant Shortage – Reclaim hoarded chems from raiders.",
-        "Bad Batch – Stabilize an unstable chem supply."
+        "Airborne Error – Create an antidote for a mutagen spreading through contact rather than use.",
+        "Last Formula – Combine a dying researcher’s raw chems into the breakthrough they couldn’t finish.",
+        "Chemical Leverage – Synthesize a safe substitute for a mutagen a faction uses to control the region."
     ],
+
     Engineer: [
-        "Arc Spark – Repair a malfunctioning tech turret.",
-        "Linebreaker – Rebuild a settlement's power fence.",
-        "Mind the Gap – Restore a failing bridge lift system."
+        "Old War, New Targets – Disable a reactivated defense system still fighting a decades‑old conflict.",
+        "Becoming – Stabilize self‑repairing alien tech that keeps rebuilding itself into something new.",
+        "Coordinated Collapse – Restore a settlement’s tech grid after a synchronized, deliberate shutdown."
     ],
+
     Tailor: [
-        "Patch It Up – Craft protective clothing for wasteland kids.",
-        "Fashion Statement – Create an outfit to impress a faction.",
-        "The Disguise – Make a fake uniform for a spy."
+        "Wrong Materials – Convert scrap into the right components to seal a breach before nightfall.",
+        "Improvised Mod – Produce a rare scrap type needed for a weapon upgrade using only local junk.",
+        "Break the Monopoly – Publicly convert scrap to undermine a faction’s stranglehold on supply."
     ],
+
     Electrician: [
-        "Overload – Convert a broken fusion cell into usable energy.",
-        "Power Play – Restore power to a Nuka-Cola billboard.",
-        "Mission Impossible – Disable an unstable bomb guarded by threats."
+        "Grid Hunger – Manage cell conversions before a half‑active pre‑war grid drains the town dry.",
+        "Unknown Charge – Convert E‑cells to power an alien device and decide whether it should be used.",
+        "Drain Below – Identify what’s consuming electrical charge through walls and distance—and whether stopping it is wise."
     ]
 };
+
 
 // ===== FACTIONS =====
 export const factions = [ // towns have 1d6 guards per player, rolled when generating the town. total population is 3d6 per player. 
