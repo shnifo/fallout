@@ -184,7 +184,7 @@ export const perkData = {
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
         { name: "Homo Superior", desc: "Mutagens last twice as long and suppress the effects of having statuses over 5." },
-        { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more rads." },
+        { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
@@ -267,7 +267,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
-    54: "Resort: Generates adjacent irradiated lake (+1 rads each way) with uninhabited island (+3 to scavenging). use breatherator to avoid rads.",
+    54: "Resort: Generates adjacent irradiated lake (+1 mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid mutation.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: contains a random mutagen roll.",
     61: "Hospital: Scavenging meds is abundant.",
@@ -292,11 +292,11 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     E2: {
         label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair) Loot: animal flesh", subs: [ 
-            { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream
-            { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" },
+            { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream, resembles a lobster
+            { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" }, //wild cats, unchaged by evolution
             { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
-            { name: "Yeti", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, 
-            { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, 
+            { name: "Wendigo", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, //Bipedal bears with antlers and long talons
+            { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, //giant animal that resembles a wolf but with all scorpion appendeges and covered in carapace plates
             { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short, flies" } //Giant winged lizards that spew toxic ash.
         ]
     },
@@ -306,8 +306,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Basilisk", hp: 16, def: 24, notes: "9 E + freeze, mid" }, //Giant Snakes that fire a psychic beam with their eyes
-            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" },
-            { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants
+            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
+            { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
         ]
     },
     E4: {
@@ -341,7 +341,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O1: {
-        label: "Cultists", notes: "special: safe zone, 1 also has random artifact. uses mutated weapons, Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation, area outside of safe zone is toxic causing all players to deal -2 dmg and take +2 dmg
+        label: "Cultists", notes: "special: madness zone, uses mutated weapons, 1 also has random artifact. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
@@ -352,19 +352,19 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     O2: {
         label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
-            { name: "Observer", hp: 2, def: 6,  notes: "2x5 E, mid" },
-            { name: "Excavator", hp: 4, def: 10, notes: "2x6 X, mid" },
-            { name: "Assimilator", hp: 6, def: 14, notes: "7 R+madness, short" },
-            { name: "Destroyer", hp: 8, def: 18, notes: "11 X splash, mid" },
-            { name: "Suppressor", hp: 10, def: 22, notes: "2x10 E + freeze, mid" },
-            { name: "Invader", hp: 12, def: 26, notes: "13 R splash+burn, long" }
+            { name: "Observer", hp: 10, def: 6,  notes: "2x5 E, mid" },
+            { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
+            { name: "Assimilator", hp: 14, def: 14, notes: "7 R+madness, short" },
+            { name: "Destroyer", hp: 16, def: 18, notes: "11 X splash, mid" },
+            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 E + freeze, mid" },
+            { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
     O3: {
         label: "Revenants", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
             { name: "Lifemarked", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Chaosmarked", hp: 18, def: 10, notes: "8 P + madness, melee" },
-            { name: "Radmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
+            { name: "Toxinmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
             { name: "Bloodmarked", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
             { name: "Firemarked", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
             { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
@@ -405,7 +405,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become blessed and cannot be duplicated.  
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 rads, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get flesh coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get flesh coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
 
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
@@ -422,17 +422,17 @@ export const plants = [ // "Generates a resource every time you level up",
     {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, bulky, 100c"},
     {name: "Meloconut", effect: "Generates 3 clean water on level up, bulky, 100c"},
     {name: "Radovera", effect: "Generates 3 bandage on level up, bulky, 100c"},
-    {name: "Indigourd", effect: "Generates 3 rad-x on level up, bulky, 100c"},
+    {name: "Indigourd", effect: "Generates 3 resin on level up, bulky, 100c"},
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
 export const medTable = [ //crit = find chosen med and also find 2d3 mutagens (+1 to all rolls for 1 day, addictive, 30c)
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
-    { name: "Rad-X", effect: "-1 Rads, +10% HP, 10c" }, // rename: mutagone? chromocure? geneclean? antioxidants?
+    { name: "Resin", effect: "-1 Mutation, +10% HP, 10c" }, //a black sludge gathered from mutated trees that emit a substance to fight the mutation
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
-    { name: "Rad-Away", effect: "-2 Rads, +20% HP (Addictive), 10c" }, // rename: mutagone? chromocure? geneclean? 
-    { name: "Addictol", effect: "Removes addictions, +10% HP, 10c" } // rename: purge?
+    { name: "Vitriol", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //a potent concentrated resin that is addictive
+    { name: "Ketamine", effect: "Removes addictions, +10% HP, 10c" } 
 ];
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact that you do not have
@@ -474,12 +474,12 @@ export const complications = [ //When rolling complications, if the bracketed te
     ["+1/2 Fatigue", "END", "Exposure to extreme cold (generator)"],
     ["+1/2 Fatigue", "END", "Low oxygen area (breatherator)"],
     ["+1/2 Fatigue", "STR", "Exhaustion from climbing elevator shafts (generator)"],
-    ["+1/2 Rads", "STR", "Scavenge through heavy toxic waste barrel dump (autojacker)"],
-    ["+1/2 Rads", "END", "Treks through irradiated water (breatherator)"],
-    ["+1/2 Rads", "AGI", "Navigating large area full of radiation (illuminator)"],
-    ["+1/2 Rads", "CHA", "encounter Wandering radiation cleanup bots (hackerator)"],
-    ["+1/2 Rads", "END", "dig up buried loot in irradiated room (hammerator)"],
-    ["+1/2 Rads", "INT", "activate radiation filtration system (generator)"],
+    ["+1/2 Mutation", "STR", "Scavenge through heavy toxic waste barrel dump (autojacker)"],
+    ["+1/2 Mutation", "END", "Treks through irradiated water (breatherator)"],
+    ["+1/2 Mutation", "AGI", "Navigating large area full of radiation (illuminator)"],
+    ["+1/2 Mutation", "CHA", "encounter Wandering radiation cleanup bots (hackerator)"],
+    ["+1/2 Mutation", "END", "dig up buried loot in irradiated room (hammerator)"],
+    ["+1/2 Mutation", "INT", "activate radiation filtration system (generator)"],
     ["+1/2 Injury", "INT", "Able to hack and disable a security turret (hackerator)"],
     ["+1/2 Injury", "AGI", "Have to squeeze through tight gap (hammerator)"],
     ["+1/2 Injury", "STR", "Have to move heavy objects under water (breatherator)"],
@@ -752,22 +752,23 @@ export const miscTable = [
   { name: "Tech Scrap",  effect: "Repair tech, 5c" },
   { name: "Omni Scrap",  effect: "Repair any item, 5c" },
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
-  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Rads, 5c" },
-  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Rads (irradiated), 5c" },
+  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Mutation, 5c" },
+  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Mutation (irradiated), 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain addiction, 5c" },
   { name: "Eldritch Coin",   effect: "Reroll a single die from ANY roll, 10c" },
+  { name: "Mutagen",   effect: "Gain +1 to all rolls for 1 day (addictive), 20c" },  
     
 ];
 
 export const rationWaterTable = [
-  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Rads, 5c" },
-  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Rads, 5c" },
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Mutation, 5c" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Mutation, 5c" },
   { name: "Clean Water",       effect: "-1 Thirst, 5c" },
   { name: "Energy Water",      effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
-  { name: "Irradiated Ration", effect: "-1 Hunger, +1 Rads, 5c" },
-  { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Rads, 5c" },
+  { name: "Irradiated Ration", effect: "-1 Hunger, +1 Mutation, 5c" },
+  { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Mutation, 5c" },
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
-  { name: "Healthy Ration",    effect: "-1 Hunger, -1 Rads, +10% HP, 10c" },
+  { name: "Healthy Ration",    effect: "-1 Hunger, -1 Mutation, +10% HP, 10c" },
   
 ];
 
