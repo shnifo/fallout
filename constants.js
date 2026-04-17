@@ -115,7 +115,7 @@ export const recipeTable = [
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 10 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 radaway" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 ambrosia" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
     { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, 50c" },
@@ -123,7 +123,7 @@ export const recipeTable = [
     { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, bulky, 50c" },
     { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, bulky, 50c" },
     { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, bulky, 50c" },
-    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Laser sight: +1 dmg with weapons, bulky, 50c" }
+    { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Targeter: +1 dmg with weapons, bulky, 50c" }
 ];
 
 
