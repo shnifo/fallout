@@ -183,7 +183,7 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Ambrosia lasts twice as long and suppresses the effects of statuses above 5." },
+        { name: "Homo Superior", desc: "Serum lasts twice as long and suppresses the effects of statuses above 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -232,7 +232,7 @@ export const backgroundData = [
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Ambrosia." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -269,7 +269,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
     54: "Resort: Generates adjacent irradiated lake (+1 mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid mutation.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: contains a random ambrosia roll.",
+    56: "Laboratory: contains a random Serum roll.",
     61: "Hospital: Scavenging meds is abundant.",
     62: "Supermarket: Gain +3 rerolls when scavenging.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
@@ -404,8 +404,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become blessed and cannot be duplicated.  
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get flesh coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become corrupted and cannot be duplicated.  
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get eldritch coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
 
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
@@ -426,12 +426,12 @@ export const plants = [ // "Generates a resource every time you level up",
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
-export const medTable = [ //crit = find chosen med and also find 2d3 ambrosia (+1 to all rolls for 1 day, addictive, 30c)
+export const medTable = [ //crit = find chosen med and also find 2d3 Serum (+1 to all rolls for 1 day, addictive, 30c)
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
-    { name: "Resin", effect: "-1 Mutation, +10% HP, 10c" }, //a black sludge gathered from mutated trees that emit a substance to fight the mutation
+    { name: "Resin", effect: "-1 Mutation, +10% HP, 10c" }, //a black sap gathered from mutated trees that emit this substance to fight the mutation
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
-    { name: "Vitriol", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //a potent concentrated resin that is addictive
+    { name: "Ambrosia", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //the fruit of mutated trees that is much more potent than the resin but also addictive
     { name: "Ketamine", effect: "Removes addictions, +10% HP, 10c" } 
 ];
 
@@ -646,7 +646,7 @@ export const factions = [ // towns have 1d6 guards per player, rolled when gener
     {
         name: "The Metallion", //Militaristic faction that vows to retake the wasteland by building the ultimate machine to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. secretly lead by a leader who wishes to become a metalmorph and uses the party to help them achieve this.  
         tag: "Armor",
-        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier mercenary guards" 
+        desc: "Militaristic, hate the weak and tickers (mutants), meritocracy, hateful, max tier scavenger guards" 
     },
     {
         name: "Terra Nova", //Demoractic society that uses aptitude testing to allow citizens to contribute the most optimal way towards the revival of society, use historical best practice to improve efficincy and minimize corruption.  Strongly leverage technology and reliance on science. Low emphasis on military, easily manipulated. 
@@ -656,12 +656,12 @@ export const factions = [ // towns have 1d6 guards per player, rolled when gener
     {
         name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
-        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier mutant guards" 
+        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier cultist guards" 
     },
     {
         name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted.
         tag: "Weapons",
-        desc: "Bureaucratic progressive society, republic, weary, max tier mercenary guards"
+        desc: "Bureaucratic progressive society, republic, weary, max tier scavenger guards"
     },
     {
         name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts a caste system, provides minimal due process for disagreeables. Believe technology is the cause of their downfall and outlaws it.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
@@ -671,7 +671,7 @@ export const factions = [ // towns have 1d6 guards per player, rolled when gener
     {
         name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army. Believe too large a society becomes an easy target for otherworldly influences, prefer to keep small towns.
         tag: "Rations",
-        desc: "Small town commune, anarchy, friendly, max tier mercenary guards"
+        desc: "Small town commune, anarchy, friendly, max tier scavenger guards"
     }
 ];
 
@@ -750,13 +750,13 @@ export const miscTable = [
   { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
   { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
   { name: "Tech Scrap",  effect: "Repair tech, 5c" },
-  { name: "Omni Scrap",  effect: "Repair any item, 5c" },
+  { name: "Omni Scrap",  effect: "Repair any item, 10c" },
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
   { name: "Eldritch Coin",   effect: "Reroll a single die from any roll, 10c" },
-  { name: "Ambrosia",   effect: "Gain +1 to all rolls for 1 day, addictive , 20c" },  
+  { name: "Serum",   effect: "Gain +1 to all rolls for 1 day, addictive , 20c" },  
     
 ];
 
