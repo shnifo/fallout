@@ -183,7 +183,7 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Mutagens last twice as long and suppress the effects of having statuses over 5." },
+        { name: "Homo Superior", desc: "Ambrosia lasts twice as long and suppresses the effects of statuses above 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
@@ -203,7 +203,7 @@ export const perkData = {
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor type by 1." },
-        { name: "Extraterrestrial", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
+        { name: "Chosen One", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
     ],
 
@@ -232,7 +232,7 @@ export const backgroundData = [
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
-    { name: "Scientist", desc: "You can convert any 3 irradiated items into a mutagen." },
+    { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Ambrosia." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
@@ -269,7 +269,7 @@ export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-sca
     53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
     54: "Resort: Generates adjacent irradiated lake (+1 mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid mutation.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: contains a random mutagen roll.",
+    56: "Laboratory: contains a random ambrosia roll.",
     61: "Hospital: Scavenging meds is abundant.",
     62: "Supermarket: Gain +3 rerolls when scavenging.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
@@ -422,11 +422,11 @@ export const plants = [ // "Generates a resource every time you level up",
     {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, bulky, 100c"},
     {name: "Meloconut", effect: "Generates 3 clean water on level up, bulky, 100c"},
     {name: "Radovera", effect: "Generates 3 bandage on level up, bulky, 100c"},
-    {name: "Indigourd", effect: "Generates 3 resin on level up, bulky, 100c"},
+    {name: "Bloodbark", effect: "Generates 3 resin on level up, bulky, 100c"},
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
-export const medTable = [ //crit = find chosen med and also find 2d3 mutagens (+1 to all rolls for 1 day, addictive, 30c)
+export const medTable = [ //crit = find chosen med and also find 2d3 ambrosia (+1 to all rolls for 1 day, addictive, 30c)
     { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
     { name: "Resin", effect: "-1 Mutation, +10% HP, 10c" }, //a black sludge gathered from mutated trees that emit a substance to fight the mutation
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
@@ -497,7 +497,7 @@ export const townDescriptors = [
     { roll: 16, name: "Abandoned Airport", desc: "The terminal and hangars have been turned into living spaces and workshops by a group of settlers." },
     { roll: 21, name: "Deserted Factory Town", desc: "An old factory complex repurposed into a settlement, with the factory buildings serving as homes and workshops." },
     { roll: 22, name: "Ruined Hotel", desc: "A large, partially collapsed hotel now houses a community, with rooms turned into living quarters." },
-    { roll: 23, name: "Fishing Village", desc: "Located near a dried-up lakebed, settlers rely on small-scale farming and trade for survival." },
+    { roll: 23, name: "Fishing Village", desc: "Located on the shores of a small lake, settlers rely on small-scale fishing and trade for survival." },
     { roll: 24, name: "Cliffside Dwellings", desc: "Homes built into the sides of cliffs, offering natural defense and a unique living environment." },
     { roll: 25, name: "Desert Outpost", desc: "A small, fortified settlement built around a well or water source, serving as a rest stop for travelers." },
     { roll: 26, name: "Abandoned Theme Park", desc: "The remains of an old amusement park now house a quirky community that has repurposed the attractions." },
@@ -518,8 +518,8 @@ export const townDescriptors = [
     { roll: 53, name: "Airplane Graveyard", desc: "Settlers have turned old, grounded planes into homes and workshops in a sprawling community." },
     { roll: 54, name: "Shipping Container Village", desc: "A settlement made from repurposed shipping containers, providing sturdy and modular living spaces." },
     { roll: 55, name: "Ruined Observatory", desc: "An old observatory turned into a fortified settlement, using the high ground for defense." },
-    { roll: 56, name: "Desert Commune", desc: "A community with an unexploded nuclear bomb in the center." },
-    { roll: 61, name: "Small Farmstead", desc: "A group of settlers is attempting to grow crops and raise livestock, using irrigation systems and old farming techniques." },
+    { roll: 56, name: "Bomb Sanctuary", desc: "A community with an unexploded nuclear bomb in the center." },
+    { roll: 61, name: "Forest Compound", desc: "An abandoned campground in the middle of the forest has been settled due to its proximity to natural food and defenses." },
     { roll: 62, name: "Shanty Town", desc: "A collection of makeshift homes built from scrap metal and other scavenged materials, housing a small community." },
     { roll: 63, name: "Trading Post", desc: "A bustling hub where traders from various parts of the wasteland come to barter goods and services." },
     { roll: 64, name: "Ranch", desc: "A larger-scale farm with fields and animal pens, providing food and supplies for a small settlement." },
@@ -752,17 +752,17 @@ export const miscTable = [
   { name: "Tech Scrap",  effect: "Repair tech, 5c" },
   { name: "Omni Scrap",  effect: "Repair any item, 5c" },
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
-  { name: "Animal Flesh",  effect: "-1 Hunger, END save or +1 Mutation, 5c" },
-  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, +1 Mutation (irradiated), 5c" },
-  { name: "Human Flesh",   effect: "-1 Hunger, CHA save or gain addiction, 5c" },
-  { name: "Eldritch Coin",   effect: "Reroll a single die from ANY roll, 10c" },
-  { name: "Mutagen",   effect: "Gain +1 to all rolls for 1 day (addictive), 20c" },  
+  { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
+  { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
+  { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
+  { name: "Eldritch Coin",   effect: "Reroll a single die from any roll, 10c" },
+  { name: "Ambrosia",   effect: "Gain +1 to all rolls for 1 day, addictive , 20c" },  
     
 ];
 
 export const rationWaterTable = [
-  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Mutation, 5c" },
-  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Mutation, 5c" },
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Mutation (irradiated), 5c" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Mutation (dirty), 5c" },
   { name: "Clean Water",       effect: "-1 Thirst, 5c" },
   { name: "Energy Water",      effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
   { name: "Irradiated Ration", effect: "-1 Hunger, +1 Mutation, 5c" },
