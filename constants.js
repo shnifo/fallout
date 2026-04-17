@@ -96,7 +96,7 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
         [10, "Welding Torch", "2x6 X", "-", "melee", "STR", "90c"],
         [12, "Tesla Coil", "2x7 E", "-", "melee", "STR", "110c"],
         [14, "Lightning Rod", "2x8 X", "-", "melee", "STR", "130c"],
-        [99, "Bifrost", "2x9 E", "-", "melee", "STR", "150c"]],
+        [99, "Ragnarok", "2x9 E", "-", "melee", "STR", "150c"]],
         O6: [[6, "Shock Glove", "6 E", "-", "melee", "END", "50c"],
         [8, "Whalloper", "7 X", "-", "melee", "END", "70c"],
         [10, "Plasma Glove", "8 E", "-", "melee", "END", "90c"],
