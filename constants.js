@@ -26,10 +26,10 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
 export /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
-3. Destructive: converted to explosive splash  (or adds +1 splash range)
+3. Destructive: converted to explosive splash (or adds +1 splash range)
 4. Barbed: adds bleed
 5. Cryogenic: adds freeze
-6. Extended: +1 range        */
+6. Extended: +1 range */
     const weapons = {
         E1: [[6, "Pipe Pistol", "5 P", "small", "mid", "AGI", "30c"],
         [8, "Revolver", "6 P", "small", "mid", "AGI", "40c"],
