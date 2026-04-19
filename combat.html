@@ -155,7 +155,7 @@
     const d2 = Math.floor(Math.random() * 6) + 1;
     const roll = d1 * 10 + d2;
     const Ruins = RuinsTable[roll] || "Unknown Ruins";
-    document.getElementById("Ruins-display").textContent = `Ruins: ${Ruins}`;
+    document.getElementById("Ruins-display").textContent = `${Ruins}`;
   }
 
   
@@ -192,7 +192,7 @@
       subtype.notes ? `(${subtype.notes})` : ""
     ].filter(Boolean);
 
-    document.getElementById("monster-display").textContent = `Monsters: ${lines.join(" · ")}`;
+    document.getElementById("monster-display").textContent = `${lines.join(" · ")}`;
   }
 
   
