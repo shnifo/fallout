@@ -239,7 +239,7 @@ export const backgroundData = [
 ];
 
 // === Ruins Table ===
-export const ruinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
+export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
     11: "Office: Contains 3 Vending machines with hidden 1d3 energy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
