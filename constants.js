@@ -166,7 +166,7 @@ export const perkData = {
         { name: "Specialist", desc: "Deal +1 damage with all attacks using a chosen weapon type." },
         { name: "Zero Waste", desc: "Harvesting a slain creature has a 50% chance to yield an additional scrap/flesh." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
-        { name: "Gotta Go Fast", desc: "Sprint moves +1 distance, and grants you defend if you do not attack." },
+        { name: "Gotta Go Fast", desc: "Sprint moves +1 distance and if you do not attack it also grants you defend." },
         { name: "Ninja", desc: "You can move while sneaking and can attempt to sneak on any terrain." },
         { name: "Guerrilla", desc: "Rubble is instead treated as cover for you." },
         { name: "Sniper", desc: "Attacks ignore cover and weapons with long or extra long range gain +1 range." },
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Landscaping", desc: "you can clear terrain in combat by attacking it with explosive damage." },
+        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
