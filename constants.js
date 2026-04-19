@@ -238,8 +238,8 @@ export const backgroundData = [
     { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
 ];
 
-// === Zone Table ===
-export const zoneTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
+// === Ruins Table ===
+export const ruinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
     11: "Office: Contains 3 Vending machines with hidden 1d3 energy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
@@ -341,7 +341,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O1: {
-        label: "Cultists", notes: "special: madness zone, uses mutated weapons, 1 also has random artifact. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
+        label: "Cultists", notes: "special: madness tile, uses mutated weapons, 1 also has random artifact. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
             { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
@@ -371,7 +371,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O4: {
-        label: "Aberrations", notes: "special: madness zone. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness zone = start of each round, make madness roll if in area
+        label: "Aberrations", notes: "special: madness tile. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness tile = start of each round, make madness roll if in area
             { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
             { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
@@ -381,7 +381,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O5: {
-        label: "Mutants", notes: "special: madness zone. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
+        label: "Mutants", notes: "special: madness tile. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
             { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
