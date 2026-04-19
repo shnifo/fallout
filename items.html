@@ -263,11 +263,13 @@ function generateTown() {
   let output = "";
   const descriptor = townDescriptors.find(t => t.roll === rollDie(6) * 10 + rollDie(6));
   output += `<b>Town Type:</b> ${descriptor?.name || "Unknown"}<br><i>${descriptor?.desc || ""}</i><div class="section-spacer"></div>`;
+  if (!descriptor) console.log("Missing descriptor roll:", descRoll);
   const faction = factions[Math.floor(Math.random() * factions.length)];
   output += `<b>Faction:</b> ${faction.name}<br><i>${faction.desc}</i><div class="section-spacer"></div>`;
   output += `<b>Notable NPCs:</b><br>`;
   for (let i = 0; i < 3; i++) {
     const npc = npcTable.find(n => n.roll === rollDie(6) * 10 + rollDie(6));
+    if (!npc) console.log("Missing NPC roll:", npcRoll);
     output += `<div style="margin-left:10px;margin-bottom:6px;"><b>${npc?.name || "Unknown"}:</b> <i>${npc?.desc || ""}</i><div class="section-spacer"></div></div>`;
   }
   let quest = townQuests.find(q => q.roll === rollDie(6) * 10 + rollDie(6))?.text || "Unknown Quest";
