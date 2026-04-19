@@ -87,7 +87,7 @@
 
 <button id="generate">Generate Encounter</button>
 
-<h3 id="zone-display" style="margin:12px 0;">Zone: —</h3>
+<h3 id="Ruins-display" style="margin:12px 0;">Ruins: —</h3>
 <h3 id="monster-display" style="margin:12px 0;">Monsters: —</h3>
 <div id="grid"></div>
 
@@ -98,7 +98,7 @@
     fixedWeights,
     rowLabels,
     colLabels,
-    zoneTable,
+    RuinsTable,
     monsterData
   } from './constants.js';
   
@@ -150,12 +150,12 @@
 
   
 
-  function generateZone() {
+  function generateRuins() {
     const d1 = Math.floor(Math.random() * 6) + 1;
     const d2 = Math.floor(Math.random() * 6) + 1;
     const roll = d1 * 10 + d2;
-    const zone = zoneTable[roll] || "Unknown Zone";
-    document.getElementById("zone-display").textContent = `Zone: ${zone}`;
+    const Ruins = RuinsTable[roll] || "Unknown Ruins";
+    document.getElementById("Ruins-display").textContent = `Ruins: ${Ruins}`;
   }
 
   
@@ -201,7 +201,7 @@
   // === Generate Everything ===
   function generateAll() {
     generateGrid();
-    generateZone();
+    generateRuins();
     generateMonsters();
   }
 
@@ -214,7 +214,7 @@
 	window.generateGrid = generateGrid;
 	window.createLabel = createLabel;
 	window.weightedRandom = weightedRandom;
-	window.generateZone = generateZone;
+	window.generateRuins = generateRuins;
 	window.tierIndexFromRoll = tierIndexFromRoll;
 	window.generateMonsters = generateMonsters;
 	window.generateAll = generateAll;
