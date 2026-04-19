@@ -155,7 +155,7 @@ export const perkData = {
         { name: "Secret Technique", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -3 damage." },
-        { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10 caps." },
+        { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
         { name: "Chiropractor", desc: "When you cripple an enemy limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
         { name: "Saboteur", desc: "Your attacks always detonate explosive tiles and you automatially disarm traps you trigger." },
@@ -243,7 +243,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     11: "Office: Contains 3 Vending machines with hidden 1d3 energy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
-    14: "Graveyard: Contains map to crit loot 3 random hexes away.",
+    14: "Campground: Contains map to buried treasure 3 random hexes away containing a random crit loot roll.",
     15: "University: Gain a random perk book. Read instead of sleeping/scavenging 3 times to gain that perk, bulky, 100c. ",
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Contains a random artifact.",
@@ -253,15 +253,15 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
-    32: "Laundromat: Spend 10c to reroll armor values. Use generator to also give it +1 durability",
+    32: "Graveyard: Contains one of each offering vessel",
     33: "Workshop: Scavenging tech is abundant.",
     34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Gas Station: contains 3 pumps with 1d6 fuel each, each costing 10/20/30 caps per fuel.",
-    36: "Bank: Deposit caps, gain 20% on level up. Withdraw at any bank.",
+    35: "Gas Station: contains 3 pumps with 1d6 fuel each, each costing 10/20/30c per fuel. Use generator to drain pump",
+    36: "Bank: Deposit cash, gain 20% on level up. Withdraw at any bank.",
     41: "Army Base: Scavenging weapons is abundant.",
     42: "Restaurant: scavenging rations is abundant",
     43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Contains an elite crawler that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg, all armor, and hp. harvest for legendary mutagen (make item legendary)",
+    44: "Crashed Ship: Contains an elite max tier aberration that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg and all armor. harvest for legendary mutagen (make item legendary)",
     45: "Outpost: Scavenging ammo is abundant.",
     46: "Foundry: Can upgrade one Tinker's Digest crafted item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
@@ -383,11 +383,11 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     O5: {
         label: "Mutants", notes: "special: madness tile. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
-            { name: "Exile", hp: 10, def: 18, notes: "scaled physical weapons" },
-            { name: "Forsaken", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
-            { name: "Relinquished", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
-            { name: "Abomination", hp: 16, def: 30, notes: "scaled physical weapons +2 dmg" },
-            { name: "Monstrosity", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
+            { name: "Outcast", hp: 10, def: 18, notes: "scaled physical weapons" },
+            { name: "Exile", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
+            { name: "Forsaken", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
+            { name: "Relinquished", hp: 16, def: 30, notes: "scaled physical weapons +2 dmg" },
+            { name: "Abomination", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
         ]
     },
     O6: {
@@ -395,8 +395,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
             { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
             { name: "Traveler", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
-            { name: "Survivor", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
-            { name: "Wastelander", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Wastelander", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
+            { name: "Survivor", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
             { name: "Ranger", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
@@ -527,7 +527,7 @@ export const townDescriptors = [
     { roll: 66, name: "Bomb Shelter", desc: "A deep underground bomb shelter that allows visitors and trades with outsiders." }
 ];
 
-export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
+export const townQuests = [ //main quest rewards = 1d6+level x 10c
     { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning townsfolk to 'thin the weak.' Expose them, join them, or take their place.` },
     { roll: 12, text: `"Pilgrim Dreams" – Pilgrims from X faction have been arriving in town for weeks, drawn by dreams none of them can describe. They don't leave or sleep, just gather in a circle, waiting...` },
     { roll: 13, text: `Wishing Well – The town's well goes deeper than it should. Something has been dropping offerings into it — from below. It leads to a fleshy chamber inhabited by horrible monstrosity.` },
@@ -566,7 +566,7 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10 caps
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
 
-export const professionQuests = { // prof quest rewards = 1d6+level x 5 caps
+export const professionQuests = { // prof quest rewards = 1d6+level x 5c
     Technician: [
         "Wire & Will – Restore a militia’s failing weapons before raiders arrive in three days.",
         "Too Intact – Repair or destroy a pre‑war weapon that steals something undefinable from anyone who touches it.",
