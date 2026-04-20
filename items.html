@@ -94,6 +94,7 @@ button { background:#4e8cff; color:#fff; font-weight:bold; } button:hover { back
 import { armorTable, weapons, complications, rationTypes, medTable, ammoTable, grenadeTable, techTable, factions, townDescriptors, npcTable, townQuests, professionQuests, shopTypes, artifacts, plants } from './constants.js';
 
 function rollDie(sides) { return Math.floor(Math.random() * sides) + 1; }
+function rollD66() { return rollDie(6) * 10 + rollDie(6); }
 const slider = document.getElementById('evennessSlider');
 
 function generateDistribution(total) {
@@ -127,7 +128,6 @@ function distribute() {
 }
 window.addEventListener('load', distribute);
 
-// maxTier: forces die roll = 6, used for shop generation
 function generateArmor(maxTier = false) {
   const level = parseInt(document.getElementById("partyLevel").value) || 0;
   const dieRoll = maxTier ? 6 : rollDie(6);
@@ -153,7 +153,6 @@ function generateArmor(maxTier = false) {
   document.getElementById("armorTitle").innerHTML = `<b>${armorName}</b><br>${armorStats} ${distText}`;
 }
 
-// maxTier: forces die roll = 6, used for shop generation
 function generateWeapon(maxTier = false) {
   const level = parseInt(document.getElementById('partyLevel').value) || 1;
   const dmgFilter = document.getElementById('damageFilter').value;
@@ -211,7 +210,6 @@ function generateMeds() {
   document.getElementById("medsOnlyOutput").innerHTML = `<b>${med.name} x${rollDie(6) + 1}</b><br><i>${med.effect}</i>`;
 }
 
-
 function rollGrenadeByLevel(level) {
   const roll = rollDie(6) + level;
   return grenadeTable.find(g => roll <= g.max);
@@ -261,25 +259,33 @@ function getRivalFaction(name) {
 
 function generateTown() {
   let output = "";
-  const descriptor = townDescriptors.find(t => t.roll === rollDie(6) * 10 + rollDie(6));
+
+  const descRoll = rollD66();
+  const descriptor = townDescriptors.find(t => t.roll === descRoll);
   output += `<b>Town Type:</b> ${descriptor?.name || "Unknown"}<br><i>${descriptor?.desc || ""}</i><div class="section-spacer"></div>`;
-  if (!descriptor) console.log("Missing descriptor roll:", descRoll);
+
   const faction = factions[Math.floor(Math.random() * factions.length)];
   output += `<b>Faction:</b> ${faction.name}<br><i>${faction.desc}</i><div class="section-spacer"></div>`;
+
   output += `<b>Notable NPCs:</b><br>`;
   for (let i = 0; i < 3; i++) {
-    const npc = npcTable.find(n => n.roll === rollDie(6) * 10 + rollDie(6));
-    if (!npc) console.log("Missing NPC roll:", npcRoll);
+    const npcRoll = rollD66();
+    const npc = npcTable.find(n => n.roll === npcRoll);
     output += `<div style="margin-left:10px;margin-bottom:6px;"><b>${npc?.name || "Unknown"}:</b> <i>${npc?.desc || ""}</i><div class="section-spacer"></div></div>`;
   }
-  let quest = townQuests.find(q => q.roll === rollDie(6) * 10 + rollDie(6))?.text || "Unknown Quest";
+
+  const questRoll = rollD66();
+  const questEntry = townQuests.find(q => q.roll === questRoll);
+  let quest = questEntry?.text || "Unknown Quest";
   if (quest.includes("X faction") || quest.includes("X enemy")) {
     quest = quest.replace(/X faction|X enemy/g, getRivalFaction(faction.name).name);
   }
   output += `<b>Main Quest:</b> ${quest}<div class="section-spacer"></div>`;
+
   const professions = Object.keys(professionQuests);
   const chosenProf = professions[Math.floor(Math.random() * professions.length)];
   output += `<b>Sidequest (${chosenProf}):</b> ${professionQuests[chosenProf][Math.floor(Math.random() * 3)]}<div class="section-spacer"></div>`;
+
   const signatureShop = shopTypes.find(s => s.name.toLowerCase().includes(faction.tag.toLowerCase())) || shopTypes[0];
   const signatureSlot = Math.floor(Math.random() * 3);
   for (let i = 0; i < 3; i++) {
@@ -296,7 +302,6 @@ function generateTown() {
     output += `<div class="section-spacer"></div>`;
     for (let r = 0; r < 2; r++) {
       let result = "";
-      // Weapons and Armor always roll max tier (die = 6) in shops
       if (shop.name === "Weapons") { generateWeapon(true); result = document.getElementById("weaponResult").innerHTML; }
       else if (shop.name === "Armor") { generateArmor(true); result = document.getElementById("armorTitle").innerHTML; }
       else if (shop.name === "Meds") { generateMeds(); result = document.getElementById("medsOnlyOutput").innerHTML; }
