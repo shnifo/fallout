@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts 2:1 to effigy. (hand statuette in various poses)
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle. (candle made from a fleshy finger)
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
+        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced save." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "You can gain +1 injury to harvest your own flesh and it contributes triple for offerings." },
+        { name: "Exalted Flesh", desc: "Gain +1 injury to harvest your own flesh. It contributes triple for offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -248,7 +248,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
     21: "Museum: Contains a random artifact.",
     22: "Armory: Scavenging armor is abundant.",
-    23: "Park: Contains a random giant plant. (heavy, +2 yield).",
+    23: "Park: Contains a random large plant. (heavy, +3 yield).",
     24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
@@ -321,13 +321,13 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E5: {
-        label: "Robots", notes: "special: explosive tile, take +1 dmg per cripple. Loot: armor scraps", subs: [
-            { name: "Police Bot", hp: 10, def: 16, notes: "7 E short" },
-            { name: "Watchdog", hp: 12, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 14, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
-            { name: "Patriot", hp: 16, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 18, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 20, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+        label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
+            { name: "Police Bot", hp: 12, def: 16, notes: "7 E short" },
+            { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Medical Bot", hp: 20, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Patriot", hp: 24, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 28, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 32, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: {
@@ -404,9 +404,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert any flesh, including your own (+1 injury): converts 2:1 eldritch coin (coin with an eye on it)
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both copies become blessed and cannot be duplicated.  
-
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch tooth (oversized human canine tooth)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -445,14 +444,14 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 ];
 
 
-// Shop types and their corresponding generator functions
+// Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" },
-    { name: "Armor" },
-    { name: "Meds" },
-    { name: "Tech" },
-    { name: "Rations" },
-    { name: "Water" }
+    { name: "Weapons" }, // will repair weapon for 20c
+    { name: "Armor" }, // will repair armor for 20c
+    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c
+    { name: "Tech" }, // will repair tech fot 20c
+    { name: "Rations" }, // will purify any ration 1 stage for 5c
+    { name: "Water" } // will purify any water 1 stage for 5c
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
@@ -750,14 +749,14 @@ export const miscTable = [
   { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
   { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
   { name: "Tech Scrap",  effect: "Repair tech, 5c" },
-  
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
-  { name: "Eldritch Coin",   effect: "Reroll 1 die from any roll, 10c" },
-  { name: "Effigy",  effect: "Make any stat roll result a 5 instead of rolling, 10c" },
-  { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive , 20c" },  
+  { name: "Eldritch Coin",   effect: "Reroll 1 die from ANY roll except enemy crits, 20c" },
+  { name: "Eldritch Candle",  effect: "Make a stat roll result a 6 instead of rolling, 30c" },
+  { name: "Eldritch Tooth",  effect: "Duplicate any item, both copies are blessed and cannot be duplicated, 50c" },
+  { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive, 20c" },  
     
 ];
 
