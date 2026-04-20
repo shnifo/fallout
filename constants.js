@@ -139,9 +139,9 @@ export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 
     { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "20c" },
     { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "25c" },
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
-    { max: 12, name: "Hydrogen Grenade", dmg: "14 X splash", cost: "35c" },
-    { max: 14, name: "Fission Grenade", dmg: "15 X splash", cost: "40c" },
-    { max: Infinity, name: "Fusion Grenade", dmg: "16 X splash", cost: "45c" }
+    { max: 12, name: "Thunder Grenade", dmg: "14 X splash", cost: "35c" },
+    { max: 14, name: "Cluster Grenade", dmg: "15 X splash", cost: "40c" },
+    { max: Infinity, name: "Uranium Grenade", dmg: "16 X splash", cost: "45c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -518,7 +518,7 @@ export const townDescriptors = [
     { roll: 53, name: "Airplane Graveyard", desc: "Settlers have turned old, grounded planes into homes and workshops in a sprawling community." },
     { roll: 54, name: "Shipping Container Village", desc: "A settlement made from repurposed shipping containers, providing sturdy and modular living spaces." },
     { roll: 55, name: "Ruined Observatory", desc: "An old observatory turned into a fortified settlement, using the high ground for defense." },
-    { roll: 56, name: "Bomb Sanctuary", desc: "A community with an unexploded nuclear bomb in the center." },
+    { roll: 56, name: "Garden Sanctuary", desc: "A community built around a community garden that treat the flowers as gods." },
     { roll: 61, name: "Forest Compound", desc: "An abandoned campground in the middle of the forest has been settled due to its proximity to natural food and defenses." },
     { roll: 62, name: "Shanty Town", desc: "A collection of makeshift homes built from scrap metal and other scavenged materials, housing a small community." },
     { roll: 63, name: "Trading Post", desc: "A bustling hub where traders from various parts of the wasteland come to barter goods and services." },
@@ -568,26 +568,26 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10c
 
 export const professionQuests = { // prof quest rewards = 1d6+level x 5c
     Technician: [
-        "Wire & Will – Restore a militia’s failing weapons before raiders arrive in three days.",
+        "Wire & Will – Restore a militia’s failing weapons to better prepare their defenses.",
         "Too Intact – Repair or destroy a pre‑war weapon that steals something undefinable from anyone who touches it.",
-        "Locked Stock – Diagnose why a gunrunner’s entire arsenal seized up overnight before their creditors arrive."
+        "Locked Stock – Diagnose why a guard's entire arsenal jammed up while they were on duty."
     ],
 
     Mechanic: [
-        "Fused & Failing – Separate armor fused to a garrison’s skin before infection spreads.",
+        "Fused & Failing – Separate armor fused to a soldier’s skin before infection spreads.",
         "Hollow Guest – Investigate armor containing something alive that has reshaped the metal around itself.",
         "Silent Impact – Restore armor ruined from the inside out after an attack that left no exterior marks."
     ],
 
     Farmer: [
         "Poison Harvest – Purify irradiated grain before the next generation mutates beyond recovery.",
-        "Dependency Plot – Expose deliberate food contamination and produce enough clean rations to keep the town alive.",
-        "Rot in the Soil – Track down what’s re‑irradiating clean rations within hours of production."
+        "Dependency Plot – Cross breed mutated plants with clean ones to produce a higher yield plant.",
+        "Forest Slump – Track down what’s killing the local mutated trees the town uses for medicine."
     ],
 
     Chef: [
         "Cold Burn – Convert flesh into fuel to keep a starving noise generator keep the shadows at bay.",
-        "Sacred Cuts – Recover hoarded cult meat or convert it before the town’s power grid collapses.",
+        "Sacred Cuts – Triage the towns infected meat supply into fuel before the town’s generator collapses.",
         "Unquiet Flesh – Harvest meat from a creature that shouldn’t exist but could feed the town."
     ],
 
@@ -618,13 +618,13 @@ export const professionQuests = { // prof quest rewards = 1d6+level x 5c
     Scientist: [
         "Airborne Error – Create an antidote for a mutagen spreading through contact rather than use.",
         "Last Formula – Combine a dying researcher’s raw chems into the breakthrough they couldn’t finish.",
-        "Chemical Leverage – Synthesize a safe substitute for a mutagen a faction uses to control the region."
+        "Chemical Leverage – Create a pesticide to protect crops from a rampant blight."
     ],
 
     Engineer: [
         "Old War, New Targets – Disable a reactivated defense system still fighting a decades‑old conflict.",
         "Becoming – Stabilize self‑repairing alien tech that keeps rebuilding itself into something new.",
-        "Coordinated Collapse – Restore a settlement’s tech grid after a synchronized, deliberate shutdown."
+        "Coordinated Collapse – Restore a settlement’s power grid after a storm damaged important infrastructure."
     ],
 
     Tailor: [
