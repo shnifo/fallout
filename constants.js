@@ -1,5 +1,5 @@
 /// ARMOR & WEAPONS ///
-export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
+export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have +1 tier in value.
 1. Divine: Replenish one influence on initiative and after being crit
 2. Protected: Gain 1 shield after initiative and after being crit
 3. Reflexive: Take an extra action after initiative and immediately after being crit
@@ -23,7 +23,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
 
-export /* crit = choose weapon type and gain random legendary effect. Legendaries have 2x value.
+export /* crit = choose weapon type and gain random legendary effect. Legendaries have +1 tier in value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash (or adds +1 splash range)
@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle. (candle made from a fleshy finger)
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -141,7 +141,7 @@ export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 
     { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
     { max: 12, name: "Thunder Grenade", dmg: "14 X splash", cost: "35c" },
     { max: 14, name: "Cluster Grenade", dmg: "15 X splash", cost: "40c" },
-    { max: Infinity, name: "Uranium Grenade", dmg: "16 X splash", cost: "45c" }
+    { max: 99, name: "Uranium Grenade", dmg: "16 X splash", cost: "45c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -240,7 +240,7 @@ export const backgroundData = [
 
 // === Ruins Table ===
 export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
-    11: "Office: Contains 3 Vending machines with hidden 1d3 energy water for 10c each. Autojacker to open.",
+    11: "Office: Contains 3 Vending machines with hidden 1d3 healthy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Campground: Contains map to buried treasure 3 random hexes away containing a random crit loot roll.",
@@ -316,7 +316,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
             { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee, +1 spd" }, //foxes with electrified tails
             { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
-            { name: "Angler", hp: 18, def: 28, notes: "10 R + freeze + madness, short, flies" }, //giant hovering anglerfish that stuns enemies with its radioactive light source
+            { name: "Widow", hp: 18, def: 28, notes: "11 P+psn, melee, +1 spd, grapples on 6" }, //giant spider 
             { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
@@ -376,7 +376,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
             { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
             { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
-            { name: "Widow", hp: 14, def: 28, notes: "11 P+psn+madness melee, +1 spd, grapples on 6" }, //giant spider covered in human faces
+            { name: "Angler", hp: 16, def: 28, notes: "10 R + freeze + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
             { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
@@ -404,8 +404,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle. (candle made from a fleshy finger)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -446,12 +446,12 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // sells max roll of associated ammo and will repair weapon for 20c, crit loot = legendary weapons
-    { name: "Armor" }, // will repair armor for 20c, crit loot = legendary armor
-    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, crit loot = 6 serum
-    { name: "Tech" }, // sells 5 of each scrap and will repair tech for 20c, crit loot = artifact
-    { name: "Rations" }, // will purify any ration 1 stage for 5c, crit loot = converted to energy water
-    { name: "Water" } // will purify any water 1 stage for 5c, crit loot = converted to healthy rations
+    { name: "Weapons" }, // sells max roll of associated ammo and will repair weapon for 20c, upgrade: weapons are legendary
+    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is legendary
+    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 5 serum
+    { name: "Tech" }, // sells 5 of each scrap and will repair tech for 20c, upgrade: also sells artifact
+    { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = higher tier of all rations
+    { name: "Water" } // will purify any water 1 stage for 5c, upgrade = higher tier of all water
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
@@ -505,7 +505,7 @@ export const townDescriptors = [
     { roll: 33, name: "Desert Monastery", desc: "An old religious site now inhabited by settlers who maintain the buildings and gardens." },
     { roll: 34, name: "Deserted Prison", desc: "The cells and facilities of an old prison now house a community, providing a secure and fortified location." },
     { roll: 35, name: "Abandoned Mall", desc: "The remains of a shopping mall now serve as a large, communal living space for settlers." },
-    { roll: 36, name: "Water Tower Town", desc: "A settlement has formed around a large water tower, with homes and farms benefiting from the stored water." },
+    { roll: 36, name: "Purifier Town", desc: "A settlement has formed around a water purification facility, with homes and farms benefiting from the clean water." },
     { roll: 41, name: "Canyon Settlement", desc: "A community built within a canyon, using the natural formations for defense and shelter." },
     { roll: 42, name: "Deserted School Campus", desc: "An old school repurposed into a settlement, with classrooms and gyms turned into living spaces." },
     { roll: 43, name: "Oil Rig Community", desc: "An old, once ocean-based oil rig now houses a small, industrious settlement." },
@@ -548,7 +548,7 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10c
     { roll: 41, text: `Convince the Skeptics – Some townsfolk doubt an important discovery; win them over.` },
     { roll: 42, text: `Ghost in the Shell – A faulty AI controls the town's infrastructure and has started locking people in for "safety violations".` },
     { roll: 43, text: `"The Guilty Innocent" – A beloved hero is secretly guilty; expose or protect them.` },
-    { roll: 44, text: `"Psycho Circus" – A chem dealer's new formula turns people feral.` },
+    { roll: 44, text: `"Minor Miner" – An old mine nearby collapsed years ago but sounds of children can be heard coming from within.` },
     { roll: 45, text: `"The Arena" – A Group of youngsters built a combat arena in town, attracting riffraff. shut it down, bet on the winner, or join in the fun.` },
     { roll: 46, text: `The Long Penance – A town elder is starving the people as a form of religious penance.  Expose them, help them, or take their place..` },
     { roll: 51, text: `"The Trade" – Town has captives from a nearby X faction settlement they are at war with. Need to broker an exchange for their own captives back.` },
@@ -761,10 +761,10 @@ export const miscTable = [
 ];
 
 export const rationWaterTable = [
-  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Mutation (irradiated), 5c" },
-  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Mutation (dirty), 5c" },
+  { name: "Irradiated Water",  effect: "-1 Thirst, +1 Mutation, 5c" },
+  { name: "Dirty Water",       effect: "-1 Thirst, END save or +1 Mutation, 5c" },
   { name: "Clean Water",       effect: "-1 Thirst, 5c" },
-  { name: "Energy Water",      effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
+  { name: "Healthy Water",      effect: "-1 Thirst, -1 Fatigue, +10% HP, 10c" },
   { name: "Irradiated Ration", effect: "-1 Hunger, +1 Mutation, 5c" },
   { name: "Dirty Ration",      effect: "-1 Hunger, END save or +1 Mutation, 5c" },
   { name: "Clean Ration",      effect: "-1 Hunger, 5c" },
@@ -775,7 +775,7 @@ export const rationWaterTable = [
 export const moraleTable = [
   { value: "+5", effect: "unlock quest to join faction (must defeat tier 6 battle)" },
   { value: "+4", effect: "20% discount" },
-  { value: "+3", effect: "faction shop also sells crit loot" },
+  { value: "+3", effect: "faction shop sells upgraded loot" },
   { value: "+2", effect: "10% discount" },
   { value: "+1", effect: "Gain access to faction shop" },
   { value: "-1", effect: "-50% quest rewards" },
