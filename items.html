@@ -196,12 +196,17 @@ function generateComplications() {
   document.getElementById("ComplicationOutput").innerHTML = `${c[0]} | Stat: ${c[1]}<br><i>${c[2]}</i>`;
 }
 
-function generateRations() {
+function generateRations(shopMode = false) {
   const rolls = rollDie(6) + rollDie(6);
   const counts = { "Armor/Clean": 0, "Gun/Dirty": 0, "Tech/Irradiated": 0 };
   for (let i = 0; i < rolls; i++) counts[rationTypes[Math.floor(Math.random() * rationTypes.length)]]++;
   let output = `<b>Total Items:</b> ${rolls}<br>`;
-  for (const t in counts) if (counts[t] > 0) output += `${t}: ${counts[t]}<br>`;
+  for (const t in counts) {
+    if (counts[t] > 0) {
+      const label = shopMode ? t.split("/")[1] : t;
+      output += `${label}: ${counts[t]}<br>`;
+    }
+  }
   document.getElementById("RationWaterOutput").innerHTML = output;
 }
 
@@ -305,7 +310,7 @@ function generateTown() {
       if (shop.name === "Weapons") { generateWeapon(true); result = document.getElementById("weaponResult").innerHTML; }
       else if (shop.name === "Armor") { generateArmor(true); result = document.getElementById("armorTitle").innerHTML; }
       else if (shop.name === "Meds") { generateMeds(); result = document.getElementById("medsOnlyOutput").innerHTML; }
-      else if (shop.name === "Rations" || shop.name === "Water") { generateRations(); result = document.getElementById("RationWaterOutput").innerHTML; }
+      else if (shop.name === "Rations" || shop.name === "Water") { generateRations(true); result = document.getElementById("RationWaterOutput").innerHTML; }
       else if (shop.name === "Tech") { generateTech(); result = document.getElementById("techOutput").innerHTML; }
       else result = "<i>(no items)</i>";
       output += `<div style="margin-left:14px;margin-bottom:8px;">${result}</div><div class="section-spacer"></div>`;
