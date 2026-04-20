@@ -405,7 +405,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch tooth (oversized human canine tooth)
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
@@ -446,12 +446,12 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // will repair weapon for 20c
-    { name: "Armor" }, // will repair armor for 20c
-    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c
-    { name: "Tech" }, // will repair tech fot 20c
-    { name: "Rations" }, // will purify any ration 1 stage for 5c
-    { name: "Water" } // will purify any water 1 stage for 5c
+    { name: "Weapons" }, // sells max roll of associated ammo and will repair weapon for 20c, crit loot = legendary weapons
+    { name: "Armor" }, // will repair armor for 20c, crit loot = legendary armor
+    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, crit loot = 6 serum
+    { name: "Tech" }, // sells 5 of each scrap and will repair tech for 20c, crit loot = artifact
+    { name: "Rations" }, // will purify any ration 1 stage for 5c, crit loot = converted to energy water
+    { name: "Water" } // will purify any water 1 stage for 5c, crit loot = converted to healthy rations
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
@@ -755,7 +755,7 @@ export const miscTable = [
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
   { name: "Eldritch Coin",   effect: "Reroll 1 die from ANY roll except enemy crits, 20c" },
   { name: "Eldritch Candle",  effect: "Make a stat roll result a 6 instead of rolling, 30c" },
-  { name: "Eldritch Tooth",  effect: "Duplicate any item, both copies are blessed and cannot be duplicated, 50c" },
+  { name: "Eldritch Knife",  effect: "Duplicate any item, both copies are blessed and cannot be duplicated, 50c" },
   { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive, 20c" },  
     
 ];
