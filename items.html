@@ -306,12 +306,19 @@ function generateTown() {
     if (shop.name === signatureShop.name) output += `<span style="color:#4e8cff;font-weight:bold;">(Faction)</span>`;
     output += `<div class="section-spacer"></div>`;
     if (shop.name === "Rations" || shop.name === "Water") {
-      generateRations(true);
-      const html = document.getElementById("RationWaterOutput").innerHTML;
-      const totalMatch = html.match(/<b>Total Items:<\/b> (\d+)/);
-      const total = totalMatch ? parseInt(totalMatch[1]) : 0;
-      const label = shop.name === "Water" ? "Clean Water" : "Clean Rations";
-      output += `<div style="margin-left:14px;margin-bottom:8px;"><b>${label}:</b> ${total}</div><div class="section-spacer"></div>`;
+      const combined = { "Clean": 0, "Dirty": 0, "Irradiated": 0 };
+      for (let r = 0; r < 2; r++) {
+        generateRations(true);
+        const html = document.getElementById("RationWaterOutput").innerHTML;
+        const lines = html.match(/(\w+): (\d+)/g) || [];
+        lines.forEach(line => {
+          const [, label, count] = line.match(/(\w+): (\d+)/);
+          if (combined[label] !== undefined) combined[label] += parseInt(count);
+        });
+      }
+      const label = shop.name === "Water" ? "Water" : "Rations";
+      const parts = Object.entries(combined).filter(([,v]) => v > 0).map(([k,v]) => `${k} ${label}: ${v}`).join(", ");
+      output += `<div style="margin-left:14px;margin-bottom:8px;">${parts}</div><div class="section-spacer"></div>`;
     } else if (shop.name === "Tech") {
       const scrapRoll = rollDie(6) + rollDie(6);
       const scrapTypes = ["Armor Scrap", "Gun Scrap", "Tech Scrap"];
@@ -328,7 +335,25 @@ function generateTown() {
     } else {
       for (let r = 0; r < 2; r++) {
         let result = "";
-        if (shop.name === "Weapons") { generateWeapon(true); result = document.getElementById("weaponResult").innerHTML; }
+        if (shop.name === "Weapons") {
+          generateWeapon(true);
+          result = document.getElementById("weaponResult").innerHTML;
+          const isMelee = result.includes("Range: melee");
+          const level = parseInt(document.getElementById("partyLevel").value) || 0;
+          if (isMelee) {
+            const grenade = rollGrenadeByLevel(6 + level);
+            const qty = rollDice("1d6");
+            result += `<br><b>Ammo:</b> ${qty}x ${grenade.name} (${grenade.dmg}, ${grenade.cost})`;
+          } else {
+            const ammoMatch = result.match(/Ammo: (\S+)/);
+            if (ammoMatch) {
+              const ammoType = ammoMatch[1];
+              const ammoEntry = ammoTable.find(a => a.type.toLowerCase().startsWith(ammoType.toLowerCase().split("-")[0]));
+              const qty = ammoEntry ? rollDice(ammoEntry.roll) : rollDie(6) + 3;
+              result += `<br><b>Ammo:</b> ${qty}x ${ammoType}`;
+            }
+          }
+        }
         else if (shop.name === "Armor") { generateArmor(true); result = document.getElementById("armorTitle").innerHTML; }
         else if (shop.name === "Meds") { generateMeds(); result = document.getElementById("medsOnlyOutput").innerHTML; }
         else result = "<i>(no items)</i>";
