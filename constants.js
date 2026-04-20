@@ -127,7 +127,7 @@ export const recipeTable = [
 ];
 
 
-export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts to omni scrap 
+export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and offering bowl sculpted from several dismembered hands. insert any flesh, including your own (+1 injury): converts 2:1 to effigy. (hand statuette in various poses)
     { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
     { type: "E-cell", roll: "1d6+3", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "You can harvest your own flesh for consumption and it contributes triple for offerings." },
+        { name: "Exalted Flesh", desc: "You can gain +1 injury to harvest your own flesh and it contributes triple for offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -404,8 +404,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
-//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both items become corrupted and cannot be duplicated.  
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert any flesh, including your own (+1 injury): get eldritch coins per 2 flesh. use reroll any die, including random roll dice. (coin has a smiling mouth on it)
+//crit water: all waters upgraded 1 tier: irradiated->dirty->clean->energy (-1 thirst, -1 fatigue, +10% HP) also find an offering bowl covered in eyes. insert any flesh, including your own (+1 injury): converts 2:1 eldritch coin (coin with an eye on it)
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy  (-1 hunger, -1 mutation, +10% HP), also find offering bowl in the shape of a mouth: insert 10 of any flesh, including your own (+1 injury): plus any item into it to duplicate it, but both copies become blessed and cannot be duplicated.  
 
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
@@ -750,13 +750,14 @@ export const miscTable = [
   { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
   { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
   { name: "Tech Scrap",  effect: "Repair tech, 5c" },
-  { name: "Omni Scrap",  effect: "Repair any item, 10c" },
+  
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
-  { name: "Eldritch Coin",   effect: "Reroll a single die from any roll, 10c" },
-  { name: "Serum",   effect: "Gain +1 to all rolls for 1 day, addictive , 20c" },  
+  { name: "Eldritch Coin",   effect: "Reroll 1 die from any roll, 10c" },
+  { name: "Effigy",  effect: "Make any stat roll result a 5 instead of rolling, 10c" },
+  { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive , 20c" },  
     
 ];
 
