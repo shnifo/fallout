@@ -310,8 +310,24 @@ function generateTown() {
       if (shop.name === "Weapons") { generateWeapon(true); result = document.getElementById("weaponResult").innerHTML; }
       else if (shop.name === "Armor") { generateArmor(true); result = document.getElementById("armorTitle").innerHTML; }
       else if (shop.name === "Meds") { generateMeds(); result = document.getElementById("medsOnlyOutput").innerHTML; }
-      else if (shop.name === "Rations" || shop.name === "Water") { generateRations(true); result = document.getElementById("RationWaterOutput").innerHTML; }
-      else if (shop.name === "Tech") { generateTech(); result = document.getElementById("techOutput").innerHTML; }
+      else if (shop.name === "Rations" || shop.name === "Water") {
+        generateRations(true);
+        result = document.getElementById("RationWaterOutput").innerHTML;
+        const totalMatch = result.match(/<b>Total Items:<\/b> (\d+)/);
+        const total = totalMatch ? totalMatch[1] : "?";
+        const label = shop.name === "Water" ? "Clean Water" : "Clean Rations";
+        result = `<b>${label}:</b> ${total}`;
+      }
+      else if (shop.name === "Tech") {
+        generateTech(); result = document.getElementById("techOutput").innerHTML;
+        const scrapRoll = rollDie(6) + rollDie(6);
+        const scrapTypes = ["Armor Scrap", "Gun Scrap", "Tech Scrap"];
+        const scrapCounts = { "Armor Scrap": 0, "Gun Scrap": 0, "Tech Scrap": 0 };
+        for (let s = 0; s < scrapRoll; s++) scrapCounts[scrapTypes[Math.floor(Math.random() * scrapTypes.length)]]++;
+        let scrapText = `<b>Scrap (${scrapRoll}):</b> `;
+        scrapText += Object.entries(scrapCounts).filter(([,v]) => v > 0).map(([k,v]) => `${k.replace(" Scrap","")}: ${v}`).join(", ");
+        result += `<br>${scrapText}`;
+      }
       else result = "<i>(no items)</i>";
       output += `<div style="margin-left:14px;margin-bottom:8px;">${result}</div><div class="section-spacer"></div>`;
     }
