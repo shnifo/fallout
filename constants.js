@@ -1,11 +1,11 @@
 /// ARMOR & WEAPONS ///
-export const armorTable = [ /* crit = choose weapon type and gain random legendary effect. Legendaries have +1 tier in value.
-1. Divine: Replenish one influence on initiative and after being crit
-2. Protected: Gain 1 shield after initiative and after being crit
-3. Reflexive: Take an extra action after initiative and immediately after being crit
-4. Bloody: Heal 10% after combat and after being crit
-5. Swift: +1 sneak and sprint rolls
-6. Winged: Gain cover against melee attacks   */ 
+export const armorTable = [ /* crit = choose weapon type and gain random augmented effect. Augments add +50c value.
+1. Light: Replenish one influence on initiative and after being crit
+2. Earth: Gain 1 shield after initiative and after being crit
+3. Fire: Take an extra action after initiative and immediately after being crit
+4. Water: Heal 10% after combat and after being crit
+5. Wind: +1 sneak and sprint rolls
+6. Dark: Gain cover against melee attacks   */ 
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Scrap armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
@@ -23,7 +23,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random legenda
     { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
 
-export /* crit = choose weapon type and gain random legendary effect. Legendaries have +1 tier in value.
+export /* crit = choose weapon type and gain random augmented effect. Augments add +50c value.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash (or adds +1 splash range)
@@ -67,18 +67,18 @@ export /* crit = choose weapon type and gain random legendary effect. Legendarie
         [12, "Microwave Emitter", "11 E", "E-cell", "short", "INT", "90c"],
         [14, "Capacitor Gun", "12 E", "E-cell", "short", "INT", "100c"],
         [99, "Hyperbeam", "13 E", "E-cell", "short", "INT", "110c"]],
-        O1: [[6, "Catapult", "10 X splash next round", "fuel", "extra long", "AGI", "80c"],
-        [8, "Trebuchet", "11 X splash next round", "fuel", "extra long", "AGI", "110c"],
-        [10, "Ballista", "12 X splash next round", "fuel", "extra long", "AGI", "140c"],
-        [12, "Cannon", "13 X splash next round", "fuel", "extra long", "AGI", "170c"],
-        [14, "Howitzer", "14 X splash next round", "fuel", "extra long", "AGI", "200c"],
-        [99, "Lightbringer", "15 X splash next round", "fuel", "extra long", "AGI", "230c"]],
-        O2: [[6, "Hand Mortar", "9 X splash", "fuel", "mid", "AGI", "70c"],
-        [8, "Grenade Launcher", "10 X splash", "fuel", "mid", "AGI", "100c"],
-        [10, "Stinger", "11 X splash", "fuel", "mid", "AGI", "130c"],
-        [12, "Rocket Launcher", "12 X splash", "fuel", "mid", "AGI", "160c"],
-        [14, "Bazooka", "13 X splash", "fuel", "mid", "AGI", "190c"],
-        [99, "Judgement", "14 X splash", "fuel", "mid", "AGI", "220c"]],
+        O1: [[6, "Catapult", "11 X splash next round", "fuel", "extra long", "AGI", "80c"],
+        [8, "Trebuchet", "12 X splash next round", "fuel", "extra long", "AGI", "110c"],
+        [10, "Ballista", "13 X splash next round", "fuel", "extra long", "AGI", "140c"],
+        [12, "Cannon", "14 X splash next round", "fuel", "extra long", "AGI", "170c"],
+        [14, "Howitzer", "15 X splash next round", "fuel", "extra long", "AGI", "200c"],
+        [99, "Lightbringer", "16 X splash next round", "fuel", "extra long", "AGI", "230c"]],
+        O2: [[6, "Hand Mortar", "10 X splash", "fuel", "mid", "AGI", "70c"],
+        [8, "Grenade Launcher", "11 X splash", "fuel", "mid", "AGI", "100c"],
+        [10, "Stinger", "12 X splash", "fuel", "mid", "AGI", "130c"],
+        [12, "Rocket Launcher", "13 X splash", "fuel", "mid", "AGI", "160c"],
+        [14, "Bazooka", "14 X splash", "fuel", "mid", "AGI", "190c"],
+        [99, "Judgement", "15 X splash", "fuel", "mid", "AGI", "220c"]],
         O3: [[6, "Weak Melee", "6 P", "-", "melee", "STR", "30c"],
         [8, "Medium Melee", "7 P", "-", "melee", "STR", "50c"],
         [10, "Strong Melee", "8 P", "-", "melee", "STR", "70c"],
@@ -112,10 +112,10 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 10 X Splash+burn, mid, STR, 25c" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 ambrosia" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 bandage" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 resin" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
     { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, 50c" },
@@ -128,20 +128,20 @@ export const recipeTable = [
 
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
-    { type: "Small rounds", roll: "1d6+5", cost: 5 }, 
-    { type: "E-cell", roll: "1d6+3", cost: 10 },  
+    { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
+    { type: "E-cell", roll: "1d6+4", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
-    { type: "Large rounds", roll: "1d6+3", cost: 10 }, 
-    { type: "MF-cell", roll: "1d6+1", cost: 15 } 
+    { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
+    { type: "MF-cell", roll: "1d6+2", cost: 15 } 
 ];
 export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
-    { max: 6, name: "Scrap Grenade", dmg: "11 X splash", cost: "20c" },
-    { max: 8, name: "Chem Grenade", dmg: "12 X splash", cost: "25c" },
-    { max: 10, name: "Frag Grenade", dmg: "13 X splash", cost: "30c" },
-    { max: 12, name: "Thunder Grenade", dmg: "14 X splash", cost: "35c" },
-    { max: 14, name: "Cluster Grenade", dmg: "15 X splash", cost: "40c" },
-    { max: 99, name: "Uranium Grenade", dmg: "16 X splash", cost: "45c" }
+    { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
+    { max: 8, name: "Chem Grenade", dmg: "11 X splash", cost: "25c" },
+    { max: 10, name: "Frag Grenade", dmg: "12 X splash", cost: "30c" },
+    { max: 12, name: "Thunder Grenade", dmg: "13 X splash", cost: "35c" },
+    { max: 14, name: "Cluster Grenade", dmg: "14 X splash", cost: "40c" },
+    { max: 99, name: "Uranium Grenade", dmg: "15 X splash", cost: "45c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -154,7 +154,7 @@ export const perkData = {
         { name: "Healing Factor", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Secret Technique", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
-        { name: "Boomer", desc: "Explosive splash damage splashes to short range with -3 damage." },
+        { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
         { name: "Chiropractor", desc: "When you cripple an enemy limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
@@ -188,7 +188,7 @@ export const perkData = {
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
-        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced save." },
+        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
         { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
     ],
 
@@ -219,7 +219,7 @@ export const perkData = {
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
         { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
-        { name: "Cool Guys Don't Look at Explosions", desc: "Gain +5 explosive armor." }
+        { name: "Cool Guys Don't Look at Explosions", desc: "Gain +3 explosive armor." }
     ]
 };
 
@@ -261,7 +261,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     41: "Army Base: Scavenging weapons is abundant.",
     42: "Restaurant: scavenging rations is abundant",
     43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
-    44: "Crashed Ship: Contains an elite max tier aberration that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg and all armor. harvest for legendary mutagen (make item legendary)",
+    44: "Crashed Ship: Contains an elite max tier aberration that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg and all armor. harvest for augmented biogel (make item augmented)",
     45: "Outpost: Scavenging ammo is abundant.",
     46: "Foundry: Can upgrade one Tinker's Digest crafted item to heavy with doubled effect",
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
@@ -406,7 +406,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle. (candle made from a fleshy finger)
-//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  they can be assembled to create a ritual circle that manifests a messenger hand who will imbue each player with a one time +1 to any stat (up to 4).
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that manifests a messenger hand who will consume them all to imbue each player with +1 to any stat (up to 3).
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -446,20 +446,20 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // sells max roll of associated ammo and will repair weapon for 20c, upgrade: weapons are legendary
-    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is legendary
-    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 5 serum
-    { name: "Tech" }, // sells 5 of each scrap and will repair tech for 20c, upgrade: also sells artifact
+    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 20c, upgrade: weapons are augmented
+    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
+    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells random serum roll
+    { name: "Tech" }, // sells random scrap and will repair tech for 20c, upgrade: also sells an artifact
     { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = higher tier of all rations
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = higher tier of all water
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
-    ["+1/2 Thirst", "END", "Sweating from hot area with no air flow (hammerator)"],
+    ["+1/2 Thirst", "END", "Sweating from hot area with no cooling (generator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
-    ["+1/2 Hunger", "STR", "Burning calories from prolongued heavy lifting (autojacker)"],
-    ["+1/2 Thirst", "AGI", "Stuck in an overly dehumidified area (generator)"],
+    ["+1/2 Hunger", "STR", "Burning calories from prolonged heavy lifting (autojacker)"],
+    ["+1/2 Thirst", "AGI", "Overly dehumidified area with no air flow (hammerator)"],
     ["+1/2 Hunger", "END", "Burning calories breaking through obstacles (hammerator)"],
     ["Lose 5/10 HP", "CHA", "Witnesses horrific creatures moving in the shadows (illuminator)"],
     ["Lose 5/10 HP", "INT", "Chemicals cause hallucination (breatherator)"],
@@ -477,7 +477,7 @@ export const complications = [ //When rolling complications, if the bracketed te
     ["+1/2 Mutation", "END", "Treks through irradiated water (breatherator)"],
     ["+1/2 Mutation", "AGI", "Navigating large area full of radiation (illuminator)"],
     ["+1/2 Mutation", "CHA", "encounter Wandering radiation cleanup bots (hackerator)"],
-    ["+1/2 Mutation", "END", "dig up buried loot in irradiated room (hammerator)"],
+    ["+1/2 Mutation", "END", "Loot is buried in an irradiated area (hammerator)"],
     ["+1/2 Mutation", "INT", "activate radiation filtration system (generator)"],
     ["+1/2 Injury", "INT", "Able to hack and disable a security turret (hackerator)"],
     ["+1/2 Injury", "AGI", "Have to squeeze through tight gap (hammerator)"],
@@ -775,7 +775,7 @@ export const rationWaterTable = [
 export const moraleTable = [
   { value: "+5", effect: "unlock quest to join faction (must defeat tier 6 battle)" },
   { value: "+4", effect: "20% discount" },
-  { value: "+3", effect: "faction shop sells upgraded loot" },
+  { value: "+3", effect: "upgraded faction shop" },
   { value: "+2", effect: "10% discount" },
   { value: "+1", effect: "Gain access to faction shop" },
   { value: "-1", effect: "-50% quest rewards" },
