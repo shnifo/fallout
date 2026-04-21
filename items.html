@@ -345,7 +345,7 @@ function generateTown() {
             const qty = rollDice("1d6");
             result += `<br><b>Ammo:</b> ${qty}x ${grenade.name} (${grenade.dmg}, ${grenade.cost})`;
           } else {
-            const ammoMatch = result.match(/Ammo: (\S+)/);
+            const ammoMatch = result.match(/Ammo: ([^&<]+?)(?:\s*&bull|\s*<|$)/);
             if (ammoMatch) {
               const ammoType = ammoMatch[1];
               const ammoEntry = ammoTable.find(a => a.type.toLowerCase().startsWith(ammoType.toLowerCase().split("-")[0]));
