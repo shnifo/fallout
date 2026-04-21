@@ -149,10 +149,10 @@ export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 
 export const perkData = {
     STRENGTH: [
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
-        { name: "Pyromaniac", desc: "Explosive damage aimed shots apply burn." },
+        { name: "Berserker", desc: "Gain another action immediately after you slay an enemy." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
         { name: "Healing Factor", desc: "Remove 1 injury when you sleep while at full HP." },
-        { name: "Secret Technique", desc: "Influenced attacks also get an aimed shot on a 5." },
+        { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
@@ -171,9 +171,9 @@ export const perkData = {
         { name: "Guerrilla", desc: "Rubble is instead treated as cover for you." },
         { name: "Sniper", desc: "Attacks ignore cover and weapons with long or extra long range gain +1 range." },
         { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
-        { name: "Jack of All Trades", desc: "Gain another skill and another background." },
+        { name: "Jack of All Trades", desc: "Gain another background and another skill with different stats from your first skill." },
         { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapon attacks." },
-        { name: "Rivers of Blood", desc: "Physical damage aimed shots apply bleed." },
+        { name: "Secret Technique", desc: "Aimed shots with a chosen damage type apply its associated ailment." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
     ],
 
@@ -183,13 +183,13 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Serum lasts twice as long and suppresses the effects of statuses above 5." },
+        { name: "Homo Superior", desc: "Serum lasts two days and suppresses the effects of statuses above 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
+        { name: "Pack Rat", desc: "Stackables can now stack to 20 before becoming heavy." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
-        { name: "Rare Hunter", desc: "You can reroll scavenged crit loot 3 additional times." },
         { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
         { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
-        { name: "Exposure Therapy", desc: "Radiation damage aimed shots apply poison." }
+        { name: "Autophagy", desc: "Remove 1 mutation when you sleep if you did not eat or drink that day." }
     ],
 
     INTELLIGENCE: [
@@ -201,14 +201,14 @@ export const perkData = {
         { name: "Green Thumb", desc: "Plants give +2 yield if held for the whole level." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
-        { name: "Reverse Polarity", desc: "Energy damage aimed shots apply freeze." },
-        { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor type by 1." },
-        { name: "Chosen One", desc: "You can spend 10 HP to repair artifacts and mutated weapons." },
+        { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
+        { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
+        { name: "Chosen One", desc: "Using an artifact does not consume your movement and repairing them now costs 10 HP." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "Gain +1 injury to harvest your own flesh. It contributes triple for offerings." },
+        { name: "Exalted Flesh", desc: "Gain +1 injury to harvest your own flesh. It contributes triple towards offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
