@@ -316,16 +316,16 @@ function generateTown() {
           if (combined[label] !== undefined) combined[label] += parseInt(count);
         });
       }
-      const label = shop.name === "Water" ? "Water" : "Rations";
-      const parts = Object.entries(combined).filter(([,v]) => v > 0).map(([k,v]) => `${k} ${label}: ${v}`).join(", ");
-      output += `<div style="margin-left:14px;margin-bottom:8px;">${parts}</div><div class="section-spacer"></div>`;
+      const parts = Object.entries(combined).filter(([,v]) => v > 0).map(([k,v]) => `${k}: ${v}`).join(", ");
+      output += `<div style="margin-left:14px;margin-bottom:8px;">${parts}, 5c</div><div class="section-spacer"></div>`;
     } else if (shop.name === "Tech") {
       const scrapRoll = rollDie(6) + rollDie(6);
       const scrapTypes = ["Armor Scrap", "Gun Scrap", "Tech Scrap"];
       const scrapCounts = { "Armor Scrap": 0, "Gun Scrap": 0, "Tech Scrap": 0 };
       for (let s = 0; s < scrapRoll; s++) scrapCounts[scrapTypes[Math.floor(Math.random() * scrapTypes.length)]]++;
-      let scrapText = `<b>Scrap (${scrapRoll}):</b> `;
+      let scrapText = `<b>Scrap:</b> `;
       scrapText += Object.entries(scrapCounts).filter(([,v]) => v > 0).map(([k,v]) => `${k.replace(" Scrap","")}: ${v}`).join(", ");
+      scrapText += `, 5c`;
       output += `<div style="margin-left:14px;margin-bottom:8px;">${scrapText}</div><div class="section-spacer"></div>`;
       for (let r = 0; r < 2; r++) {
         generateTech();
@@ -347,10 +347,11 @@ function generateTown() {
           } else {
             const ammoMatch = result.match(/Ammo: ([^&<]+?)(?:\s*&bull|\s*<|$)/);
             if (ammoMatch) {
-              const ammoType = ammoMatch[1];
+              const ammoType = ammoMatch[1].trim();
               const ammoEntry = ammoTable.find(a => a.type.toLowerCase().startsWith(ammoType.toLowerCase().split("-")[0]));
               const qty = ammoEntry ? rollDice(ammoEntry.roll) : rollDie(6) + 3;
-              result += `<br><b>Ammo:</b> ${qty}x ${ammoType}`;
+              const price = ammoEntry ? `${ammoEntry.cost}c` : "5c";
+              result += `<br><b>Ammo:</b> ${qty}x ${ammoType}, ${price}`;
             }
           }
         }
