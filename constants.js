@@ -754,9 +754,9 @@ export const miscTable = [
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
   { name: "Eldritch Coin",   effect: "Reroll 1 die from ANY roll except enemy crits, 20c" },
-  { name: "Eldritch Candle",  effect: "Make a stat roll result a 6 instead of rolling, 30c" },
+  { name: "Eldritch Candle",  effect: "Make a stat test result a 6 instead of rolling, 30c" },
   { name: "Eldritch Knife",  effect: "Duplicate any item, both copies are blessed and cannot be duplicated, 50c" },
-  { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive, 20c" },  
+  { name: "Serum",   effect: "Gain +1 to all stat tests for 1 day, addictive, 20c" },  
     
 ];
 
