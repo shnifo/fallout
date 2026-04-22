@@ -279,8 +279,8 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
 };
 
 // === Monster Data ===
-export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes fatigue
-    E1: {
+export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes fatigue. Boss: 3x HP, +2 dmg and gain boss action
+    E1: { //boss action: alternate: mid range firebomb  X trap damage + burns, mid range bear trap that applies on target immediately
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
             { name: "Savage", hp: 16, def: 12, notes: "scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
@@ -290,7 +290,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Chieftain", hp: 24, def: 28, notes: "scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
         ]
     },
-    E2: {
+    E2: { //boss action: Leap strike: short range slam 10+tier P short splash other. cooldown 1. 
         label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair) Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream, resembles a lobster
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" }, //wild cats, unchaged by evolution
@@ -300,8 +300,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short, flies" } //Giant winged lizards that spew toxic ash.
         ]
     },
-    E3: {
-        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult, no loot. can stomp eggs as action
+    E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
+        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult, no loot. standing on eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
@@ -310,7 +310,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
         ]
     },
-    E4: {
+    E4: { //boss action: Spawn burrow in melee and immediately enter and exit elsewhere. cooldown 1. 
         label: "Burrowers", notes: "special: burrow, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
             { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
@@ -320,7 +320,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
-    E5: {
+    E5: { //boss action: fires 10+tier X XL artillery weapon. only loses 25% on full cripple. 
         label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 12, def: 16, notes: "7 E short" },
             { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
@@ -330,7 +330,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Annihilator", hp: 32, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
-    E6: {
+    E6: { //boss action: designate row or column to fire piercing lasers next round for mines damage. 
         label: "Androids", notes: "special: hidden pulse mines. Loot: tech scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
             { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11E mines" },
             { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12E mines" },
@@ -340,7 +340,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Terminator", hp: 20, def: 32, notes: "scaled energy weapons +2 dmg, 16E mines" }
         ]
     },
-    O1: {
+    O1: { //boss action: apply effects of any two artifacts to long range. 
         label: "Cultists", notes: "special: madness tile, uses mutated weapons, 1 also has random artifact. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
             { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
@@ -350,7 +350,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Elder", hp: 20, def: 28, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
-    O2: {
+    O2: { //boss action: create cover on self and regenerate 1 shield (up to 3). 
         label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
             { name: "Observer", hp: 10, def: 6,  notes: "2x5 E, mid" },
             { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
@@ -360,7 +360,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
-    O3: {
+    O3: { //boss action: create toxic zone on self and 1 tile within short range that applies +2 dmg taken and -2 dmg dealt for players
         label: "Revenants", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
             { name: "Lifemarked", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Chaosmarked", hp: 18, def: 10, notes: "8 P + madness, melee" },
@@ -370,7 +370,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
         ]
     },
-    O4: {
+    O4: { //boss action: create madness tile within short range 
         label: "Aberrations", notes: "special: madness tile. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness tile = start of each round, make madness roll if in area
             { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
@@ -380,7 +380,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
-    O5: {
+    O5: { //boss action: grows random secondary gun every other turn. can shoot all weapons while moving. cripple secondary weapon twice to break it
         label: "Mutants", notes: "special: madness tile. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Outcast", hp: 10, def: 18, notes: "scaled physical weapons" },
@@ -390,7 +390,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Abomination", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
         ]
     },
-    O6: {
+    O6: { //boss action: throw firebomb to short range that explodes to deal mine damage short splash + burns 
         label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
             { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
