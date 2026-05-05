@@ -107,21 +107,21 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
 
 export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
-    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: +2 dmg, action to aim scope at target" },
+    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
     { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
     { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated->dirty->clean)" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 bandage" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 resin" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated > dirty > clean)" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 ambrosia" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 human flesh = 1 adrenaline" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 clean water&rations  = 1 wasteland soup: -3 hunger, -3 thirst, +30% HP" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 serum  = 1 panacea: -1 to all statuses, addictive, 30c" },
     { book: "Tinker's Digest", recipe: "Autojacker + 1 of each scrap = Harness: adds 3 item slots, does not take up inventory slot, 50c" },
     { book: "Tinker's Digest", recipe: "Hackerator + 1 of each scrap = Analyzer: before initiative, learn weapon+armor of 1 enemy, or search any tile to short range, bulky, 50c"},
     { book: "Tinker's Digest", recipe: "Hammerator + 1 of each scrap = Helmet: +1 all armor, bulky, 50c" },
-    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Forcefield: +10 max HP, bulky, 50c" },
+    { book: "Tinker's Digest", recipe: "Generator + 1 of each scrap = Stabilizer: +10 max HP, bulky, 50c" },
     { book: "Tinker's Digest", recipe: "Breatherator + 1 of each scrap = Regulator: heal 10% HP when sleeping, bulky, 50c" },
     { book: "Tinker's Digest", recipe: "Illuminator + 1 of each scrap = Targeter: +1 dmg with weapons, bulky, 50c" }
 ];
@@ -489,20 +489,20 @@ export const complications = [ //When rolling complications, if the bracketed te
 
 export const townDescriptors = [ 
     { roll: 11, name: "Old Fort", desc: "A pre-war military fort repurposed by settlers for defense and shelter, complete with makeshift barracks and watchtowers." },
-    { roll: 12, name: "Western Town", desc: "An abandoned western town brought back to life by settlers who have repaired and occupied its buildings." },
+    { roll: 12, name: "Treehouse settlement", desc: "A settlement of forest dwellers living in houses built high into the trees connected by bridges and ladders." },
     { roll: 13, name: "Mining Camp", desc: "A community built around an old mine, extracting valuable minerals and using them to trade for other necessities." },
     { roll: 14, name: "Train Station", desc: "An old train station turned into a central hub for a small settlement, with train cars repurposed as homes." },
-    { roll: 15, name: "Wind Farm", desc: "Settlers have established a community around an old wind farm, using the remaining turbines to generate power." },
+    { roll: 15, name: "Undercity Dwelling", desc: "Settlers have established a community within an abandoned sewer network, growing their own fleshrooms for food." },
     { roll: 16, name: "Abandoned Airport", desc: "The terminal and hangars have been turned into living spaces and workshops by a group of settlers." },
     { roll: 21, name: "Deserted Factory Town", desc: "An old factory complex repurposed into a settlement, with the factory buildings serving as homes and workshops." },
     { roll: 22, name: "Ruined Hotel", desc: "A large, partially collapsed hotel now houses a community, with rooms turned into living quarters." },
-    { roll: 23, name: "Fishing Village", desc: "Located on the shores of a small lake, settlers rely on small-scale fishing and trade for survival." },
+    { roll: 23, name: "River Village", desc: "Fishing village built upon steep stilts on the shores of a river, connected by suspernsion bridges." },
     { roll: 24, name: "Cliffside Dwellings", desc: "Homes built into the sides of cliffs, offering natural defense and a unique living environment." },
-    { roll: 25, name: "Desert Outpost", desc: "A small, fortified settlement built around a well or water source, serving as a rest stop for travelers." },
+    { roll: 25, name: "Mountain Monastery", desc: "A settlment built atop a mountain around old abandoned religious structures." },
     { roll: 26, name: "Abandoned Theme Park", desc: "The remains of an old amusement park now house a quirky community that has repurposed the attractions." },
     { roll: 31, name: "Scrap Yard", desc: "A large junkyard turned settlement, with homes and workshops built from scavenged materials." },
-    { roll: 32, name: "Power Plant Village", desc: "A small community has formed around the ruins of a power plant, using its resources for energy and shelter." },
-    { roll: 33, name: "Desert Monastery", desc: "An old religious site now inhabited by settlers who maintain the buildings and gardens." },
+    { roll: 32, name: "Subway Station", desc: "A small community has formed within the remains of a subway station and its collapsed subway tunnels." },
+    { roll: 33, name: "Island Town", desc: "A settlement built on a small island in a lake that connects to the mainland by a narrow land bridge." },
     { roll: 34, name: "Deserted Prison", desc: "The cells and facilities of an old prison now house a community, providing a secure and fortified location." },
     { roll: 35, name: "Abandoned Mall", desc: "The remains of a shopping mall now serve as a large, communal living space for settlers." },
     { roll: 36, name: "Purifier Town", desc: "A settlement has formed around a water purification facility, with homes and farms benefiting from the clean water." },
@@ -510,23 +510,23 @@ export const townDescriptors = [
     { roll: 42, name: "Deserted School Campus", desc: "An old school repurposed into a settlement, with classrooms and gyms turned into living spaces." },
     { roll: 43, name: "Oil Rig Community", desc: "An old, once ocean-based oil rig now houses a small, industrious settlement." },
     { roll: 44, name: "Ruined Cathedral", desc: "The remains of a large church now serve as a communal living space and meeting hall for settlers." },
-    { roll: 45, name: "Old Gas Station", desc: "A small settlement has formed around an old gas station, using its infrastructure for trade and repair." },
-    { roll: 46, name: "Desert Market Town", desc: "A town built around a central market square, where traders and settlers gather to exchange goods." },
+    { roll: 45, name: "Refinery Settlement", desc: "A settlement has formed around an old oil refinery, using its infrastructure for trade and repair." },
+    { roll: 46, name: "Oasis Town", desc: "A town built around a central oasis that provides clean water and food for the community." },
     { roll: 51, name: "Interchange Camp", desc: "A settlement has formed beneath the remains of a large highway interchange, using the structure for shelter." },
-    { roll: 52, name: "Drive-In Theater", desc: "The old projection booth and concession stands have been repurposed into homes and shops for a small community." },
+    { roll: 52, name: "Theater Village", desc: "The concession stands and theatre rooms have been repurposed into homes and shops for a small community." },
     { roll: 53, name: "Airplane Graveyard", desc: "Settlers have turned old, grounded planes into homes and workshops in a sprawling community." },
     { roll: 54, name: "Shipping Container Village", desc: "A settlement made from repurposed shipping containers, providing sturdy and modular living spaces." },
     { roll: 55, name: "Ruined Observatory", desc: "An old observatory turned into a fortified settlement, using the high ground for defense." },
-    { roll: 56, name: "Garden Sanctuary", desc: "A community built around a community garden that treat the flowers as gods." },
+    { roll: 56, name: "Garden Sanctuary", desc: "A community built around a community garden that treat the flowers as their children." },
     { roll: 61, name: "Forest Compound", desc: "An abandoned campground in the middle of the forest has been settled due to its proximity to natural food and defenses." },
-    { roll: 62, name: "Shanty Town", desc: "A collection of makeshift homes built from scrap metal and other scavenged materials, housing a small community." },
-    { roll: 63, name: "Trading Post", desc: "A bustling hub where traders from various parts of the wasteland come to barter goods and services." },
+    { roll: 62, name: "Shanty Town", desc: "A collection of makeshift homes built from scrap metal and other scavenged materials crammed together into a monolithic structure." },
+    { roll: 63, name: "Cruise Ship Shelter", desc: "A bustling community built upon an abandoned Cruise Ship." },
     { roll: 64, name: "Ranch", desc: "A larger-scale farm with fields and animal pens, providing food and supplies for a small settlement." },
     { roll: 65, name: "Ruined Suburb", desc: "An old suburban neighborhood being repurposed by settlers, with houses turned into communal living spaces." },
     { roll: 66, name: "Bomb Shelter", desc: "A deep underground bomb shelter that allows visitors and trades with outsiders." }
 ];
 
-export const townQuests = [ //main quest rewards = 1d6+level x 10c
+export const townQuests = [ //main quest rewards = 2d6 x 10c
     { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning townsfolk to 'thin the weak.' Expose them, join them, or take their place.` },
     { roll: 12, text: `"Pilgrim Dreams" – Pilgrims from X faction have been arriving in town for weeks, drawn by dreams none of them can describe. They don't leave or sleep, just gather in a circle, waiting...` },
     { roll: 13, text: `Wishing Well – The town's well goes deeper than it should. Something has been dropping offerings into it — from below. It leads to a fleshy chamber inhabited by horrible monstrosity.` },
@@ -565,7 +565,7 @@ export const townQuests = [ //main quest rewards = 1d6+level x 10c
     { roll: 66, text: `Find the Missing Civilian – A key figure has gone missing in a maze-like network of sewer tunnels under the town. Find them without getting lost or learn the truth.` }
 ];
 
-export const professionQuests = { // prof quest rewards = 1d6+level x 5c
+export const professionQuests = { // prof quest rewards = 2d6 x 5c
     Technician: [
         "Wire & Will – Restore a militia’s failing weapons to better prepare their defenses.",
         "Too Intact – Repair or destroy a pre‑war weapon that steals something undefinable from anyone who touches it.",
