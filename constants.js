@@ -37,36 +37,36 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Magnum", "8 P", "small", "mid", "AGI", "60c"],
         [14, "Big Iron", "9 P", "small", "mid", "AGI", "70c"],
         [99, "Deadeye", "10 P", "small", "mid", "AGI", "80c"]],
-        E2: [[6, "Laser Pistol", "6 E", "E-cell", "mid", "INT", "40c"],
-        [8, "Plasma Pistol", "7 E", "E-cell", "mid", "INT", "50c"],
-        [10, "Sonic Pistol", "8 E", "E-cell", "mid", "INT", "60c"],
-        [12, "Tesla Pistol", "9 E", "E-cell", "mid", "INT", "70c"],
-        [14, "Gauss Pistol", "10 E", "E-cell", "mid", "INT", "80c"],
-        [99, "Purifier", "11 E", "E-cell", "mid", "INT", "90c"]],
+        E2: [[6, "Laser Pistol", "6 E", "cell", "mid", "INT", "40c"],
+        [8, "Plasma Pistol", "7 E", "cell", "mid", "INT", "50c"],
+        [10, "Sonic Pistol", "8 E", "cell", "mid", "INT", "60c"],
+        [12, "Tesla Pistol", "9 E", "cell", "mid", "INT", "70c"],
+        [14, "Gauss Pistol", "10 E", "cell", "mid", "INT", "80c"],
+        [99, "Purifier", "11 E", "cell", "mid", "INT", "90c"]],
         E3: [[6, "Pipe Rifle", "7 P", "large", "long", "AGI", "50c"],
         [8, "Service Rifle", "8 P", "large", "long", "AGI", "70c"],
         [10, "Hunting Rifle", "9 P", "large", "long", "AGI", "90c"],
         [12, "Combat Rifle", "10 P", "large", "long", "AGI", "110c"],
         [14, "Assault Rifle", "11 P", "large", "long", "AGI", "130c"],
         [99, "Furiosa", "12 P", "large", "long", "AGI", "150c"]],
-        E4: [[6, "Laser Rifle", "2x5 E", "MF-cell", "long", "INT", "60c"],
-        [8, "Photon Rifle", "2x6 E", "MF-cell", "long", "INT", "80c"],
-        [10, "Ultraviolet Rifle", "2x7 E", "MF-cell", "long", "INT", "100c"],
-        [12, "Gamma Rifle", "2x8 E", "MF-cell", "long", "INT", "120c"],
-        [14, "Electron Rifle", "2x9 E", "MF-cell", "long", "INT", "140c"],
-        [99, "Neutrino", "2x10 E", "MF-cell", "long", "INT", "160c"]],
+        E4: [[6, "Laser Rifle", "2x5 E", "pack", "long", "INT", "60c"],
+        [8, "Photon Rifle", "2x6 E", "pack", "long", "INT", "80c"],
+        [10, "Ultraviolet Rifle", "2x7 E", "pack", "long", "INT", "100c"],
+        [12, "Gamma Rifle", "2x8 E", "pack", "long", "INT", "120c"],
+        [14, "Electron Rifle", "2x9 E", "pack", "long", "INT", "140c"],
+        [99, "Neutrino", "2x10 E", "pack", "long", "INT", "160c"]],
         E5: [[6, "Boomstick", "3x4 P", "small", "short", "AGI", "50c"],
         [8, "Hunting Shotgun", "3x5 P", "small", "short", "AGI", "60c"],
         [10, "Caravan Shotgun", "3x6 P", "small", "short", "AGI", "70c"],
         [12, "Combat Shotgun", "3x7 P", "small", "short", "AGI", "80c"],
         [14, "Riot Shotgun", "3x8 P", "small", "short", "AGI", "90c"],
         [99, "Invictus", "3x9 P", "small", "short", "AGI", "100c"]],
-        E6: [[6, "Infrared Emitter", "8 E", "E-cell", "short", "INT", "60c"],
-        [8, "Plasma Blaster", "9 E", "E-cell", "short", "INT", "70c"],
-        [10, "Pulse Cannon", "10 E", "E-cell", "short", "INT", "80c"],
-        [12, "Microwave Emitter", "11 E", "E-cell", "short", "INT", "90c"],
-        [14, "Capacitor Gun", "12 E", "E-cell", "short", "INT", "100c"],
-        [99, "Hyperbeam", "13 E", "E-cell", "short", "INT", "110c"]],
+        E6: [[6, "Infrared Emitter", "8 E", "cell", "short", "INT", "60c"],
+        [8, "Plasma Blaster", "9 E", "cell", "short", "INT", "70c"],
+        [10, "Pulse Cannon", "10 E", "cell", "short", "INT", "80c"],
+        [12, "Microwave Emitter", "11 E", "cell", "short", "INT", "90c"],
+        [14, "Capacitor Gun", "12 E", "cell", "short", "INT", "100c"],
+        [99, "Hyperbeam", "13 E", "cell", "short", "INT", "110c"]],
         O1: [[6, "Catapult", "11 X splash next round", "fuel", "extra long", "AGI", "80c"],
         [8, "Trebuchet", "12 X splash next round", "fuel", "extra long", "AGI", "110c"],
         [10, "Ballista", "13 X splash next round", "fuel", "extra long", "AGI", "140c"],
@@ -129,11 +129,11 @@ export const recipeTable = [
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
     { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
-    { type: "E-cell", roll: "1d6+4", cost: 10 },  
+    { type: "Energy Cell", roll: "1d6+4", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
     { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
-    { type: "MF-cell", roll: "1d6+2", cost: 15 } 
+    { type: "Energy Pack", roll: "1d6+2", cost: 15 } 
 ];
 export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
     { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
@@ -235,7 +235,7 @@ export const backgroundData = [
     { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert tech scraps into E-cells and 3 E-cells ↔ 2 MF-cells." }
+    { name: "Electrician", desc: "You can convert tech scraps into energy cells and 3 energy cells ↔ 2 energy packs." }
 ];
 
 // === Ruins Table ===
@@ -290,7 +290,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Chieftain", hp: 24, def: 28, notes: "scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
         ]
     },
-    E2: { //boss action: Leap strike: short range slam 10+tier P short splash other. cooldown 1. 
+    E2: { //boss action: Leap strike: short range move+slam 10+tier P short splash other. cooldown 1. 
         label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair) Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream, resembles a lobster
             { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" }, //wild cats, unchaged by evolution
@@ -320,7 +320,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
-    E5: { //boss action: fires 10+tier X XL artillery weapon. only loses 25% on full cripple. 
+    E5: { //boss action: fires 10+tier X XLong artillery weapon. only loses 25% on full cripple. 
         label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 12, def: 16, notes: "7 E short" },
             { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
