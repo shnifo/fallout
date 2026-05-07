@@ -28,7 +28,7 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash (or adds +1 splash range)
 4. Barbed: adds bleed
-5. Cryogenic: adds freeze
+5. Cryogenic: adds shock
 6. Extended: +1 range */
     const weapons = {
         E1: [[6, "Pipe Pistol", "5 P", "small", "mid", "AGI", "30c"],
@@ -37,12 +37,12 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Magnum", "8 P", "small", "mid", "AGI", "60c"],
         [14, "Big Iron", "9 P", "small", "mid", "AGI", "70c"],
         [99, "Deadeye", "10 P", "small", "mid", "AGI", "80c"]],
-        E2: [[6, "Laser Pistol", "6 E", "cell", "mid", "INT", "40c"],
-        [8, "Plasma Pistol", "7 E", "cell", "mid", "INT", "50c"],
-        [10, "Sonic Pistol", "8 E", "cell", "mid", "INT", "60c"],
+        E2: [[6, "Zap Pistol", "6 E", "cell", "mid", "INT", "40c"],
+        [8, "Taser", "7 E", "cell", "mid", "INT", "50c"],
+        [10, "Static Pistol", "8 E", "cell", "mid", "INT", "60c"],
         [12, "Tesla Pistol", "9 E", "cell", "mid", "INT", "70c"],
         [14, "Gauss Pistol", "10 E", "cell", "mid", "INT", "80c"],
-        [99, "Purifier", "11 E", "cell", "mid", "INT", "90c"]],
+        [99, "Zeus", "11 E", "cell", "mid", "INT", "90c"]],
         E3: [[6, "Pipe Rifle", "7 P", "large", "long", "AGI", "50c"],
         [8, "Service Rifle", "8 P", "large", "long", "AGI", "70c"],
         [10, "Hunting Rifle", "9 P", "large", "long", "AGI", "90c"],
@@ -87,9 +87,9 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [99, "Ultimate Melee", "11 P", "-", "melee", "STR", "130c"]],
         O4: [[6, "Brass Knuckles", "2x4 P", "-", "melee", "END", "30c"],
         [8, "Wristblade", "2x5 P", "-", "melee", "END", "50c"],
-        [10, "Tiger Paw", "2x6 P", "-", "melee", "END", "70c"],
+        [10, "Wolf Jaw", "2x6 P", "-", "melee", "END", "70c"],
         [12, "Piston Glove", "2x7 P", "-", "melee", "END", "90c"],
-        [14, "Ursa Claw", "2x8 P", "-", "melee", "END", "110c"],
+        [14, "Bear Claw", "2x8 P", "-", "melee", "END", "110c"],
         [99, "Godhand", "2x9 P", "-", "melee", "END", "130c"]],
         O5: [[6, "Jumper Cables", "2x4 X", "-", "melee", "STR", "50c"],
         [8, "Cattle Prod", "2x5 E", "-", "melee", "STR", "70c"],
@@ -99,7 +99,7 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [99, "Ragnarok", "2x9 E", "-", "melee", "STR", "150c"]],
         O6: [[6, "Shock Glove", "6 E", "-", "melee", "END", "50c"],
         [8, "Whalloper", "7 X", "-", "melee", "END", "70c"],
-        [10, "Plasma Glove", "8 E", "-", "melee", "END", "90c"],
+        [10, "Wire Wraps", "8 E", "-", "melee", "END", "90c"],
         [12, "Kinetic Fist", "9 X", "-", "melee", "END", "110c"],
         [14, "Thermite Glove", "10 E", "-", "melee", "END", "130c"],
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
@@ -209,7 +209,7 @@ export const perkData = {
 
     CHARISMA: [
         { name: "Exalted Flesh", desc: "Gain +1 injury to harvest your own flesh. It contributes triple towards offerings." },
-        { name: "Do Not Go Gently", desc: "Luck gives 2 dice to other players rolling with a stat at 0 or 1." },
+        { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
@@ -305,7 +305,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Basilisk", hp: 16, def: 24, notes: "9 E + freeze, mid" }, //Giant Snakes that fire a psychic beam with their eyes
+            { name: "Basilisk", hp: 16, def: 24, notes: "9 E + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
             { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
             { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
         ]
@@ -324,7 +324,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
             { name: "Police Bot", hp: 12, def: 16, notes: "7 E short" },
             { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 20, def: 24, notes: "9 E + freeze, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Medical Bot", hp: 20, def: 24, notes: "9 E + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
             { name: "Patriot", hp: 24, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
             { name: "War Bot", hp: 28, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
             { name: "Annihilator", hp: 32, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
@@ -356,7 +356,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
             { name: "Assimilator", hp: 14, def: 14, notes: "7 R+madness, short" },
             { name: "Destroyer", hp: 16, def: 18, notes: "11 X splash, mid" },
-            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 E + freeze, mid" },
+            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 E + shock, mid" },
             { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
@@ -367,17 +367,17 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Toxinmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
             { name: "Bloodmarked", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
             { name: "Firemarked", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+freeze other, melee" }
+            { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
         label: "Aberrations", notes: "special: madness tile. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness tile = start of each round, make madness roll if in area
             { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+freeze short, flies" }, //giant flying amalgamation of mouths that spits chemicals
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+shock short, flies" }, //giant flying amalgamation of mouths that spits chemicals
             { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
-            { name: "Angler", hp: 16, def: 28, notes: "10 R + freeze + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
-            { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+freeze/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Angler", hp: 16, def: 28, notes: "10 R + shock + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
+            { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+shock/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: { //boss action: grows random secondary gun every other turn. can shoot all weapons while moving. cripple secondary weapon twice to break it
