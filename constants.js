@@ -149,7 +149,7 @@ export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 
 export const perkData = {
     STRENGTH: [
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
-        { name: "Berserker", desc: "Gain another action immediately after you slay an enemy." },
+        { name: "Berserker", desc: "Gain an extra action by skipping your next turn or slaying an enemy." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
         { name: "Healing Factor", desc: "Remove 1 injury when you sleep while at full HP." },
         { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
@@ -405,8 +405,8 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
 export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
-//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle. (candle made from a fleshy finger)
-//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that manifests a messenger hand who will consume them all to imbue each player with +1 to any stat (up to 3).
+//crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that manifests a messenger hand who will imbue each player with any perk ignoring stat limits. 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -426,12 +426,12 @@ export const plants = [ // "Generates a resource every time you level up",
     ];
 
 export const medTable = [ //crit = find chosen med and also find 2d3 Serum (+1 to all rolls for 1 day, addictive, 30c)
-    { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" },
+    { name: "Bandage", effect: "-1 Injury, +10% HP, 10c" }, //a medicated bandage that promotes healing of minor injuries
     { name: "Resin", effect: "-1 Mutation, +10% HP, 10c" }, //a black sap gathered from mutated trees that emit this substance to fight the mutation
-    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" },
-    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" },
-    { name: "Ambrosia", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //the fruit of mutated trees that is much more potent than the resin but also addictive
-    { name: "Ketamine", effect: "Removes addictions, +10% HP, 10c" } 
+    { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" }, // a stimulant that reenergizes the body
+    { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" }, //an injected concoction that rapidly regenerates damaged cells
+    { name: "Ambrosia", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //the fruit of mutated trees that is much more potent than the resin 
+    { name: "Ketamine", effect: "Removes addictions, +10% HP, 10c" } //a psychoactive drug that instantly breaks the hold of any addictions
 ];
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact that you do not have
