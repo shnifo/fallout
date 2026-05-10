@@ -2,7 +2,7 @@
 export const armorTable = [ /* crit = choose weapon type and gain random augmented effect. Augments add +50c value.
 1. Light: Replenish one influence on initiative and after being crit
 2. Earth: Gain 1 shield after initiative and after being crit
-3. Fire: Take an extra action after initiative and immediately after being crit
+3. Fire: Take an extra action on your first turn after initiative and immediately after being crit
 4. Water: Heal 10% after initiative and after being crit
 5. Wind: +1 sneak and sprint rolls
 6. Dark: Gain cover against melee attacks   */ 
