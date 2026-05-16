@@ -129,11 +129,11 @@ export const recipeTable = [
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
     { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
-    { type: "Energy Cell", roll: "1d6+4", cost: 10 },  
+    { type: "Energy Cells", roll: "1d6+4", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
     { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
-    { type: "Cell Pack", roll: "1d6+2", cost: 15 } 
+    { type: "Cell Packs", roll: "1d6+2", cost: 15 } 
 ];
 export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
     { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
@@ -187,7 +187,7 @@ export const perkData = {
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
         { name: "Pack Rat", desc: "Stackables can now stack to 20 before becoming heavy." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
-        { name: "Stand By Me", desc: "You can bring an ally with you when you move and can intercept non aimed shots against allies." },
+        { name: "Stand By Me", desc: "You can bring an ally when you move and can intercept non aimed shots against allies." },
         { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
         { name: "Autophagy", desc: "Remove 1 mutation when you sleep if you did not eat or drink that day." }
     ],
@@ -275,7 +275,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
-    66: "Church: No battle. Friendly merchant with 2 max+1 tier mercenary guards sells items from 2 random crit loot rolls."
+    66: "Church: No battle. Friendly merchant with 2 max tier mercenary guards sells spevial items from 2 random crit loot rolls."
 };
 
 // === Monster Data ===
@@ -303,7 +303,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
         label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult, no loot. standing on eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 12, def: 16, notes: "7 E short + shove on 6" }, //giant aggressive lobsters that spew high pressure bubbles
+            { name: "Bubbler", hp: 12, def: 16, notes: "7 E short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
             { name: "Basilisk", hp: 16, def: 24, notes: "9 E + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
             { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
@@ -360,7 +360,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
-    O3: { //boss action: create toxic zone on self and 1 tile within short range that applies +2 dmg taken and -2 dmg dealt for players
+    O3: { //boss action: create toxic zone on self and 1 adjacent tile that applies +2 dmg taken and -2 dmg dealt for players
         label: "Revenants", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
             { name: "Lifemarked", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Chaosmarked", hp: 18, def: 10, notes: "8 P + madness, melee" },
@@ -641,7 +641,7 @@ export const professionQuests = { // prof quest rewards = 2d6 x 5c
 
 
 // ===== FACTIONS =====
-export const factions = [ // towns have 1d6 guards per player, rolled when generating the town. total population is 3d6 per player. 
+export const factions = [ // towns have 1d3 guards per player, rolled when generating the town. total population is 6d6. 
     {
         name: "The Metallion", //Militaristic faction that vows to retake the wasteland by building the ultimate machine to assert control over the commoners. Strong dislike of mutated creatures and the weak. government runs on promotion through contribution towards the goal. secretly lead by a leader who wishes to become a metalmorph and uses the party to help them achieve this.  
         tag: "Armor",
@@ -754,9 +754,9 @@ export const miscTable = [
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
   { name: "Human Flesh",   effect: "-1 Hunger, addictive, 5c" },
   { name: "Eldritch Coin",   effect: "Reroll 1 die from ANY roll except enemy crits, 20c" },
-  { name: "Eldritch Candle",  effect: "Make a stat test result a 6 instead of rolling, 30c" },
+  { name: "Eldritch Candle",  effect: "Make a stat roll result a 6 instead of rolling, 30c" },
   { name: "Eldritch Knife",  effect: "Duplicate any item, both copies are blessed and cannot be duplicated, 50c" },
-  { name: "Serum",   effect: "Gain +1 to all stat tests for 1 day, addictive, 20c" },  
+  { name: "Serum",   effect: "Gain +1 to all stat rolls for 1 day, addictive, 20c" },  
     
 ];
 
