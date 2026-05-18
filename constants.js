@@ -391,7 +391,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O6: { //boss action: throw firebomb to short range that explodes to deal mine damage short splash + burns 
-        label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
+        label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging/. Loot: weapons, armor, human flesh", subs: [
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
             { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
             { name: "Traveler", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
