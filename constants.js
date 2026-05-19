@@ -137,11 +137,11 @@ export const ammoTable = [ // crit = get ammo of your choice (random grenade tie
 ];
 export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
     { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
-    { max: 8, name: "Chem Grenade", dmg: "11 X splash", cost: "25c" },
+    { max: 8, name: "Gas Grenade", dmg: "11 X splash", cost: "25c" },
     { max: 10, name: "Frag Grenade", dmg: "12 X splash", cost: "30c" },
-    { max: 12, name: "Thunder Grenade", dmg: "13 X splash", cost: "35c" },
+    { max: 12, name: "Chem Grenade", dmg: "13 X splash", cost: "35c" },
     { max: 14, name: "Cluster Grenade", dmg: "14 X splash", cost: "40c" },
-    { max: 99, name: "Uranium Grenade", dmg: "15 X splash", cost: "45c" }
+    { max: 99, name: "Earthbreaker Grenade", dmg: "15 X splash", cost: "45c" }
 ];
 
 // ---------- PERK DATA ----------
@@ -243,10 +243,10 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     11: "Office: Contains 3 Vending machines with hidden 1d3 healthy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
-    14: "Campground: Contains map to buried treasure 3 random hexes away containing a random crit loot roll.",
+    14: "Campground: Contains a map to buried treasure 3 random hexes away containing a treasure chest with 3d6*20c.",
     15: "University: Gain a random perk book. Read instead of sleeping/scavenging 3 times to gain that perk, bulky, 100c. ",
-    16: "Factory: Contains a random 1D heavy dual tech (two techs combined)",
-    21: "Museum: Contains a random artifact.",
+    16: "Factory: Contains a random 1D heavy megatech (functions as two techs combined)",
+    21: "Museum: Contains a random artifact you don't have.",
     22: "Armory: Scavenging armor is abundant.",
     23: "Park: Contains a random large plant. (heavy, +3 yield).",
     24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
@@ -275,7 +275,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
-    66: "Church: No battle. Friendly merchant with 2 max tier mercenary guards sells spevial items from 2 random crit loot rolls."
+    66: "Church: No battle. Friendly cultist merchant with 2 max tier cultist guards sells max amount of all 3 offering bowl items."
 };
 
 // === Monster Data ===
@@ -527,21 +527,21 @@ export const townDescriptors = [
 ];
 
 export const townQuests = [ //main quest rewards = 2d6 x 10c
-    { roll: 11, text: `"Rot from Within" – A trusted town member of X faction is secretly poisoning townsfolk to 'thin the weak.' Expose them, join them, or take their place.` },
-    { roll: 12, text: `"Pilgrim Dreams" – Pilgrims from X faction have been arriving in town for weeks, drawn by dreams none of them can describe. They don't leave or sleep, just gather in a circle, waiting...` },
-    { roll: 13, text: `Wishing Well – The town's well goes deeper than it should. Something has been dropping offerings into it — from below. It leads to a fleshy chamber inhabited by horrible monstrosity.` },
+    { roll: 11, text: `"Rot from Within" – A trusted town member is secretly poisoning the townsfolk to 'cull the weak'. Expose them, join them, or take their place.` },
+    { roll: 12, text: `"Pilgrim Dreams" – Pilgrims have been arriving in town for weeks, drawn by dreams none of them can describe. They don't leave or sleep, just gather in a circle, waiting...` },
+    { roll: 13, text: `Wishing Well – Mysterious gifts appear in the bucket when retrieving water from the town well, and the town has made a religion out of it.` },
     { roll: 14, text: `Investigate the Sabotage – Someone is sabotaging the town's equipment; find and stop them.` },
     { roll: 15, text: `Secure the Power Source – The town's power source is failing; find a new one or repair the existing one involving X faction.` },
     { roll: 16, text: `"The Price of Safety" – A settlement wants a massive wall built, but the only materials are sacred to a nearby X faction settlement.` },
-    { roll: 21, text: `Help the Farmers – Crops are failing; determine the cause and fix it.` },
+    { roll: 21, text: `Help the Farmers – Nearby river fueling agriculture has completely dried up. Determine the cause and fix it.` },
     { roll: 22, text: `Recruit New Settlers – The town needs more people and is willing to give a signing bonus. recruit from nearby X faction town or convince locals to jump ship.` },
     { roll: 23, text: `The Bad Doctor – A maddened scientist is performing experiments on the citizens, turning them into grotesque mutants. Join, stop, or improve the experiments. ` },
     { roll: 24, text: `Feed the Hunger – The town hides a secret: they are reluctant cannibals suffering withdrawal.` },
     { roll: 25, text: `"Little House on the Wasteland" – The town has a creepy reclusive family that doesnt seem to age. Always cheerful and wanting to invite visitors to their home. ` },
     { roll: 26, text: `The Hunger – The town secretly practices cannibalism to survive — they want you to either join, forget what you saw, or help them stop.` },
-    { roll: 31, text: `Uprising – A town faces a rebellion against authority. Choose a side.` },
-    { roll: 32, text: `Establish Trade Routes – Make contact with nearby settlements to open trade.` },
-    { roll: 33, text: `Recover Lost Technology – Rumors say a nearby X faction settlement has valuable tech they arent using. help retrieve it or activate it for the others.` },
+    { roll: 31, text: `Uprising – The impoverished workers of the town are rebelling against the wealthy elites. Choose a side.` },
+    { roll: 32, text: `The Dark Spire – A mysterious spire has burst from the ground in the middle of town. Find a way to the top to learn its secrets.` },
+    { roll: 33, text: `Recover Lost Technology – Rumors say a nearby X faction settlement has valuable tech buried under their town. help retrieve it or activate it for the others.` },
     { roll: 34, text: `Stolen resources" – Raiders from X faction stole resources needed to establish a thriving colony. Infiltrate and recover, or help them create a new life` },
     { roll: 35, text: `Investigate the Crime – A returning scavenger brought back an alien device that is causing problems. disable it, bury it, or take it for yourself. `},
     { roll: 36, text: `"The Betrayer" – A spy from nearby X faction settlement is has inflitrated the town. Help them sabotage, sell them out, or use them as leverage.` },
@@ -655,7 +655,7 @@ export const factions = [ // towns have 1d3 guards per player, rolled when gener
     {
         name: "The Listeners", //Faction that belives the aliens are benevolent and accept mutation as a gift from the divine, society mostly consists of friendly mutated creatures and those who want to help them. Often require indoctrination/baptism to join, and rules to follow. 
         tag: "Water",
-        desc: "Simple-life, rescue dregs of society/mutants, theocracy, friendly, max tier cultist guards" 
+        desc: "Simple-life, rescue dregs of society/mutants, worship the aliens, theocracy, friendly, max tier cultist guards" 
     },
     {
         name: "The Sundered Republic", //Faction that attempts to rebuild society as it was before.  Uses traditional representative government, beaurocratic processes, generally civilized and not violent. Slow to adapt, technologically stunted.
