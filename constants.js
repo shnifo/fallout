@@ -406,7 +406,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
-//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that manifests a messenger hand who will imbue each player with any perk ignoring stat limits. 
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that consumes them to manifest a messenger hand who will imbue each player with any perk ignoring stat limits. 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
@@ -448,7 +448,7 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 export const shopTypes = [
     { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 20c, upgrade: weapons are augmented
     { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
-    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells random serum roll
+    { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 2d3 serum 
     { name: "Tech" }, // sells random scrap and will repair tech for 20c, upgrade: also sells an artifact
     { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = +1 tier of all rations
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
