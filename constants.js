@@ -450,8 +450,8 @@ export const shopTypes = [
     { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
     { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells random serum roll
     { name: "Tech" }, // sells random scrap and will repair tech for 20c, upgrade: also sells an artifact
-    { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = higher tier of all rations
-    { name: "Water" } // will purify any water 1 stage for 5c, upgrade = higher tier of all water
+    { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = +1 tier of all rations
+    { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
