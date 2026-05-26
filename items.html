@@ -101,20 +101,53 @@ function generateDistribution(total) {
   const evenness = parseFloat(slider.value) || 0;
   const base = total / 4;
   let parts = [];
+
   if (evenness === 0) {
     parts = [base, base, base, base];
   } else {
     let devs = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
     const sumDev = devs.reduce((a, b) => a + b, 0);
     devs = devs.map(d => d - sumDev / 4);
+
     parts = devs.map(d => base + base * d);
+
+    // normalize to total
     const factor = total / parts.reduce((a, b) => a + b, 0);
     parts = parts.map(p => Math.round(p * factor));
-    let diff = total - parts.reduce((a, b) => a + b, 0);
-    for (let i = 0; i < Math.abs(diff); i++) parts[i % 4] += diff > 0 ? 1 : -1;
   }
+
+  // fix rounding drift
+  let diff = total - parts.reduce((a, b) => a + b, 0);
+  for (let i = 0; i < Math.abs(diff); i++) {
+    parts[i % 4] += diff > 0 ? 1 : -1;
+  }
+
+  //  enforce max cap
+  const cap = Math.floor(total / 3);
+
+  let overflow = 0;
+
+  // clamp values and collect overflow
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i] > cap) {
+      overflow += parts[i] - cap;
+      parts[i] = cap;
+    }
+  }
+
+  // redistribute overflow to slots under cap
+  let i = 0;
+  while (overflow > 0) {
+    if (parts[i % 4] < cap) {
+      parts[i % 4]++;
+      overflow--;
+    }
+    i++;
+  }
+
   return parts;
 }
+
 
 function distribute() {
   const total = parseInt(document.getElementById('inputValue').value) || 0;
