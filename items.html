@@ -111,7 +111,7 @@ function generateDistribution(total) {
 
     parts = devs.map(d => base + base * d);
 
-    // normalize to total
+    // normalize
     const factor = total / parts.reduce((a, b) => a + b, 0);
     parts = parts.map(p => Math.round(p * factor));
   }
@@ -122,27 +122,22 @@ function generateDistribution(total) {
     parts[i % 4] += diff > 0 ? 1 : -1;
   }
 
-  //  enforce max cap
-  const cap = Math.floor(total / 3);
+  // ✅ NEW: enforce max spread of 4
+  let adjusted = true;
+  while (adjusted) {
+    adjusted = false;
 
-  let overflow = 0;
+    const maxVal = Math.max(...parts);
+    const minVal = Math.min(...parts);
 
-  // clamp values and collect overflow
-  for (let i = 0; i < parts.length; i++) {
-    if (parts[i] > cap) {
-      overflow += parts[i] - cap;
-      parts[i] = cap;
+    if (maxVal - minVal > 4) {
+      const maxIndex = parts.indexOf(maxVal);
+      const minIndex = parts.indexOf(minVal);
+
+      parts[maxIndex]--;
+      parts[minIndex]++;
+      adjusted = true;
     }
-  }
-
-  // redistribute overflow to slots under cap
-  let i = 0;
-  while (overflow > 0) {
-    if (parts[i % 4] < cap) {
-      parts[i % 4]++;
-      overflow--;
-    }
-    i++;
   }
 
   return parts;
