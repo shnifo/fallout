@@ -779,7 +779,7 @@ export const moraleTable = [
   { value: "+2", effect: "10% discount" },
   { value: "+1", effect: "Gain access to faction shop" },
   { value: "-1", effect: "-50% quest rewards" },
-  { value: "-2", effect: "+100% prices" },
+  { value: "-2", effect: "-1 shop, +100% shop prices" },
   { value: "-3", effect: "faction collapses and can no longer be rolled" },
 ];
 
