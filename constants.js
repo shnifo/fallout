@@ -301,7 +301,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
-        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult, no loot. standing on eggs breaks them
+        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult but -1 dmg, no loot. standing on eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
@@ -367,7 +367,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Toxinmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
             { name: "Bloodmarked", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
             { name: "Firemarked", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Icemarked", hp: 36, def: 26, notes: "12 E splash+shock other, melee" }
+            { name: "Icemarked", hp: 26, def: 26, notes: "12 E splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
