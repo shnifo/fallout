@@ -301,7 +301,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
-        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, same attack as adult but -1 dmg, no loot. standing on eggs breaks them
+        label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, -1 dmg, no loot. standing on or attacking eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
             { name: "Bubbler", hp: 12, def: 16, notes: "7 E short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
@@ -362,12 +362,12 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     O3: { //boss action: create toxic zone on self and 1 adjacent tile that applies +2 dmg taken and -2 dmg dealt for players
         label: "Revenants", notes: "special: cover, +1 spd, can't lose more than 3 HP per hit,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
-            { name: "Lifemarked", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Lifemarked", hp: 10, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Chaosmarked", hp: 12, def: 10, notes: "8 P + madness, melee" },
-            { name: "Toxinmarked", hp: 12, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Bloodmarked", hp: 12, def: 18, notes: "10 P splash+bleed other, melee " },
-            { name: "Firemarked", hp: 12, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Icemarked", hp: 12, def: 26, notes: "12 E splash+shock other, melee" }
+            { name: "Toxinmarked", hp: 14, def: 14, notes: "9 R splash+poison other, melee" },
+            { name: "Bloodmarked", hp: 16, def: 18, notes: "10 P splash+bleed other, melee " },
+            { name: "Firemarked", hp: 18, def: 22, notes: "11 X splash+burn other, melee" },
+            { name: "Voltmarked", hp: 20, def: 26, notes: "12 E splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
@@ -381,7 +381,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O5: { //boss action: grows random secondary gun every other turn. can shoot all weapons while moving. cripple secondary weapon twice to break it
-        label: "Mutants", notes: "special: madness tile. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
+        label: "Mutants", notes: "special: madness tile. Revives as a swarmer on death. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
             { name: "Outcast", hp: 10, def: 18, notes: "scaled physical weapons" },
             { name: "Exile", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
