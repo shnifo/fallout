@@ -151,9 +151,9 @@ export const perkData = {
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
         { name: "Berserker", desc: "Gain an extra action by skipping your next turn or slaying an enemy." },
         { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
-        { name: "Healing Factor", desc: "Remove 1 injury when you sleep while at full HP." },
+        { name: "Healing Factor", desc: "Remove 1 Injury when you sleep while at full HP." },
         { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
-        { name: "Carnivore", desc: "Consuming flesh gives an extra -1 hunger and heals 10% HP." },
+        { name: "Carnivore", desc: "Consuming flesh gives an extra -1 Hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
         { name: "Chiropractor", desc: "When you cripple an enemy limb, you can cripple another different limb." },
@@ -184,12 +184,12 @@ export const perkData = {
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
         { name: "Homo Superior", desc: "Serum lasts two days and suppresses the effects of statuses above 5." },
-        { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more mutation." },
+        { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more Mutation." },
         { name: "Pack Rat", desc: "Stackables can now stack to 20 before becoming heavy." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Stand By Me", desc: "You can bring an ally when you move and can intercept non aimed shots against allies." },
         { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
-        { name: "Autophagy", desc: "Remove 1 mutation when you sleep if you did not eat or drink that day." }
+        { name: "Autophagy", desc: "Remove 1 Mutation when you sleep if you did not eat or drink that day." }
     ],
 
     INTELLIGENCE: [
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "Gain +1 injury to harvest your own flesh. It contributes triple towards offerings." },
+        { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh. It contributes triple towards offerings." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -267,7 +267,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     51: "Stadium: Generates a settlement 3 hexes away from one of three random factions.",
     52: "Observatory: Generates a Ruins from 5 choices 3 hexes away.",
     53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
-    54: "Resort: Generates adjacent irradiated lake (+1 mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid mutation.",
+    54: "Resort: Generates adjacent irradiated lake (+1 Mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid Mutation.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
     56: "Laboratory: contains a random Serum roll.",
     61: "Hospital: Scavenging meds is abundant.",
@@ -279,7 +279,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
 };
 
 // === Monster Data ===
-export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes fatigue. Boss: 3x HP, +2 dmg and gain boss action
+export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes Fatigue. Boss: 3x HP, +2 dmg and gain boss action
     E1: { //boss action: alternate: mid range firebomb  X trap damage + burns, mid range bear trap that applies on target immediately
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
