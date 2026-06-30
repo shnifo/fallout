@@ -361,13 +361,13 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O3: { //boss action: create toxic zone on self and 1 adjacent tile that applies +2 dmg taken and -2 dmg dealt for players
-        label: "Revenants", notes: "special: cover, +1 spd, reanimates as swarmer end of turn on death,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
-            { name: "Lifemarked", hp: 16, def: 6, notes: "5 P+R melee, grapples on 6" },
-            { name: "Chaosmarked", hp: 18, def: 10, notes: "8 P + madness, melee" },
-            { name: "Toxinmarked", hp: 20, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Bloodmarked", hp: 22, def: 18, notes: "10 P splash+bleed other, melee " },
-            { name: "Firemarked", hp: 24, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Icemarked", hp: 26, def: 26, notes: "12 E splash+shock other, melee" }
+        label: "Revenants", notes: "special: cover, +1 spd, can't lose more than 3 HP per hit,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
+            { name: "Lifemarked", hp: 12, def: 6, notes: "5 P+R melee, grapples on 6" },
+            { name: "Chaosmarked", hp: 12, def: 10, notes: "8 P + madness, melee" },
+            { name: "Toxinmarked", hp: 12, def: 14, notes: "9 R splash+poison other, melee" },
+            { name: "Bloodmarked", hp: 12, def: 18, notes: "10 P splash+bleed other, melee " },
+            { name: "Firemarked", hp: 12, def: 22, notes: "11 X splash+burn other, melee" },
+            { name: "Icemarked", hp: 12, def: 26, notes: "12 E splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
