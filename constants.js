@@ -49,24 +49,24 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Combat Rifle", "10 P", "large", "long", "AGI", "110c"],
         [14, "Assault Rifle", "11 P", "large", "long", "AGI", "130c"],
         [99, "Furiosa", "12 P", "large", "long", "AGI", "150c"]],
-        E4: [[6, "Laser Rifle", "2x5 E", "pack", "long", "INT", "60c"],
-        [8, "Photon Rifle", "2x6 E", "pack", "long", "INT", "80c"],
-        [10, "Ultraviolet Rifle", "2x7 E", "pack", "long", "INT", "100c"],
-        [12, "Gamma Rifle", "2x8 E", "pack", "long", "INT", "120c"],
-        [14, "Electron Rifle", "2x9 E", "pack", "long", "INT", "140c"],
-        [99, "Neutrino", "2x10 E", "pack", "long", "INT", "160c"]],
+        E4: [[6, "Laser Rifle", "2x5 E", "power", "long", "INT", "60c"],
+        [8, "Photon Rifle", "2x6 E", "power", "long", "INT", "80c"],
+        [10, "Ultraviolet Rifle", "2x7 E", "power", "long", "INT", "100c"],
+        [12, "Gamma Rifle", "2x8 E", "power", "long", "INT", "120c"],
+        [14, "Electron Rifle", "2x9 E", "power", "long", "INT", "140c"],
+        [99, "Neutrino", "2x10 E", "power", "long", "INT", "160c"]],
         E5: [[6, "Boomstick", "3x4 P", "small", "short", "AGI", "50c"],
         [8, "Hunting Shotgun", "3x5 P", "small", "short", "AGI", "60c"],
         [10, "Caravan Shotgun", "3x6 P", "small", "short", "AGI", "70c"],
         [12, "Combat Shotgun", "3x7 P", "small", "short", "AGI", "80c"],
         [14, "Riot Shotgun", "3x8 P", "small", "short", "AGI", "90c"],
         [99, "Invictus", "3x9 P", "small", "short", "AGI", "100c"]],
-        E6: [[6, "Infrared Emitter", "8 E", "cell", "short", "INT", "60c"],
-        [8, "Plasma Blaster", "9 E", "cell", "short", "INT", "70c"],
-        [10, "Pulse Cannon", "10 E", "cell", "short", "INT", "80c"],
-        [12, "Microwave Emitter", "11 E", "cell", "short", "INT", "90c"],
-        [14, "Capacitor Gun", "12 E", "cell", "short", "INT", "100c"],
-        [99, "Hyperbeam", "13 E", "cell", "short", "INT", "110c"]],
+        E6: [[6, "Infrared Emitter", "8 E", "energy", "short", "INT", "60c"],
+        [8, "Plasma Blaster", "9 E", "energy", "short", "INT", "70c"],
+        [10, "Pulse Cannon", "10 E", "energy", "short", "INT", "80c"],
+        [12, "Microwave Emitter", "11 E", "energy", "short", "INT", "90c"],
+        [14, "Capacitor Gun", "12 E", "energy", "short", "INT", "100c"],
+        [99, "Hyperbeam", "13 E", "energy", "short", "INT", "110c"]],
         O1: [[6, "Catapult", "11 X splash next round", "fuel", "extra long", "AGI", "80c"],
         [8, "Trebuchet", "12 X splash next round", "fuel", "extra long", "AGI", "110c"],
         [10, "Ballista", "13 X splash next round", "fuel", "extra long", "AGI", "140c"],
@@ -128,12 +128,12 @@ export const recipeTable = [
 
 
 export const ammoTable = [ // crit = get ammo of your choice (random grenade tier) and find offering bowl in the shape of a mouth: insert up to 10 of any flesh, including your own (+1 injury): converts 5:1 eldritch knife (pointed tooth with a fleshy handle shaped into a knife)
-    { type: "Small rounds", roll: "1d6+6", cost: 5 }, 
+    { type: "Small Rounds", roll: "1d6+6", cost: 5 }, 
     { type: "Energy Cells", roll: "1d6+4", cost: 10 },  
     { type: "Grenades", roll: "1d6", cost: 0 }, 
     { type: "Fuel", roll: "1d6", cost: 20 }, 
-    { type: "Large rounds", roll: "1d6+4", cost: 10 }, 
-    { type: "Energy Packs", roll: "1d6+2", cost: 15 } 
+    { type: "Large Rounds", roll: "1d6+4", cost: 10 }, 
+    { type: "Power Cells", roll: "1d6+2", cost: 15 } 
 ];
 export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
     { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Artisan", desc: "Consume only 2 scrap when you repair an item to 3 durability." },
+        { name: "Finishing Touch", desc: "Consume only 1 scrap when you repair an item to 3 durability." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
@@ -193,9 +193,9 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Overengineering", desc: "You can repair items to 4 durability." },
+        { name: "Artisan", desc: "Items at 3 durability sell for 50% more." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
-        { name: "Hoarder", desc: "You can use broken items but durability loss destroys them." },
+        { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
         { name: "Green Thumb", desc: "Plants give +2 yield if held for the whole level." },
@@ -228,14 +228,14 @@ export const backgroundData = [
     { name: "Mechanic", desc: "Repairing armor does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
-    { name: "Exterminator", desc: "You know when enemies are under half HP and can use your action to execute them in melee range." },
+    { name: "Exterminator", desc: "You know when enemies are under half HP and deal +1 damage to them." },
     { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
     { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert tech scraps into energy cells and 3 energy cells ↔ 2 energy packs." }
+    { name: "Electrician", desc: "You can convert tech scraps into energy cells and 3 energy cells ↔ 2 power cells." }
 ];
 
 // === Ruins Table ===
@@ -407,7 +407,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that consumes them to manifest a messenger hand who will imbue each player with any perk ignoring stat limits. 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
+export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. At 3 durability, 5 = no HP cost. Repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
     {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"},
@@ -454,7 +454,7 @@ export const shopTypes = [
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
 ];
 
-export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +2 to the scavenge roll. 
+export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +1 to the scavenge roll, or +2 if at 3 durability. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no cooling (generator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
