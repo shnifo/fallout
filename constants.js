@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Artisan", desc: "Items at 3 durability sell for 50% more." },
+        { name: "Artisan", desc: "Items at 3 durability have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
