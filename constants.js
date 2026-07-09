@@ -135,7 +135,7 @@ export const ammoTable = [ // crit = get ammo of your choice (random grenade tie
     { type: "Large Rounds", roll: "1d6+4", cost: 10 }, 
     { type: "Power Cells", roll: "1d6+2", cost: 15 } 
 ];
-export const grenadeTable = [ //rolling 3 or less on a grenade attack causes +1 injury
+export const grenadeTable = [ 
     { max: 6, name: "Scrap Grenade", dmg: "10 X splash", cost: "20c" },
     { max: 8, name: "Gas Grenade", dmg: "11 X splash", cost: "25c" },
     { max: 10, name: "Frag Grenade", dmg: "12 X splash", cost: "30c" },
