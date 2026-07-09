@@ -773,7 +773,7 @@ export const rationWaterTable = [
 ];
 
 export const moraleTable = [
-  { value: "+5", effect: "unlock quest to join faction (must defeat tier 6 battle)" },
+  { value: "+5", effect: "unlock quest to join faction (must defeat tier 6 battle + boss)" },
   { value: "+4", effect: "40% discount" },
   { value: "+3", effect: "upgrade faction shop" },
   { value: "+2", effect: "20% discount" },
