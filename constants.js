@@ -12,7 +12,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random augment
     { roll: 5, text: "Chain armor: +8 def, 90c" },
     { roll: 6, text: "Metal armor: +9 def, 100c" },
     { roll: 7, text: "Plate armor: +10 def, 110c" },
-    { roll: 8, text: "Scavenger armor: +12 def, 120c" },
+    { roll: 8, text: "Wasteland armor: +12 def, 120c" },
     { roll: 9, text: "Ranger armor: +14 def, 130c" },
     { roll: 10, text: "Combat armor: +16 def, 140c" },
     { roll: 11, text: "Infantry armor: +18 def, 150c" },
