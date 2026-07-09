@@ -4,7 +4,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random augment
 2. Earth: Gain 1 shield after initiative and after being crit
 3. Fire: Take an extra action on your first turn after initiative and immediately after being crit
 4. Water: Heal 10% after initiative and after being crit
-5. Wind: +1 sneak and sprint rolls
+5. Wind: +1 to initiative and sprint rolls
 6. Dark: Gain cover against melee attacks   */ 
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Scrap armor: +6 def, 70c" },
@@ -110,7 +110,7 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
     { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
-    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, loses durability on an attack roll of 4 or lower" },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 Armor Scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated > dirty > clean)" },
@@ -188,12 +188,12 @@ export const perkData = {
         { name: "Pack Rat", desc: "Stackables can now stack to 20 before becoming heavy." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Stand By Me", desc: "You can bring an ally when you move and can intercept non aimed shots against allies." },
-        { name: "Divine Intervention", desc: "The gold die still refreshes influence when rolling an influenced saving throw." },
+        { name: "Divine Intervention", desc: "Influenced saving throws can still refresh influence when choosing the gold die." },
         { name: "Autophagy", desc: "Remove 1 Mutation when you sleep if you did not eat or drink that day." }
     ],
 
     INTELLIGENCE: [
-        { name: "Artisan", desc: "Items at 3 durability have +30% sell value." },
+        { name: "Mirror Force", desc: "If you take no damage from an enemy's attack, the attack hits them instead." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
@@ -204,7 +204,7 @@ export const perkData = {
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
         { name: "Chosen One", desc: "Using an artifact does not consume your movement and repairing them now costs 10 HP." },
-        { name: "Magnetic Field", desc: "Gain +1 radiation armor for each additional tech you have beyond two." }
+        { name: "Magnetic Field", desc: "Gain +1 radiation armor for every 2 Tech items you have." }
     ],
 
     CHARISMA: [
@@ -391,7 +391,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O6: { //boss action: throw firebomb to short range that explodes to deal mine damage short splash + burns 
-        label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging/. Loot: weapons, armor, human flesh", subs: [
+        label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
             { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
             { name: "Traveler", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
