@@ -37,36 +37,36 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Magnum", "8 P", "small", "mid", "AGI", "60c"],
         [14, "Big Iron", "9 P", "small", "mid", "AGI", "70c"],
         [99, "Deadeye", "10 P", "small", "mid", "AGI", "80c"]],
-        E2: [[6, "Zap Pistol", "6 E", "cell", "mid", "INT", "40c"],
-        [8, "Taser", "7 E", "cell", "mid", "INT", "50c"],
-        [10, "Static Pistol", "8 E", "cell", "mid", "INT", "60c"],
-        [12, "Tesla Pistol", "9 E", "cell", "mid", "INT", "70c"],
-        [14, "Gauss Pistol", "10 E", "cell", "mid", "INT", "80c"],
-        [99, "Zeus", "11 E", "cell", "mid", "INT", "90c"]],
+        E2: [[6, "Zap Pistol", "6 N", "cell", "mid", "INT", "40c"],
+        [8, "Taser", "7 N", "cell", "mid", "INT", "50c"],
+        [10, "Static Pistol", "8 N", "cell", "mid", "INT", "60c"],
+        [12, "Tesla Pistol", "9 N", "cell", "mid", "INT", "70c"],
+        [14, "Gauss Pistol", "10 N", "cell", "mid", "INT", "80c"],
+        [99, "Zeus", "11 N", "cell", "mid", "INT", "90c"]],
         E3: [[6, "Pipe Rifle", "7 P", "large", "long", "AGI", "50c"],
         [8, "Service Rifle", "8 P", "large", "long", "AGI", "70c"],
         [10, "Hunting Rifle", "9 P", "large", "long", "AGI", "90c"],
         [12, "Combat Rifle", "10 P", "large", "long", "AGI", "110c"],
         [14, "Assault Rifle", "11 P", "large", "long", "AGI", "130c"],
         [99, "Furiosa", "12 P", "large", "long", "AGI", "150c"]],
-        E4: [[6, "Laser Rifle", "2x5 E", "power", "long", "INT", "60c"],
-        [8, "Photon Rifle", "2x6 E", "power", "long", "INT", "80c"],
-        [10, "Ultraviolet Rifle", "2x7 E", "power", "long", "INT", "100c"],
-        [12, "Gamma Rifle", "2x8 E", "power", "long", "INT", "120c"],
-        [14, "Electron Rifle", "2x9 E", "power", "long", "INT", "140c"],
-        [99, "Neutrino", "2x10 E", "power", "long", "INT", "160c"]],
+        E4: [[6, "Laser Rifle", "2x5 N", "power", "long", "INT", "60c"],
+        [8, "Photon Rifle", "2x6 N", "power", "long", "INT", "80c"],
+        [10, "Ultraviolet Rifle", "2x7 N", "power", "long", "INT", "100c"],
+        [12, "Gamma Rifle", "2x8 N", "power", "long", "INT", "120c"],
+        [14, "Electron Rifle", "2x9 N", "power", "long", "INT", "140c"],
+        [99, "Neutrino", "2x10 N", "power", "long", "INT", "160c"]],
         E5: [[6, "Boomstick", "3x4 P", "small", "short", "AGI", "50c"],
         [8, "Hunting Shotgun", "3x5 P", "small", "short", "AGI", "60c"],
         [10, "Caravan Shotgun", "3x6 P", "small", "short", "AGI", "70c"],
         [12, "Combat Shotgun", "3x7 P", "small", "short", "AGI", "80c"],
         [14, "Riot Shotgun", "3x8 P", "small", "short", "AGI", "90c"],
         [99, "Invictus", "3x9 P", "small", "short", "AGI", "100c"]],
-        E6: [[6, "Infrared Emitter", "8 E", "energy", "short", "INT", "60c"],
-        [8, "Plasma Blaster", "9 E", "energy", "short", "INT", "70c"],
-        [10, "Pulse Cannon", "10 E", "energy", "short", "INT", "80c"],
-        [12, "Microwave Emitter", "11 E", "energy", "short", "INT", "90c"],
-        [14, "Capacitor Gun", "12 E", "energy", "short", "INT", "100c"],
-        [99, "Hyperbeam", "13 E", "energy", "short", "INT", "110c"]],
+        E6: [[6, "Infrared Emitter", "8 N", "energy", "short", "INT", "60c"],
+        [8, "Plasma Blaster", "9 N", "energy", "short", "INT", "70c"],
+        [10, "Pulse Cannon", "10 N", "energy", "short", "INT", "80c"],
+        [12, "Microwave Emitter", "11 N", "energy", "short", "INT", "90c"],
+        [14, "Capacitor Gun", "12 N", "energy", "short", "INT", "100c"],
+        [99, "Hyperbeam", "13 N", "energy", "short", "INT", "110c"]],
         O1: [[6, "Catapult", "11 X splash next round", "fuel", "extra long", "AGI", "80c"],
         [8, "Trebuchet", "12 X splash next round", "fuel", "extra long", "AGI", "110c"],
         [10, "Ballista", "13 X splash next round", "fuel", "extra long", "AGI", "140c"],
@@ -92,16 +92,16 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [14, "Bear Claw", "2x8 P", "-", "melee", "END", "110c"],
         [99, "Godhand", "2x9 P", "-", "melee", "END", "130c"]],
         O5: [[6, "Jumper Cables", "2x4 X", "-", "melee", "STR", "50c"],
-        [8, "Cattle Prod", "2x5 E", "-", "melee", "STR", "70c"],
+        [8, "Cattle Prod", "2x5 N", "-", "melee", "STR", "70c"],
         [10, "Welding Torch", "2x6 X", "-", "melee", "STR", "90c"],
-        [12, "Tesla Coil", "2x7 E", "-", "melee", "STR", "110c"],
+        [12, "Tesla Coil", "2x7 N", "-", "melee", "STR", "110c"],
         [14, "Lightning Rod", "2x8 X", "-", "melee", "STR", "130c"],
-        [99, "Ragnarok", "2x9 E", "-", "melee", "STR", "150c"]],
-        O6: [[6, "Shock Glove", "6 E", "-", "melee", "END", "50c"],
+        [99, "Ragnarok", "2x9 N", "-", "melee", "STR", "150c"]],
+        O6: [[6, "Shock Glove", "6 N", "-", "melee", "END", "50c"],
         [8, "Whalloper", "7 X", "-", "melee", "END", "70c"],
-        [10, "Wire Wraps", "8 E", "-", "melee", "END", "90c"],
+        [10, "Wire Wraps", "8 N", "-", "melee", "END", "90c"],
         [12, "Kinetic Fist", "9 X", "-", "melee", "END", "110c"],
-        [14, "Thermite Glove", "10 E", "-", "melee", "END", "130c"],
+        [14, "Thermite Glove", "10 N", "-", "melee", "END", "130c"],
         [99, "Firecracker", "11 X", "-", "melee", "END", "150c"]]
     };
 
@@ -303,9 +303,9 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
         label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, -1 dmg, no loot. standing on or attacking eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 12, def: 16, notes: "7 E short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
+            { name: "Bubbler", hp: 12, def: 16, notes: "7 N short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
             { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Basilisk", hp: 16, def: 24, notes: "9 E + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
+            { name: "Basilisk", hp: 16, def: 24, notes: "9 N + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
             { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
             { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
         ]
@@ -314,7 +314,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         label: "Burrowers", notes: "special: burrow, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
             { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
             { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
-            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 E, melee, +1 spd" }, //foxes with electrified tails
+            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 N, melee, +1 spd" }, //foxes with electrified tails
             { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
             { name: "Widow", hp: 18, def: 28, notes: "11 P+psn, melee, +1 spd, grapples on 6" }, //giant spider 
             { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
@@ -322,22 +322,22 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     E5: { //boss action: fires 10+tier X XLong artillery weapon. only loses 25% on full cripple. 
         label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
-            { name: "Police Bot", hp: 12, def: 16, notes: "7 E short" },
+            { name: "Police Bot", hp: 12, def: 16, notes: "7 N short" },
             { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 20, def: 24, notes: "9 E + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Medical Bot", hp: 20, def: 24, notes: "9 N + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
             { name: "Patriot", hp: 24, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 28, def: 32, notes: "11 P+E mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 32, def: 36, notes: "13 E+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+            { name: "War Bot", hp: 28, def: 32, notes: "11 P+N mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 32, def: 36, notes: "13 N+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: { //boss action: designate row or column to fire piercing lasers next round for mines damage. 
         label: "Androids", notes: "special: hidden pulse mines. Loot: tech scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
-            { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11E mines" },
-            { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12E mines" },
-            { name: "Trooper", hp: 14, def: 20, notes: "scaled energy weapons +1 dmg, 13E mines" },
-            { name: "Eradicator", hp: 16, def: 24, notes: "scaled energy weapons +1 dmg, 14E mines" },
-            { name: "Assassin", hp: 18, def: 28, notes: "scaled energy weapons +2 dmg, 15E mines" },
-            { name: "Terminator", hp: 20, def: 32, notes: "scaled energy weapons +2 dmg, 16E mines" }
+            { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11N mines" },
+            { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12N mines" },
+            { name: "Trooper", hp: 14, def: 20, notes: "scaled energy weapons +1 dmg, 13N mines" },
+            { name: "Eradicator", hp: 16, def: 24, notes: "scaled energy weapons +1 dmg, 14N mines" },
+            { name: "Assassin", hp: 18, def: 28, notes: "scaled energy weapons +2 dmg, 15N mines" },
+            { name: "Terminator", hp: 20, def: 32, notes: "scaled energy weapons +2 dmg, 16N mines" }
         ]
     },
     O1: { //boss action: apply effects of any two artifacts to long range. 
@@ -352,11 +352,11 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     },
     O2: { //boss action: create cover on self and regenerate 1 shield (up to 3). 
         label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
-            { name: "Observer", hp: 10, def: 6,  notes: "2x5 E, mid" },
+            { name: "Observer", hp: 10, def: 6,  notes: "2x5 N, mid" },
             { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
             { name: "Assimilator", hp: 14, def: 14, notes: "7 R+madness, short" },
             { name: "Destroyer", hp: 16, def: 18, notes: "11 X splash, mid" },
-            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 E + shock, mid" },
+            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 N + shock, mid" },
             { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
         ]
     },
@@ -367,17 +367,17 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
             { name: "Toxinmarked", hp: 14, def: 14, notes: "9 R splash+poison other, melee" },
             { name: "Bloodmarked", hp: 16, def: 18, notes: "10 P splash+bleed other, melee " },
             { name: "Firemarked", hp: 18, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Voltmarked", hp: 20, def: 26, notes: "12 E splash+shock other, melee" }
+            { name: "Voltmarked", hp: 20, def: 26, notes: "12 N splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
         label: "Aberrations", notes: "special: madness tile. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness tile = start of each round, make madness roll if in area
             { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
             { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 E/R+shock short, flies" }, //giant flying amalgamation of mouths that spits chemicals
+            { name: "Chimaera", hp: 10, def: 20, notes: "9 N/R+shock short, flies" }, //giant flying amalgamation of mouths that spits chemicals
             { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
             { name: "Angler", hp: 16, def: 28, notes: "10 R + shock + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
-            { name: "Metalmorph", hp: 16, def: 32, notes: "12 E+shock/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Metalmorph", hp: 16, def: 32, notes: "12 N+shock/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: { //boss action: grows random secondary gun every other turn. can shoot all weapons while moving. cripple secondary weapon twice to break it
@@ -634,7 +634,7 @@ export const professionQuests = { // prof quest rewards = 2d6 x 5c
 
     Electrician: [
         "Grid Hunger – Manage cell conversions before a half‑active pre‑war grid drains the town dry.",
-        "Unknown Charge – Convert E‑cells to power an alien device and decide whether it should be used.",
+        "Unknown Charge – Convert Cells to power an alien device and decide whether it should be used.",
         "Drain Below – Identify what’s consuming electrical charge through walls and distance—and whether stopping it is wise."
     ]
 };
@@ -665,7 +665,7 @@ export const factions = [ // towns have 1d3 guards per player, rolled when gener
     {
         name: "The Golden Empire",  //A warmongering civilization that uses antiquated brutal diplomacy and enacts a caste system, provides minimal due process for disagreeables. Believe technology is the cause of their downfall and outlaws it.  Strive to conquer the wasteland through force. Strong faction pride, share all resources with eachother. strong pride towards their emperor. 
         tag: "Technology",
-        desc: "Communist monarchy, slavers, hateful, max tier cannibal guards"
+        desc: "Communist monarchy, caste system, hateful, max tier cannibal guards"
     },
     {
         name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army. Believe too large a society becomes an easy target for otherworldly influences, prefer to keep small towns.
