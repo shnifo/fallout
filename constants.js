@@ -31,7 +31,7 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
 5. Cryogenic: adds shock
 6. Extended: +1 range */
     const weapons = {
-        E1: [[6, "Pipe Pistol", "5 P", "small", "mid", "AGI", "30c"],
+        E1: [[6, "Flintlock Pistol", "5 P", "small", "mid", "AGI", "30c"],
         [8, "Revolver", "6 P", "small", "mid", "AGI", "40c"],
         [10, "Combat Pistol", "7 P", "small", "mid", "AGI", "50c"],
         [12, "Magnum", "8 P", "small", "mid", "AGI", "60c"],
@@ -43,7 +43,7 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Tesla Pistol", "9 N", "cell", "mid", "INT", "70c"],
         [14, "Gauss Pistol", "10 N", "cell", "mid", "INT", "80c"],
         [99, "Zeus", "11 N", "cell", "mid", "INT", "90c"]],
-        E3: [[6, "Pipe Rifle", "7 P", "large", "long", "AGI", "50c"],
+        E3: [[6, "Musket", "7 P", "large", "long", "AGI", "50c"],
         [8, "Service Rifle", "8 P", "large", "long", "AGI", "70c"],
         [10, "Hunting Rifle", "9 P", "large", "long", "AGI", "90c"],
         [12, "Combat Rifle", "10 P", "large", "long", "AGI", "110c"],
@@ -106,13 +106,13 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
     };
 
 export const recipeTable = [
-    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
-    { book: "Gunsmith Magazine", recipe: "1 gun scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
-    { book: "Gunsmith Magazine", recipe: "1 armor scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
-    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
-    { book: "Gunsmith Magazine", recipe: "1 tech scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
-    { book: "Gunsmith Magazine", recipe: "1 armor scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
-    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 armor scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
+    { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
+    { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
+    { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, loses durability on a 4" },
+    { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
+    { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 Armor Scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated > dirty > clean)" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 animal flesh = 1 stimpak" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 mutant flesh = 1 ambrosia" },
@@ -229,13 +229,13 @@ export const backgroundData = [
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies are under half HP and deal +1 damage to them." },
-    { name: "Soldier", desc: "You can convert gun scraps into small rounds and 3 small rounds ↔ 2 large rounds." },
+    { name: "Soldier", desc: "You can convert Gun Scraps into Small Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
-    { name: "Doctor", desc: "You can convert any 3 meds into 2 of another med." },
+    { name: "Doctor", desc: "You can convert any 3 Medicine into 2 of another Medicine." },
     { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert tech scraps into energy cells and 3 energy cells ↔ 2 power cells." }
+    { name: "Electrician", desc: "You can convert Tech Scraps into Energy Cells and 3 Energy Cells ↔ 2 Power Cells." }
 ];
 
 // === Ruins Table ===
@@ -255,7 +255,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Graveyard: Contains one of each offering vessel",
     33: "Workshop: Scavenging tech is abundant.",
-    34: "Missile Silo: Spend 10 tech scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
+    34: "Missile Silo: Spend 10 Tech Scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
     35: "Gas Station: contains 3 pumps with 1d6 fuel each, each costing 10/20/30c per fuel. Use generator to drain pump",
     36: "Bank: Deposit cash, gain 20% on level up. Withdraw at any bank.",
     41: "Army Base: Scavenging weapons is abundant.",
@@ -321,7 +321,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E5: { //boss action: fires 10+tier X XLong artillery weapon. only loses 25% on full cripple. 
-        label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: armor scraps", subs: [
+        label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: Armor Scraps", subs: [
             { name: "Police Bot", hp: 12, def: 16, notes: "7 N short" },
             { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
             { name: "Medical Bot", hp: 20, def: 24, notes: "9 N + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
@@ -331,7 +331,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     E6: { //boss action: designate row or column to fire piercing lasers next round for mines damage. 
-        label: "Androids", notes: "special: hidden pulse mines. Loot: tech scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
+        label: "Androids", notes: "special: hidden pulse mines. Loot: Tech Scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
             { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11N mines" },
             { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12N mines" },
             { name: "Trooper", hp: 14, def: 20, notes: "scaled energy weapons +1 dmg, 13N mines" },
@@ -351,7 +351,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O2: { //boss action: create cover on self and regenerate 1 shield (up to 3). 
-        label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: gun scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
+        label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: Gun Scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
             { name: "Observer", hp: 10, def: 6,  notes: "2x5 N, mid" },
             { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
             { name: "Assimilator", hp: 14, def: 14, notes: "7 R+madness, short" },
@@ -431,7 +431,7 @@ export const medTable = [ //crit = find chosen med and also find 2d3 Serum (+1 t
     { name: "Adrenaline", effect: "-1 Fatigue, +10% HP, 10c" }, // a stimulant that reenergizes the body
     { name: "Stimpak", effect: "-2 Injury, +20% HP (Addictive), 10c" }, //an injected concoction that rapidly regenerates damaged cells
     { name: "Ambrosia", effect: "-2 Mutation, +20% HP (Addictive), 10c" }, //the fruit of mutated trees that is much more potent than the resin 
-    { name: "Ketamine", effect: "Removes addictions, +10% HP, 10c" } //a psychoactive drug that instantly breaks the hold of any addictions
+    { name: "Ketamine", effect: "Removes addiction, +10% HP, 10c" } //a psychoactive drug that instantly breaks the hold of any addictions
 ];
 
 export const techTable = [ //crit = find chosen tech and also find random alien artifact that you do not have
@@ -599,7 +599,7 @@ export const professionQuests = { // prof quest rewards = 2d6 x 5c
     Guard: [
         "Wrong Caliber – Convert ammunition so the militia can face an imminent threat.",
         "Mismatch Cache – Make a weapons cache useful despite none of the ammo matching the guns.",
-        "On the Move – Convert large rounds to small mid‑journey to keep a convoy armed and moving."
+        "On the Move – Convert Large Rounds to small mid‑journey to keep a convoy armed and moving."
     ],
 
     Plumber: [
