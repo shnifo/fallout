@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Mirror Force", desc: "If you take no damage from an enemy's attack, the attack hits them instead." },
+        { name: "Mirror Force", desc: "Critical hits against you also deal the same damage to the attacker." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
