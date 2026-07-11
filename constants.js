@@ -4,7 +4,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random augment
 2. Earth: Gain 1 shield after initiative and after being crit
 3. Fire: Take an extra action on your first turn after initiative and immediately after being crit
 4. Water: Heal 10% after initiative and after being crit
-5. Wind: +1 to initiative and sprint rolls
+5. Wind: You can sprint as a secondary action to move 1 space
 6. Dark: Gain cover against melee attacks   */ 
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Scrap armor: +6 def, 70c" },
@@ -61,10 +61,10 @@ export /* crit = choose weapon type and gain random augmented effect. Augments a
         [12, "Combat Shotgun", "3x7 P", "small", "short", "AGI", "80c"],
         [14, "Riot Shotgun", "3x8 P", "small", "short", "AGI", "90c"],
         [99, "Invictus", "3x9 P", "small", "short", "AGI", "100c"]],
-        E6: [[6, "Capactior Gun", "8 N", "energy", "short", "INT", "60c"],
-        [8, "Tempest Column", "9 N", "energy", "short", "INT", "70c"],
-        [10, "Voltaic Emitter", "10 N", "energy", "short", "INT", "80c"],
-        [12, "Plasma Blaster", "11 N", "energy", "short", "INT", "90c"],
+        E6: [[6, "Laser Cutter", "8 N", "energy", "short", "INT", "60c"],
+        [8, "Capacitor Gun", "9 N", "energy", "short", "INT", "70c"],
+        [10, "Volt Emitter", "10 N", "energy", "short", "INT", "80c"],
+        [12, "Plasma Chamber", "11 N", "energy", "short", "INT", "90c"],
         [14, "Gamma Array", "12 N", "energy", "short", "INT", "100c"],
         [99, "Hyperbeam", "13 N", "energy", "short", "INT", "110c"]],
         O1: [[6, "Catapult", "11 X splash next round", "fuel", "extra long", "AGI", "80c"],
@@ -193,12 +193,12 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Mirror Force", desc: "Critical hits against you also deal the same damage to the attacker." },
+        { name: "Artisan", desc: "Items at 3 durability have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Hoarder", desc: "You can use broken items." },
-        { name: "Discerning Eye", desc: "You can reroll the type of scavenging roll you get once." },
+        { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
-        { name: "Green Thumb", desc: "Plants give +2 yield if held for the whole level." },
+        { name: "Green Thumb", desc: "Plants gain +2 yield but are destroyed if removed from your inventory." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
@@ -240,7 +240,7 @@ export const backgroundData = [
 
 // === Ruins Table ===
 export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
-    11: "Office: Contains 3 Vending machines with hidden 1d3 healthy water for 10c each. Autojacker to open.",
+    11: "Office: Scavenges contain a vending machine with hidden 1d3 healthy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
     13: "Bunker: Scavenged items have +1 durability.",
     14: "Campground: Contains a map to buried treasure 3 random hexes away containing a treasure chest with 3d6*20c.",
@@ -252,15 +252,15 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
-    31: "Casino: Contains a slot machine. Spend 40c to roll 1d6×10c. anyone can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
+    31: "Casino: Scavenges contain slot machines. Spend 30c to make 1d6×10c, can luck/resist. Crit = 120c + break, 1 = break. use hackerator for +1 dice",
     32: "Graveyard: Contains one of each offering vessel",
     33: "Workshop: Scavenging tech is abundant.",
-    34: "Missile Silo: Spend 10 Tech Scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
-    35: "Gas Station: contains 3 pumps with 1d6 fuel each, each costing 10/20/30c per fuel. Use generator to drain pump",
+    34: "Missile Silo: Spend 10 of each scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
+    35: "Fuel Station: Scavenging here contains pumps with 1d6 fuel each, costs 25c per fuel. Use generator to drain pump",
     36: "Bank: Deposit cash, gain 20% on level up. Withdraw at any bank.",
     41: "Army Base: Scavenging weapons is abundant.",
-    42: "Restaurant: scavenging rations is abundant",
-    43: "Quarry: Use a grenade or hammerator to excavate a heavy ore worth 1d6×20c.",
+    42: "Restaurant: Scavenging rations is abundant",
+    43: "Quarry: Scavenges contain heavy ore worth 1d6×20c, can be excavated with a grenade or use hammerator.",
     44: "Crashed Ship: Contains an elite max tier aberration that attacks after combat. flees below half hp. 1/6 to attack after any combat with +1 dmg and all armor. harvest for augmented biogel (make item augmented)",
     45: "Outpost: Scavenging ammo is abundant.",
     46: "Foundry: Can upgrade one Tinker's Digest crafted item to heavy with doubled effect",
@@ -269,13 +269,13 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     53: "Airport: Pay 10c per player to fast travel to any cleared hex.",
     54: "Resort: Generates adjacent irradiated lake (+1 Mutation each way) with uninhabited island (+3 to scavenging). use breatherator to avoid Mutation.",
     55: "Subway: Generates another Subway 5 hexes away. You can fast travel between cleared Subways.",
-    56: "Laboratory: contains a random Serum roll.",
+    56: "Laboratory: Contains a random Serum roll.",
     61: "Hospital: Scavenging meds is abundant.",
     62: "Supermarket: Gain +3 rerolls when scavenging.",
     63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
-    66: "Church: No battle. Friendly cultist merchant with 2 max tier cultist guards sells max amount of all 3 offering bowl items."
+    66: "Church: No battle. Friendly cultist merchant with 2 max tier cultist guards sells 3 of each eldritch item."
 };
 
 // === Monster Data ===
@@ -361,7 +361,7 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         ]
     },
     O3: { //boss action: create toxic zone on self and 1 adjacent tile that applies +2 dmg taken and -2 dmg dealt for players
-        label: "Revenants", notes: "special: cover, +1 spd, can't lose more than 3 HP per hit,  Loot: mutant flesh", subs: [ //dead humans that were reanimated by alien experimentation into mindless husks
+        label: "Revenants", notes: "special: cover, +1 spd, can't lose more than 3 HP per hit,  Loot: mutant flesh", subs: [ //dead humans that were reanimated into eldritch horrors
             { name: "Lifemarked", hp: 10, def: 6, notes: "5 P+R melee, grapples on 6" },
             { name: "Chaosmarked", hp: 12, def: 10, notes: "8 P + madness, melee" },
             { name: "Toxinmarked", hp: 14, def: 14, notes: "9 R splash+poison other, melee" },
@@ -408,12 +408,12 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that consumes them to manifest a messenger hand who will imbue each player with any perk ignoring stat limits. 
 export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. At 3 durability, 5 = no HP cost. Repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
-    {name: "Red Artifact", effect: "Cripple a limb, 3 HP, mid, 100c"},
-    {name: "Orange Artifact", effect: "Generate rubble tile, 3 HP, mid, 100c"},
+    {name: "Red Artifact", effect: "Cripple a creature, 3 HP, mid, 100c"},
+    {name: "Orange Artifact", effect: "Generate a rubble tile, 3 HP, mid, 100c"},
     {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"},
     {name: "Green Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
-    {name: "Blue Artifact", effect: "Move creature 1 space, 3 HP, mid, 100c"},
-    {name: "Purple Artifact", effect: "Generate cover tile, 3 HP, mid, 100c"}     
+    {name: "Blue Artifact", effect: "Move a creature 1 space, 3 HP, mid, 100c"},
+    {name: "Purple Artifact", effect: "Generate a cover tile, 3 HP, mid, 100c"}     
 ];
 
 export const plants = [ // "Generates a resource every time you level up",
@@ -421,7 +421,7 @@ export const plants = [ // "Generates a resource every time you level up",
     {name: "Fleshroom", effect: "Generates 3 clean flesh on level up, bulky, 100c"},
     {name: "Meloconut", effect: "Generates 3 clean water on level up, bulky, 100c"},
     {name: "Radovera", effect: "Generates 3 bandage on level up, bulky, 100c"},
-    {name: "Bloodbark", effect: "Generates 3 resin on level up, bulky, 100c"},
+    {name: "Agaroot", effect: "Generates 3 resin on level up, bulky, 100c"},
     {name: "Tobacoca", effect: "Generates 3 adrenaline on level up, bulky, 100c"}
     ];
 
