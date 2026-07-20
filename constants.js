@@ -229,13 +229,13 @@ export const backgroundData = [
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies are under half HP and can execute them as an action in melee." },
-    { name: "Soldier", desc: "You can convert Gun Scraps into Small Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
+    { name: "Soldier", desc: "You can convert Gun Scraps into Large Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 Medicine into 2 of another Medicine." },
     { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
     { name: "Engineer", desc: "Repairing technology does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert Tech Scraps into Energy Cells and 3 Energy Cells ↔ 2 Power Cells." }
+    { name: "Electrician", desc: "You can convert Tech Scraps into Power Cells and 3 Energy Cells ↔ 2 Power Cells." }
 ];
 
 // === Ruins Table ===
@@ -446,10 +446,10 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 20c, upgrade: weapons are augmented
-    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
+    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 50c, upgrade: weapons are augmented
+    { name: "Armor" }, // will repair armor for 50c, upgrade: armor is augmented
     { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 2d3 serum 
-    { name: "Tech" }, // sells random scrap and will repair tech for 20c, upgrade: also sells an artifact
+    { name: "Tech" }, // sells random scrap roll and will repair tech for 50c, upgrade: also sells an artifact
     { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = +1 tier of all rations
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
 ];
@@ -746,9 +746,9 @@ export const colLabels = ["1", "2", "3", "4", "5"];
 export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
 export const miscTable = [
-  { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
-  { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
-  { name: "Tech Scrap",  effect: "Repair tech, 5c" },
+  { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 10c" },
+  { name: "Weapon Scrap",  effect: "Repair guns, 10c" }, 
+  { name: "Tech Scrap",  effect: "Repair tech, 10c" },
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
