@@ -446,12 +446,12 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 20c, upgrade: weapons are augmented
-    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
+    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 50c, upgrade: weapons are augmented
+    { name: "Armor" }, // will repair armor for 50c, upgrade: armor is augmented
     { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 2d3 serum 
-    { name: "Tech" }, // sells random scrap roll and will repair tech for 20c, upgrade: also sells an artifact
-    { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = +1 tier of all rations
-    { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
+    { name: "Tech" }, // sells random scrap roll and will repair tech for 50c, upgrade: also sells an artifact
+    { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade: +1 tier of all rations
+    { name: "Water" } // will purify any water 1 stage for 5c, upgrade: +1 tier of all water
 ];
 
 export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +1 to the scavenge roll, or +2 if pristine. 
