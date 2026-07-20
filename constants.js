@@ -150,7 +150,7 @@ export const perkData = {
     STRENGTH: [
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
         { name: "Berserker", desc: "Gain an extra action by skipping your next turn or slaying an enemy." },
-        { name: "Blacksmith", desc: "Consume only 2 scrap to repair an item to pristine." },
+        { name: "Blacksmith", desc: "Repairing costs 1 fewer scrap." },
         { name: "Healing Factor", desc: "Remove 1 Injury when you sleep while at full HP." },
         { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 Hunger and heals 10% HP." },
@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Roid Rage", desc: "While you have addiction, your crits deal +1 damage and you take no bonus crit damage." },
+        { name: "Mirror Force", desc: "When you lose HP from an attack hit of chosen damage type, the attacker loses the same HP." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
@@ -194,7 +194,7 @@ export const perkData = {
 
     INTELLIGENCE: [
         { name: "Artisan", desc: "Pristine items have +30% sell value." },
-        { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
+        { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item while having addiction." },
         { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
@@ -224,18 +224,18 @@ export const perkData = {
 };
 
 export const backgroundData = [
-    { name: "Technician", desc: "Repairing weapons does not require a roll." },
-    { name: "Mechanic", desc: "Repairing armor does not require a roll." },
+    { name: "Technician", desc: "Repairing weapons takes 1 fewer scrap and does not require a roll." },
+    { name: "Mechanic", desc: "Repairing armor takes 1 fewer scrap and does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
     { name: "Exterminator", desc: "You know when enemies are under half HP and can execute them as an action in melee." },
-    { name: "Soldier", desc: "You can convert Gun Scraps into Large Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
+    { name: "Soldier", desc: "You can convert Gun Scraps into Small Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 Medicine into 2 of another Medicine." },
     { name: "Scientist", desc: "You can convert any 3 irradiated items into 1 Serum." },
-    { name: "Engineer", desc: "Repairing technology does not require a roll." },
+    { name: "Engineer", desc: "Repairing technology takes 1 fewer scrap and does not require a roll." },
     { name: "Tailor", desc: "You can convert any 3 scrap into 2 of another scrap." },
-    { name: "Electrician", desc: "You can convert Tech Scraps into Power Cells and 3 Energy Cells ↔ 2 Power Cells." }
+    { name: "Electrician", desc: "You can convert Tech Scraps into Energy Cells and 3 Energy Cells ↔ 2 Power Cells." }
 ];
 
 // === Ruins Table ===
@@ -446,10 +446,10 @@ export const techTable = [ //crit = find chosen tech and also find random alien 
 
 // Shop types and their corresponding services offered
 export const shopTypes = [
-    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 50c, upgrade: weapons are augmented
-    { name: "Armor" }, // will repair armor for 50c, upgrade: armor is augmented
+    { name: "Weapons" }, // sells random associated ammo/grenades and will repair weapon for 20c, upgrade: weapons are augmented
+    { name: "Armor" }, // will repair armor for 20c, upgrade: armor is augmented
     { name: "Meds" }, // will remove any status, addiction, or heal 10% for 10c, upgrade: also sells 2d3 serum 
-    { name: "Tech" }, // sells random scrap roll and will repair tech for 50c, upgrade: also sells an artifact
+    { name: "Tech" }, // sells random scrap roll and will repair tech for 20c, upgrade: also sells an artifact
     { name: "Rations" }, // will purify any ration 1 stage for 5c, upgrade = +1 tier of all rations
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
 ];
@@ -746,9 +746,9 @@ export const colLabels = ["1", "2", "3", "4", "5"];
 export const fixedWeights = [1, 2, 2, 1, 3, 6];
 
 export const miscTable = [
-  { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 10c" },
-  { name: "Weapon Scrap",  effect: "Repair guns, 10c" }, 
-  { name: "Tech Scrap",  effect: "Repair tech, 10c" },
+  { name: "Armor Scrap",  effect: "Repair melee weapons or armor, 5c" },
+  { name: "Weapon Scrap",  effect: "Repair guns, 5c" }, 
+  { name: "Tech Scrap",  effect: "Repair tech, 5c" },
   { name: "Clean Flesh",  effect: "-1 Hunger, 5c" },    
   { name: "Animal Flesh",  effect: "-1 Hunger, dirty, 5c" },
   { name: "Mutant Flesh",  effect: "-1 Hunger, -1 Injury, irradiated, 5c" },
