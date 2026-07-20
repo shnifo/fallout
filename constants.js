@@ -110,7 +110,7 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
     { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
-    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, loses durability on an attack roll of 4 or lower" },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, downgrade condition on an attack roll of 4 or lower" },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 Armor Scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated > dirty > clean)" },
@@ -150,7 +150,7 @@ export const perkData = {
     STRENGTH: [
         { name: "Big Back", desc: "Gain +1 heavy limit and you cannot be shoved or grappled." },
         { name: "Berserker", desc: "Gain an extra action by skipping your next turn or slaying an enemy." },
-        { name: "Blacksmith", desc: "Repairing a broken item gives it +1 durability." },
+        { name: "Blacksmith", desc: "Consume only 2 scrap to repair an item to pristine." },
         { name: "Healing Factor", desc: "Remove 1 Injury when you sleep while at full HP." },
         { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 Hunger and heals 10% HP." },
@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Finishing Touch", desc: "Consume only 1 scrap when you repair an item to 3 durability." },
+        { name: "Roid Rage", desc: "While you have an addiction, your crits deal +1 damage and you take no bonus crit damage." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Artisan", desc: "Items at 3 durability have +30% sell value." },
+        { name: "Artisan", desc: "Pristine items have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Hoarder", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
@@ -203,7 +203,7 @@ export const perkData = {
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
-        { name: "Chosen One", desc: "Using an artifact does not consume your movement and repairing them now costs 10 HP." },
+        { name: "Chosen One", desc: "Using an artifact does not prevent movement and they cost 10 HP to repair or mutate." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for every 2 Tech items you have." }
     ],
 
@@ -228,7 +228,7 @@ export const backgroundData = [
     { name: "Mechanic", desc: "Repairing armor does not require a roll." },
     { name: "Farmer", desc: "You can purify rations 3:2 (irradiated → dirty → clean)." },
     { name: "Chef", desc: "You can convert any 2 flesh into 1 fuel." },
-    { name: "Exterminator", desc: "You know when enemies are under half HP and deal +1 damage to them." },
+    { name: "Exterminator", desc: "You know when enemies are under half HP and can execute them as an action in melee." },
     { name: "Soldier", desc: "You can convert Gun Scraps into Small Rounds and 3 Small Rounds ↔ 2 Large Rounds." },
     { name: "Plumber", desc: "You can purify water 3:2 (irradiated → dirty → clean)." },
     { name: "Doctor", desc: "You can convert any 3 Medicine into 2 of another Medicine." },
@@ -242,10 +242,10 @@ export const backgroundData = [
 export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-scavenge penalty
     11: "Office: Scavenges contain a vending machine with hidden 1d3 healthy water for 10c each. Autojacker to open.",
     12: "Mall: Can use illuminator to scavenge again instead of sleeping.",
-    13: "Bunker: Scavenged items have +1 durability.",
+    13: "Bunker: Scavenged items are pristine.",
     14: "Campground: Contains a map to buried treasure 3 random hexes away containing a treasure chest with 3d6*20c.",
     15: "University: Gain a random perk book. Read instead of sleeping/scavenging 3 times to gain that perk, bulky, 100c. ",
-    16: "Factory: Contains a random 1D heavy megatech (functions as two techs combined)",
+    16: "Factory: Contains a random heavy megatech (functions as two techs combined)",
     21: "Museum: Contains a random artifact you don't have.",
     22: "Armory: Scavenging armor is abundant.",
     23: "Park: Contains a random large plant. (heavy, +3 yield).",
@@ -406,14 +406,14 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit workbench: scraps of your choice and a plant. 
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
-//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands.  Assemble all 6 to create a ritual circle that consumes them to manifest a messenger hand who will imbue each player with any perk ignoring stat limits. 
-export const artifacts = [ // "action to use, 6 = no HP cost, crit = heal hp instead. At 3 durability, 5 = no HP cost. Repair with 20 HP or steal from another artifact.  Spend 1 durability to mutate a weapon into a CHA weapon that does rad damage. 
-    {name: "Red Artifact", effect: "Cripple a creature, 3 HP, mid, 100c"},
-    {name: "Orange Artifact", effect: "Generate a rubble tile, 3 HP, mid, 100c"},
-    {name: "Yellow Artifact", effect: "Give a player defend, 3 HP, mid, 100c"},
+//artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands. Assemble all 6 pristine relics to create a ritual circle that consumes them to manifest a messenger who will imbue each player with any perk ignoring stat limits. 
+export const artifacts = [ // "action to use, reduce cost equal to roll. While pristine, -1 HP cost. Crit = trigger twice. Can spend 20 HP to repair, or to mutate a weapon into a CHA rad damage weapon. These have -2 HP cost for each Pristine artifact you have.  
+    {name: "Red Artifact", effect: "Cripple a creature, 6 HP, mid, 100c"},
+    {name: "Orange Artifact", effect: "Generate a rubble tile, 6 HP, mid, 100c"},
+    {name: "Yellow Artifact", effect: "Give a player defend, 6 HP, mid, 100c"},
     {name: "Green Artifact", effect: "Clear a tile, 3 HP, mid, 100c"},
-    {name: "Blue Artifact", effect: "Move a creature 1 space, 3 HP, mid, 100c"},
-    {name: "Purple Artifact", effect: "Generate a cover tile, 3 HP, mid, 100c"}     
+    {name: "Blue Artifact", effect: "Move a creature 1 space, 6 HP, mid, 100c"},
+    {name: "Purple Artifact", effect: "Generate a cover tile, 6 HP, mid, 100c"}     
 ];
 
 export const plants = [ // "Generates a resource every time you level up",
@@ -454,7 +454,7 @@ export const shopTypes = [
     { name: "Water" } // will purify any water 1 stage for 5c, upgrade = +1 tier of all water
 ];
 
-export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +1 to the scavenge roll, or +2 if at 3 durability. 
+export const complications = [ //When rolling complications, if the bracketed technology is held by the player, they can use it to add +1 to the scavenge roll, or +2 if pristine. 
     ["+1/2 Thirst", "END", "Sweating from hot area with no cooling (generator)"],
     ["+1/2 Hunger", "CHA", "Puking from terrible smell (breatherator)"],
     ["+1/2 Thirst", "INT", "Diarrhea from unidentified environmental toxins (illuminator)"],
