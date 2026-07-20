@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Roid Rage", desc: "While you have an addiction, your crits deal +1 damage and you take no bonus crit damage." },
+        { name: "Roid Rage", desc: "While you have addiction, your crits deal +1 damage and you take no bonus crit damage." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
