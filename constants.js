@@ -1,5 +1,5 @@
 /// ARMOR & WEAPONS ///
-export const armorTable = [ /* crit = choose weapon type and gain random augmented effect. Augments add +50c value.
+export const armorTable = [ /* crit = choose weapon type and gain random augmented effect. Augments add +50c value. +1 to all armor while pristine.
 1. Light: Replenish one influence on initiative and after being crit
 2. Earth: Gain 1 shield after initiative and after being crit
 3. Fire: Take an extra action on your first turn after initiative and immediately after being crit
@@ -23,7 +23,7 @@ export const armorTable = [ /* crit = choose weapon type and gain random augment
     { roll: 16, text: "Titan armor: +28 def, 200c" }
 ];
 
-export /* crit = choose weapon type and gain random augmented effect. Augments add +50c value.
+export /* crit = choose weapon type and gain random augmented effect. Augments add +50c value. +1 damage while pristine.
 1. Incendiary: adds burn 
 2. Toxic: adds poison 
 3. Destructive: converted to explosive splash (or adds +1 splash range)
