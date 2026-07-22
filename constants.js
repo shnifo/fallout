@@ -183,9 +183,9 @@ export const perkData = {
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
         { name: "All-nighter", desc: "You can scavenge a settlement instead of sleeping." },
-        { name: "Homo Superior", desc: "Serum lasts two days and suppresses the effects of statuses above 5." },
+        { name: "Super Mutant", desc: "Serum lasts two days and suppresses the effects of statuses above 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more Mutation." },
-        { name: "Pack Rat", desc: "Stackables can now stack to 20 before becoming heavy." },
+        { name: "Hoarder", desc: "Stackables can now stack to 20 before becoming heavy." },
         { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
         { name: "Stand By Me", desc: "You can bring an ally when you move and can intercept non aimed shots against allies." },
         { name: "Divine Intervention", desc: "Influenced saving throws can still refresh influence when choosing the gold die." },
@@ -195,9 +195,9 @@ export const perkData = {
     INTELLIGENCE: [
         { name: "Artisan", desc: "Pristine items have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item while having addiction." },
-        { name: "Hoarder", desc: "You can use broken items." },
+        { name: "Jury-rigged", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
-        { name: "Gifted", desc: "You can replace two rolled 1s with a 6." },
+        { name: "Gifted", desc: "You can replace two rolled 1s with a 6." }, 
         { name: "Green Thumb", desc: "Plants gain +2 yield but are destroyed if removed from your inventory." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
@@ -208,7 +208,7 @@ export const perkData = {
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh. It contributes triple towards offerings." },
+        { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh, granting you 2 human flesh." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -217,7 +217,7 @@ export const perkData = {
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
         { name: "Sane in the Membrane", desc: "Gain immunity to madness and addiction withdrawl only lasts 1 day." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
-        { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },
+        { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },                                                                                                                                                                                     
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don't Look at Explosions", desc: "Gain +3 explosive armor." }
     ]
