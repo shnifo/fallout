@@ -109,8 +109,8 @@ export const recipeTable = [
     { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = auto mod: -1 dmg, 2x hits, +1 ammo" },
     { book: "Gunsmith Magazine", recipe: "1 Gun Scrap + gun = scope mod: Use action to aim down scope. next attack gains +1 dmg and is an aimed shot" },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + melee/fist = hydraulic mod: +1 dmg, 1 turn cooldown" },
-    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Underclock mod: -1 dmg, +1 to attack roll result (up to 5)" },
-    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, downgrade condition on an attack roll of 4 or lower" },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Underclock mod: -1 dmg, get an aimed shot on a 5." },
+    { book: "Gunsmith Magazine", recipe: "1 Tech Scrap + weapon = Overclock mod: +1 dmg, cannot get aimed shots. " },
     { book: "Gunsmith Magazine", recipe: "1 Armor Scrap + gun + melee/fist = gunblade mod: -1 dmg to both, combine weapons, can attack with both weapons in same action" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 1 Armor Scrap = 1 molatov: 9 X Splash+burn, mid, STR, 25c" },
     { book: "Apocalypse Cookbook", recipe: "1 fuel + 3 water/rations = 3 cleaner water/rations (irradiated > dirty > clean)" },
@@ -152,7 +152,7 @@ export const perkData = {
         { name: "Berserker", desc: "Gain an extra action by skipping your next turn or slaying an enemy." },
         { name: "Blacksmith", desc: "Repairing costs 1 fewer scrap." },
         { name: "Healing Factor", desc: "Remove 1 Injury when you sleep while at full HP." },
-        { name: "Ancient Teachings", desc: "Influenced attacks also get an aimed shot on a 5." },
+        { name: "Zero Waste", desc: "Harvesting a slain creature has a 50% chance to yield an additional scrap/flesh." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 Hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
         { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
@@ -164,7 +164,7 @@ export const perkData = {
 
     AGILITY: [
         { name: "Specialist", desc: "Deal +1 damage with all attacks using a chosen weapon type." },
-        { name: "Zero Waste", desc: "Harvesting a slain creature has a 50% chance to yield an additional scrap/flesh." },
+        { name: "Cardio Bunny", desc: "Sprint costs no action but moves -1 distance and causes +1 thirst on a failed save." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Sprint moves +1 distance and if you do not attack it also grants you defend." },
         { name: "Ninja", desc: "You can move while sneaking and can attempt to sneak on any terrain." },
@@ -203,12 +203,12 @@ export const perkData = {
         { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
-        { name: "Chosen One", desc: "Using an artifact does not prevent movement and they cost 10 HP to repair or mutate." },
+        { name: "Alchemist", desc: "Using an artifact to repair or mutate costs only 10 HP and generates 1 dirty water." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for every 2 Tech items you have." }
     ],
 
     CHARISMA: [
-        { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh, granting you 2 human flesh." },
+        { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh, generating 2 human flesh." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
         { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
@@ -407,7 +407,7 @@ export const rationTypes = ["Armor/Clean", "Gun/Dirty", "Tech/Irradiated"];
 //crit water: all waters upgraded 1 tier: irradiated->dirty->clean->healthy, also find offering bowl covered in eyes. insert up to 10 of any flesh, including your own (+1 injury): converts 2:1 eldritch coin (fleshy coin made from a flattened eyeball)
 //crit food: all food upgraded 1 tier: irradiated->dirty->clean->healthy, also find sculpted from several dismembered hands. insert up to 9 flesh, including your own (+1 injury): converts 3:1 to eldritch candle (candle made from a fleshy finger)
 //artifacts look like fleshy geometric shapes covered in eyes, mouths, and being cradled by a pair of hands. Assemble all 6 pristine relics to create a ritual circle that consumes them to manifest a messenger who will imbue each player with any perk ignoring stat limits. 
-export const artifacts = [ // "action to use, reduce cost equal to roll. While pristine, -1 HP cost. Crit = trigger twice. Can spend 20 HP to repair, or to mutate a weapon into a CHA rad damage weapon. These have -2 HP cost for each Pristine artifact you have.  
+export const artifacts = [ // "action to use, reduce cost equal to roll. While pristine, -1 HP cost. Crit = trigger twice. Can spend 20 HP to repair, or to mutate a weapon into a CHA rad damage weapon. 
     {name: "Red Artifact", effect: "Cripple a creature, 6 HP, mid, 100c"},
     {name: "Orange Artifact", effect: "Generate a rubble tile, 6 HP, mid, 100c"},
     {name: "Yellow Artifact", effect: "Give a player defend, 6 HP, mid, 100c"},
