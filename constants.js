@@ -195,7 +195,7 @@ export const perkData = {
     INTELLIGENCE: [
         { name: "Artisan", desc: "Pristine items have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item while having addiction." },
-        { name: "Jury-rigged", desc: "You can use broken items." },
+        { name: "Trash to Treasure", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." }, 
         { name: "Green Thumb", desc: "Plants gain +2 yield but are destroyed if removed from your inventory." },
@@ -217,7 +217,7 @@ export const perkData = {
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
         { name: "Sane in the Membrane", desc: "Gain immunity to madness and addiction withdrawl only lasts 1 day." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
-        { name: "Art of the Deal", desc: "Haggling gives a 10% better deal." },                                                                                                                                                                                     
+        { name: "Art of the Deal", desc: "Haggling successes give items a 10% better buy or sell value." },                                                                                                                                                                                     
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don't Look at Explosions", desc: "Gain +3 explosive armor." }
     ]
