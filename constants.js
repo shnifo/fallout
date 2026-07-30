@@ -164,7 +164,7 @@ export const perkData = {
 
     AGILITY: [
         { name: "Specialist", desc: "Deal +1 damage with all attacks using a chosen weapon type." },
-        { name: "Cardio Bunny", desc: "Sprint costs no action but moves -1 distance and causes +1 thirst on a failed save." },
+        { name: "Cardio Bunny", desc: "Sprint costs no action but moves -1 distance and failing the save causes +1 thirst." },
         { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
         { name: "Gotta Go Fast", desc: "Sprint moves +1 distance and if you do not attack it also grants you defend." },
         { name: "Ninja", desc: "You can move while sneaking and can attempt to sneak on any terrain." },
@@ -217,7 +217,7 @@ export const perkData = {
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
         { name: "Sane in the Membrane", desc: "Gain immunity to madness and addiction withdrawl only lasts 1 day." },
         { name: "Technophile", desc: "Heal 10% HP when you use or repair a technology." },
-        { name: "Art of the Deal", desc: "Haggling successes give items a 10% better buy or sell value." },                                                                                                                                                                                     
+        { name: "Art of the Deal", desc: "Haggling gives items a 10% better buy or sell value." },                                                                                                                                                                                     
         { name: "Oh Baby a Triple", desc: "You can replace any rolled triples with a 6." },
         { name: "Cool Guys Don't Look at Explosions", desc: "Gain +3 explosive armor." }
     ]
