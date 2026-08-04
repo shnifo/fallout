@@ -194,7 +194,7 @@ export const perkData = {
 
     INTELLIGENCE: [
         { name: "Artisan", desc: "Pristine items have +20% sell value." },
-        { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item while having addiction." },
+        { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Trash to Treasure", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." }, 
@@ -280,7 +280,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
 
 // === Monster Data ===
 export const monsterData = { //flies = ignores rubble and has cover vs melee attacks. elite = 2x HP and +1 dmg. madness = CHA save or -5 HP, excess becomes Fatigue. Boss: 3x HP, +2 dmg and gain boss action
-    E1: { //boss action: alternate: mid range firebomb  X trap damage + burns, mid range bear trap that applies on target immediately
+    E1: { //boss action: alternate: mid range firebomb X trap damage + burns, mid range bear trap that applies on target immediately
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
             { name: "Savage", hp: 16, def: 12, notes: "scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
