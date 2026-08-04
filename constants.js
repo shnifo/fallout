@@ -211,7 +211,7 @@ export const perkData = {
         { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh, generating 2 human flesh." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
-        { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
+        { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other creatures." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
