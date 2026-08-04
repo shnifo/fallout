@@ -1,11 +1,11 @@
 /// ARMOR & WEAPONS ///
 export const armorTable = [ /* crit = choose weapon type and gain random augmented effect. Augments add +50c value. +1 to all armor while pristine.
-1. Light: Replenish one influence on initiative and after being crit
+1. Light: Replenish one Influence on initiative and after being crit
 2. Earth: Gain 1 shield after initiative and after being crit
 3. Fire: Take an extra action on your first turn after initiative and immediately after being crit
 4. Water: Heal 10% after initiative and after being crit
-5. Wind: You can sprint as a secondary action to move 1 space
-6. Dark: Gain cover against melee attacks   */ 
+5. Wind: Gain cover against melee attacks 
+6. Dark: Enemies on your tile are considered to be in rubble   */ 
     { roll: 2, text: "Junk armor: +5 def, 60c" },
     { roll: 3, text: "Scrap armor: +6 def, 70c" },
     { roll: 4, text: "Leather armor: +7 def, 80c" },
@@ -155,7 +155,7 @@ export const perkData = {
         { name: "Zero Waste", desc: "Harvesting a slain creature has a 50% chance to yield an additional scrap/flesh." },
         { name: "Carnivore", desc: "Consuming flesh gives an extra -1 Hunger and heals 10% HP." },
         { name: "Boomer", desc: "Explosive splash damage splashes to short range with -2 damage." },
-        { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item worth 1d6x10c." },
+        { name: "Hidden Gem", desc: "When you scavenge you also find a heavy junk item with a 1d6x10c value." },
         { name: "Chiropractor", desc: "When you cripple an enemy limb, you can cripple another different limb." },
         { name: "Iron Man", desc: "Your limbs cannot be crippled." },
         { name: "Saboteur", desc: "Your attacks always detonate explosive tiles and you automatially disarm traps you trigger." },
@@ -164,14 +164,14 @@ export const perkData = {
 
     AGILITY: [
         { name: "Specialist", desc: "Deal +1 damage with all attacks using a chosen weapon type." },
-        { name: "Cardio Bunny", desc: "Sprint costs no action but moves -1 distance and failing the save causes +1 thirst." },
-        { name: "Adrenaline Rush", desc: "When you use resist on a roll and take a result below a 4, regain resist. " },
+        { name: "Cardio Bunny", desc: "Sprint costs no action but moves -1 distance and the save requires a 6 to succeed." },
+        { name: "Adrenaline Rush", desc: "When you use Resist on a roll and take a result below a 4, regain Resist. " },
         { name: "Gotta Go Fast", desc: "Sprint moves +1 distance and if you do not attack it also grants you defend." },
         { name: "Ninja", desc: "You can move while sneaking and can attempt to sneak on any terrain." },
         { name: "Guerrilla", desc: "Rubble is instead treated as cover for you." },
         { name: "Sniper", desc: "Attacks ignore cover and weapons with long or extra long range gain +1 range." },
-        { name: "Perfectionist", desc: "Critical successes restore luck and heal 10% HP." },
-        { name: "Jack of All Trades", desc: "Gain another background and another skill with different stats from your first skill." },
+        { name: "Perfectionist", desc: "Restore Luck and heal 10% HP when you roll a critical success." },
+        { name: "Jack of All Trades", desc: "Gain another Background and another Skill with different stats from your first Skill." },
         { name: "Quantum Clip", desc: "Each turn a random ammo type will not be consumed by your weapon attacks." },
         { name: "Secret Technique", desc: "Aimed shots with a chosen damage type apply its associated ailment." },
         { name: "Gun Fu", desc: "Gain +1 physical armor for each enemy in melee range." }
@@ -186,9 +186,9 @@ export const perkData = {
         { name: "Super Mutant", desc: "Serum lasts two days and suppresses the effects of statuses above 5." },
         { name: "Radiotherapy", desc: "Heal 10% HP each time you gain one or more Mutation." },
         { name: "Hoarder", desc: "Stackables can now stack to 20 before becoming heavy." },
-        { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore skill." },
+        { name: "Perseverance", desc: "After rolling a stat at 0 or 1, restore Skill." },
         { name: "Stand By Me", desc: "You can bring an ally when you move and can intercept non aimed shots against allies." },
-        { name: "Divine Intervention", desc: "Influenced saving throws can still refresh influence when choosing the gold die." },
+        { name: "Divine Intervention", desc: "Influenced saving throws can still refresh Influence when choosing the gold die." },
         { name: "Autophagy", desc: "Remove 1 Mutation when you sleep if you did not eat or drink that day." }
     ],
 
@@ -200,7 +200,7 @@ export const perkData = {
         { name: "Gifted", desc: "You can replace two rolled 1s with a 6." }, 
         { name: "Green Thumb", desc: "Plants gain +2 yield but are destroyed if removed from your inventory." },
         { name: "Cyberpunk", desc: "Using technology when scavenging gives an additional +1 dice to the roll." },
-        { name: "Mastermind", desc: "All influence effects can be used in place of one another." },
+        { name: "Mastermind", desc: "All Influence effects can be used in place of one another." },
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
         { name: "Alchemist", desc: "Using an artifact to repair or mutate costs only 10 HP and generates 1 dirty water." },
@@ -211,7 +211,7 @@ export const perkData = {
         { name: "Exalted Flesh", desc: "Gain +1 Injury to harvest your own flesh, generating 2 human flesh." },
         { name: "Do Not Go Gently", desc: "Luck gives 2 dice to rolls using a stat at 0 or 1." },
         { name: "VIP Member", desc: "Sleeping in a settlement is free and twice as effective." },
-        { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other creatures." },
+        { name: "True Grit", desc: "Resist causes the roll to be a minimum of 3 dice and can be used on other players." },
         { name: "Good Karma", desc: "Gain an additional gold stat. Critical fails now count as regular fails." },
         { name: "Esper", desc: "You can spend HP instead of ammo equal to 40% the ammo's value when attacking with guns." },
         { name: "Vampire", desc: "You can drink the blood of recently slain creatures." },
@@ -252,7 +252,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
-    31: "Casino: Scavenges contain slot machines. Spend 30c to make 1d6×10c, can luck/resist. Crit = 120c + break, 1 = break. use hackerator to make roll a crit",
+    31: "Casino: Scavenges contain slot machines. Spend 30c to make 1d6×10c, can Luck/Resist. Crit = 120c + break, 1 = break. use hackerator to make roll a crit",
     32: "Graveyard: Contains one of each offering vessel",
     33: "Workshop: Scavenging tech is abundant.",
     34: "Missile Silo: Spend 10 of each scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
@@ -272,7 +272,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     56: "Laboratory: Contains a random Serum roll.",
     61: "Hospital: Scavenging meds is abundant.",
     62: "Supermarket: Gain +3 rerolls when scavenging.",
-    63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all influence.",
+    63: "Hotel: Sleeping here grants 'Well Rested' and refreshes all Influence.",
     64: "Construction Yard: Copies the effect of any ruins you have encountered.",
     65: "Brewery: Scavenging water is abundant.",
     66: "Church: No battle. Friendly cultist merchant with 2 max tier cultist guards sells 3 of each eldritch item."
@@ -668,7 +668,7 @@ export const factions = [ // towns have 1d3 guards per player, rolled when gener
         desc: "Communist monarchy, caste system, hateful, max tier cannibal guards"
     },
     {
-        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army. Believe too large a society becomes an easy target for otherworldly influences, prefer to keep small towns.
+        name: "The Alliance", //This faction is splintered groups of settlements that rely on eachother for trade but do not officially unite.  Most unogranized faction, but also most welcoming with no requirements of its members. Every man for himself. Have a strong army. Believe too large a society becomes an easy target for otherworldly Influences, prefer to keep small towns.
         tag: "Rations",
         desc: "Small town commune, anarchy, friendly, max tier scavenger guards"
     }
@@ -682,7 +682,7 @@ export const npcTable = [
   { roll: 15, name: "Traumatized Medic", desc: "Skilled healer suffering from the trauma of wasteland brutaility." },
   { roll: 16, name: "Soft-Spoken Farmer", desc: "Avoids conflict, loves talking about soil and crops." },
   { roll: 21, name: "Aspiring Artist", desc: "Young and keen amateur artist trying to make a living through their craft." },
-  { roll: 22, name: "Nervous Introvert", desc: "Says little, stutters words, has hidden skills." },
+  { roll: 22, name: "Nervous Introvert", desc: "Says little, stutters words, has hidden Skills." },
   { roll: 23, name: "Pessimistic Elder", desc: "Believes there is no hope for the future, blames the current generation." },
   { roll: 24, name: "Outcast Mutant", desc: "Mistrustful but surprisingly gentle; hides disfigurements." },
   { roll: 25, name: "Disgraced Officer", desc: "Still wears a faded uniform, insists on strict protocol." },
