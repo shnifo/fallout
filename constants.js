@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Artisan", desc: "Pristine items have +30% sell value." },
+        { name: "Artisan", desc: "Pristine items have +20% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item while having addiction." },
         { name: "Trash to Treasure", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
