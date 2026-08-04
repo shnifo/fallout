@@ -283,121 +283,121 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
     E1: { //boss action: alternate: mid range firebomb X trap damage + burns, mid range bear trap that applies on target immediately
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
-            { name: "Savage", hp: 16, def: 12, notes: "scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
-            { name: "Barbarian", hp: 18, def: 16, notes: "scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
-            { name: "Berserker", hp: 20, def: 20, notes: "scaled melee +1 dmg, 14 P trap + 2x cripple legs" }, // 11-12
-            { name: "Juggernaut", hp: 22, def: 24, notes: "scaled melee +2 dmg, 15 P trap + 2x cripple legs" }, // 13-14
-            { name: "Chieftain", hp: 24, def: 28, notes: "scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
+            { name: "Savage", hp: 16, def: 13, notes: "scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
+            { name: "Barbarian", hp: 18, def: 18, notes: "scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
+            { name: "Berserker", hp: 20, def: 23, notes: "scaled melee +1 dmg, 14 P trap + 2x cripple legs" }, // 11-12
+            { name: "Juggernaut", hp: 22, def: 28, notes: "scaled melee +2 dmg, 15 P trap + 2x cripple legs" }, // 13-14
+            { name: "Chieftain", hp: 24, def: 33, notes: "scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
         ]
     },
     E2: { //boss action: Leap strike: short range move+slam 10+tier P short splash other. cooldown 1. 
         label: "Beasts", notes: "special: lair (beast has defend and +2 dmg in lair) Loot: animal flesh", subs: [ 
             { name: "Kappa", hp: 8, def: 14, notes: "5 X + madness, mid" }, //Sea creatures that spit volatile fluids and scream, resembles a lobster
-            { name: "Wildcat", hp: 10, def: 18, notes: "7 P melee+bld, +1 spd" }, //wild cats, unchaged by evolution
-            { name: "Raptor", hp: 12, def: 22, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
-            { name: "Wendigo", hp: 14, def: 26, notes: "10 P melee, shove on 6" }, //Bipedal bears with antlers and long talons
-            { name: "Manticore", hp: 16, def: 30, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, //giant animal that resembles a wolf but with all scorpion appendeges and covered in carapace plates
-            { name: "Dragon", hp: 18, def: 34, notes: "11 X+R splash + poison + burn, short, flies" } //Giant winged lizards that spew toxic ash.
+            { name: "Wildcat", hp: 10, def: 19, notes: "7 P melee+bld, +1 spd" }, //wild cats, unchaged by evolution
+            { name: "Raptor", hp: 12, def: 24, notes: " 8 P melee, grapple on 6, +1 spd" }, //lab grown dinosaurs
+            { name: "Wendigo", hp: 14, def: 29, notes: "10 P melee, shove on 6" }, //Bipedal bears with antlers and long talons
+            { name: "Manticore", hp: 16, def: 34, notes: "2x9 P melee + psn, shove on 6, +1 spd" }, //giant animal that resembles a wolf but with all scorpion appendeges and covered in carapace plates
+            { name: "Dragon", hp: 18, def: 39, notes: "11 X+R splash + poison + burn, short, flies" } //Giant winged lizards that spew toxic ash.
         ]
     },
     E3: { //boss action: Spawn 4 eggs in short range around self. cooldown 1.
         label: "Nesters", notes: "special: eggs, Loot: animal flesh", subs: [ // eggs have 50% to hatch into swarmer each round, swarmers have 0 armor, 1 HP, -1 dmg, no loot. standing on or attacking eggs breaks them
             { name: "Gator", hp: 10, def: 12, notes: "6 P melee + bleed, grapple on 6" },
-            { name: "Bubbler", hp: 12, def: 16, notes: "7 N short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
-            { name: "Salamander", hp: 14, def: 20, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
-            { name: "Basilisk", hp: 16, def: 24, notes: "9 N + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
-            { name: "Gryphon", hp: 18, def: 28, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
-            { name: "Myrmidon", hp: 20, def: 32, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
+            { name: "Bubbler", hp: 12, def: 17, notes: "7 N short, regen 2: disabled 1 round by E dmg" }, //giant aggressive lobsters that spew high pressure bubbles
+            { name: "Salamander", hp: 14, def: 22, notes: "8 X + burn, short" }, //Giant reptiles that spew fire
+            { name: "Basilisk", hp: 16, def: 27, notes: "9 N + shock, mid" }, //Giant Snakes that fire a psychic beam with their eyes
+            { name: "Gryphon", hp: 18, def: 32, notes: "11 P melee, flies, +1 spd" }, //giant animal with the body of an eagle but head of a lion
+            { name: "Myrmidon", hp: 20, def: 37, notes: "2x12 P melee, grapples on 6" } //Giant bipedal ants that fight with weapons
         ]
     },
     E4: { //boss action: Spawn burrow in melee and immediately enter and exit elsewhere. cooldown 1. 
         label: "Burrowers", notes: "special: burrow, Loot: animal flesh", subs: [//burrowers can enter or exit a burrow once per turn as a free action, all burrows are connected.
             { name: "Silverfish", hp: 10, def: 12, notes: "5 P+R, melee, flies (cover vs melee)" },//Giant silverfish that fly
-            { name: "Wolpertinger", hp: 12, def: 16, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
-            { name: "Ninetails", hp: 14, def: 20, notes: "3x7 N, melee, +1 spd" }, //foxes with electrified tails
-            { name: "Cerberus", hp: 16, def: 24, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
-            { name: "Widow", hp: 18, def: 28, notes: "11 P+psn, melee, +1 spd, grapples on 6" }, //giant spider 
-            { name: "Hydra", hp: 20, def: 32, notes: "3x11 P melee + poison," } //Giant snake with many heads
+            { name: "Wolpertinger", hp: 12, def: 17, notes: "6 P+psn, melee, grapples on 6" }, //rodents of unusual size
+            { name: "Ninetails", hp: 14, def: 22, notes: "3x7 N, melee, +1 spd" }, //foxes with electrified tails
+            { name: "Cerberus", hp: 16, def: 27, notes: "9 X splash + burn, short" }, //multiheaded burrowint mammals that spit fireballs
+            { name: "Widow", hp: 18, def: 32, notes: "11 P+psn, melee, +1 spd, grapples on 6" }, //giant spider 
+            { name: "Hydra", hp: 20, def: 37, notes: "3x11 P melee + poison," } //Giant snake with many heads
         ]
     },
     E5: { //boss action: fires 10+tier X XLong artillery weapon. only loses 25% on full cripple. 
         label: "Robots", notes: "special: explosive tile, loses 25% hp when crippled. Loot: Armor Scraps", subs: [
             { name: "Police Bot", hp: 12, def: 16, notes: "7 N short" },
-            { name: "Watchdog", hp: 16, def: 20, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
-            { name: "Medical Bot", hp: 20, def: 24, notes: "9 N + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
-            { name: "Patriot", hp: 24, def: 28, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
-            { name: "War Bot", hp: 28, def: 32, notes: "11 P+N mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
-            { name: "Annihilator", hp: 32, def: 36, notes: "13 N+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
+            { name: "Watchdog", hp: 16, def: 21, notes: "8 P melee + bleed, +1 spd" },//robotic home security dog
+            { name: "Medical Bot", hp: 20, def: 26, notes: "9 N + shock, short" }, //robot with 4 arms attached with several medical tools and coolant tanks, used in hospitals.
+            { name: "Patriot", hp: 24, def: 31, notes: "2x9 X splash, long" }, //a mobile autonomous missile battery used for defense
+            { name: "War Bot", hp: 28, def: 36, notes: "11 P+N mid" }, // armored robot with weaponized arms, each outfitted with rifles and lasers
+            { name: "Annihilator", hp: 32, def: 41, notes: "13 N+R, long, recharge 1" } //robot with a giant radar dish on its torso that emits high energy beams
         ]
     },
     E6: { //boss action: designate row or column to fire piercing lasers next round for mines damage. 
         label: "Androids", notes: "special: hidden pulse mines. Loot: Tech Scrap", subs: [ // humanoid robots built for war and espionage, weapons are part of their bodies
             { name: "Sentry", hp: 10, def: 12, notes: "scaled energy weapons, 11N mines" },
-            { name: "Patroller", hp: 12, def: 16, notes: "scaled energy weapons, 12N mines" },
-            { name: "Trooper", hp: 14, def: 20, notes: "scaled energy weapons +1 dmg, 13N mines" },
-            { name: "Eradicator", hp: 16, def: 24, notes: "scaled energy weapons +1 dmg, 14N mines" },
-            { name: "Assassin", hp: 18, def: 28, notes: "scaled energy weapons +2 dmg, 15N mines" },
-            { name: "Terminator", hp: 20, def: 32, notes: "scaled energy weapons +2 dmg, 16N mines" }
+            { name: "Patroller", hp: 12, def: 17, notes: "scaled energy weapons, 12N mines" },
+            { name: "Trooper", hp: 14, def: 22, notes: "scaled energy weapons +1 dmg, 13N mines" },
+            { name: "Eradicator", hp: 16, def: 27, notes: "scaled energy weapons +1 dmg, 14N mines" },
+            { name: "Assassin", hp: 18, def: 32, notes: "scaled energy weapons +2 dmg, 15N mines" },
+            { name: "Terminator", hp: 20, def: 37, notes: "scaled energy weapons +2 dmg, 16N mines" }
         ]
     },
     O1: { //boss action: apply effects of any two artifacts to long range. 
         label: "Cultists", notes: "special: madness tile, uses mutated weapons, 1 also has random artifact. Loot: weapons, artifact, human flesh", subs: [ // mutated weapons = uses CHA to attack, damage converted to radiation
             { name: "Initiate", hp: 10, def: 8, notes: "scaled mutated weapons" },
-            { name: "Acolyte", hp: 12, def: 12, notes: "scaled mutated weapons" },
-            { name: "Disciple", hp: 14, def: 16, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Priest", hp: 16, def: 20, notes: "scaled mutated weapons +1 dmg" },
-            { name: "Fanatic", hp: 18, def: 24, notes: "scaled mutated weapons +2 dmg" },
-            { name: "Elder", hp: 20, def: 28, notes: "scaled mutated weapons +2 dmg" }
+            { name: "Acolyte", hp: 12, def: 13, notes: "scaled mutated weapons" },
+            { name: "Disciple", hp: 14, def: 18, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Priest", hp: 16, def: 23, notes: "scaled mutated weapons +1 dmg" },
+            { name: "Fanatic", hp: 18, def: 28, notes: "scaled mutated weapons +2 dmg" },
+            { name: "Elder", hp: 20, def: 33, notes: "scaled mutated weapons +2 dmg" }
         ]
     },
     O2: { //boss action: create cover on self and regenerate 1 shield (up to 3). 
         label: "Drones", notes: "special: rubble, flies, have 3 shield (ignores first 3 damaging hits), Loot: Gun Scraps", subs: [ //robots deployed by aliens that look like biblically accurate angels
             { name: "Observer", hp: 10, def: 6,  notes: "2x5 N, mid" },
-            { name: "Excavator", hp: 12, def: 10, notes: "2x6 X, mid" },
-            { name: "Assimilator", hp: 14, def: 14, notes: "7 R+madness, short" },
-            { name: "Destroyer", hp: 16, def: 18, notes: "11 X splash, mid" },
-            { name: "Suppressor", hp: 18, def: 22, notes: "2x10 N + shock, mid" },
-            { name: "Invader", hp: 20, def: 26, notes: "13 R splash+burn, long" }
+            { name: "Excavator", hp: 12, def: 11, notes: "2x6 X, mid" },
+            { name: "Assimilator", hp: 14, def: 16, notes: "7 R+madness, short" },
+            { name: "Destroyer", hp: 16, def: 21, notes: "11 X splash, mid" },
+            { name: "Suppressor", hp: 18, def: 26, notes: "2x10 N + shock, mid" },
+            { name: "Invader", hp: 20, def: 31, notes: "13 R splash+burn, long" }
         ]
     },
     O3: { //boss action: create toxic zone on self and 1 adjacent tile that applies +2 dmg taken and -2 dmg dealt for players
         label: "Revenants", notes: "special: cover, +1 spd, can't lose more than 3 HP per hit,  Loot: mutant flesh", subs: [ //dead humans that were reanimated into eldritch horrors
             { name: "Lifemarked", hp: 10, def: 6, notes: "5 P+R melee, grapples on 6" },
-            { name: "Chaosmarked", hp: 12, def: 10, notes: "8 P + madness, melee" },
-            { name: "Toxinmarked", hp: 14, def: 14, notes: "9 R splash+poison other, melee" },
-            { name: "Bloodmarked", hp: 16, def: 18, notes: "10 P splash+bleed other, melee " },
-            { name: "Firemarked", hp: 18, def: 22, notes: "11 X splash+burn other, melee" },
-            { name: "Voltmarked", hp: 20, def: 26, notes: "12 N splash+shock other, melee" }
+            { name: "Chaosmarked", hp: 12, def: 11, notes: "8 P + madness, melee" },
+            { name: "Toxinmarked", hp: 14, def: 16, notes: "9 R splash+poison other, melee" },
+            { name: "Bloodmarked", hp: 16, def: 21, notes: "10 P splash+bleed other, melee " },
+            { name: "Firemarked", hp: 18, def: 26, notes: "11 X splash+burn other, melee" },
+            { name: "Voltmarked", hp: 20, def: 31, notes: "12 N splash+shock other, melee" }
         ]
     },
     O4: { //boss action: create madness tile within short range 
         label: "Aberrations", notes: "special: madness tile. regenerate 2 hp per round, Loot: mutant flesh", subs: [ //madness tile = start of each round, make madness roll if in area
             { name: "Fleshling", hp: 6, def: 12, notes: "7 P melee, grapples on 6" }, //a ball of slimy tentacles 
-            { name: "Crawler", hp: 8, def: 16, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
-            { name: "Chimaera", hp: 10, def: 20, notes: "9 N/R+shock short, flies" }, //giant flying amalgamation of mouths that spits chemicals
-            { name: "Blinker", hp: 12, def: 24, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
-            { name: "Angler", hp: 16, def: 28, notes: "10 R + shock + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
-            { name: "Metalmorph", hp: 16, def: 32, notes: "12 N+shock/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
+            { name: "Crawler", hp: 8, def: 17, notes: "8 R melee, ignores rubble, +1 spd" }, //giant centipede made out of human arms 
+            { name: "Chimaera", hp: 10, def: 22, notes: "9 N/R+shock short, flies" }, //giant flying amalgamation of mouths that spits chemicals
+            { name: "Blinker", hp: 12, def: 27, notes: "10 P melee, on death: mid splash madness" }, //giant walking mound of flesh covered in eyes that open on death, causing madness
+            { name: "Angler", hp: 16, def: 32, notes: "10 R + shock + madness short splash, melee, flies" }, // giant mutated flying anglerfish that manipulates corpses on the end of its lure
+            { name: "Metalmorph", hp: 16, def: 37, notes: "12 N+shock/P+bleed/R+poison/X+burn, very long, scans players" } //weapons and machinery fused with mutated flesh
         ]
     },
     O5: { //boss action: grows random secondary gun every other turn. can shoot all weapons while moving. cripple secondary weapon twice to break it
         label: "Mutants", notes: "special: madness tile. Revives as a swarmer on death. Loot: mutant flesh", subs: [ //overly mutated humans that are disfigured and insane with their weapons melded into their flesh. 
             { name: "Reject", hp: 8, def: 14, notes: "scaled physical weapons" },
-            { name: "Outcast", hp: 10, def: 18, notes: "scaled physical weapons" },
-            { name: "Exile", hp: 12, def: 22,  notes: "scaled physical weapons +1 dmg" },
-            { name: "Forsaken", hp: 14, def: 26, notes: "scaled physical weapons +1 dmg" },
-            { name: "Relinquished", hp: 16, def: 30, notes: "scaled physical weapons +2 dmg" },
-            { name: "Abomination", hp: 18, def: 34, notes: "scaled physical weapons +2 dmg" }
+            { name: "Outcast", hp: 10, def: 19, notes: "scaled physical weapons" },
+            { name: "Exile", hp: 12, def: 24,  notes: "scaled physical weapons +1 dmg" },
+            { name: "Forsaken", hp: 14, def: 29, notes: "scaled physical weapons +1 dmg" },
+            { name: "Relinquished", hp: 16, def: 34, notes: "scaled physical weapons +2 dmg" },
+            { name: "Abomination", hp: 18, def: 39, notes: "scaled physical weapons +2 dmg" }
         ]
     },
     O6: { //boss action: throw firebomb to short range that explodes to deal mine damage short splash + burns 
         label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled guns, 11X mines" }, // 1-6
-            { name: "Vagabond", hp: 14, def: 12, notes: "scaled guns, 12X mines" }, // 7-8
-            { name: "Traveler", hp: 16, def: 16, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
-            { name: "Wastelander", hp: 18, def: 20, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
-            { name: "Survivor", hp: 20, def: 24, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
-            { name: "Ranger", hp: 22, def: 28, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
+            { name: "Vagabond", hp: 14, def: 13, notes: "scaled guns, 12X mines" }, // 7-8
+            { name: "Traveler", hp: 16, def: 18, notes: "scaled guns +1 dmg, 13 X mines" }, // 9-10
+            { name: "Wastelander", hp: 18, def: 23, notes: "scaled guns +1 dmg, 14 X miness" }, // 11-12
+            { name: "Survivor", hp: 20, def: 28, notes: "scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Ranger", hp: 22, def: 33, notes: "scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
 };
