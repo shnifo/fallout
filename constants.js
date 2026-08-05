@@ -284,10 +284,10 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         label: "Cannibals", notes: "special: hidden bear traps. Shove on 6. Loot: weapons, armor, human flesh", subs: [ 
             { name: "Raider", hp: 14, def: 8, notes: "scaled armor, scaled melee, 11 P trap + 2x cripple legs" }, // 1-6
             { name: "Savage", hp: 16, def: 13, notes: "scaled armor, scaled melee, 12 P trap + 2x cripple legs" }, // 7-8
-            { name: "Barbarian", hp: 18, def: 18, notes: "scaled armor -1 all, scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
-            { name: "Berserker", hp: 20, def: 23, notes: "scaled armor -1 all, scaled melee +1 dmg, 14 P trap + 2x cripple legs" }, // 11-12
-            { name: "Juggernaut", hp: 22, def: 28, notes: "scaled armor -2 all, scaled melee +2 dmg, 15 P trap + 2x cripple legs" }, // 13-14
-            { name: "Chieftain", hp: 24, def: 33, notes: "scaled armor -2 all, scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
+            { name: "Barbarian", hp: 18, def: 18, notes: "scaled armor -1, scaled melee +1 dmg, 13 P trap + 2x cripple legs" }, // 9-10
+            { name: "Berserker", hp: 20, def: 23, notes: "scaled armor -1, scaled melee +1 dmg, 14 P trap + 2x cripple legs" }, // 11-12
+            { name: "Juggernaut", hp: 22, def: 28, notes: "scaled armor -2, scaled melee +2 dmg, 15 P trap + 2x cripple legs" }, // 13-14
+            { name: "Chieftain", hp: 24, def: 33, notes: "scaled armor -2, scaled melee +2 dmg, 16 P trap + 2x cripple legs" } // 15+
         ]
     },
     E2: { //boss action: Leap strike: short range move+slam 10+tier P short splash other. cooldown 1. 
@@ -394,10 +394,10 @@ export const monsterData = { //flies = ignores rubble and has cover vs melee att
         label: "Scavengers", notes: "special: hidden land mines, CHA to skip fight but -1 to scavenging. Loot: weapons, armor, human flesh", subs: [
             { name: "Wanderer", hp: 12, def: 8, notes: "scaled armor, scaled guns, 11X mines" }, // 1-6
             { name: "Vagabond", hp: 14, def: 13, notes: "scaled armor, scaled guns, 12X mines" }, // 7-8
-            { name: "Traveler", hp: 16, def: 18, notes: "scaled armor -1 all, scaled guns +1 dmg, 13 X mines" }, // 9-10
-            { name: "Wastelander", hp: 18, def: 23, notes: "scaled armor -1 all, scaled guns +1 dmg, 14 X miness" }, // 11-12
-            { name: "Survivor", hp: 20, def: 28, notes: "scaled armor -2 all, scaled guns +2 dmg, 15 X mines" }, // 13-14
-            { name: "Ranger", hp: 22, def: 33, notes: "scaled armor -2 all, scaled guns +2 dmg, 16 X mines" } // 15+
+            { name: "Traveler", hp: 16, def: 18, notes: "scaled armor -1, scaled guns +1 dmg, 13 X mines" }, // 9-10
+            { name: "Wastelander", hp: 18, def: 23, notes: "scaled armor -1, scaled guns +1 dmg, 14 X miness" }, // 11-12
+            { name: "Survivor", hp: 20, def: 28, notes: "scaled armor -2, scaled guns +2 dmg, 15 X mines" }, // 13-14
+            { name: "Ranger", hp: 22, def: 33, notes: "scaled armor -2, scaled guns +2 dmg, 16 X mines" } // 15+
         ]
     }
 };
