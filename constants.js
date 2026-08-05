@@ -193,7 +193,7 @@ export const perkData = {
     ],
 
     INTELLIGENCE: [
-        { name: "Artisan", desc: "Pristine items have +20% sell value." },
+        { name: "Artisan", desc: "Pristine items have +30% sell value." },
         { name: "Substance Enthusiast", desc: "Heal 10% HP when you use an addictive item." },
         { name: "Trash to Treasure", desc: "You can use broken items." },
         { name: "Discerning Eye", desc: "You can reroll the type of scavenging complication you get once." },
@@ -203,7 +203,7 @@ export const perkData = {
         { name: "Mastermind", desc: "All Influence effects can be used in place of one another." },
         { name: "Rare Hunter", desc: "Gain +1 reroll for scavenged loot or +3 rerolls if it was a critical success." },
         { name: "Chip and Shatter", desc: "Aimed shots with guns can cripple armor, reducing the associated armor value by 1." },
-        { name: "Alchemist", desc: "Using an artifact to repair or mutate costs only 10 HP and generates 1 dirty water." },
+        { name: "Alchemist", desc: "When you repair an artifact or mutate a weapon, generate 2 dirty water." },
         { name: "Magnetic Field", desc: "Gain +1 radiation armor for every 2 Tech items you have." }
     ],
 
