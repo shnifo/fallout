@@ -66,7 +66,7 @@
     transform: scale(1.08);
     transition: all 0.12s;
   }
-  
+
   @keyframes pulse {
     0%,100% { opacity: 1; }
     50%     { opacity: 0.75; }
@@ -74,6 +74,9 @@
   @media (min-width: 500px) {
     .tile { font-size: 2.2em; }
     .label { font-size: 1.4em; }
+  }
+  .armor-line {
+    color: #9fd3ff;
   }
 </style>
 </head>
@@ -89,6 +92,7 @@
 
 <h3 id="Ruins-display" style="margin:12px 0;">Ruins: —</h3>
 <h3 id="monster-display" style="margin:12px 0;">Monsters: —</h3>
+<div id="monster-armor-display" style="margin:0 0 12px; font-size:0.85em; color:#9fd3ff; line-height:1.5;"></div>
 <div id="grid"></div>
 
 <script type="module" src="constants.js"></script>
@@ -101,7 +105,7 @@
     RuinsTable,
     monsterData
   } from './constants.js';
-  
+
   function generateGrid() {
     const totalWeight = fixedWeights.reduce((a, b) => a + b, 0);
     const probabilities = fixedWeights.map(w => w / totalWeight);
@@ -148,7 +152,7 @@
     return items[items.length - 1];
   }
 
-  
+
 
   function generateRuins() {
     const d1 = Math.floor(Math.random() * 6) + 1;
@@ -158,7 +162,6 @@
     document.getElementById("Ruins-display").textContent = `${Ruins}`;
   }
 
-  
 
 
   function tierIndexFromRoll(tierRoll) {
@@ -168,6 +171,50 @@
     if (tierRoll <= 12) return 3;
     if (tierRoll <= 14) return 4;
     return 5;
+  }
+
+  // === Armor Distributor (ported from the item generator) ===
+  // Splits a total DEF value across Physical / Energy / Explosive / Rad,
+  // mirroring generateDistribution() in the Armor Distributor module.
+  function generateArmorDistribution(total, evenness = 0.5) {
+    const base = total / 4;
+    let parts;
+
+    if (evenness === 0 || !total) {
+      parts = [base, base, base, base];
+    } else {
+      let devs = Array.from({ length: 4 }, () => (Math.random() * 2 - 1) * evenness);
+      const sumDev = devs.reduce((a, b) => a + b, 0);
+      devs = devs.map(d => d - sumDev / 4);
+
+      parts = devs.map(d => base + base * d);
+
+      const factor = total / parts.reduce((a, b) => a + b, 0);
+      parts = parts.map(p => Math.round(p * factor));
+    }
+
+    // fix rounding drift
+    let diff = total - parts.reduce((a, b) => a + b, 0);
+    for (let i = 0; i < Math.abs(diff); i++) {
+      parts[i % 4] += diff > 0 ? 1 : -1;
+    }
+
+    // enforce max spread of 4
+    let adjusted = true;
+    while (adjusted) {
+      adjusted = false;
+      const maxVal = Math.max(...parts);
+      const minVal = Math.min(...parts);
+      if (maxVal - minVal > 4) {
+        const maxIndex = parts.indexOf(maxVal);
+        const minIndex = parts.indexOf(minVal);
+        parts[maxIndex]--;
+        parts[minIndex]++;
+        adjusted = true;
+      }
+    }
+
+    return parts;
   }
 
   function generateMonsters() {
@@ -193,9 +240,22 @@
     ].filter(Boolean);
 
     document.getElementById("monster-display").textContent = `${lines.join(" · ")}`;
+
+    // Each individual enemy gets its own independent armor roll,
+    // even though they share the same base DEF value.
+    const armorDisplay = document.getElementById("monster-armor-display");
+    const parsedDef = parseInt(subtype.def, 10);
+    if (isNaN(parsedDef) || parsedDef <= 0) {
+      armorDisplay.innerHTML = "";
+    } else {
+      const enemyArmorLines = [];
+      for (let i = 1; i <= totalEnemies; i++) {
+        enemyArmorLines.push(generateArmorDistribution(parsedDef).join("/"));
+      }
+      armorDisplay.innerHTML = enemyArmorLines.join(" &nbsp;·&nbsp; ");
+    }
   }
 
-  
 
 
   // === Generate Everything ===
@@ -218,24 +278,7 @@
 	window.tierIndexFromRoll = tierIndexFromRoll;
 	window.generateMonsters = generateMonsters;
 	window.generateAll = generateAll;
+	window.generateArmorDistribution = generateArmorDistribution;
 </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
