@@ -178,7 +178,7 @@ export const perkData = {
     ],
 
     ENDURANCE: [
-        { name: "Mirror Force", desc: "Any HP you would lose from taking a critical hit is instead removed from the attacker." },
+        { name: "Mirror Force", desc: "When you lose HP while you have defend or from a crit, the attacker loses the same amount." },
         { name: "Fast Metabolism", desc: "Gain +10 max HP and immunity to ailments." },
         { name: "Acquired Taste", desc: "Treat irradiated food and drink as dirty instead." },
         { name: "Second Wind", desc: "Removing statuses is twice as effective when the status is above 5." },
