@@ -252,7 +252,7 @@ export const RuinsTable = { // abundant = +1 to roll, +1 reroll, and no multi-sc
     24: "Railyard: Generates another Railyard on a corner hex. You can fast travel between cleared Railyards.",
     25: "Library: Order a recipe that arrives on level up",
     26: "Warehouse: Scavenging scrap is abundant.",
-    31: "Casino: Scavenges contain slot machines. Spend 30c to make 1d6×10c, can Luck/Resist. Crit = 120c + break, 1 = break. use hackerator to make roll a crit",
+    31: "Casino: Scavenges contain slot machines. Spend 30c to make 1d6×10c, can Luck/Resist. Crit = 100c + break, 1 = break. use hackerator to make roll a crit",
     32: "Graveyard: Contains one of each offering vessel",
     33: "Workshop: Scavenging tech is abundant.",
     34: "Missile Silo: Spend 10 of each scrap to fire a nuclear missile at any hex (annihilates towns for -1 morale)",
